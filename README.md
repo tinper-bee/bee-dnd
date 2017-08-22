@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # bee-dnd
 
 [![npm version](https://img.shields.io/npm/v/bee-dnd.svg)](https://www.npmjs.com/package/bee-dnd)
@@ -12,20 +11,45 @@
 
 react bee-dnd component for tinper-bee
 
-some description...
+基于 `react-beautiful-dnd`的拖拽
 
 ## 使用方法
 
-```js
+```
+import Dnd from 'bee-dnd';
+class Demo1 extends Component {
 
+    render() {
+        return (
+            <div>
+                <Dnd >
+                    <div>我可拖拽</div>
+                </Dnd>
+            </div>
+
+        );
+    }
+}
 ```
 
-
+#### 样式引入
+- 可以使用link引入build目录下Clipboard.css
+```
+<link rel="stylesheet" href="./node_modules/bee-clipboard/build/Dnd.css">
+```
+- 可以在js中import样式
+```js
+import "./node_modules/bee-dnd/src/Dnd.scss"
+//或是
+import "./node_modules/bee-dnd/build/Dnd.css"
+```
 
 ## API
 
 |参数|说明|类型|默认值|
-|:--|:---:|:--:|---:|
+|list|需要遍历的数组|array|[]|
+|onDragEnd|拖拽开始的钩子函数|function|-|
+|onDragStart|拖拽结束的钩子函数|function|-|
 
 #### 开发调试
 

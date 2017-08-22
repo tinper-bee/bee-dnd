@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # bee-dnd
 
 [![npm version](https://img.shields.io/npm/v/bee-dnd.svg)](https://www.npmjs.com/package/bee-dnd)

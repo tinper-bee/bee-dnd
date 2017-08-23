@@ -1,21 +1,21 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 
-.bee-drag-list{
+.u-drag-list{
   background: lightgrey;
   padding: 8px;
   width: 250px;
 }
-.bee-drag-list.draging{
+.u-drag-list.dragging{
   background: lightblue;
 }
-.bee-drag-item{
+.u-drag-item{
   user-select: none;
   padding: 16px;
   color: #000000;
   background: grey;
   margin-bottom: 8px;
 }
-.bee-drag-item.draging{
+.u-drag-item.dragging{
   background: lightgreen;
 }

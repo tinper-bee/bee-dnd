@@ -36,6 +36,7 @@
     "babel-runtime": "^6.26.0",
     "classnames": "^2.2.5",
     "react-beautiful-dnd": "^1.0.2",
+    "react-draggable": "^3.0.2",
     "tinper-bee-core": "latest"
   },
   "devDependencies": {

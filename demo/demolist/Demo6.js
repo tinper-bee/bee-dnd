@@ -2,10 +2,11 @@
 /**
  *
  * @title 单个元素拖拽
- * @description 将某个元素设置为可拖拽
+ * @description 设置 grid={[x,y]}
  *
  */
-class Demo1 extends Component {
+
+class Demo6 extends Component {
 
     onStart(){
         console.log('start');
@@ -17,8 +18,8 @@ class Demo1 extends Component {
     render() {
         return (
             <div>
-                <Dnd onStart={this.onStart} onStop={this.onStop}>
-                    <div className="demo">我可随意拖拽</div>
+                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>
+                    <div className="demo">我每次拖拽可移动25px</div>
                 </Dnd>
             </div>
 

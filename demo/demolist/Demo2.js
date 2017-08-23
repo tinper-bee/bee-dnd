@@ -1,23 +1,28 @@
 
 /**
  *
- * @title 拖拽列表排序
- * @description 增加list 可以为 [1,2,3]数组，也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示
+ * @title 单个元素拖拽
+ * @description 设置axis="x"只可以沿着x轴拖拽，同理axis="y"只可以沿着y轴拖拽
  *
  */
 
 class Demo2 extends Component {
 
-    onDragStart(){
-        console.log('开始');
+    onStart(){
+        console.log('start');
     }
-    onDragEnd(){
-        console.log('结束');
+
+    onStop(){
+        console.log('stop');
     }
     render() {
-        let list=['第一','第二','第三','第四','第五'];
         return (
-            <Dnd list={list} onDragEnd={this.onDragEnd} onDragStart={this.onDragStart}/>
+            <div>
+                <Dnd axis="x" onStart={this.onStart} onStop={this.onStop}>
+                    <div className="demo">我只可延X轴拖拽</div>
+                </Dnd>
+            </div>
+
         );
     }
 }

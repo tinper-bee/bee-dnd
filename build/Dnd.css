@@ -1,0 +1,19 @@
+/* FormGroup */
+/*  Navlayout  */
+.u-drag-list {
+  background: lightgrey;
+  padding: 8px;
+  width: 250px; }
+
+.u-drag-list.draging {
+  background: lightblue; }
+
+.u-drag-item {
+  user-select: none;
+  padding: 16px;
+  color: #000000;
+  background: grey;
+  margin-bottom: 8px; }
+
+.u-drag-item.draging {
+  background: lightgreen; }

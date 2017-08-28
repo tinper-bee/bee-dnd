@@ -68,8 +68,8 @@ class Dnd extends Component {
             <div>
                 {
                     self.state.items.length ? (
-                        <DragDropContext onDragEnd={this.onStop} onDragStart={this.props.onStart}>
-                            <Droppable droppableId="droppable">
+                        <DragDropContext onDragEnd={this.onStop}  onDragStart={this.props.onStart}>
+                            <Droppable droppableId="droppable" >
                                 {(provided, snapshot) => (
                                     <div ref={provided.innerRef} className={self.getListStyle(snapshot.isDraggingOver)}>
                                         {self.state.items.map((item, index) =>
@@ -100,8 +100,8 @@ class Dnd extends Component {
                         </DragDropContext>
                     ) : (
                         <Drag defaultClassName={this.props.clsPrefix}
-                              defaultClassNameDragging={' dragging'}
-                              defaultClassNameDragged={' dragged'}
+                              defaultClassNameDragging={' u-dragging'}
+                              defaultClassNameDragged={' u-dragged'}
                               {...this.props}>
                             {self.props.children}
                         </Drag>

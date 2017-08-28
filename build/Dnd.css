@@ -5,7 +5,7 @@
   padding: 8px;
   width: 250px; }
 
-.u-drag-list.draging {
+.u-drag-list.dragging {
   background: lightblue; }
 
 .u-drag-item {
@@ -15,5 +15,11 @@
   background: grey;
   margin-bottom: 8px; }
 
-.u-drag-item.draging {
+.u-drag-item.dragging {
   background: lightgreen; }
+
+.u-dragged {
+  z-index: 1; }
+
+.u-dragging {
+  z-index: 2000; }

@@ -19,3 +19,9 @@
 .u-drag-item.dragging{
   background: lightgreen;
 }
+.u-dragged{
+  z-index: 1;
+}
+.u-dragging{
+  z-index: 2000;
+}

@@ -33,3 +33,23 @@
   background:lightgrey;
   position: relative;
 }
+
+.demo10-parent{
+  width: 500px;
+  height: 500px;
+  background:lightgrey;
+  position: relative;
+}
+.demo10-parent .pull-left{
+  background: lightblue;
+  width: 250px;
+  height: 500px;
+}
+.demo10-parent .pull-right{
+  background: lightsalmon;
+  width: 250px;
+  height: 500px;
+}
+.demo.u-drag{
+
+}

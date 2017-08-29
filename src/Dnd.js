@@ -35,9 +35,9 @@ class Dnd extends Component {
         this.reorder = this.reorder.bind(this);
     }
 
-    getListStyle = (isDraggingOver) => isDraggingOver ? this.props.clsPrefix + '-list dragging' : this.props.clsPrefix + '-list';
+    getListStyle = (isDraggingOver) => isDraggingOver ? this.props.clsPrefix + '-list u-list-dragging' : this.props.clsPrefix + '-list';
     getItemStyle = isDragging => {
-        return isDragging ? this.props.clsPrefix + '-item dragging' : this.props.clsPrefix + '-item';
+        return isDragging ? this.props.clsPrefix + '-item u-dragging' : this.props.clsPrefix + '-item';
     };
     reorder = (list, startIndex, endIndex) => {
         const result = Array.from(list);

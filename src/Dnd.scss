@@ -2,26 +2,19 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 
 .u-drag-list{
-  background: lightgrey;
-  padding: 8px;
-  width: 250px;
+  background: $dnd-list-background;
+  padding: $dnd-list-padding;
 }
-.u-drag-list.dragging{
-  background: lightblue;
+.u-list-dragging{
+  background: $dnd-list-dragging-background;
 }
 .u-drag-item{
   user-select: none;
-  padding: 16px;
-  color: #000000;
-  background: grey;
-  margin-bottom: 8px;
-}
-.u-drag-item.dragging{
-  background: lightgreen;
-}
-.u-dragged{
-  z-index: 1;
+  padding: $dnd-item-padding;
+  color: $dnd-item-color;
+  margin: $dnd-item-margin;
+  background: $dnd-item-background;
 }
 .u-dragging{
-  z-index: 2000;
+  background: $dnd-item-dragging-background;
 }

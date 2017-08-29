@@ -38,67 +38,6 @@ class Demo1 extends Component {
 
         );
     }
-}/**
- *
- * @title 单个元素拖拽
- * @description 穿梭框
- * bounds的也可以设置为选择器,bounds=".demo8-parent"意为在class=demo8-parent的容器中移动
- */
-
-class Demo10 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            leftList: ['左边第一个','左边第二个','左边第三个','左边第四个'],
-            rightList:['右边第一个','右边第二个','右边第三个','右边第四个']
-        };
-    }
-
-    onStart() {
-        console.log(arguments);
-        console.log('start');
-    }
-
-    onLeftStop() {
-        console.log(arguments);
-        console.log('stop');
-    }
-
-
-
-
-    render() {
-        return (
-            <div>
-                <div className="demo10-parent">
-                    <div className="pull-left">
-                        {
-                            this.state.leftList.map((item,index)=>{
-                                return (
-                                    <Dnd bounds=".demo10-parent"  onStop={this.onLeftStop}>
-                                        <div className="demo">{item}</div>
-                                    </Dnd>
-                                )
-                            })
-                        }
-                    </div>
-                    <div className="pull-right">
-                        {
-                            this.state.rightList.map((item,index)=>{
-                                return (
-                                    <Dnd bounds=".demo10-parent"  onStop={this.onLeftStop}>
-                                        <div className="demo">{item}</div>
-                                    </Dnd>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
-
-
-        );
-    }
 }
 /**
  *
@@ -154,63 +93,44 @@ class Demo3 extends Component {
 
         );
     }
-}
-/**
+}/**
  *
  * @title 单个元素拖拽
- * @description 设置 handle，值为 选择器，例如 '.handle'
- *
+ * @description 设置 handle，值为选择器，例如 '.handle'
+ *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'
  */
 
 class Demo4 extends Component {
 
-    onStart(){
+    onStart() {
         console.log('start');
     }
 
-    onStop(){
+    onStop() {
         console.log('stop');
     }
+
     render() {
         return (
-            <div>
-                <Dnd handle=".handle" onStart={this.onStart}  onStop={this.onStop}>
-                    <div className="demo demo4 ">
-                        <div className="handle">我是把手</div>
-                        <div className="drag-context">需要拖拽把手</div>
-                    </div>
-                </Dnd>
+            <div className="demo-4">
+                <div>
+                    <Dnd handle=".handle" onStart={this.onStart} onStop={this.onStop}>
+                        <div className="demo demo4 ">
+                            <div className="handle">我是把手</div>
+                            <div className="drag-context">需要拖拽把手</div>
+                        </div>
+                    </Dnd>
+                </div>
+                <div>
+                    <Dnd cancel=".handle" >
+                        <div className="demo demo4 ">
+                            <div className="handle">我是把手</div>
+                            <div className="drag-context">不要拖拽把手</div>
+                        </div>
+                    </Dnd>
+                </div>
             </div>
 
-        );
-    }
-}
-/**
- *
- * @title 单个元素拖拽
- * @description 设置 不可拖拽区域 cancel，值为 选择器，例如 '.handle'
- *
- */
-
-class Demo5 extends Component {
-
-    onStart(){
-        console.log('start');
-    }
-
-    onStop(){
-        console.log('stop');
-    }
-    render() {
-        return (
-            <div>
-                <Dnd cancel=".handle" onStart={this.onStart}  onStop={this.onStop}>
-                    <div className="demo demo4 ">
-                        <div className="handle">我是把手</div>
-                        <div className="drag-context">不要拖拽把手</div>
-                    </div>
-                </Dnd>
-            </div>
 
         );
     }
@@ -222,7 +142,7 @@ class Demo5 extends Component {
  *
  */
 
-class Demo6 extends Component {
+class Demo5 extends Component {
 
     onStart(){
         console.log('start');
@@ -249,7 +169,7 @@ class Demo6 extends Component {
  *
  */
 
-class Demo7 extends Component {
+class Demo6 extends Component {
 
     onStart(){
         console.log('start');
@@ -276,7 +196,7 @@ class Demo7 extends Component {
  * bounds的也可以设置为选择器,bounds=".demo8-parent"意为在class=demo8-parent的容器中移动
  */
 
-class Demo8 extends Component {
+class Demo7 extends Component {
 
     onStart(){
         console.log('start');
@@ -287,8 +207,8 @@ class Demo8 extends Component {
     render() {
         return (
             <div>
-                <div className="demo8-parent">
-                    <Dnd bounds=".demo8-parent" onStart={this.onStart} onStop={this.onStop}>
+                <div className="demo7-parent">
+                    <Dnd bounds=".demo7-parent" onStart={this.onStart} onStop={this.onStop}>
                         <div className="demo">我只能在父级元素中移动</div>
                     </Dnd>
                 </div>
@@ -305,7 +225,7 @@ class Demo8 extends Component {
  *
  */
 
-class Demo9 extends Component {
+class Demo8 extends Component {
 
     onDragStart(){
         console.log('开始');
@@ -319,7 +239,7 @@ class Demo9 extends Component {
             <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd}/>
         );
     }
-}var DemoArray = [{"example":<Demo1 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 将某个元素设置为可拖拽\n *\n */\nclass Demo1 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我可随意拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 将某个元素设置为可拖拽"},{"example":<Demo10 />,"title":" 单个元素拖拽","code":"/**\n *\n * @title 单个元素拖拽\n * @description 穿梭框\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\n */\n\nclass Demo10 extends Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            leftList: ['左边第一个','左边第二个','左边第三个','左边第四个'],\n            rightList:['右边第一个','右边第二个','右边第三个','右边第四个']\n        };\n    }\n\n    onStart() {\n        console.log(arguments);\n        console.log('start');\n    }\n\n    onLeftStop() {\n        console.log(arguments);\n        console.log('stop');\n    }\n\n\n\n\n    render() {\n        return (\n            <div>\n                <div className=\"demo10-parent\">\n                    <div className=\"pull-left\">\n                        {\n                            this.state.leftList.map((item,index)=>{\n                                return (\n                                    <Dnd bounds=\".demo10-parent\"  onStop={this.onLeftStop}>\n                                        <div className=\"demo\">{item}</div>\n                                    </Dnd>\n                                )\n                            })\n                        }\n                    </div>\n                    <div className=\"pull-right\">\n                        {\n                            this.state.rightList.map((item,index)=>{\n                                return (\n                                    <Dnd bounds=\".demo10-parent\"  onStop={this.onLeftStop}>\n                                        <div className=\"demo\">{item}</div>\n                                    </Dnd>\n                                )\n                            })\n                        }\n                    </div>\n                </div>\n            </div>\n\n\n        );\n    }\n}","desc":" 穿梭框"},{"example":<Demo2 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽\n *\n */\n\nclass Demo2 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd axis=\"x\" onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只可延X轴拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽"},{"example":<Demo3 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置 onStart 的返回值为false，则不可以拖拽\n *\n */\n\nclass Demo3 extends Component {\n\n    onStart(){\n        console.log('start');\n        return false;\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我不可以拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置 onStart 的返回值为false，则不可以拖拽"},{"example":<Demo4 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置 handle，值为 选择器，例如 '.handle'\n *\n */\n\nclass Demo4 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd handle=\".handle\" onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo demo4 \">\n                        <div className=\"handle\">我是把手</div>\n                        <div className=\"drag-context\">需要拖拽把手</div>\n                    </div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置 handle，值为 选择器，例如 '.handle'"},{"example":<Demo5 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置 不可拖拽区域 cancel，值为 选择器，例如 '.handle'\n *\n */\n\nclass Demo5 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd cancel=\".handle\" onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo demo4 \">\n                        <div className=\"handle\">我是把手</div>\n                        <div className=\"drag-context\">不要拖拽把手</div>\n                    </div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置 不可拖拽区域 cancel，值为 选择器，例如 '.handle'"},{"example":<Demo6 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置 grid={[x,y]}\n *\n */\n\nclass Demo6 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我每次拖拽可移动25px</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置 grid={[x,y]}"},{"example":<Demo7 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}\n *\n */\n\nclass Demo7 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd bounds={{top: -50, left: -50, right: 50, bottom: 50}} onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只能再上下左右50px内移动</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}"},{"example":<Demo8 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置只可以在指定容器中移动\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\n */\n\nclass Demo8 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <div className=\"demo8-parent\">\n                    <Dnd bounds=\".demo8-parent\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo\">我只能在父级元素中移动</div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}","desc":" 设置只可以在指定容器中移动"},{"example":<Demo9 />,"title":" 拖拽列表排序","code":"\n/**\n *\n * @title 拖拽列表排序\n * @description 增加list 可以为 [1,2,3]数组，也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示\n *\n */\n\nclass Demo9 extends Component {\n\n    onDragStart(){\n        console.log('开始');\n    }\n    onDragEnd(){\n        console.log('结束');\n    }\n    render() {\n        let list=['第一','第二','第三','第四','第五'];\n        return (\n            <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd}/>\n        );\n    }\n}","desc":" 增加list 可以为 [1,2,3]数组，也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示"}]
+}var DemoArray = [{"example":<Demo1 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 将某个元素设置为可拖拽\n *\n */\nclass Demo1 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我可随意拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 将某个元素设置为可拖拽"},{"example":<Demo2 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽\n *\n */\n\nclass Demo2 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd axis=\"x\" onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只可延X轴拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽"},{"example":<Demo3 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置 onStart 的返回值为false，则不可以拖拽\n *\n */\n\nclass Demo3 extends Component {\n\n    onStart(){\n        console.log('start');\n        return false;\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我不可以拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置 onStart 的返回值为false，则不可以拖拽"},{"example":<Demo4 />,"title":" 单个元素拖拽","code":"/**\n *\n * @title 单个元素拖拽\n * @description 设置 handle，值为选择器，例如 '.handle'\n *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'\n */\n\nclass Demo4 extends Component {\n\n    onStart() {\n        console.log('start');\n    }\n\n    onStop() {\n        console.log('stop');\n    }\n\n    render() {\n        return (\n            <div className=\"demo-4\">\n                <div>\n                    <Dnd handle=\".handle\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo demo4 \">\n                            <div className=\"handle\">我是把手</div>\n                            <div className=\"drag-context\">需要拖拽把手</div>\n                        </div>\n                    </Dnd>\n                </div>\n                <div>\n                    <Dnd cancel=\".handle\" >\n                        <div className=\"demo demo4 \">\n                            <div className=\"handle\">我是把手</div>\n                            <div className=\"drag-context\">不要拖拽把手</div>\n                        </div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}","desc":" 设置 handle，值为选择器，例如 '.handle'"},{"example":<Demo5 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置 grid={[x,y]}\n *\n */\n\nclass Demo5 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我每次拖拽可移动25px</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置 grid={[x,y]}"},{"example":<Demo6 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}\n *\n */\n\nclass Demo6 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd bounds={{top: -50, left: -50, right: 50, bottom: 50}} onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只能再上下左右50px内移动</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}","desc":" 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}"},{"example":<Demo7 />,"title":" 单个元素拖拽","code":"\n/**\n *\n * @title 单个元素拖拽\n * @description 设置只可以在指定容器中移动\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\n */\n\nclass Demo7 extends Component {\n\n    onStart(){\n        console.log('start');\n    }\n    onStop(){\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <div className=\"demo7-parent\">\n                    <Dnd bounds=\".demo7-parent\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo\">我只能在父级元素中移动</div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}","desc":" 设置只可以在指定容器中移动"},{"example":<Demo8 />,"title":" 拖拽列表排序","code":"\n/**\n *\n * @title 拖拽列表排序\n * @description 增加list 可以为 [1,2,3]数组，也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示\n *\n */\n\nclass Demo8 extends Component {\n\n    onDragStart(){\n        console.log('开始');\n    }\n    onDragEnd(){\n        console.log('结束');\n    }\n    render() {\n        let list=['第一','第二','第三','第四','第五'];\n        return (\n            <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd}/>\n        );\n    }\n}","desc":" 增加list 可以为 [1,2,3]数组，也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示"}]
 
 
 class Demo extends Component {

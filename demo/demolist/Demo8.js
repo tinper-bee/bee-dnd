@@ -1,30 +1,23 @@
 
 /**
  *
- * @title 单个元素拖拽
- * @description 设置只可以在指定容器中移动
- * bounds的也可以设置为选择器,bounds=".demo8-parent"意为在class=demo8-parent的容器中移动
+ * @title 拖拽列表排序
+ * @description 增加list 可以为 [1,2,3]数组，也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示
+ *
  */
 
 class Demo8 extends Component {
 
-    onStart(){
-        console.log('start');
+    onDragStart(){
+        console.log('开始');
     }
-    onStop(){
-        console.log('stop');
+    onDragEnd(){
+        console.log('结束');
     }
     render() {
+        let list=['第一','第二','第三','第四','第五'];
         return (
-            <div>
-                <div className="demo8-parent">
-                    <Dnd bounds=".demo8-parent" onStart={this.onStart} onStop={this.onStop}>
-                        <div className="demo">我只能在父级元素中移动</div>
-                    </Dnd>
-                </div>
-            </div>
-
-
+            <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd}/>
         );
     }
 }

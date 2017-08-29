@@ -21,6 +21,11 @@ const defaultProps = {
     },
     list: [],
     clsPrefix: 'u-drag',
+    listClass:'u-drag-list',
+    listDraggingClass:'u-list-dragging',
+    draggingClass:'u-dragging',
+    listItemClass:'u-drag-item',
+    draggedClass:'u-dragged'
 };
 
 class Dnd extends Component {
@@ -35,9 +40,9 @@ class Dnd extends Component {
         this.reorder = this.reorder.bind(this);
     }
 
-    getListStyle = (isDraggingOver) => isDraggingOver ? this.props.clsPrefix + '-list u-list-dragging' : this.props.clsPrefix + '-list';
+    getListStyle = (isDraggingOver) => isDraggingOver ? this.props.listClass + ' '+this.props.listDraggingClass : this.props.listClass;
     getItemStyle = isDragging => {
-        return isDragging ? this.props.clsPrefix + '-item u-dragging' : this.props.clsPrefix + '-item';
+        return isDragging ? this.props.listItemClass + ' '+this.props.draggingClass : this.props.listItemClass ;
     };
     reorder = (list, startIndex, endIndex) => {
         const result = Array.from(list);
@@ -79,7 +84,7 @@ class Dnd extends Component {
                                                     draggableId={index}
                                                 >
                                                     {(provided, snapshot) => (
-                                                        <div className="u-drag">
+                                                        <div className={this.props.clsPrefix}>
                                                             <div
                                                                 ref={provided.innerRef}
                                                                 className={self.getItemStyle(snapshot.isDragging)}
@@ -100,8 +105,8 @@ class Dnd extends Component {
                         </DragDropContext>
                     ) : (
                         <Drag defaultClassName={this.props.clsPrefix}
-                              defaultClassNameDragging={' u-dragging'}
-                              defaultClassNameDragged={' u-dragged'}
+                              defaultClassNameDragging={this.props.draggingClass}
+                              defaultClassNameDragged={this.props.draggedClass}
                               {...this.props}>
                             {self.props.children}
                         </Drag>

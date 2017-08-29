@@ -1,0 +1,23 @@
+
+/**
+ *
+ * @title DOM集合拖拽列表排序
+ * @description list传dom集合
+ *
+ */
+
+class Demo9 extends Component {
+
+    onDragStart(){
+        console.log('开始');
+    }
+    onDragEnd(){
+        console.log('结束');
+    }
+    render() {
+        let list=[<div>DOM第一</div>,<div>DOM第二</div>,<div>DOM第三</div>,<div>DOM第四</div>,<div>DOM第五</div>];
+        return (
+           <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd} />
+        );
+    }
+}

@@ -1,7 +1,7 @@
 
 /**
  *
- * @title 单个元素拖拽
+ * @title 元素拖拽范围
  * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}
  *
  */

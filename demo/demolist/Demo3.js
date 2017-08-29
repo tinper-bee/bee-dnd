@@ -1,7 +1,7 @@
 
 /**
  *
- * @title 单个元素拖拽
+ * @title 设置元素不可拖拽
  * @description 设置 onStart 的返回值为false，则不可以拖拽
  *
  */

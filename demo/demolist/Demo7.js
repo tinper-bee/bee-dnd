@@ -1,7 +1,7 @@
 
 /**
  *
- * @title 单个元素拖拽
+ * @title 在指定容器中拖拽
  * @description 设置只可以在指定容器中移动
  * bounds的也可以设置为选择器,bounds=".demo8-parent"意为在class=demo8-parent的容器中移动
  */

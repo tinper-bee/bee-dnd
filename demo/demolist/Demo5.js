@@ -1,7 +1,7 @@
 
 /**
  *
- * @title 单个元素拖拽
+ * @title 每次拖拽移动距离
  * @description 设置 grid={[x,y]}
  *
  */

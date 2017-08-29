@@ -1,6 +1,6 @@
 /**
  *
- * @title 单个元素拖拽
+ * @title 单个元素拖拽把手
  * @description 设置 handle，值为选择器，例如 '.handle'
  *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'
  */

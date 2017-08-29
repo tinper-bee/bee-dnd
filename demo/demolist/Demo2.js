@@ -1,7 +1,7 @@
 
 /**
  *
- * @title 单个元素拖拽
+ * @title 单个元素沿x轴y轴拖拽
  * @description 设置axis="x"只可以沿着x轴拖拽，同理axis="y"只可以沿着y轴拖拽
  *
  */

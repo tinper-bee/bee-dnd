@@ -15,9 +15,18 @@ class Demo8 extends Component {
         console.log('结束');
     }
     render() {
-        let list=['第一','第二','第三','第四','第五'];
+        let list1=['第一','第二','第三','第四','第五'];
+        let list2=[<div>DOM第一</div>,<div>DOM第二</div>,<div>DOM第三</div>,<div>DOM第四</div>,<div>DOM第五</div>];
         return (
-            <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd}/>
+            <div className="demo8">
+                <div>
+                    <Dnd list={list1} onStart={this.onDragStart} onStop={this.onDragEnd}/>
+                </div>
+
+                <div>
+                    <Dnd list={list2} onStart={this.onDragStart} onStop={this.onDragEnd}/>
+                </div>
+            </div>
         );
     }
 }

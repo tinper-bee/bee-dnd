@@ -5,6 +5,9 @@
  *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'
  */
 
+import React, { Component } from 'react';
+import Dnd from '../../src';
+
 class Demo4 extends Component {
 
     onStart() {
@@ -40,3 +43,5 @@ class Demo4 extends Component {
         );
     }
 }
+
+export default Demo4;

@@ -6,6 +6,9 @@
  *
  */
 
+import React, { Component } from 'react';
+import Dnd from '../../src';
+
 class Demo2 extends Component {
 
     onStart(){
@@ -26,3 +29,5 @@ class Demo2 extends Component {
         );
     }
 }
+
+export default Demo2;

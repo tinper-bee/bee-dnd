@@ -8,6 +8,9 @@
  *
  */
 
+import React, { Component } from 'react';
+import Dnd from '../../src';
+
 class Demo8 extends Component {
 
     onDragStart(){
@@ -23,3 +26,5 @@ class Demo8 extends Component {
         );
     }
 }
+
+export default Demo8;

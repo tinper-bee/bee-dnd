@@ -6,6 +6,9 @@
  * bounds的也可以设置为选择器,bounds=".demo8-parent"意为在class=demo8-parent的容器中移动
  */
 
+import React, { Component } from 'react';
+import Dnd from '../../src';
+
 class Demo7 extends Component {
 
     onStart(){
@@ -28,3 +31,5 @@ class Demo7 extends Component {
         );
     }
 }
+
+export default Demo7;

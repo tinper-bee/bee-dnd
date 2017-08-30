@@ -5,6 +5,10 @@
  * @description 将某个元素设置为可拖拽
  *
  */
+
+import React, { Component } from 'react';
+import Dnd from '../../src';
+
 class Demo1 extends Component {
 
     onStart(){
@@ -25,3 +29,5 @@ class Demo1 extends Component {
         );
     }
 }
+
+export default Demo1;

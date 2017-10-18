@@ -1,25 +1,18 @@
 /* FormGroup */
 /*  Navlayout  */
 .u-drag-list {
-  background: lightgrey;
-  padding: 8px;
-  width: 250px; }
+  background: rgb(189,189,189);
+  padding: 8px; }
 
-.u-drag-list.dragging {
-  background: lightblue; }
+.u-list-dragging {
+  background: rgb(64,196,255); }
 
 .u-drag-item {
   user-select: none;
   padding: 16px;
-  color: #000000;
-  background: grey;
-  margin-bottom: 8px; }
-
-.u-drag-item.dragging {
-  background: lightgreen; }
-
-.u-dragged {
-  z-index: 1; }
+  color: rgb(0,0,0);
+  margin: 4px;
+  background: rgb(158,158,158); }
 
 .u-dragging {
-  z-index: 2000; }
+  background: rgb(100,181,246); }

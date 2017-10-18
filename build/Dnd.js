@@ -40,7 +40,12 @@ var defaultProps = {
     onDrag: function onDrag() {},
     onStop: function onStop() {},
     list: [],
-    clsPrefix: 'u-drag'
+    clsPrefix: 'u-drag',
+    listClass: 'u-drag-list',
+    listDraggingClass: 'u-list-dragging',
+    draggingClass: 'u-dragging',
+    listItemClass: 'u-drag-item',
+    draggedClass: 'u-dragged'
 };
 
 var Dnd = function (_Component) {
@@ -52,11 +57,11 @@ var Dnd = function (_Component) {
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
         _this.getListStyle = function (isDraggingOver) {
-            return isDraggingOver ? _this.props.clsPrefix + '-list dragging' : _this.props.clsPrefix + '-list';
+            return isDraggingOver ? _this.props.listClass + ' ' + _this.props.listDraggingClass : _this.props.listClass;
         };
 
         _this.getItemStyle = function (isDragging) {
-            return isDragging ? _this.props.clsPrefix + '-item dragging' : _this.props.clsPrefix + '-item';
+            return isDragging ? _this.props.listItemClass + ' ' + _this.props.draggingClass : _this.props.listItemClass;
         };
 
         _this.reorder = function (list, startIndex, endIndex) {
@@ -89,10 +94,12 @@ var Dnd = function (_Component) {
         this.setState({
             items: items
         });
-        this.props.onStop(result);
+        this.props.onStop(result, items);
     };
 
     Dnd.prototype.render = function render() {
+        var _this2 = this;
+
         var self = this;
         return _react2["default"].createElement(
             'div',
@@ -117,7 +124,7 @@ var Dnd = function (_Component) {
                                     function (provided, snapshot) {
                                         return _react2["default"].createElement(
                                             'div',
-                                            { className: 'u-drag' },
+                                            { className: _this2.props.clsPrefix },
                                             _react2["default"].createElement(
                                                 'div',
                                                 _extends({
@@ -138,8 +145,8 @@ var Dnd = function (_Component) {
             ) : _react2["default"].createElement(
                 _reactDraggable2["default"],
                 _extends({ defaultClassName: this.props.clsPrefix,
-                    defaultClassNameDragging: ' u-dragging',
-                    defaultClassNameDragged: ' u-dragged'
+                    defaultClassNameDragging: this.props.draggingClass,
+                    defaultClassNameDragged: this.props.draggedClass
                 }, this.props),
                 self.props.children
             )

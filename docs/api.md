@@ -4,8 +4,8 @@
 |参数|说明|类型|默认值|
 |:---|:-----|:----|:------|
 |list|需要遍历的数组|array|[]|
-|onStop|拖拽开始的钩子函数|function|-|
-|onStart|拖拽结束的钩子函数|function|-|
+|onStart|拖拽开始的钩子函数|function|-|
+|onStop|拖拽结束的钩子函数(拖拽元素，拖拽后数组)|function|-|
 |axis|设置可拖拽的方向:x/y|string|-|
 |handle|设置把手:dom选择器|string|-|
 |cancel|设置不可拖拽区域:dom选择器|string|-|

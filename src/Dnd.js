@@ -64,7 +64,7 @@ class Dnd extends Component {
         this.setState({
             items
         });
-        this.props.onStop(result);
+        this.props.onStop(result,items);
     }
 
     render() {

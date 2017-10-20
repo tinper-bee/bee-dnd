@@ -1,6 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import Drag from 'react-draggable'
+import PropTypes from 'prop-types';
 
 const propTypes = {
     onStart: PropTypes.func,

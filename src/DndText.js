@@ -56,10 +56,9 @@ class DndText extends Component {
         this.state = {
             items: getItems(10)
         };
-        this.onDragEnd = this.onDragEnd.bind(this);
     }
 
-    onDragEnd (result) {
+    onDragEnd = (result) => {
         if(!result.destination) {
             return;
         }

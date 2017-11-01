@@ -35,10 +35,6 @@ class Dnd extends Component {
         this.state = {
             items: this.props.list || []
         };
-        this.onStop = this.onStop.bind(this);
-        this.getListStyle = this.getListStyle.bind(this);
-        this.getItemStyle = this.getItemStyle.bind(this);
-        this.reorder = this.reorder.bind(this);
     }
 
     getListStyle = (isDraggingOver) => isDraggingOver ? this.props.listClass + ' '+this.props.listDraggingClass : this.props.listClass;
@@ -52,7 +48,7 @@ class Dnd extends Component {
         return result;
     };
 
-    onStop(result) {
+    onStop = (result) => {
         if (!result.destination) {
             this.props.onStop(result);
             return;

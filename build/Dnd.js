@@ -18,6 +18,10 @@ var _reactDraggable = require('react-draggable');
 
 var _reactDraggable2 = _interopRequireDefault(_reactDraggable);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -29,11 +33,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var propTypes = {
-    onStart: _react.PropTypes.func,
-    onStop: _react.PropTypes.func,
-    DragListClass: _react.PropTypes.string,
-    DragItemClass: _react.PropTypes.string,
-    list: _react.PropTypes.array
+    onStart: _propTypes2["default"].func,
+    onStop: _propTypes2["default"].func,
+    DragListClass: _propTypes2["default"].string,
+    DragItemClass: _propTypes2["default"].string,
+    list: _propTypes2["default"].array
 };
 var defaultProps = {
     onStart: function onStart() {},
@@ -75,27 +79,23 @@ var Dnd = function (_Component) {
             return result;
         };
 
+        _this.onStop = function (result) {
+            if (!result.destination) {
+                _this.props.onStop(result);
+                return;
+            }
+            var items = _this.reorder(_this.state.items, result.source.index, result.destination.index);
+            _this.setState({
+                items: items
+            });
+            _this.props.onStop(result, items);
+        };
+
         _this.state = {
             items: _this.props.list || []
         };
-        _this.onStop = _this.onStop.bind(_this);
-        _this.getListStyle = _this.getListStyle.bind(_this);
-        _this.getItemStyle = _this.getItemStyle.bind(_this);
-        _this.reorder = _this.reorder.bind(_this);
         return _this;
     }
-
-    Dnd.prototype.onStop = function onStop(result) {
-        if (!result.destination) {
-            this.props.onStop(result);
-            return;
-        }
-        var items = this.reorder(this.state.items, result.source.index, result.destination.index);
-        this.setState({
-            items: items
-        });
-        this.props.onStop(result, items);
-    };
 
     Dnd.prototype.render = function render() {
         var _this2 = this;

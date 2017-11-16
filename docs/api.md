@@ -12,7 +12,7 @@
 |handle|设置把手:dom选择器|string|-|
 |cancel|设置不可拖拽区域:dom选择器|string|-|
 |grid|设置每次拖拽移动的距离:{[x,y]}|object|-|
-|bounds|设置移动范围:{{top: -xxx, left: -xxx, right: xxx, bottom: xx}}/dom选择器|object/string|-|
+|bounds|设置移动范围:{top: -xxx, left: -xxx, right: xxx, bottom: xx}/dom选择器|object/string|-|
 |clsPrefix|单元素基础样式名|string|u-drag|
 |listClass|列表排序外层样式名|string|u-drag-list|
 |listItemClass|列表排序被拖拽元素默认样式名|string|u-drag-item|

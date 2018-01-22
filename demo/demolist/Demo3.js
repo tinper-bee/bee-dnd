@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import Dnd from '../../src';
+import Dnd from '../../src/index';
 
 class Demo3 extends Component {
 

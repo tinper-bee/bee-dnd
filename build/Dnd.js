@@ -22,6 +22,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _lodash = require('lodash.isequal');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -37,13 +41,15 @@ var propTypes = {
     onStop: _propTypes2["default"].func,
     DragListClass: _propTypes2["default"].string,
     DragItemClass: _propTypes2["default"].string,
-    list: _propTypes2["default"].array
+    list: _propTypes2["default"].array,
+    defaultList: _propTypes2["default"].array
 };
 var defaultProps = {
     onStart: function onStart() {},
     onDrag: function onDrag() {},
     onStop: function onStop() {},
-    list: [],
+    defaultList: [],
+    list: false,
     clsPrefix: 'u-drag',
     listClass: 'u-drag-list',
     listDraggingClass: 'u-list-dragging',
@@ -96,6 +102,14 @@ var Dnd = function (_Component) {
         };
         return _this;
     }
+
+    Dnd.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+        if (!(0, _lodash2["default"])(this.state.items, nextProps.list)) {
+            this.setState({
+                items: nextProps.list
+            });
+        }
+    };
 
     Dnd.prototype.render = function render() {
         var _this2 = this;

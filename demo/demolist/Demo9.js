@@ -11,10 +11,10 @@ import Dnd from '../../src/index';
 
 class Demo9 extends Component {
 
-    onDragStart(){
+    onDragStart=(result,list)=>{
         console.log('开始');
     }
-    onDragEnd(){
+    onDragEnd=(result,list)=>{
         console.log('结束');
     }
     render() {

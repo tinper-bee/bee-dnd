@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import Drag from 'react-draggable'
 import PropTypes from 'prop-types';
+import isEqual from 'lodash.isequal';
 
 const propTypes = {
     onStart: PropTypes.func,
     onStop: PropTypes.func,
     DragListClass: PropTypes.string,
     DragItemClass: PropTypes.string,
-    list: PropTypes.array
+    list: PropTypes.array,
+    defaultList: PropTypes.array
 };
 const defaultProps = {
     onStart: () => {
@@ -20,7 +22,8 @@ const defaultProps = {
     onStop: () => {
 
     },
-    list: [],
+    defaultList:[],
+    list: false,
     clsPrefix: 'u-drag',
     listClass:'u-drag-list',
     listDraggingClass:'u-list-dragging',
@@ -33,7 +36,7 @@ class Dnd extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: this.props.list || []
+            items:this.props.list||[]
         };
     }
 
@@ -63,7 +66,13 @@ class Dnd extends Component {
         });
         this.props.onStop(result,items);
     }
-
+    componentWillReceiveProps(nextProps){
+        if(!isEqual(this.state.items,nextProps.list)){
+            this.setState({
+                items:nextProps.list
+            })
+        }
+    }
     render() {
         let self = this;
         return (

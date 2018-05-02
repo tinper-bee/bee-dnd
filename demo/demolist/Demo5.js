@@ -11,11 +11,10 @@ import Dnd from '../../src/index';
 
 class Demo5 extends Component {
 
-    onStart(){
+    onStart=()=>{
         console.log('start');
     }
-
-    onStop(){
+    onStop=()=>{
         console.log('stop');
     }
     render() {

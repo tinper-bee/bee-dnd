@@ -1,4 +1,3 @@
-
 /**
  *
  * @title 数据集合拖拽列表排序
@@ -12,17 +11,17 @@ import React, { Component } from 'react';
 import Dnd from '../../src/index';
 
 class Demo8 extends Component {
-
-    onDragStart(){
+    
+    onDragStart=(result,list)=>{
         console.log('开始');
     }
-    onDragEnd(){
+    onDragEnd=(result,list)=>{
         console.log('结束');
     }
     render() {
         let list1=['第一','第二','第三','第四','第五'];
         return (
-            <Dnd list={list1} onStart={this.onDragStart} onStop={this.onDragEnd}/>
+            <Dnd  list={list1} onStart={this.onDragStart} onStop={this.onDragEnd}/>
         );
     }
 }

@@ -58,7 +58,7 @@
   "react-dom": "~15.3.2",
   "console-polyfill": "~0.2.1",
   "es5-shim": "~4.1.10",
-  "bee-panel": "latest",
+  "bee-panel": "1.2.12",
   "bee-layout": "latest",
   "bee-button": "latest"
  },

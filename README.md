@@ -68,6 +68,10 @@ import "./node_modules/bee-dnd/build/Dnd.css"
 |onStart|拖拽开始的钩子函数|function|-|
 |onDragUpdate|拖拽中列表有更新时的钩子函数|function|-|
 |onStop|拖拽结束的钩子函数|function|-|
+|dropClass|拖动面板drop的class|string|-|
+|dropOverClass|拖动面板drop被经过的class|string|-|
+|dragClass|拖拽元素drag的class|string|-|
+|dragingClass|拖拽元素正在被拖拽的class|string|-|
 |type|设置拖拽列类型`vertical`单列纵向,`horizontal`单列横向,`betweenVertical`两列纵向,`betweenHorizontal`两列横向|`vertical`/`horizontal`/`betweenVertical`/`betweenHorizontal`|-|
 |otherList|`type=betweenVertical/betweenHorizontal`时需要的第二个数组|array|[]|
 |showKey|拖拽数组需要显示的`key`值，如 示例8|string|-|

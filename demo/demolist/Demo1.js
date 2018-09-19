@@ -20,7 +20,7 @@ class Demo1 extends Component {
     render() {
         return (
             <div>
-                <Dnd onStart={this.onStart} onStop={this.onStop} >
+                <Dnd onStart={this.onStart} onStop={this.onStop}>
                     <div className="demo">我可随意拖拽</div>
                 </Dnd>
             </div>

@@ -3,14 +3,27 @@ import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import Drag from 'react-draggable'
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
+import SortList from './SortList';
+import Between from './Between';
+
 
 const propTypes = {
     onStart: PropTypes.func,
+    onDrag: PropTypes.func,
     onStop: PropTypes.func,
-    DragListClass: PropTypes.string,
-    DragItemClass: PropTypes.string,
+    onDragUpdate: PropTypes.func,
+    dropClass: PropTypes.string,
+    dropOverClass: PropTypes.string,
+    dragClass: PropTypes.string,
+    dragingClass: PropTypes.string,
+    draggedClass:PropTypes.string,
+    className:PropTypes.string,
+    style:PropTypes.object,
     list: PropTypes.array,
-    defaultList: PropTypes.array
+    otherList: PropTypes.array,
+    type:PropTypes.oneOf(['vertical','horizontal','betweenVertical','betweenHorizontal']),
+    showKey:PropTypes.string
+
 };
 const defaultProps = {
     onStart: () => {
@@ -22,49 +35,26 @@ const defaultProps = {
     onStop: () => {
 
     },
-    defaultList:[],
+    onDragUpdate: () => {
+
+    },
     list: false,
-    clsPrefix: 'u-drag',
-    listClass:'u-drag-list',
-    listDraggingClass:'u-list-dragging',
-    draggingClass:'u-dragging',
-    listItemClass:'u-drag-item',
-    draggedClass:'u-dragged'
+    otherList:[],
+    dropClass:'',
+    dropOverClass:'',
+    dragClass:'',
+    dragingClass:'',
+    draggedClass:'',
+    type:'vertical'
 };
+
 
 class Dnd extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state={
             items:this.props.list||[]
-        };
-    }
-
-    getListStyle = (isDraggingOver) => isDraggingOver ? this.props.listClass + ' '+this.props.listDraggingClass : this.props.listClass;
-    getItemStyle = isDragging => {
-        return isDragging ? this.props.listItemClass + ' '+this.props.draggingClass : this.props.listItemClass ;
-    };
-    reorder = (list, startIndex, endIndex) => {
-        const result = Array.from(list);
-        const [removed] = result.splice(startIndex, 1);
-        result.splice(endIndex, 0, removed);
-        return result;
-    };
-
-    onStop = (result) => {
-        if (!result.destination) {
-            this.props.onStop(result);
-            return;
         }
-        const items = this.reorder(
-            this.state.items,
-            result.source.index,
-            result.destination.index
-        );
-        this.setState({
-            items
-        });
-        this.props.onStop(result,items);
     }
     componentWillReceiveProps(nextProps){
         if(!isEqual(this.state.items,nextProps.list)){
@@ -73,45 +63,35 @@ class Dnd extends Component {
             })
         }
     }
+
     render() {
         let self = this;
+        let DndType = () => {
+            switch(this.props.type){
+                case 'vertical':
+                    return <SortList {...this.props}/>;
+                    break;
+                case 'horizontal':
+                    return <SortList {...this.props}/>;
+                    break;
+                case 'betweenVertical':
+                    return <Between {...this.props}/>;
+                    break;
+                case 'betweenHorizontal':
+                    return <Between {...this.props}/>;
+                    break;
+                default :
+                    return <SortList {...this.props}/>;
+                    break;
+            }
+        }
         return (
             <div>
                 {
-                    self.state.items.length ? (
-                        <DragDropContext onDragEnd={this.onStop}  onDragStart={this.props.onStart}>
-                            <Droppable droppableId="droppable" >
-                                {(provided, snapshot) => (
-                                    <div ref={provided.innerRef} className={self.getListStyle(snapshot.isDraggingOver)}>
-                                        {self.state.items.map((item, index) =>
-                                            (
-                                                <Draggable
-                                                    key={index}
-                                                    draggableId={index}
-                                                >
-                                                    {(provided, snapshot) => (
-                                                        <div className={this.props.clsPrefix}>
-                                                            <div
-                                                                ref={provided.innerRef}
-                                                                className={self.getItemStyle(snapshot.isDragging)}
-                                                                style={provided.draggableStyle}
-                                                                {...provided.dragHandleProps}
-                                                            >
-                                                                {item.name || item}
-                                                            </div>
-                                                            {provided.placeholder}
-                                                        </div>
-                                                    )}
-                                                </Draggable>
-                                            )
-                                        )}
-                                    </div>
-                                )}
-                            </Droppable>
-                        </DragDropContext>
-                    ) : (
-                        <Drag defaultClassName={this.props.clsPrefix}
-                              defaultClassNameDragging={this.props.draggingClass}
+                    self.state.items.length ? 
+                        DndType(): (
+                        <Drag defaultClassName={this.props.dragClass}
+                              defaultClassNameDragging={this.props.dragingClass}
                               defaultClassNameDragged={this.props.draggedClass}
                               {...this.props}>
                             {self.props.children}
@@ -127,4 +107,7 @@ class Dnd extends Component {
 Dnd.propTypes = propTypes;
 Dnd.defaultProps = defaultProps;
 Dnd.Drag = Drag;
+Dnd.DragDropContext = DragDropContext;
+Dnd.Droppable = Droppable;
+Dnd.Draggable = Draggable;
 export default Dnd;

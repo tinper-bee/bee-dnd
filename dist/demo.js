@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(79);var Demo2 = __webpack_require__(308);var Demo3 = __webpack_require__(309);var Demo4 = __webpack_require__(310);var Demo5 = __webpack_require__(311);var Demo6 = __webpack_require__(312);var Demo7 = __webpack_require__(313);var Demo8 = __webpack_require__(314);var Demo9 = __webpack_require__(315);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础拖拽", "code": "\r\n/**\r\n *\r\n * @title 基础拖拽\r\n * @description 将某个元素设置为可拖拽\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo1 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd onStart={this.onStart} onStop={this.onStop} >\r\n                    <div className=\"demo\">我可随意拖拽</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 将某个元素设置为可拖拽", "scss_code": ".demo {\r\n    width: 250px;\r\n    height: 50px;\r\n    line-height: 50px;\r\n    border: 1px solid rgb(30, 136, 229);\r\n    color: #000000;\r\n    text-align: center;\r\n    cursor: all-scroll;\r\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 单个元素沿x轴y轴拖拽", "code": "\r\n/**\r\n *\r\n * @title 单个元素沿x轴y轴拖拽\r\n * @description 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo2 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd axis=\"x\" onStart={this.onStart} onStop={this.onStop}>\r\n                    <div className=\"demo\">我只可延X轴拖拽</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽", "scss_code": ".demo {\r\n  width: 250px;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  color: #000000;\r\n  text-align: center;\r\n  cursor: all-scroll;\r\n}" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 设置元素不可拖拽", "code": "\r\n/**\r\n *\r\n * @title 设置元素不可拖拽\r\n * @description 设置 onStart 的返回值为false，则不可以拖拽\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo3 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n        return false;\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd onStart={this.onStart}  onStop={this.onStop}>\r\n                    <div className=\"demo\">我不可以拖拽</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n", "desc": " 设置 onStart 的返回值为false，则不可以拖拽", "scss_code": ".demo {\r\n  width: 250px;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  color: #000000;\r\n  text-align: center;\r\n  cursor: all-scroll;\r\n}" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 单个元素拖拽把手", "code": "/**\r\n *\r\n * @title 单个元素拖拽把手\r\n * @description 设置 handle，值为选择器，例如 '.handle'\r\n *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo4 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div className=\"demo-4\">\r\n                <div>\r\n                    <Dnd handle=\".handle\" onStart={this.onStart} onStop={this.onStop}>\r\n                        <div className=\"demo4 \">\r\n                            <div className=\"handle\">我是把手</div>\r\n                            <div className=\"drag-context\">需要拖拽把手</div>\r\n                        </div>\r\n                    </Dnd>\r\n                </div>\r\n                <div>\r\n                    <Dnd cancel=\".handle\" >\r\n                        <div className=\"demo4 \">\r\n                            <div className=\"handle\">我是把手</div>\r\n                            <div className=\"drag-context\">不要拖拽把手</div>\r\n                        </div>\r\n                    </Dnd>\r\n                </div>\r\n            </div>\r\n\r\n\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 设置 handle，值为选择器，例如 '.handle'", "scss_code": "\r\n.demo4 {\r\n  width: 250px;\r\n  line-height: 50px;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  color: #000000;\r\n  text-align: center;\r\n  cursor: all-scroll;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  height: 80px;\r\n}\r\n\r\n.demo4 .handle {\r\n  height: 20px;\r\n  line-height: 20px;\r\n  background: lightgrey;\r\n  margin: 10px;\r\n}\r\n\r\n.demo4 .drag-context {\r\n  height: 50px;\r\n  line-height: 50px;\r\n}\r\n\r\n.demo-4>div {\r\n  display: inline-block;\r\n  padding: 10px;\r\n}" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 每次拖拽移动距离", "code": "\r\n/**\r\n *\r\n * @title 每次拖拽移动距离\r\n * @description 设置 grid={[x,y]}\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo5 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>\r\n                    <div className=\"demo\">我每次拖拽可移动25px</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 设置 grid={[x,y]}", "scss_code": ".demo {\r\n  width: 250px;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  color: #000000;\r\n  text-align: center;\r\n  cursor: all-scroll;\r\n}" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 元素拖拽范围", "code": "\r\n/**\r\n *\r\n * @title 元素拖拽范围\r\n * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo6 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd bounds={{top: -50, left: -50, right: 50, bottom: 50}} onStart={this.onStart} onStop={this.onStop}>\r\n                    <div className=\"demo\">我只能再上下左右50px内移动</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}", "scss_code": ".demo {\r\n  width: 250px;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  color: #000000;\r\n  text-align: center;\r\n  cursor: all-scroll;\r\n}" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 在指定容器中拖拽", "code": "\r\n/**\r\n *\r\n * @title 在指定容器中拖拽\r\n * @description 设置只可以在指定容器中移动\r\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo7 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <div className=\"demo7-parent\">\r\n                    <Dnd bounds=\".demo7-parent\" onStart={this.onStart} onStop={this.onStop}>\r\n                        <div className=\"demo\">我只能在父级元素中移动</div>\r\n                    </Dnd>\r\n                </div>\r\n            </div>\r\n\r\n\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 设置只可以在指定容器中移动", "scss_code": ".demo {\r\n  width: 250px;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  border: 1px solid rgb(30, 136, 229);\r\n  color: #000000;\r\n  text-align: center;\r\n  cursor: all-scroll;\r\n}\r\n\r\n.demo7-parent {\r\n  width: 300px;\r\n  height: 200px;\r\n  background: lightgrey;\r\n  position: relative;\r\n}" }, { "example": _react2['default'].createElement(Demo8, null), "title": " 数据集合拖拽列表排序", "code": "/**\r\n *\r\n * @title 数据集合拖拽列表排序\r\n * @description 增加list 可以为 [1,2,3]数组，\r\n *              也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示。\r\n *              也可以为 dom集合，见后边示例\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo8 extends Component {\r\n    \r\n    onDragStart=(result,list)=>{\r\n        console.log('开始');\r\n    }\r\n    onDragEnd=(result,list)=>{\r\n        console.log('结束');\r\n    }\r\n    render() {\r\n        let list1=['第一','第二','第三','第四','第五'];\r\n        return (\r\n            <Dnd  list={list1} onStart={this.onDragStart} onStop={this.onDragEnd}/>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 增加list 可以为 [1,2,3]数组，" }, { "example": _react2['default'].createElement(Demo9, null), "title": " DOM集合拖拽列表排序", "code": "\r\n/**\r\n *\r\n * @title DOM集合拖拽列表排序\r\n * @description list传dom集合\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from \"tinper-bee/lib/Dnd\";\r\n\r\nclass Demo9 extends Component {\r\n\r\n    onDragStart=(result,list)=>{\r\n        console.log('开始');\r\n    }\r\n    onDragEnd=(result,list)=>{\r\n        console.log('结束');\r\n    }\r\n    render() {\r\n        let list=[<div>DOM第一</div>,<div>DOM第二</div>,<div>DOM第三</div>,<div>DOM第四</div>,<div>DOM第五</div>];\r\n        return (\r\n           <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd} />\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " list传dom集合" }];
+	var Demo1 = __webpack_require__(79);var Demo2 = __webpack_require__(187);var Demo3 = __webpack_require__(188);var Demo4 = __webpack_require__(189);var Demo5 = __webpack_require__(190);var Demo6 = __webpack_require__(191);var Demo7 = __webpack_require__(192);var Demo8 = __webpack_require__(193);var Demo9 = __webpack_require__(194);var Demo90 = __webpack_require__(195);var Demo91 = __webpack_require__(196);var Demo92 = __webpack_require__(197);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础拖拽", "code": "\n/**\n *\n * @title 基础拖拽\n * @description 将某个元素设置为可拖拽\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo1 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我可随意拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\n", "desc": " 将某个元素设置为可拖拽", "scss_code": ".demo {\n    width: 250px;\n    height: 50px;\n    line-height: 50px;\n    border: 1px solid rgb(30, 136, 229);\n    color: #000000;\n    text-align: center;\n    cursor: all-scroll;\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 单个元素沿x轴y轴拖拽", "code": "\n/**\n *\n * @title 单个元素沿x轴y轴拖拽\n * @description 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo2 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd axis=\"x\" onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只可延X轴拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\n", "desc": " 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽", "scss_code": ".demo {\n  width: 250px;\n  height: 50px;\n  line-height: 50px;\n  border: 1px solid rgb(30, 136, 229);\n  color: #000000;\n  text-align: center;\n  cursor: all-scroll;\n}" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 设置元素不可拖拽", "code": "\n/**\n *\n * @title 设置元素不可拖拽\n * @description 设置 onStart 的返回值为false，则不可以拖拽\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo3 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n        return false;\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我不可以拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n", "desc": " 设置 onStart 的返回值为false，则不可以拖拽", "scss_code": ".demo {\n  width: 250px;\n  height: 50px;\n  line-height: 50px;\n  border: 1px solid rgb(30, 136, 229);\n  color: #000000;\n  text-align: center;\n  cursor: all-scroll;\n}" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 单个元素拖拽把手", "code": "/**\n *\n * @title 单个元素拖拽把手\n * @description 设置 handle，值为选择器，例如 '.handle'\n *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo4 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n\n    render() {\n        return (\n            <div className=\"demo-4\">\n                <div>\n                    <Dnd handle=\".handle\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo4 \">\n                            <div className=\"handle\">我是把手</div>\n                            <div className=\"drag-context\">需要拖拽把手</div>\n                        </div>\n                    </Dnd>\n                </div>\n                <div>\n                    <Dnd cancel=\".handle\" >\n                        <div className=\"demo4 \">\n                            <div className=\"handle\">我是把手</div>\n                            <div className=\"drag-context\">不要拖拽把手</div>\n                        </div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}\n\n", "desc": " 设置 handle，值为选择器，例如 '.handle'", "scss_code": "\n.demo4 {\n  width: 250px;\n  line-height: 50px;\n  border: 1px solid rgb(30, 136, 229);\n  color: #000000;\n  text-align: center;\n  cursor: all-scroll;\n  border: 1px solid rgb(30, 136, 229);\n  height: 80px;\n}\n\n.demo4 .handle {\n  height: 20px;\n  line-height: 20px;\n  background: lightgrey;\n  margin: 10px;\n}\n\n.demo4 .drag-context {\n  height: 50px;\n  line-height: 50px;\n}\n\n.demo-4>div {\n  display: inline-block;\n  padding: 10px;\n}" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 每次拖拽移动距离", "code": "\n/**\n *\n * @title 每次拖拽移动距离\n * @description 设置 grid={[x,y]}\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo5 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我每次拖拽可移动25px</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\n", "desc": " 设置 grid={[x,y]}", "scss_code": ".demo {\n  width: 250px;\n  height: 50px;\n  line-height: 50px;\n  border: 1px solid rgb(30, 136, 229);\n  color: #000000;\n  text-align: center;\n  cursor: all-scroll;\n}" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 元素拖拽范围", "code": "\n/**\n *\n * @title 元素拖拽范围\n * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo6 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd bounds={{top: -50, left: -50, right: 50, bottom: 50}} onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只能再上下左右50px内移动</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\n", "desc": " 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}", "scss_code": ".demo {\n  width: 250px;\n  height: 50px;\n  line-height: 50px;\n  border: 1px solid rgb(30, 136, 229);\n  color: #000000;\n  text-align: center;\n  cursor: all-scroll;\n}" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 在指定容器中拖拽", "code": "\n/**\n *\n * @title 在指定容器中拖拽\n * @description 设置只可以在指定容器中移动\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo7 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <div className=\"demo7-parent\">\n                    <Dnd bounds=\".demo7-parent\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo\">我只能在父级元素中移动</div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}\n\n", "desc": " 设置只可以在指定容器中移动", "scss_code": ".demo {\n  width: 250px;\n  height: 50px;\n  line-height: 50px;\n  border: 1px solid rgb(30, 136, 229);\n  color: #000000;\n  text-align: center;\n  cursor: all-scroll;\n}\n\n.demo7-parent {\n  width: 300px;\n  height: 200px;\n  background: lightgrey;\n  position: relative;\n}" }, { "example": _react2['default'].createElement(Demo8, null), "title": " 数据集合拖拽列表排序", "code": "/**\n *\n * @title 数据集合拖拽列表排序\n * @description 增加list 可以为 [1,2,3]数组，\n *              也可以为 [{},{}...]，需要配置 showKey 。\n *              也可以为 dom集合，见后边示例\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo8 extends Component {\n    \n    onDragStart=(result,list)=>{\n        console.log('开始');\n    }\n    onDragEnd=(result,list)=>{   \n        console.log('结束');\n    }\n    onDragUpdate=(result)=>{\n        console.log('update')\n    }\n    render() {\n        let list=[\n            {\n                name:'第一',\n                code:'a'\n            },\n            {\n                name:'第二',\n                code:'b'\n            },\n            {\n                name:'第三',\n                code:'c'\n            },\n            {\n                name:'第四',\n                code:'d'\n            },\n            {\n                name:'第五',\n                code:'e'\n            },\n        ];\n        return (\n            <Dnd showKey='name' list={list} onDragUpdate={this.onDragUpdate} onStart={this.onDragStart} onStop={this.onDragEnd}/>\n        );\n    }\n}\n\n", "desc": " 增加list 可以为 [1,2,3]数组，", "scss_code": "" }, { "example": _react2['default'].createElement(Demo9, null), "title": " DOM集合拖拽列表排序", "code": "\n/**\n *\n * @title DOM集合拖拽列表排序\n * @description list传dom集合\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from \"tinper-bee/lib/Dnd\";\n\nclass Demo9 extends Component {\n\n    onDragStart=(result,list)=>{\n        console.log('开始');\n    }\n    onDragEnd=(result,list)=>{\n        console.log('结束');\n    }\n    render() {\n        let list=[<div>DOM第一</div>,<div>DOM第二</div>,<div>DOM第三</div>,<div>DOM第四</div>,<div>DOM第五</div>];\n        return (\n           <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd} />\n        );\n    }\n}\n\n", "desc": " list传dom集合" }, { "example": _react2['default'].createElement(Demo90, null), "title": " 横向拖拽列表排序", "code": "\n/**\n *\n * @title 横向拖拽列表排序\n * @description type='horizontal'\n *\n */\n\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\nimport Dnd from \"tinper-bee/lib/Dnd\";;\n\nclass Demo90 extends Component {\n\n    render() {\n        let list=['第一','第二','第三','第四','第五'];\n        return (\n           <Dnd list={list} type='horizontal'  />\n        );\n    }\n}\n\n", "desc": " type='horizontal'" }, { "example": _react2['default'].createElement(Demo91, null), "title": " 两列纵向拖拽", "code": "\n/**\n *\n * @title 两列纵向拖拽\n * @description 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开\n *\n */\n\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\nimport Dnd from \"tinper-bee/lib/Dnd\";;\n\nclass Demo90 extends Component {\n\n    render() {\n        let list1=['第一','第二','第三','第四','第五'];\n        let list2=['1','2','3','4','5'];\n        return (\n           <Dnd className='demo91' list={list1} otherList={list2} type='betweenVertical'  />\n        );\n    }\n}\n\n", "desc": " 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开", "scss_code": ".u-drop{\n    overflow: scroll;\n}\n.u-drag-between{\n    height: 300px;\n}" }, { "example": _react2['default'].createElement(Demo92, null), "title": " 两列横向拖拽", "code": "\n/**\n *\n * @title 两列横向拖拽\n * @description 设置 type='betweenVertical'\n *\n */\n\nimport React, { Component } from 'react';\nimport {  } from 'tinper-bee';\nimport Dnd from \"tinper-bee/lib/Dnd\";;\n\nclass Demo90 extends Component {\n    onDragStart=(result,list)=>{\n        console.log('开始');\n    }\n    onDragEnd=(result,listObj)=>{\n        console.log('结束');\n        console.log(listObj)\n    }\n    render() {\n        let list1=['第一','第二','第三','第四','第五'];\n        let list2=['1','2','3','4','5'];\n        return (\n           <Dnd list={list1} otherList={list2} type='betweenHorizontal' onStart={this.onDragStart} onStop={this.onDragEnd} />\n        );\n    }\n}\n\n", "desc": " 设置 type='betweenVertical'", "scss_code": ".u-drop{\n    overflow: scroll;\n}\n.u-drag-between-horizontal{\n    height: 200px;\n}" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -6152,15 +6152,22 @@
 	
 	function getMessageInstance() {
 	    var position = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'top';
+	    var callback = arguments[1];
 	
+	    if (messageInstance) {
+	        callback(messageInstance);
+	        return;
+	    }
 	    var style = positionObj[position].notificationStyle;
-	    messageInstance = messageInstance || _beeNotification2["default"].newInstance({
+	    _beeNotification2["default"].newInstance({
 	        clsPrefix: clsPrefix,
 	        transitionName: clsPrefix + '-' + positionObj[position].transitionName,
 	        style: style, // 覆盖原来的样式
 	        position: ''
+	    }, function (instance) {
+	        messageInstance = instance;
+	        callback(instance);
 	    });
-	    return messageInstance;
 	}
 	
 	function notice(content, duration, type, onClose, position, style) {
@@ -6180,33 +6187,35 @@
 	
 	    var positionStyle = positionObj[position].messageStyle;
 	
-	    var instance = getMessageInstance(position);
-	
-	    instance.notice({
-	        key: key,
-	        duration: duration,
-	        color: type,
-	        style: _extends({}, positionStyle, style),
-	        content: _react2["default"].createElement(
-	            'div',
-	            null,
-	            _react2["default"].createElement(
+	    getMessageInstance(position, function (instance) {
+	        instance.notice({
+	            key: key,
+	            duration: duration,
+	            color: type,
+	            style: _extends({}, positionStyle, style),
+	            content: _react2["default"].createElement(
 	                'div',
-	                { className: clsPrefix + '-notice-description-icon' },
-	                _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
+	                null,
+	                _react2["default"].createElement(
+	                    'div',
+	                    { className: clsPrefix + '-notice-description-icon' },
+	                    _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
+	                ),
+	                _react2["default"].createElement(
+	                    'div',
+	                    { className: clsPrefix + '-notice-description-content' },
+	                    content
+	                )
 	            ),
-	            _react2["default"].createElement(
-	                'div',
-	                { className: clsPrefix + '-notice-description-content' },
-	                content
-	            )
-	        ),
-	        onClose: onClose
+	            onClose: onClose
+	        });
 	    });
 	    return function () {
 	        var target = key++;
 	        return function () {
-	            instance.removeNotice(target);
+	            if (messageInstance) {
+	                messageInstance.removeNotice(target);
+	            }
 	        };
 	    }();
 	}
@@ -6439,25 +6448,33 @@
 	Notification.propTypes = propTypes;
 	Notification.defaultProps = defaultProps;
 	
-	Notification.newInstance = function newNotificationInstance(properties) {
+	Notification.newInstance = function newNotificationInstance(properties, callback) {
 	  var props = properties || {};
 	  var div = document.createElement('div');
 	  document.body.appendChild(div);
-	  var notification = _reactDom2["default"].render(_react2["default"].createElement(Notification, props), div);
-	  return {
-	    notice: function notice(noticeProps) {
-	      notification.add(noticeProps);
-	    },
-	    removeNotice: function removeNotice(key) {
-	      notification.remove(key);
-	    },
 	
-	    component: notification,
-	    destroy: function destroy() {
-	      _reactDom2["default"].unmountComponentAtNode(div);
-	      document.body.removeChild(div);
+	  var called = false;
+	  function ref(notification) {
+	    if (called) {
+	      return;
 	    }
-	  };
+	    called = true;
+	    callback({
+	      notice: function notice(noticeProps) {
+	        notification.add(noticeProps);
+	      },
+	      removeNotice: function removeNotice(key) {
+	        notification.remove(key);
+	      },
+	
+	      component: notification,
+	      destroy: function destroy() {
+	        _reactDom2["default"].unmountComponentAtNode(div);
+	        document.body.removeChild(div);
+	      }
+	    });
+	  }
+	  _reactDom2["default"].render(_react2["default"].createElement(Notification, _extends({}, props, { ref: ref })), div);
 	};
 	
 	exports["default"] = Notification;
@@ -7872,15 +7889,13 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-	
 	var _react = __webpack_require__(4);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactBeautifulDnd = __webpack_require__(82);
 	
-	var _reactDraggable = __webpack_require__(306);
+	var _reactDraggable = __webpack_require__(182);
 	
 	var _reactDraggable2 = _interopRequireDefault(_reactDraggable);
 	
@@ -7888,9 +7903,17 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _lodash = __webpack_require__(307);
+	var _lodash = __webpack_require__(183);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
+	
+	var _SortList = __webpack_require__(184);
+	
+	var _SortList2 = _interopRequireDefault(_SortList);
+	
+	var _Between = __webpack_require__(186);
+	
+	var _Between2 = _interopRequireDefault(_Between);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -7904,24 +7927,35 @@
 	
 	var propTypes = {
 	    onStart: _propTypes2['default'].func,
+	    onDrag: _propTypes2['default'].func,
 	    onStop: _propTypes2['default'].func,
-	    DragListClass: _propTypes2['default'].string,
-	    DragItemClass: _propTypes2['default'].string,
+	    onDragUpdate: _propTypes2['default'].func,
+	    dropClass: _propTypes2['default'].string,
+	    dropOverClass: _propTypes2['default'].string,
+	    dragClass: _propTypes2['default'].string,
+	    dragingClass: _propTypes2['default'].string,
+	    draggedClass: _propTypes2['default'].string,
+	    className: _propTypes2['default'].string,
+	    style: _propTypes2['default'].object,
 	    list: _propTypes2['default'].array,
-	    defaultList: _propTypes2['default'].array
+	    otherList: _propTypes2['default'].array,
+	    type: _propTypes2['default'].oneOf(['vertical', 'horizontal', 'betweenVertical', 'betweenHorizontal']),
+	    showKey: _propTypes2['default'].string
+	
 	};
 	var defaultProps = {
 	    onStart: function onStart() {},
 	    onDrag: function onDrag() {},
 	    onStop: function onStop() {},
-	    defaultList: [],
+	    onDragUpdate: function onDragUpdate() {},
 	    list: false,
-	    clsPrefix: 'u-drag',
-	    listClass: 'u-drag-list',
-	    listDraggingClass: 'u-list-dragging',
-	    draggingClass: 'u-dragging',
-	    listItemClass: 'u-drag-item',
-	    draggedClass: 'u-dragged'
+	    otherList: [],
+	    dropClass: '',
+	    dropOverClass: '',
+	    dragClass: '',
+	    dragingClass: '',
+	    draggedClass: '',
+	    type: 'vertical'
 	};
 	
 	var Dnd = function (_Component) {
@@ -7931,37 +7965,6 @@
 	        _classCallCheck(this, Dnd);
 	
 	        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-	
-	        _this.getListStyle = function (isDraggingOver) {
-	            return isDraggingOver ? _this.props.listClass + ' ' + _this.props.listDraggingClass : _this.props.listClass;
-	        };
-	
-	        _this.getItemStyle = function (isDragging) {
-	            return isDragging ? _this.props.listItemClass + ' ' + _this.props.draggingClass : _this.props.listItemClass;
-	        };
-	
-	        _this.reorder = function (list, startIndex, endIndex) {
-	            var result = Array.from(list);
-	
-	            var _result$splice = result.splice(startIndex, 1),
-	                _result$splice2 = _slicedToArray(_result$splice, 1),
-	                removed = _result$splice2[0];
-	
-	            result.splice(endIndex, 0, removed);
-	            return result;
-	        };
-	
-	        _this.onStop = function (result) {
-	            if (!result.destination) {
-	                _this.props.onStop(result);
-	                return;
-	            }
-	            var items = _this.reorder(_this.state.items, result.source.index, result.destination.index);
-	            _this.setState({
-	                items: items
-	            });
-	            _this.props.onStop(result, items);
-	        };
 	
 	        _this.state = {
 	            items: _this.props.list || []
@@ -7981,51 +7984,32 @@
 	        var _this2 = this;
 	
 	        var self = this;
+	        var DndType = function DndType() {
+	            switch (_this2.props.type) {
+	                case 'vertical':
+	                    return _react2['default'].createElement(_SortList2['default'], _this2.props);
+	                    break;
+	                case 'horizontal':
+	                    return _react2['default'].createElement(_SortList2['default'], _this2.props);
+	                    break;
+	                case 'betweenVertical':
+	                    return _react2['default'].createElement(_Between2['default'], _this2.props);
+	                    break;
+	                case 'betweenHorizontal':
+	                    return _react2['default'].createElement(_Between2['default'], _this2.props);
+	                    break;
+	                default:
+	                    return _react2['default'].createElement(_SortList2['default'], _this2.props);
+	                    break;
+	            }
+	        };
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            self.state.items.length ? _react2['default'].createElement(
-	                _reactBeautifulDnd.DragDropContext,
-	                { onDragEnd: this.onStop, onDragStart: this.props.onStart },
-	                _react2['default'].createElement(
-	                    _reactBeautifulDnd.Droppable,
-	                    { droppableId: 'droppable' },
-	                    function (provided, snapshot) {
-	                        return _react2['default'].createElement(
-	                            'div',
-	                            { ref: provided.innerRef, className: self.getListStyle(snapshot.isDraggingOver) },
-	                            self.state.items.map(function (item, index) {
-	                                return _react2['default'].createElement(
-	                                    _reactBeautifulDnd.Draggable,
-	                                    {
-	                                        key: index,
-	                                        draggableId: index
-	                                    },
-	                                    function (provided, snapshot) {
-	                                        return _react2['default'].createElement(
-	                                            'div',
-	                                            { className: _this2.props.clsPrefix },
-	                                            _react2['default'].createElement(
-	                                                'div',
-	                                                _extends({
-	                                                    ref: provided.innerRef,
-	                                                    className: self.getItemStyle(snapshot.isDragging),
-	                                                    style: provided.draggableStyle
-	                                                }, provided.dragHandleProps),
-	                                                item.name || item
-	                                            ),
-	                                            provided.placeholder
-	                                        );
-	                                    }
-	                                );
-	                            })
-	                        );
-	                    }
-	                )
-	            ) : _react2['default'].createElement(
+	            self.state.items.length ? DndType() : _react2['default'].createElement(
 	                _reactDraggable2['default'],
-	                _extends({ defaultClassName: this.props.clsPrefix,
-	                    defaultClassNameDragging: this.props.draggingClass,
+	                _extends({ defaultClassName: this.props.dragClass,
+	                    defaultClassNameDragging: this.props.dragingClass,
 	                    defaultClassNameDragged: this.props.draggedClass
 	                }, this.props),
 	                self.props.children
@@ -8039,6 +8023,9 @@
 	Dnd.propTypes = propTypes;
 	Dnd.defaultProps = defaultProps;
 	Dnd.Drag = _reactDraggable2['default'];
+	Dnd.DragDropContext = _reactBeautifulDnd.DragDropContext;
+	Dnd.Droppable = _reactBeautifulDnd.Droppable;
+	Dnd.Draggable = _reactBeautifulDnd.Draggable;
 	exports['default'] = Dnd;
 	module.exports = exports['default'];
 
@@ -8046,235 +8033,6505 @@
 /* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	Object.defineProperty(exports, '__esModule', { value: true });
+	
+	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+	
+	var _extends = _interopDefault(__webpack_require__(83));
+	var invariant = _interopDefault(__webpack_require__(122));
+	var cssBoxModel = __webpack_require__(123);
+	var _Object$keys = _interopDefault(__webpack_require__(124));
+	var memoizeOne = _interopDefault(__webpack_require__(128));
+	var redux = __webpack_require__(129);
+	var _Object$assign = _interopDefault(__webpack_require__(84));
+	var rafSchd = _interopDefault(__webpack_require__(133));
+	var _inheritsLoose = _interopDefault(__webpack_require__(134));
+	var React = __webpack_require__(4);
+	var React__default = _interopDefault(React);
+	var PropTypes = _interopDefault(__webpack_require__(5));
+	var reactRedux = __webpack_require__(141);
+	var reactMotion = __webpack_require__(168);
+	
+	var vertical = {
+	  direction: 'vertical',
+	  line: 'y',
+	  crossAxisLine: 'x',
+	  start: 'top',
+	  end: 'bottom',
+	  size: 'height',
+	  crossAxisStart: 'left',
+	  crossAxisEnd: 'right',
+	  crossAxisSize: 'width'
+	};
+	var horizontal = {
+	  direction: 'horizontal',
+	  line: 'x',
+	  crossAxisLine: 'y',
+	  start: 'left',
+	  end: 'right',
+	  size: 'width',
+	  crossAxisStart: 'top',
+	  crossAxisEnd: 'bottom',
+	  crossAxisSize: 'height'
+	};
+	
+	var origin = {
+	  x: 0,
+	  y: 0
+	};
+	var add = function add(point1, point2) {
+	  return {
+	    x: point1.x + point2.x,
+	    y: point1.y + point2.y
+	  };
+	};
+	var subtract = function subtract(point1, point2) {
+	  return {
+	    x: point1.x - point2.x,
+	    y: point1.y - point2.y
+	  };
+	};
+	var isEqual = function isEqual(point1, point2) {
+	  return point1.x === point2.x && point1.y === point2.y;
+	};
+	var negate = function negate(point) {
+	  return {
+	    x: point.x !== 0 ? -point.x : 0,
+	    y: point.y !== 0 ? -point.y : 0
+	  };
+	};
+	var absolute = function absolute(point) {
+	  return {
+	    x: Math.abs(point.x),
+	    y: Math.abs(point.y)
+	  };
+	};
+	var patch = function patch(line, value, otherValue) {
+	  var _ref;
+	
+	  if (otherValue === void 0) {
+	    otherValue = 0;
+	  }
+	
+	  return _ref = {}, _ref[line] = value, _ref[line === 'x' ? 'y' : 'x'] = otherValue, _ref;
+	};
+	var distance = function distance(point1, point2) {
+	  return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
+	};
+	var closest = function closest(target, points) {
+	  return Math.min.apply(Math, points.map(function (point) {
+	    return distance(target, point);
+	  }));
+	};
+	var apply = function apply(fn) {
+	  return function (point) {
+	    return {
+	      x: fn(point.x),
+	      y: fn(point.y)
+	    };
+	  };
+	};
+	
+	var offsetByPosition = function offsetByPosition(spacing, point) {
+	  return {
+	    top: spacing.top + point.y,
+	    left: spacing.left + point.x,
+	    bottom: spacing.bottom + point.y,
+	    right: spacing.right + point.x
+	  };
+	};
+	var expandByPosition = function expandByPosition(spacing, position) {
+	  return {
+	    top: spacing.top - position.y,
+	    left: spacing.left - position.x,
+	    right: spacing.right + position.x,
+	    bottom: spacing.bottom + position.y
+	  };
+	};
+	var getCorners = function getCorners(spacing) {
+	  return [{
+	    x: spacing.left,
+	    y: spacing.top
+	  }, {
+	    x: spacing.right,
+	    y: spacing.top
+	  }, {
+	    x: spacing.left,
+	    y: spacing.bottom
+	  }, {
+	    x: spacing.right,
+	    y: spacing.bottom
+	  }];
+	};
+	
+	var getMaxScroll = (function (_ref) {
+	  var scrollHeight = _ref.scrollHeight,
+	      scrollWidth = _ref.scrollWidth,
+	      height = _ref.height,
+	      width = _ref.width;
+	  var maxScroll = subtract({
+	    x: scrollWidth,
+	    y: scrollHeight
+	  }, {
+	    x: width,
+	    y: height
+	  });
+	  var adjustedMaxScroll = {
+	    x: Math.max(0, maxScroll.x),
+	    y: Math.max(0, maxScroll.y)
+	  };
+	  return adjustedMaxScroll;
 	});
 	
-	var _dragDropContext = __webpack_require__(83);
+	var clip = function clip(frame, subject) {
+	  var result = cssBoxModel.getRect({
+	    top: Math.max(subject.top, frame.top),
+	    right: Math.min(subject.right, frame.right),
+	    bottom: Math.min(subject.bottom, frame.bottom),
+	    left: Math.max(subject.left, frame.left)
+	  });
 	
-	Object.defineProperty(exports, 'DragDropContext', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_dragDropContext).default;
+	  if (result.width <= 0 || result.height <= 0) {
+	    return null;
+	  }
+	
+	  return result;
+	};
+	var getDroppableDimension = function getDroppableDimension(_ref) {
+	  var descriptor = _ref.descriptor,
+	      isEnabled = _ref.isEnabled,
+	      direction = _ref.direction,
+	      client = _ref.client,
+	      page = _ref.page,
+	      closest$$1 = _ref.closest;
+	
+	  var scrollable = function () {
+	    if (!closest$$1) {
+	      return null;
+	    }
+	
+	    var maxScroll = getMaxScroll({
+	      scrollHeight: closest$$1.scrollHeight,
+	      scrollWidth: closest$$1.scrollWidth,
+	      height: closest$$1.client.paddingBox.height,
+	      width: closest$$1.client.paddingBox.width
+	    });
+	    return {
+	      framePageMarginBox: closest$$1.page.marginBox,
+	      shouldClipSubject: closest$$1.shouldClipSubject,
+	      scroll: {
+	        initial: closest$$1.scroll,
+	        current: closest$$1.scroll,
+	        max: maxScroll,
+	        diff: {
+	          value: origin,
+	          displacement: origin
+	        }
+	      }
+	    };
+	  }();
+	
+	  var subjectPageMarginBox = page.marginBox;
+	  var clippedPageMarginBox = scrollable && scrollable.shouldClipSubject ? clip(scrollable.framePageMarginBox, subjectPageMarginBox) : subjectPageMarginBox;
+	  var viewport = {
+	    closestScrollable: scrollable,
+	    subjectPageMarginBox: subjectPageMarginBox,
+	    clippedPageMarginBox: clippedPageMarginBox
+	  };
+	  var dimension = {
+	    descriptor: descriptor,
+	    axis: direction === 'vertical' ? vertical : horizontal,
+	    isEnabled: isEnabled,
+	    client: client,
+	    page: page,
+	    viewport: viewport
+	  };
+	  return dimension;
+	};
+	var scrollDroppable = function scrollDroppable(droppable, newScroll) {
+	  !droppable.viewport.closestScrollable ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
+	  var scrollable = droppable.viewport.closestScrollable;
+	  var framePageMarginBox = scrollable.framePageMarginBox;
+	  var scrollDiff = subtract(newScroll, scrollable.scroll.initial);
+	  var scrollDisplacement = negate(scrollDiff);
+	  var closestScrollable = {
+	    framePageMarginBox: scrollable.framePageMarginBox,
+	    shouldClipSubject: scrollable.shouldClipSubject,
+	    scroll: {
+	      initial: scrollable.scroll.initial,
+	      current: newScroll,
+	      diff: {
+	        value: scrollDiff,
+	        displacement: scrollDisplacement
+	      },
+	      max: scrollable.scroll.max
+	    }
+	  };
+	  var displacedSubject = offsetByPosition(droppable.viewport.subjectPageMarginBox, scrollDisplacement);
+	  var clippedPageMarginBox = closestScrollable.shouldClipSubject ? clip(framePageMarginBox, displacedSubject) : cssBoxModel.getRect(displacedSubject);
+	  var viewport = {
+	    closestScrollable: closestScrollable,
+	    subjectPageMarginBox: droppable.viewport.subjectPageMarginBox,
+	    clippedPageMarginBox: clippedPageMarginBox
+	  };
+	
+	  var result = _extends({}, droppable, {
+	    viewport: viewport
+	  });
+	
+	  return result;
+	};
+	
+	var toDroppableMap = memoizeOne(function (droppables) {
+	  return droppables.reduce(function (previous, current) {
+	    previous[current.descriptor.id] = current;
+	    return previous;
+	  }, {});
+	});
+	var toDraggableMap = memoizeOne(function (draggables) {
+	  return draggables.reduce(function (previous, current) {
+	    previous[current.descriptor.id] = current;
+	    return previous;
+	  }, {});
+	});
+	var toDroppableList = memoizeOne(function (droppables) {
+	  return _Object$keys(droppables).map(function (id) {
+	    return droppables[id];
+	  });
+	});
+	var toDraggableList = memoizeOne(function (draggables) {
+	  return _Object$keys(draggables).map(function (id) {
+	    return draggables[id];
+	  });
+	});
+	
+	var getDraggablesInsideDroppable = memoizeOne(function (droppable, draggables) {
+	  return toDraggableList(draggables).filter(function (draggable) {
+	    return droppable.descriptor.id === draggable.descriptor.droppableId;
+	  }).sort(function (a, b) {
+	    return a.descriptor.index - b.descriptor.index;
+	  });
+	});
+	
+	var isWithin = (function (lowerBound, upperBound) {
+	  return function (value) {
+	    return value <= upperBound && value >= lowerBound;
+	  };
+	});
+	
+	var isPositionInFrame = (function (frame) {
+	  var isWithinVertical = isWithin(frame.top, frame.bottom);
+	  var isWithinHorizontal = isWithin(frame.left, frame.right);
+	  return function (point) {
+	    return isWithinVertical(point.y) && isWithinVertical(point.y) && isWithinHorizontal(point.x) && isWithinHorizontal(point.x);
+	  };
+	});
+	
+	var getRequiredGrowth = memoizeOne(function (draggable, draggables, droppable) {
+	  var getResult = function getResult(existingSpace) {
+	    var requiredSpace = draggable.page.marginBox[droppable.axis.size];
+	
+	    if (requiredSpace <= existingSpace) {
+	      return null;
+	    }
+	
+	    var requiredGrowth = patch(droppable.axis.line, requiredSpace - existingSpace);
+	    return requiredGrowth;
+	  };
+	
+	  var dimensions = getDraggablesInsideDroppable(droppable, draggables);
+	
+	  if (!dimensions.length) {
+	    var _existingSpace = droppable.page.marginBox[droppable.axis.size];
+	    return getResult(_existingSpace);
+	  }
+	
+	  var endOfDraggables = dimensions[dimensions.length - 1].page.marginBox[droppable.axis.end];
+	  var endOfDroppable = droppable.page.marginBox[droppable.axis.end];
+	  var existingSpace = endOfDroppable - endOfDraggables;
+	  return getResult(existingSpace);
+	});
+	var getWithGrowth = memoizeOne(function (area, growth) {
+	  return cssBoxModel.getRect(expandByPosition(area, growth));
+	});
+	
+	var getClippedRectWithPlaceholder = function getClippedRectWithPlaceholder(_ref) {
+	  var draggable = _ref.draggable,
+	      draggables = _ref.draggables,
+	      droppable = _ref.droppable,
+	      previousDroppableOverId = _ref.previousDroppableOverId;
+	  var isHome = draggable.descriptor.droppableId === droppable.descriptor.id;
+	  var wasOver = Boolean(previousDroppableOverId && previousDroppableOverId === droppable.descriptor.id);
+	  var clippedPageMarginBox = droppable.viewport.clippedPageMarginBox;
+	
+	  if (!clippedPageMarginBox) {
+	    return clippedPageMarginBox;
+	  }
+	
+	  if (isHome || !wasOver) {
+	    return clippedPageMarginBox;
+	  }
+	
+	  var requiredGrowth = getRequiredGrowth(draggable, draggables, droppable);
+	
+	  if (!requiredGrowth) {
+	    return clippedPageMarginBox;
+	  }
+	
+	  var subjectWithGrowth = getWithGrowth(clippedPageMarginBox, requiredGrowth);
+	  var closestScrollable = droppable.viewport.closestScrollable;
+	
+	  if (!closestScrollable) {
+	    return subjectWithGrowth;
+	  }
+	
+	  if (!closestScrollable.shouldClipSubject) {
+	    return subjectWithGrowth;
+	  }
+	
+	  return clip(closestScrollable.framePageMarginBox, subjectWithGrowth);
+	};
+	
+	var getDroppableOver = (function (_ref2) {
+	  var target = _ref2.target,
+	      draggable = _ref2.draggable,
+	      draggables = _ref2.draggables,
+	      droppables = _ref2.droppables,
+	      previousDroppableOverId = _ref2.previousDroppableOverId;
+	  var maybe = toDroppableList(droppables).filter(function (droppable) {
+	    return droppable.isEnabled;
+	  }).find(function (droppable) {
+	    var withPlaceholder = getClippedRectWithPlaceholder({
+	      draggable: draggable,
+	      draggables: draggables,
+	      droppable: droppable,
+	      previousDroppableOverId: previousDroppableOverId
+	    });
+	
+	    if (!withPlaceholder) {
+	      return false;
+	    }
+	
+	    return isPositionInFrame(withPlaceholder)(target);
+	  });
+	  return maybe ? maybe.descriptor.id : null;
+	});
+	
+	var noMovement = {
+	  displaced: [],
+	  amount: origin,
+	  isBeyondStartPosition: false
+	};
+	var noImpact = {
+	  movement: noMovement,
+	  direction: null,
+	  destination: null
+	};
+	
+	var getDisplacementMap = memoizeOne(function (displaced) {
+	  return displaced.reduce(function (map, displacement) {
+	    map[displacement.draggableId] = displacement;
+	    return map;
+	  }, {});
+	});
+	
+	var isPartiallyVisibleThroughFrame = (function (frame) {
+	  var isWithinVertical = isWithin(frame.top, frame.bottom);
+	  var isWithinHorizontal = isWithin(frame.left, frame.right);
+	  return function (subject) {
+	    var isContained = isWithinVertical(subject.top) && isWithinVertical(subject.bottom) && isWithinHorizontal(subject.left) && isWithinHorizontal(subject.right);
+	
+	    if (isContained) {
+	      return true;
+	    }
+	
+	    var isPartiallyVisibleVertically = isWithinVertical(subject.top) || isWithinVertical(subject.bottom);
+	    var isPartiallyVisibleHorizontally = isWithinHorizontal(subject.left) || isWithinHorizontal(subject.right);
+	    var isPartiallyContained = isPartiallyVisibleVertically && isPartiallyVisibleHorizontally;
+	
+	    if (isPartiallyContained) {
+	      return true;
+	    }
+	
+	    var isBiggerVertically = subject.top < frame.top && subject.bottom > frame.bottom;
+	    var isBiggerHorizontally = subject.left < frame.left && subject.right > frame.right;
+	    var isTargetBiggerThanFrame = isBiggerVertically && isBiggerHorizontally;
+	
+	    if (isTargetBiggerThanFrame) {
+	      return true;
+	    }
+	
+	    var isTargetBiggerOnOneAxis = isBiggerVertically && isPartiallyVisibleHorizontally || isBiggerHorizontally && isPartiallyVisibleVertically;
+	    return isTargetBiggerOnOneAxis;
+	  };
+	});
+	
+	var isTotallyVisibleThroughFrame = (function (frame) {
+	  var isWithinVertical = isWithin(frame.top, frame.bottom);
+	  var isWithinHorizontal = isWithin(frame.left, frame.right);
+	  return function (subject) {
+	    var isContained = isWithinVertical(subject.top) && isWithinVertical(subject.bottom) && isWithinHorizontal(subject.left) && isWithinHorizontal(subject.right);
+	    return isContained;
+	  };
+	});
+	
+	var isVisible = function isVisible(_ref) {
+	  var target = _ref.target,
+	      destination = _ref.destination,
+	      viewport = _ref.viewport,
+	      isVisibleThroughFrameFn = _ref.isVisibleThroughFrameFn;
+	  var displacement = destination.viewport.closestScrollable ? destination.viewport.closestScrollable.scroll.diff.displacement : origin;
+	  var withDisplacement = offsetByPosition(target, displacement);
+	
+	  if (!destination.viewport.clippedPageMarginBox) {
+	    return false;
+	  }
+	
+	  var isVisibleInDroppable = isVisibleThroughFrameFn(destination.viewport.clippedPageMarginBox)(withDisplacement);
+	  var isVisibleInViewport = isVisibleThroughFrameFn(viewport)(withDisplacement);
+	  return isVisibleInDroppable && isVisibleInViewport;
+	};
+	
+	var isPartiallyVisible = function isPartiallyVisible(_ref2) {
+	  var target = _ref2.target,
+	      destination = _ref2.destination,
+	      viewport = _ref2.viewport;
+	  return isVisible({
+	    target: target,
+	    destination: destination,
+	    viewport: viewport,
+	    isVisibleThroughFrameFn: isPartiallyVisibleThroughFrame
+	  });
+	};
+	var isTotallyVisible = function isTotallyVisible(_ref3) {
+	  var target = _ref3.target,
+	      destination = _ref3.destination,
+	      viewport = _ref3.viewport;
+	  return isVisible({
+	    target: target,
+	    destination: destination,
+	    viewport: viewport,
+	    isVisibleThroughFrameFn: isTotallyVisibleThroughFrame
+	  });
+	};
+	
+	var getDisplacement = (function (_ref) {
+	  var draggable = _ref.draggable,
+	      destination = _ref.destination,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var id = draggable.descriptor.id;
+	  var map = getDisplacementMap(previousImpact.movement.displaced);
+	  var isVisible = isPartiallyVisible({
+	    target: draggable.page.marginBox,
+	    destination: destination,
+	    viewport: viewport
+	  });
+	
+	  var shouldAnimate = function () {
+	    if (!isVisible) {
+	      return false;
+	    }
+	
+	    var previous = map[id];
+	
+	    if (!previous) {
+	      return true;
+	    }
+	
+	    return previous.shouldAnimate;
+	  }();
+	
+	  var displacement = {
+	    draggableId: id,
+	    isVisible: isVisible,
+	    shouldAnimate: shouldAnimate
+	  };
+	  return displacement;
+	});
+	
+	var withDroppableScroll = (function (droppable, point) {
+	  var closestScrollable = droppable.viewport.closestScrollable;
+	
+	  if (!closestScrollable) {
+	    return point;
+	  }
+	
+	  return add(point, closestScrollable.scroll.diff.value);
+	});
+	
+	var inHomeList = (function (_ref) {
+	  var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      draggable = _ref.draggable,
+	      home = _ref.home,
+	      insideHome = _ref.insideHome,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var axis = home.axis;
+	  var originalCenter = draggable.page.borderBox.center;
+	  var currentCenter = withDroppableScroll(home, pageBorderBoxCenter);
+	  var isBeyondStartPosition = currentCenter[axis.line] - originalCenter[axis.line] > 0;
+	  var amount = patch(axis.line, draggable.client.marginBox[axis.size]);
+	  var displaced = insideHome.filter(function (child) {
+	    if (child === draggable) {
+	      return false;
+	    }
+	
+	    var borderBox = child.page.borderBox;
+	
+	    if (isBeyondStartPosition) {
+	      if (borderBox.center[axis.line] < originalCenter[axis.line]) {
+	        return false;
+	      }
+	
+	      return currentCenter[axis.line] > borderBox[axis.start];
+	    }
+	
+	    if (originalCenter[axis.line] < borderBox.center[axis.line]) {
+	      return false;
+	    }
+	
+	    return currentCenter[axis.line] < borderBox[axis.end];
+	  }).map(function (dimension) {
+	    return getDisplacement({
+	      draggable: dimension,
+	      destination: home,
+	      previousImpact: previousImpact,
+	      viewport: viewport.frame
+	    });
+	  });
+	  var ordered = isBeyondStartPosition ? displaced.reverse() : displaced;
+	
+	  var index = function () {
+	    var startIndex = draggable.descriptor.index;
+	    var length = ordered.length;
+	
+	    if (!length) {
+	      return startIndex;
+	    }
+	
+	    if (isBeyondStartPosition) {
+	      return startIndex + length;
+	    }
+	
+	    return startIndex - length;
+	  }();
+	
+	  var movement = {
+	    amount: amount,
+	    displaced: ordered,
+	    isBeyondStartPosition: isBeyondStartPosition
+	  };
+	  var impact = {
+	    movement: movement,
+	    direction: axis.direction,
+	    destination: {
+	      droppableId: home.descriptor.id,
+	      index: index
+	    }
+	  };
+	  return impact;
+	});
+	
+	var inForeignList = (function (_ref) {
+	  var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      draggable = _ref.draggable,
+	      destination = _ref.destination,
+	      insideDestination = _ref.insideDestination,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var axis = destination.axis;
+	  var currentCenter = withDroppableScroll(destination, pageBorderBoxCenter);
+	  var displaced = insideDestination.filter(function (child) {
+	    var threshold = child.page.borderBox[axis.end];
+	    return threshold > currentCenter[axis.line];
+	  }).map(function (dimension) {
+	    return getDisplacement({
+	      draggable: dimension,
+	      destination: destination,
+	      previousImpact: previousImpact,
+	      viewport: viewport.frame
+	    });
+	  });
+	  var newIndex = insideDestination.length - displaced.length;
+	  var movement = {
+	    amount: patch(axis.line, draggable.page.marginBox[axis.size]),
+	    displaced: displaced,
+	    isBeyondStartPosition: false
+	  };
+	  var impact = {
+	    movement: movement,
+	    direction: axis.direction,
+	    destination: {
+	      droppableId: destination.descriptor.id,
+	      index: newIndex
+	    }
+	  };
+	  return impact;
+	});
+	
+	var getDragImpact = (function (_ref) {
+	  var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      draggable = _ref.draggable,
+	      draggables = _ref.draggables,
+	      droppables = _ref.droppables,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var previousDroppableOverId = previousImpact.destination && previousImpact.destination.droppableId;
+	  var destinationId = getDroppableOver({
+	    target: pageBorderBoxCenter,
+	    draggable: draggable,
+	    draggables: draggables,
+	    droppables: droppables,
+	    previousDroppableOverId: previousDroppableOverId
+	  });
+	
+	  if (!destinationId) {
+	    return noImpact;
+	  }
+	
+	  var destination = droppables[destinationId];
+	
+	  if (!destination.isEnabled) {
+	    return noImpact;
+	  }
+	
+	  var home = droppables[draggable.descriptor.droppableId];
+	  var isWithinHomeDroppable = home.descriptor.id === destinationId;
+	  var insideDestination = getDraggablesInsideDroppable(destination, draggables);
+	
+	  if (isWithinHomeDroppable) {
+	    return inHomeList({
+	      pageBorderBoxCenter: pageBorderBoxCenter,
+	      draggable: draggable,
+	      home: home,
+	      insideHome: insideDestination,
+	      previousImpact: previousImpact || noImpact,
+	      viewport: viewport
+	    });
+	  }
+	
+	  return inForeignList({
+	    pageBorderBoxCenter: pageBorderBoxCenter,
+	    draggable: draggable,
+	    destination: destination,
+	    insideDestination: insideDestination,
+	    previousImpact: previousImpact || noImpact,
+	    viewport: viewport
+	  });
+	});
+	
+	var getHomeLocation = (function (critical) {
+	  return {
+	    index: critical.draggable.index,
+	    droppableId: critical.droppable.id
+	  };
+	});
+	
+	var getSafeClipped = function getSafeClipped(droppable) {
+	  var rect = droppable.viewport.clippedPageMarginBox;
+	  !rect ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get clipped area from droppable') : invariant(false) : void 0;
+	  return rect;
+	};
+	
+	var getBestCrossAxisDroppable = (function (_ref) {
+	  var isMovingForward = _ref.isMovingForward,
+	      pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      source = _ref.source,
+	      droppables = _ref.droppables,
+	      viewport = _ref.viewport;
+	  var sourceClipped = source.viewport.clippedPageMarginBox;
+	
+	  if (!sourceClipped) {
+	    return null;
+	  }
+	
+	  var axis = source.axis;
+	  var isBetweenSourceClipped = isWithin(sourceClipped[axis.start], sourceClipped[axis.end]);
+	  var candidates = toDroppableList(droppables).filter(function (droppable) {
+	    return droppable !== source;
+	  }).filter(function (droppable) {
+	    return droppable.isEnabled;
+	  }).filter(function (droppable) {
+	    var clippedPageMarginBox = droppable.viewport.clippedPageMarginBox;
+	
+	    if (!clippedPageMarginBox) {
+	      return false;
+	    }
+	
+	    return isPartiallyVisibleThroughFrame(viewport.frame)(clippedPageMarginBox);
+	  }).filter(function (droppable) {
+	    var targetClipped = getSafeClipped(droppable);
+	
+	    if (isMovingForward) {
+	      return sourceClipped[axis.crossAxisEnd] < targetClipped[axis.crossAxisEnd];
+	    }
+	
+	    return targetClipped[axis.crossAxisStart] < sourceClipped[axis.crossAxisStart];
+	  }).filter(function (droppable) {
+	    var targetClipped = getSafeClipped(droppable);
+	    var isBetweenDestinationClipped = isWithin(targetClipped[axis.start], targetClipped[axis.end]);
+	    return isBetweenSourceClipped(targetClipped[axis.start]) || isBetweenSourceClipped(targetClipped[axis.end]) || isBetweenDestinationClipped(sourceClipped[axis.start]) || isBetweenDestinationClipped(sourceClipped[axis.end]);
+	  }).sort(function (a, b) {
+	    var first = getSafeClipped(a)[axis.crossAxisStart];
+	    var second = getSafeClipped(b)[axis.crossAxisStart];
+	
+	    if (isMovingForward) {
+	      return first - second;
+	    }
+	
+	    return second - first;
+	  }).filter(function (droppable, index, array) {
+	    return getSafeClipped(droppable)[axis.crossAxisStart] === getSafeClipped(array[0])[axis.crossAxisStart];
+	  });
+	
+	  if (!candidates.length) {
+	    return null;
+	  }
+	
+	  if (candidates.length === 1) {
+	    return candidates[0];
+	  }
+	
+	  var contains = candidates.filter(function (droppable) {
+	    var isWithinDroppable = isWithin(getSafeClipped(droppable)[axis.start], getSafeClipped(droppable)[axis.end]);
+	    return isWithinDroppable(pageBorderBoxCenter[axis.line]);
+	  });
+	
+	  if (contains.length === 1) {
+	    return contains[0];
+	  }
+	
+	  if (contains.length > 1) {
+	    return contains.sort(function (a, b) {
+	      return getSafeClipped(a)[axis.start] - getSafeClipped(b)[axis.start];
+	    })[0];
+	  }
+	
+	  return candidates.sort(function (a, b) {
+	    var first = closest(pageBorderBoxCenter, getCorners(getSafeClipped(a)));
+	    var second = closest(pageBorderBoxCenter, getCorners(getSafeClipped(b)));
+	
+	    if (first !== second) {
+	      return first - second;
+	    }
+	
+	    return getSafeClipped(a)[axis.start] - getSafeClipped(b)[axis.start];
+	  })[0];
+	});
+	
+	var withDroppableDisplacement = (function (droppable, point) {
+	  var closestScrollable = droppable.viewport.closestScrollable;
+	
+	  if (!closestScrollable) {
+	    return point;
+	  }
+	
+	  return add(point, closestScrollable.scroll.diff.displacement);
+	});
+	
+	var getClosestDraggable = (function (_ref) {
+	  var axis = _ref.axis,
+	      viewport = _ref.viewport,
+	      pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      destination = _ref.destination,
+	      insideDestination = _ref.insideDestination;
+	
+	  if (!insideDestination.length) {
+	    return null;
+	  }
+	
+	  var result = insideDestination.filter(function (draggable) {
+	    return isTotallyVisible({
+	      target: draggable.page.borderBox,
+	      destination: destination,
+	      viewport: viewport.frame
+	    });
+	  }).sort(function (a, b) {
+	    var distanceToA = distance(pageBorderBoxCenter, withDroppableDisplacement(destination, a.page.borderBox.center));
+	    var distanceToB = distance(pageBorderBoxCenter, withDroppableDisplacement(destination, b.page.borderBox.center));
+	
+	    if (distanceToA < distanceToB) {
+	      return -1;
+	    }
+	
+	    if (distanceToB < distanceToA) {
+	      return 1;
+	    }
+	
+	    return a.page.borderBox[axis.start] - b.page.borderBox[axis.start];
+	  });
+	  return result.length ? result[0] : null;
+	});
+	
+	var moveToEdge = (function (_ref) {
+	  var source = _ref.source,
+	      sourceEdge = _ref.sourceEdge,
+	      destination = _ref.destination,
+	      destinationEdge = _ref.destinationEdge,
+	      destinationAxis = _ref.destinationAxis;
+	
+	  var getCorner = function getCorner(area) {
+	    return patch(destinationAxis.line, area[destinationAxis[destinationEdge]], area[destinationAxis.crossAxisStart]);
+	  };
+	
+	  var corner = getCorner(destination);
+	  var centerDiff = absolute(subtract(source.center, getCorner(source)));
+	  var signed = patch(destinationAxis.line, (sourceEdge === 'end' ? -1 : 1) * centerDiff[destinationAxis.line], centerDiff[destinationAxis.crossAxisLine]);
+	  return add(corner, signed);
+	});
+	
+	var toHomeList = (function (_ref) {
+	  var amount = _ref.amount,
+	      homeIndex = _ref.homeIndex,
+	      movingRelativeTo = _ref.movingRelativeTo,
+	      insideDestination = _ref.insideDestination,
+	      draggable = _ref.draggable,
+	      destination = _ref.destination,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var axis = destination.axis;
+	  var targetIndex = insideDestination.indexOf(movingRelativeTo);
+	  !(targetIndex !== -1) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Unable to find target in destination droppable') : invariant(false) : void 0;
+	
+	  if (targetIndex === homeIndex) {
+	    var _newCenter = draggable.page.borderBox.center;
+	    var _newImpact = {
+	      movement: {
+	        displaced: [],
+	        amount: amount,
+	        isBeyondStartPosition: false
+	      },
+	      direction: destination.axis.direction,
+	      destination: {
+	        droppableId: destination.descriptor.id,
+	        index: homeIndex
+	      }
+	    };
+	    return {
+	      pageBorderBoxCenter: withDroppableDisplacement(destination, _newCenter),
+	      impact: _newImpact
+	    };
+	  }
+	
+	  var isMovingPastOriginalIndex = targetIndex > homeIndex;
+	  var edge = isMovingPastOriginalIndex ? 'end' : 'start';
+	  var newCenter = moveToEdge({
+	    source: draggable.page.borderBox,
+	    sourceEdge: edge,
+	    destination: isMovingPastOriginalIndex ? movingRelativeTo.page.borderBox : movingRelativeTo.page.marginBox,
+	    destinationEdge: edge,
+	    destinationAxis: axis
+	  });
+	
+	  var modified = function () {
+	    if (!isMovingPastOriginalIndex) {
+	      return insideDestination.slice(targetIndex, homeIndex);
+	    }
+	
+	    var from = homeIndex + 1;
+	    var to = targetIndex + 1;
+	    return insideDestination.slice(from, to).reverse();
+	  }();
+	
+	  var displaced = modified.map(function (dimension) {
+	    return getDisplacement({
+	      draggable: dimension,
+	      destination: destination,
+	      previousImpact: previousImpact,
+	      viewport: viewport.frame
+	    });
+	  });
+	  var newImpact = {
+	    movement: {
+	      displaced: displaced,
+	      amount: amount,
+	      isBeyondStartPosition: isMovingPastOriginalIndex
+	    },
+	    direction: axis.direction,
+	    destination: {
+	      droppableId: destination.descriptor.id,
+	      index: targetIndex
+	    }
+	  };
+	  return {
+	    pageBorderBoxCenter: withDroppableDisplacement(destination, newCenter),
+	    impact: newImpact
+	  };
+	});
+	
+	var toForeignList = (function (_ref) {
+	  var amount = _ref.amount,
+	      pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      movingRelativeTo = _ref.movingRelativeTo,
+	      insideDestination = _ref.insideDestination,
+	      draggable = _ref.draggable,
+	      destination = _ref.destination,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var axis = destination.axis;
+	  var isGoingBeforeTarget = Boolean(movingRelativeTo && pageBorderBoxCenter[destination.axis.line] < movingRelativeTo.page.borderBox.center[destination.axis.line]);
+	
+	  if (!movingRelativeTo) {
+	    var _newCenter = moveToEdge({
+	      source: draggable.page.borderBox,
+	      sourceEdge: 'start',
+	      destination: destination.page.contentBox,
+	      destinationEdge: 'start',
+	      destinationAxis: axis
+	    });
+	
+	    var _newImpact = {
+	      movement: {
+	        displaced: [],
+	        amount: amount,
+	        isBeyondStartPosition: false
+	      },
+	      direction: axis.direction,
+	      destination: {
+	        droppableId: destination.descriptor.id,
+	        index: 0
+	      }
+	    };
+	    return {
+	      pageBorderBoxCenter: withDroppableDisplacement(destination, _newCenter),
+	      impact: _newImpact
+	    };
+	  }
+	
+	  var targetIndex = insideDestination.indexOf(movingRelativeTo);
+	  !(targetIndex !== -1) ? process.env.NODE_ENV !== "production" ? invariant(false, 'The target was not found within its droppable') : invariant(false) : void 0;
+	  var proposedIndex = isGoingBeforeTarget ? targetIndex : targetIndex + 1;
+	  var newCenter = moveToEdge({
+	    source: draggable.page.borderBox,
+	    sourceEdge: 'start',
+	    destination: movingRelativeTo.page.marginBox,
+	    destinationEdge: isGoingBeforeTarget ? 'start' : 'end',
+	    destinationAxis: axis
+	  });
+	  var displaced = insideDestination.slice(proposedIndex, insideDestination.length).map(function (dimension) {
+	    return getDisplacement({
+	      draggable: dimension,
+	      destination: destination,
+	      viewport: viewport.frame,
+	      previousImpact: previousImpact
+	    });
+	  });
+	  var newImpact = {
+	    movement: {
+	      displaced: displaced,
+	      amount: amount,
+	      isBeyondStartPosition: false
+	    },
+	    direction: axis.direction,
+	    destination: {
+	      droppableId: destination.descriptor.id,
+	      index: proposedIndex
+	    }
+	  };
+	  return {
+	    pageBorderBoxCenter: withDroppableDisplacement(destination, newCenter),
+	    impact: newImpact
+	  };
+	});
+	
+	var moveToNewDroppable = (function (_ref) {
+	  var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      destination = _ref.destination,
+	      insideDestination = _ref.insideDestination,
+	      draggable = _ref.draggable,
+	      movingRelativeTo = _ref.movingRelativeTo,
+	      home = _ref.home,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var amount = patch(destination.axis.line, draggable.client.marginBox[destination.axis.size]);
+	
+	  if (destination.descriptor.id === draggable.descriptor.droppableId) {
+	    !movingRelativeTo ? process.env.NODE_ENV !== "production" ? invariant(false, 'There will always be a target in the original list') : invariant(false) : void 0;
+	    return toHomeList({
+	      amount: amount,
+	      homeIndex: home.index,
+	      movingRelativeTo: movingRelativeTo,
+	      insideDestination: insideDestination,
+	      draggable: draggable,
+	      destination: destination,
+	      previousImpact: previousImpact,
+	      viewport: viewport
+	    });
+	  }
+	
+	  return toForeignList({
+	    amount: amount,
+	    pageBorderBoxCenter: pageBorderBoxCenter,
+	    movingRelativeTo: movingRelativeTo,
+	    insideDestination: insideDestination,
+	    draggable: draggable,
+	    destination: destination,
+	    previousImpact: previousImpact,
+	    viewport: viewport
+	  });
+	});
+	
+	var moveCrossAxis = (function (_ref) {
+	  var isMovingForward = _ref.isMovingForward,
+	      pageBorderBoxCenter = _ref.pageBorderBoxCenter,
+	      draggableId = _ref.draggableId,
+	      droppableId = _ref.droppableId,
+	      home = _ref.home,
+	      draggables = _ref.draggables,
+	      droppables = _ref.droppables,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport;
+	  var draggable = draggables[draggableId];
+	  var source = droppables[droppableId];
+	  var destination = getBestCrossAxisDroppable({
+	    isMovingForward: isMovingForward,
+	    pageBorderBoxCenter: pageBorderBoxCenter,
+	    source: source,
+	    droppables: droppables,
+	    viewport: viewport
+	  });
+	
+	  if (!destination) {
+	    return null;
+	  }
+	
+	  var insideDestination = getDraggablesInsideDroppable(destination, draggables);
+	  var movingRelativeTo = getClosestDraggable({
+	    axis: destination.axis,
+	    pageBorderBoxCenter: pageBorderBoxCenter,
+	    destination: destination,
+	    insideDestination: insideDestination,
+	    viewport: viewport
+	  });
+	
+	  if (insideDestination.length && !movingRelativeTo) {
+	    return null;
+	  }
+	
+	  return moveToNewDroppable({
+	    pageBorderBoxCenter: pageBorderBoxCenter,
+	    destination: destination,
+	    draggable: draggable,
+	    movingRelativeTo: movingRelativeTo,
+	    insideDestination: insideDestination,
+	    home: home,
+	    previousImpact: previousImpact || noImpact,
+	    viewport: viewport
+	  });
+	});
+	
+	var isTotallyVisibleInNewLocation = (function (_ref) {
+	  var draggable = _ref.draggable,
+	      destination = _ref.destination,
+	      newPageBorderBoxCenter = _ref.newPageBorderBoxCenter,
+	      viewport = _ref.viewport;
+	  var diff = subtract(newPageBorderBoxCenter, draggable.page.borderBox.center);
+	  var shifted = offsetByPosition(draggable.page.borderBox, diff);
+	  return isTotallyVisible({
+	    target: shifted,
+	    destination: destination,
+	    viewport: viewport
+	  });
+	});
+	
+	var withFirstAdded = function withFirstAdded(_ref) {
+	  var add = _ref.add,
+	      previousImpact = _ref.previousImpact,
+	      droppable = _ref.droppable,
+	      draggables = _ref.draggables,
+	      viewport = _ref.viewport;
+	  var newDisplacement = {
+	    draggableId: add,
+	    isVisible: true,
+	    shouldAnimate: true
+	  };
+	  var added = [newDisplacement].concat(previousImpact.movement.displaced);
+	  var withUpdatedVisibility = added.map(function (current) {
+	    if (current === newDisplacement) {
+	      return current;
+	    }
+	
+	    var updated = getDisplacement({
+	      draggable: draggables[current.draggableId],
+	      destination: droppable,
+	      previousImpact: previousImpact,
+	      viewport: viewport.frame
+	    });
+	    return updated;
+	  });
+	  return withUpdatedVisibility;
+	};
+	
+	var forceVisibleDisplacement = function forceVisibleDisplacement(current) {
+	  if (current.isVisible) {
+	    return current;
+	  }
+	
+	  return {
+	    draggableId: current.draggableId,
+	    isVisible: true,
+	    shouldAnimate: false
+	  };
+	};
+	
+	var withFirstRemoved = function withFirstRemoved(_ref2) {
+	  var dragging = _ref2.dragging,
+	      isVisibleInNewLocation = _ref2.isVisibleInNewLocation,
+	      previousImpact = _ref2.previousImpact,
+	      droppable = _ref2.droppable,
+	      draggables = _ref2.draggables;
+	  var last = previousImpact.movement.displaced;
+	  !last.length ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot remove displacement from empty list') : invariant(false) : void 0;
+	  var withFirstRestored = last.slice(1, last.length);
+	
+	  if (!withFirstRestored.length) {
+	    return withFirstRestored;
+	  }
+	
+	  if (isVisibleInNewLocation) {
+	    return withFirstRestored;
+	  }
+	
+	  var axis = droppable.axis;
+	  var sizeOfRestored = draggables[last[0].draggableId].page.marginBox[axis.size];
+	  var sizeOfDragging = draggables[dragging].page.marginBox[axis.size];
+	  var buffer = sizeOfRestored + sizeOfDragging;
+	  var withUpdatedVisibility = withFirstRestored.map(function (displacement, index) {
+	    if (index === 0) {
+	      return forceVisibleDisplacement(displacement);
+	    }
+	
+	    if (buffer > 0) {
+	      var current = draggables[displacement.draggableId];
+	      var size = current.page.marginBox[axis.size];
+	      buffer -= size;
+	      return forceVisibleDisplacement(displacement);
+	    }
+	
+	    return {
+	      draggableId: displacement.draggableId,
+	      isVisible: false,
+	      shouldAnimate: false
+	    };
+	  });
+	  return withUpdatedVisibility;
+	};
+	
+	var inHomeList$1 = (function (_ref) {
+	  var isMovingForward = _ref.isMovingForward,
+	      draggableId = _ref.draggableId,
+	      previousPageBorderBoxCenter = _ref.previousPageBorderBoxCenter,
+	      previousImpact = _ref.previousImpact,
+	      droppable = _ref.droppable,
+	      draggables = _ref.draggables,
+	      viewport = _ref.viewport;
+	  var location = previousImpact.destination;
+	  !location ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot move to next index in home list when there is no previous destination') : invariant(false) : void 0;
+	  var draggable = draggables[draggableId];
+	  var axis = droppable.axis;
+	  var insideDroppable = getDraggablesInsideDroppable(droppable, draggables);
+	  var startIndex = draggable.descriptor.index;
+	  var currentIndex = location.index;
+	  var proposedIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
+	
+	  if (proposedIndex > insideDroppable.length - 1) {
+	    return null;
+	  }
+	
+	  if (proposedIndex < 0) {
+	    return null;
+	  }
+	
+	  var destination = insideDroppable[proposedIndex];
+	  var isMovingTowardStart = isMovingForward && proposedIndex <= startIndex || !isMovingForward && proposedIndex >= startIndex;
+	
+	  var edge = function () {
+	    if (!isMovingTowardStart) {
+	      return isMovingForward ? 'end' : 'start';
+	    }
+	
+	    return isMovingForward ? 'start' : 'end';
+	  }();
+	
+	  var newPageBorderBoxCenter = moveToEdge({
+	    source: draggable.page.borderBox,
+	    sourceEdge: edge,
+	    destination: destination.page.borderBox,
+	    destinationEdge: edge,
+	    destinationAxis: droppable.axis
+	  });
+	  var isVisibleInNewLocation = isTotallyVisibleInNewLocation({
+	    draggable: draggable,
+	    destination: droppable,
+	    newPageBorderBoxCenter: newPageBorderBoxCenter,
+	    viewport: viewport.frame
+	  });
+	  var displaced = isMovingTowardStart ? withFirstRemoved({
+	    dragging: draggableId,
+	    isVisibleInNewLocation: isVisibleInNewLocation,
+	    previousImpact: previousImpact,
+	    droppable: droppable,
+	    draggables: draggables
+	  }) : withFirstAdded({
+	    add: destination.descriptor.id,
+	    previousImpact: previousImpact,
+	    droppable: droppable,
+	    draggables: draggables,
+	    viewport: viewport
+	  });
+	  var newImpact = {
+	    movement: {
+	      displaced: displaced,
+	      amount: patch(axis.line, draggable.page.marginBox[axis.size]),
+	      isBeyondStartPosition: proposedIndex > startIndex
+	    },
+	    destination: {
+	      droppableId: droppable.descriptor.id,
+	      index: proposedIndex
+	    },
+	    direction: droppable.axis.direction
+	  };
+	
+	  if (isVisibleInNewLocation) {
+	    return {
+	      pageBorderBoxCenter: withDroppableDisplacement(droppable, newPageBorderBoxCenter),
+	      impact: newImpact,
+	      scrollJumpRequest: null
+	    };
+	  }
+	
+	  var distance$$1 = subtract(newPageBorderBoxCenter, previousPageBorderBoxCenter);
+	  var distanceWithScroll = withDroppableDisplacement(droppable, distance$$1);
+	  return {
+	    pageBorderBoxCenter: previousPageBorderBoxCenter,
+	    impact: newImpact,
+	    scrollJumpRequest: distanceWithScroll
+	  };
+	});
+	
+	var inForeignList$1 = (function (_ref) {
+	  var isMovingForward = _ref.isMovingForward,
+	      draggableId = _ref.draggableId,
+	      previousImpact = _ref.previousImpact,
+	      previousPageBorderBoxCenter = _ref.previousPageBorderBoxCenter,
+	      droppable = _ref.droppable,
+	      draggables = _ref.draggables,
+	      viewport = _ref.viewport;
+	  !previousImpact.destination ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot move to next index where there is no previous destination') : invariant(false) : void 0;
+	  var location = previousImpact.destination;
+	  var draggable = draggables[draggableId];
+	  var axis = droppable.axis;
+	  var insideForeignDroppable = getDraggablesInsideDroppable(droppable, draggables);
+	  var currentIndex = location.index;
+	  var proposedIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
+	  var lastIndex = insideForeignDroppable.length - 1;
+	
+	  if (proposedIndex > insideForeignDroppable.length) {
+	    return null;
+	  }
+	
+	  if (proposedIndex < 0) {
+	    return null;
+	  }
+	
+	  var movingRelativeTo = insideForeignDroppable[Math.min(proposedIndex, lastIndex)];
+	  var isMovingPastLastIndex = proposedIndex > lastIndex;
+	  var sourceEdge = 'start';
+	
+	  var destinationEdge = function () {
+	    if (isMovingPastLastIndex) {
+	      return 'end';
+	    }
+	
+	    return 'start';
+	  }();
+	
+	  var newPageBorderBoxCenter = moveToEdge({
+	    source: draggable.page.borderBox,
+	    sourceEdge: sourceEdge,
+	    destination: movingRelativeTo.page.marginBox,
+	    destinationEdge: destinationEdge,
+	    destinationAxis: droppable.axis
+	  });
+	  var isVisibleInNewLocation = isTotallyVisibleInNewLocation({
+	    draggable: draggable,
+	    destination: droppable,
+	    newPageBorderBoxCenter: newPageBorderBoxCenter,
+	    viewport: viewport.frame
+	  });
+	
+	  var displaced = function () {
+	    if (isMovingForward) {
+	      return withFirstRemoved({
+	        dragging: draggableId,
+	        isVisibleInNewLocation: isVisibleInNewLocation,
+	        previousImpact: previousImpact,
+	        droppable: droppable,
+	        draggables: draggables
+	      });
+	    }
+	
+	    return withFirstAdded({
+	      add: movingRelativeTo.descriptor.id,
+	      previousImpact: previousImpact,
+	      droppable: droppable,
+	      draggables: draggables,
+	      viewport: viewport
+	    });
+	  }();
+	
+	  var newImpact = {
+	    movement: {
+	      displaced: displaced,
+	      amount: patch(axis.line, draggable.page.marginBox[axis.size]),
+	      isBeyondStartPosition: false
+	    },
+	    destination: {
+	      droppableId: droppable.descriptor.id,
+	      index: proposedIndex
+	    },
+	    direction: droppable.axis.direction
+	  };
+	
+	  if (isVisibleInNewLocation) {
+	    return {
+	      pageBorderBoxCenter: withDroppableDisplacement(droppable, newPageBorderBoxCenter),
+	      impact: newImpact,
+	      scrollJumpRequest: null
+	    };
+	  }
+	
+	  var distanceMoving = subtract(newPageBorderBoxCenter, previousPageBorderBoxCenter);
+	  var distanceWithScroll = withDroppableDisplacement(droppable, distanceMoving);
+	  return {
+	    pageBorderBoxCenter: previousPageBorderBoxCenter,
+	    impact: newImpact,
+	    scrollJumpRequest: distanceWithScroll
+	  };
+	});
+	
+	var moveToNextIndex = (function (args) {
+	  var draggableId = args.draggableId,
+	      draggables = args.draggables,
+	      droppable = args.droppable;
+	  var draggable = draggables[draggableId];
+	  var isInHomeList = draggable.descriptor.droppableId === droppable.descriptor.id;
+	
+	  if (!droppable.isEnabled) {
+	    return null;
+	  }
+	
+	  if (isInHomeList) {
+	    return inHomeList$1(args);
+	  }
+	
+	  return inForeignList$1(args);
+	});
+	
+	var getClientSelection = function getClientSelection(pageBorderBoxCenter, currentScroll) {
+	  return subtract(pageBorderBoxCenter, currentScroll);
+	};
+	
+	var moveInDirection = (function (_ref) {
+	  var state = _ref.state,
+	      type = _ref.type;
+	
+	  var _ref2 = function () {
+	    if (state.impact.destination) {
+	      return {
+	        droppable: state.dimensions.droppables[state.impact.destination.droppableId],
+	        isMainAxisMovementAllowed: true
+	      };
+	    }
+	
+	    return {
+	      droppable: state.dimensions.droppables[state.critical.droppable.id],
+	      isMainAxisMovementAllowed: false
+	    };
+	  }(),
+	      droppable = _ref2.droppable,
+	      isMainAxisMovementAllowed = _ref2.isMainAxisMovementAllowed;
+	
+	  var direction = droppable.axis.direction;
+	  var isMovingOnMainAxis = direction === 'vertical' && (type === 'MOVE_UP' || type === 'MOVE_DOWN') || direction === 'horizontal' && (type === 'MOVE_LEFT' || type === 'MOVE_RIGHT');
+	
+	  if (isMovingOnMainAxis && !isMainAxisMovementAllowed) {
+	    return null;
+	  }
+	
+	  var isMovingForward = type === 'MOVE_DOWN' || type === 'MOVE_RIGHT';
+	
+	  if (isMovingOnMainAxis) {
+	    var _result = moveToNextIndex({
+	      isMovingForward: isMovingForward,
+	      draggableId: state.critical.draggable.id,
+	      droppable: droppable,
+	      draggables: state.dimensions.draggables,
+	      previousPageBorderBoxCenter: state.current.page.borderBoxCenter,
+	      previousImpact: state.impact,
+	      viewport: state.viewport
+	    });
+	
+	    if (!_result) {
+	      return null;
+	    }
+	
+	    return {
+	      impact: _result.impact,
+	      clientSelection: getClientSelection(_result.pageBorderBoxCenter, state.viewport.scroll.current),
+	      scrollJumpRequest: _result.scrollJumpRequest
+	    };
+	  }
+	
+	  var home = getHomeLocation(state.critical);
+	  var result = moveCrossAxis({
+	    isMovingForward: isMovingForward,
+	    pageBorderBoxCenter: state.current.page.borderBoxCenter,
+	    draggableId: state.critical.draggable.id,
+	    droppableId: droppable.descriptor.id,
+	    home: home,
+	    draggables: state.dimensions.draggables,
+	    droppables: state.dimensions.droppables,
+	    previousImpact: state.impact,
+	    viewport: state.viewport
+	  });
+	
+	  if (!result) {
+	    return null;
+	  }
+	
+	  return {
+	    clientSelection: getClientSelection(result.pageBorderBoxCenter, state.viewport.scroll.current),
+	    impact: result.impact,
+	    scrollJumpRequest: null
+	  };
+	});
+	
+	var scrollViewport = (function (viewport, newScroll) {
+	  var diff = subtract(newScroll, viewport.scroll.initial);
+	  var displacement = negate(diff);
+	  var frame = cssBoxModel.getRect({
+	    top: newScroll.y,
+	    bottom: newScroll.y + viewport.frame.height,
+	    left: newScroll.x,
+	    right: newScroll.x + viewport.frame.width
+	  });
+	  var updated = {
+	    frame: frame,
+	    scroll: {
+	      initial: viewport.scroll.initial,
+	      max: viewport.scroll.max,
+	      current: newScroll,
+	      diff: {
+	        value: diff,
+	        displacement: displacement
+	      }
+	    }
+	  };
+	  return updated;
+	});
+	
+	var getHomeImpact = (function (critical, dimensions) {
+	  var home = dimensions.droppables[critical.droppable.id];
+	  var axis = home.axis;
+	  var draggable = dimensions.draggables[critical.draggable.id];
+	  return {
+	    movement: {
+	      displaced: [],
+	      isBeyondStartPosition: false,
+	      amount: patch(axis.line, draggable.client.marginBox[axis.size])
+	    },
+	    direction: axis.direction,
+	    destination: getHomeLocation(critical)
+	  };
+	});
+	
+	var getPageItemPositions = (function (client, windowScroll) {
+	  return {
+	    selection: add(client.selection, windowScroll),
+	    borderBoxCenter: add(client.borderBoxCenter, windowScroll),
+	    offset: add(client.offset, windowScroll)
+	  };
+	});
+	
+	function isMovementAllowed(state) {
+	  return state.phase === 'DRAGGING' || state.phase === 'COLLECTING';
+	}
+	
+	var idle = {
+	  phase: 'IDLE'
+	};
+	var preparing = {
+	  phase: 'PREPARING'
+	};
+	
+	var moveWithPositionUpdates = function moveWithPositionUpdates(_ref) {
+	  var state = _ref.state,
+	      clientSelection = _ref.clientSelection,
+	      shouldAnimate = _ref.shouldAnimate,
+	      viewport = _ref.viewport,
+	      impact = _ref.impact,
+	      scrollJumpRequest = _ref.scrollJumpRequest;
+	  var newViewport = viewport || state.viewport;
+	  var currentWindowScroll = newViewport.scroll.current;
+	
+	  var client = function () {
+	    var offset = subtract(clientSelection, state.initial.client.selection);
+	    return {
+	      offset: offset,
+	      selection: clientSelection,
+	      borderBoxCenter: add(state.initial.client.borderBoxCenter, offset)
+	    };
+	  }();
+	
+	  var page = getPageItemPositions(client, currentWindowScroll);
+	  var current = {
+	    client: client,
+	    page: page
+	  };
+	
+	  if (state.phase === 'COLLECTING') {
+	    return _extends({
+	      phase: 'COLLECTING'
+	    }, state, {
+	      current: current
+	    });
+	  }
+	
+	  var newImpact = impact || getDragImpact({
+	    pageBorderBoxCenter: page.borderBoxCenter,
+	    draggable: state.dimensions.draggables[state.critical.draggable.id],
+	    draggables: state.dimensions.draggables,
+	    droppables: state.dimensions.droppables,
+	    previousImpact: state.impact,
+	    viewport: newViewport
+	  });
+	
+	  var result = _extends({}, state, {
+	    current: current,
+	    shouldAnimate: shouldAnimate,
+	    impact: newImpact,
+	    scrollJumpRequest: scrollJumpRequest || null,
+	    viewport: newViewport
+	  });
+	
+	  return result;
+	};
+	
+	var reducer = (function (state, action) {
+	  if (state === void 0) {
+	    state = idle;
+	  }
+	
+	  if (action.type === 'CLEAN') {
+	    return idle;
+	  }
+	
+	  if (action.type === 'PREPARE') {
+	    return preparing;
+	  }
+	
+	  if (action.type === 'INITIAL_PUBLISH') {
+	    !(state.phase === 'PREPARING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'INITIAL_PUBLISH must come after a PREPARING phase') : invariant(false) : void 0;
+	    var _action$payload = action.payload,
+	        critical = _action$payload.critical,
+	        client = _action$payload.client,
+	        viewport = _action$payload.viewport,
+	        dimensions = _action$payload.dimensions,
+	        autoScrollMode = _action$payload.autoScrollMode;
+	    var initial = {
+	      client: client,
+	      page: {
+	        selection: add(client.selection, viewport.scroll.initial),
+	        borderBoxCenter: add(client.selection, viewport.scroll.initial),
+	        offset: origin
+	      }
+	    };
+	    var result = {
+	      phase: 'DRAGGING',
+	      isDragging: true,
+	      critical: critical,
+	      autoScrollMode: autoScrollMode,
+	      dimensions: dimensions,
+	      initial: initial,
+	      current: initial,
+	      impact: getHomeImpact(critical, dimensions),
+	      viewport: viewport,
+	      scrollJumpRequest: null,
+	      shouldAnimate: false
+	    };
+	    return result;
+	  }
+	
+	  if (action.type === 'COLLECTION_STARTING') {
+	    var _extends2;
+	
+	    if (state.phase === 'COLLECTING' || state.phase === 'DROP_PENDING') {
+	      return state;
+	    }
+	
+	    !(state.phase === 'DRAGGING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Collection cannot start from phase " + state.phase) : invariant(false) : void 0;
+	
+	    var _result = _extends({
+	      phase: 'COLLECTING'
+	    }, state, (_extends2 = {}, _extends2["phase"] = 'COLLECTING', _extends2));
+	
+	    return _result;
+	  }
+	
+	  if (action.type === 'PUBLISH') {
+	    !(state.phase === 'COLLECTING' || state.phase === 'DROP_PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Unexpected " + action.type + " received in phase " + state.phase) : invariant(false) : void 0;
+	    process.env.NODE_ENV !== "production" ? invariant(false, "Dynamic additions and removals of Draggable and Droppable components\n      is currently not supported. But will be soon!") : invariant(false);
+	  }
+	
+	  if (action.type === 'MOVE') {
+	    if (state.phase === 'PREPARING') {
+	      return state;
+	    }
+	
+	    if (state.phase === 'DROP_PENDING') {
+	      return state;
+	    }
+	
+	    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, action.type + " not permitted in phase " + state.phase) : invariant(false) : void 0;
+	    var _action$payload2 = action.payload,
+	        _client = _action$payload2.client,
+	        shouldAnimate = _action$payload2.shouldAnimate;
+	
+	    if (state.shouldAnimate === shouldAnimate && isEqual(_client, state.current.client.selection)) {
+	      return state;
+	    }
+	
+	    var impact = state.autoScrollMode === 'JUMP' ? state.impact : null;
+	    return moveWithPositionUpdates({
+	      state: state,
+	      clientSelection: _client,
+	      impact: impact,
+	      shouldAnimate: shouldAnimate
+	    });
+	  }
+	
+	  if (action.type === 'UPDATE_DROPPABLE_SCROLL') {
+	    var _extends3, _extends4;
+	
+	    if (state.phase === 'PREPARING') {
+	      return state;
+	    }
+	
+	    if (state.phase === 'DROP_PENDING') {
+	      return state;
+	    }
+	
+	    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, action.type + " not permitted in phase " + state.phase) : invariant(false) : void 0;
+	    var _action$payload3 = action.payload,
+	        id = _action$payload3.id,
+	        offset = _action$payload3.offset;
+	    var target = state.dimensions.droppables[id];
+	
+	    if (!target) {
+	      return state;
+	    }
+	
+	    var updated = scrollDroppable(target, offset);
+	
+	    var _dimensions = _extends({}, state.dimensions, {
+	      droppables: _extends({}, state.dimensions.droppables, (_extends3 = {}, _extends3[id] = updated, _extends3))
+	    });
+	
+	    var _impact = function () {
+	      !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
+	
+	      if (state.autoScrollMode === 'JUMP') {
+	        return state.impact;
+	      }
+	
+	      return getDragImpact({
+	        pageBorderBoxCenter: state.current.page.borderBoxCenter,
+	        draggable: _dimensions.draggables[state.critical.draggable.id],
+	        draggables: _dimensions.draggables,
+	        droppables: _dimensions.droppables,
+	        previousImpact: state.impact,
+	        viewport: state.viewport
+	      });
+	    }();
+	
+	    return _extends({
+	      phase: 'DRAGGING'
+	    }, state, (_extends4 = {}, _extends4["phase"] = state.phase, _extends4.impact = _impact, _extends4.dimensions = _dimensions, _extends4.scrollJumpRequest = null, _extends4));
+	  }
+	
+	  if (action.type === 'UPDATE_DROPPABLE_IS_ENABLED') {
+	    var _extends5, _extends6;
+	
+	    if (state.phase === 'DROP_PENDING') {
+	      return state;
+	    }
+	
+	    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, "Attempting to move in an unsupported phase " + state.phase) : invariant(false) : void 0;
+	    var _action$payload4 = action.payload,
+	        _id = _action$payload4.id,
+	        isEnabled = _action$payload4.isEnabled;
+	    var _target = state.dimensions.droppables[_id];
+	    !_target ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot find Droppable[id: " + _id + "] to toggle its enabled state") : invariant(false) : void 0;
+	    !(_target.isEnabled !== isEnabled) ? process.env.NODE_ENV !== "production" ? invariant(false, "Trying to set droppable isEnabled to " + String(isEnabled) + "\n      but it is already " + String(_target.isEnabled)) : invariant(false) : void 0;
+	
+	    var _updated = _extends({}, _target, {
+	      isEnabled: isEnabled
+	    });
+	
+	    var _dimensions2 = _extends({}, state.dimensions, {
+	      droppables: _extends({}, state.dimensions.droppables, (_extends5 = {}, _extends5[_id] = _updated, _extends5))
+	    });
+	
+	    var _impact2 = getDragImpact({
+	      pageBorderBoxCenter: state.current.page.borderBoxCenter,
+	      draggable: _dimensions2.draggables[state.critical.draggable.id],
+	      draggables: _dimensions2.draggables,
+	      droppables: _dimensions2.droppables,
+	      previousImpact: state.impact,
+	      viewport: state.viewport
+	    });
+	
+	    return _extends({
+	      phase: 'DRAGGING'
+	    }, state, (_extends6 = {}, _extends6["phase"] = state.phase, _extends6.impact = _impact2, _extends6.dimensions = _dimensions2, _extends6));
+	  }
+	
+	  if (action.type === 'MOVE_BY_WINDOW_SCROLL') {
+	    if (state.phase === 'PREPARING') {
+	      return state;
+	    }
+	
+	    if (state.phase === 'DROP_PENDING' || state.phase === 'DROP_ANIMATING') {
+	      return state;
+	    }
+	
+	    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot move by window in phase " + state.phase) : invariant(false) : void 0;
+	    var newScroll = action.payload.scroll;
+	
+	    if (isEqual(state.viewport.scroll.current, newScroll)) {
+	      return state;
+	    }
+	
+	    var isJumpScrolling = state.autoScrollMode === 'JUMP';
+	
+	    var _impact3 = isJumpScrolling ? state.impact : null;
+	
+	    var _viewport = scrollViewport(state.viewport, newScroll);
+	
+	    return moveWithPositionUpdates({
+	      state: state,
+	      clientSelection: state.current.client.selection,
+	      viewport: _viewport,
+	      shouldAnimate: false,
+	      impact: _impact3
+	    });
+	  }
+	
+	  if (action.type === 'UPDATE_VIEWPORT_MAX_SCROLL') {
+	    var _extends7;
+	
+	    !state.isDragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot update the max viewport scroll if not dragging') : invariant(false) : void 0;
+	    var existing = state.viewport;
+	
+	    var _viewport2 = _extends({}, existing, {
+	      scroll: _extends({}, existing.scroll, {
+	        max: action.payload
+	      })
+	    });
+	
+	    return _extends({
+	      phase: 'DRAGGING'
+	    }, state, (_extends7 = {}, _extends7["phase"] = state.phase, _extends7.viewport = _viewport2, _extends7));
+	  }
+	
+	  if (action.type === 'MOVE_UP' || action.type === 'MOVE_DOWN' || action.type === 'MOVE_LEFT' || action.type === 'MOVE_RIGHT') {
+	    if (state.phase === 'PREPARING') {
+	      return state;
+	    }
+	
+	    if (state.phase === 'COLLECTING' || state.phase === 'DROP_PENDING') {
+	      return state;
+	    }
+	
+	    !(state.phase === 'DRAGGING') ? process.env.NODE_ENV !== "production" ? invariant(false, action.type + " received while not in DRAGGING phase") : invariant(false) : void 0;
+	
+	    var _result2 = moveInDirection({
+	      state: state,
+	      type: action.type
+	    });
+	
+	    if (!_result2) {
+	      return state;
+	    }
+	
+	    return moveWithPositionUpdates({
+	      state: state,
+	      impact: _result2.impact,
+	      clientSelection: _result2.clientSelection,
+	      shouldAnimate: true,
+	      scrollJumpRequest: _result2.scrollJumpRequest
+	    });
+	  }
+	
+	  if (action.type === 'DROP_PENDING') {
+	    var _extends8;
+	
+	    var reason = action.payload.reason;
+	    !(state.phase === 'COLLECTING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Can only move into the DROP_PENDING phase from the COLLECTING phase') : invariant(false) : void 0;
+	
+	    var newState = _extends({
+	      phase: 'DROP_PENDING'
+	    }, state, (_extends8 = {}, _extends8["phase"] = 'DROP_PENDING', _extends8.isWaiting = true, _extends8.reason = reason, _extends8));
+	
+	    return newState;
+	  }
+	
+	  if (action.type === 'DROP_ANIMATE') {
+	    var pending = action.payload;
+	    !(state.phase === 'DRAGGING' || state.phase === 'DROP_PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot animate drop from phase " + state.phase) : invariant(false) : void 0;
+	    var _result3 = {
+	      phase: 'DROP_ANIMATING',
+	      pending: pending,
+	      dimensions: state.dimensions
+	    };
+	    return _result3;
+	  }
+	
+	  if (action.type === 'DROP_COMPLETE') {
+	    return idle;
+	  }
+	
+	  return state;
+	});
+	
+	var lift = function lift(args) {
+	  return {
+	    type: 'LIFT',
+	    payload: args
+	  };
+	};
+	var initialPublish = function initialPublish(args) {
+	  return {
+	    type: 'INITIAL_PUBLISH',
+	    payload: args
+	  };
+	};
+	var publish = function publish(args) {
+	  return {
+	    type: 'PUBLISH',
+	    payload: args
+	  };
+	};
+	var collectionStarting = function collectionStarting() {
+	  return {
+	    type: 'COLLECTION_STARTING',
+	    payload: null
+	  };
+	};
+	var updateDroppableScroll = function updateDroppableScroll(args) {
+	  return {
+	    type: 'UPDATE_DROPPABLE_SCROLL',
+	    payload: args
+	  };
+	};
+	var updateDroppableIsEnabled = function updateDroppableIsEnabled(args) {
+	  return {
+	    type: 'UPDATE_DROPPABLE_IS_ENABLED',
+	    payload: args
+	  };
+	};
+	var move = function move(args) {
+	  return {
+	    type: 'MOVE',
+	    payload: args
+	  };
+	};
+	var moveByWindowScroll = function moveByWindowScroll(args) {
+	  return {
+	    type: 'MOVE_BY_WINDOW_SCROLL',
+	    payload: args
+	  };
+	};
+	var updateViewportMaxScroll = function updateViewportMaxScroll(max) {
+	  return {
+	    type: 'UPDATE_VIEWPORT_MAX_SCROLL',
+	    payload: max
+	  };
+	};
+	var moveUp = function moveUp() {
+	  return {
+	    type: 'MOVE_UP',
+	    payload: null
+	  };
+	};
+	var moveDown = function moveDown() {
+	  return {
+	    type: 'MOVE_DOWN',
+	    payload: null
+	  };
+	};
+	var moveRight = function moveRight() {
+	  return {
+	    type: 'MOVE_RIGHT',
+	    payload: null
+	  };
+	};
+	var moveLeft = function moveLeft() {
+	  return {
+	    type: 'MOVE_LEFT',
+	    payload: null
+	  };
+	};
+	var clean = function clean() {
+	  return {
+	    type: 'CLEAN',
+	    payload: null
+	  };
+	};
+	var prepare = function prepare() {
+	  return {
+	    type: 'PREPARE',
+	    payload: null
+	  };
+	};
+	var animateDrop = function animateDrop(pending) {
+	  return {
+	    type: 'DROP_ANIMATE',
+	    payload: pending
+	  };
+	};
+	var completeDrop = function completeDrop(result) {
+	  return {
+	    type: 'DROP_COMPLETE',
+	    payload: result
+	  };
+	};
+	var drop = function drop(args) {
+	  return {
+	    type: 'DROP',
+	    payload: args
+	  };
+	};
+	var dropPending = function dropPending(args) {
+	  return {
+	    type: 'DROP_PENDING',
+	    payload: args
+	  };
+	};
+	var dropAnimationFinished = function dropAnimationFinished() {
+	  return {
+	    type: 'DROP_ANIMATION_FINISHED',
+	    payload: null
+	  };
+	};
+	
+	var lift$1 = (function (getMarshal) {
+	  var timeoutId = null;
+	
+	  var tryAbortCriticalCollection = function tryAbortCriticalCollection() {
+	    if (timeoutId == null) {
+	      return;
+	    }
+	
+	    clearTimeout(timeoutId);
+	    timeoutId = null;
+	  };
+	
+	  return function (_ref) {
+	    var getState = _ref.getState,
+	        dispatch = _ref.dispatch;
+	    return function (next) {
+	      return function (action) {
+	        if (action.type === 'CLEAN') {
+	          tryAbortCriticalCollection();
+	          next(action);
+	          return;
+	        }
+	
+	        if (action.type !== 'LIFT') {
+	          next(action);
+	          return;
+	        }
+	
+	        !!timeoutId ? process.env.NODE_ENV !== "production" ? invariant(false, 'There should not be a pending complete lift phase when a lift action is fired') : invariant(false) : void 0;
+	        var marshal = getMarshal();
+	        var _action$payload = action.payload,
+	            id = _action$payload.id,
+	            client = _action$payload.client,
+	            autoScrollMode = _action$payload.autoScrollMode,
+	            viewport = _action$payload.viewport;
+	        var initial = getState();
+	
+	        if (initial.phase === 'DROP_ANIMATING') {
+	          dispatch(completeDrop(initial.pending.result));
+	        }
+	
+	        var postFlushState = getState();
+	        !(postFlushState.phase === 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Incorrect phase to start a drag') : invariant(false) : void 0;
+	        dispatch(prepare());
+	        timeoutId = setTimeout(function () {
+	          timeoutId = null;
+	          var state = getState();
+	          !(state.phase === 'PREPARING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Invalid phase for completing lift') : invariant(false) : void 0;
+	          var scrollOptions = {
+	            shouldPublishImmediately: autoScrollMode === 'JUMP'
+	          };
+	          var request = {
+	            draggableId: id,
+	            scrollOptions: scrollOptions
+	          };
+	
+	          var _marshal$startPublish = marshal.startPublishing(request, viewport.scroll.current),
+	              critical = _marshal$startPublish.critical,
+	              dimensions = _marshal$startPublish.dimensions;
+	
+	          dispatch(initialPublish({
+	            critical: critical,
+	            dimensions: dimensions,
+	            client: client,
+	            autoScrollMode: autoScrollMode,
+	            viewport: viewport
+	          }));
+	        });
+	      };
+	    };
+	  };
+	});
+	
+	var style = (function (marshal) {
+	  return function () {
+	    return function (next) {
+	      return function (action) {
+	        if (action.type === 'INITIAL_PUBLISH') {
+	          marshal.dragging();
+	        }
+	
+	        if (action.type === 'COLLECTION_STARTING') {
+	          marshal.collecting();
+	        }
+	
+	        if (action.type === 'PUBLISH') {
+	          marshal.dragging();
+	        }
+	
+	        if (action.type === 'DROP_ANIMATE') {
+	          marshal.dropping(action.payload.result.reason);
+	        }
+	
+	        if (action.type === 'CLEAN' || action.type === 'DROP_COMPLETE') {
+	          marshal.resting();
+	        }
+	
+	        next(action);
+	      };
+	    };
+	  };
+	});
+	
+	var getNewHomeClientBorderBoxCenter = (function (_ref) {
+	  var movement = _ref.movement,
+	      draggable = _ref.draggable,
+	      draggables = _ref.draggables,
+	      destination = _ref.destination;
+	  var originalCenter = draggable.client.borderBox.center;
+	
+	  if (destination == null) {
+	    return originalCenter;
+	  }
+	
+	  var displaced = movement.displaced,
+	      isBeyondStartPosition = movement.isBeyondStartPosition;
+	  var axis = destination.axis;
+	  var isWithinHomeDroppable = destination.descriptor.id === draggable.descriptor.droppableId;
+	
+	  if (isWithinHomeDroppable && !displaced.length) {
+	    return originalCenter;
+	  }
+	
+	  var draggablesInDestination = getDraggablesInsideDroppable(destination, draggables);
+	
+	  var movingRelativeTo = function () {
+	    if (isWithinHomeDroppable) {
+	      return draggables[displaced[0].draggableId].client.borderBox;
+	    }
+	
+	    if (displaced.length) {
+	      return draggables[displaced[0].draggableId].client.borderBox;
+	    }
+	
+	    if (draggablesInDestination.length) {
+	      return draggablesInDestination[draggablesInDestination.length - 1].client.marginBox;
+	    }
+	
+	    return destination.client.contentBox;
+	  }();
+	
+	  var _ref2 = function () {
+	    if (isWithinHomeDroppable) {
+	      if (isBeyondStartPosition) {
+	        return {
+	          sourceEdge: 'end',
+	          destinationEdge: 'end'
+	        };
+	      }
+	
+	      return {
+	        sourceEdge: 'start',
+	        destinationEdge: 'start'
+	      };
+	    }
+	
+	    if (!displaced.length && draggablesInDestination.length) {
+	      return {
+	        sourceEdge: 'start',
+	        destinationEdge: 'end'
+	      };
+	    }
+	
+	    return {
+	      sourceEdge: 'start',
+	      destinationEdge: 'start'
+	    };
+	  }(),
+	      sourceEdge = _ref2.sourceEdge,
+	      destinationEdge = _ref2.destinationEdge;
+	
+	  var source = draggable.client.borderBox;
+	  var targetCenter = moveToEdge({
+	    source: source,
+	    sourceEdge: sourceEdge,
+	    destination: movingRelativeTo,
+	    destinationEdge: destinationEdge,
+	    destinationAxis: axis
+	  });
+	  return targetCenter;
+	});
+	
+	var getScrollDisplacement = function getScrollDisplacement(droppable, viewport) {
+	  return withDroppableDisplacement(droppable, viewport.scroll.diff.displacement);
+	};
+	
+	var drop$1 = (function (_ref) {
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	      if (action.type !== 'DROP') {
+	        next(action);
+	        return;
+	      }
+	
+	      var state = getState();
+	      var reason = action.payload.reason;
+	
+	      if (state.phase === 'COLLECTING') {
+	        dispatch(dropPending({
+	          reason: reason
+	        }));
+	        return;
+	      }
+	
+	      if (state.phase === 'PREPARING') {
+	        dispatch(clean());
+	        return;
+	      }
+	
+	      if (state.phase === 'IDLE') {
+	        return;
+	      }
+	
+	      var isWaitingForDrop = state.phase === 'DROP_PENDING' && state.isWaiting;
+	      !!isWaitingForDrop ? process.env.NODE_ENV !== "production" ? invariant(false, 'A DROP action occurred while DROP_PENDING and still waiting') : invariant(false) : void 0;
+	      !(state.phase === 'DRAGGING' || state.phase === 'DROP_PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot drop in phase: " + state.phase) : invariant(false) : void 0;
+	      var critical = state.critical;
+	      var dimensions = state.dimensions;
+	      var impact = reason === 'DROP' ? state.impact : noImpact;
+	      var home = dimensions.droppables[state.critical.droppable.id];
+	      var draggable = dimensions.draggables[state.critical.draggable.id];
+	      var droppable = impact && impact.destination ? dimensions.droppables[impact.destination.droppableId] : null;
+	      var source = {
+	        index: critical.draggable.index,
+	        droppableId: critical.droppable.id
+	      };
+	      var destination = reason === 'DROP' ? impact.destination : null;
+	      var result = {
+	        draggableId: draggable.descriptor.id,
+	        type: home.descriptor.type,
+	        source: source,
+	        destination: destination,
+	        reason: reason
+	      };
+	
+	      var clientOffset = function () {
+	        if (reason === 'CANCEL') {
+	          return origin;
+	        }
+	
+	        var newBorderBoxClientCenter = getNewHomeClientBorderBoxCenter({
+	          movement: impact.movement,
+	          draggable: draggable,
+	          draggables: dimensions.draggables,
+	          destination: droppable
+	        });
+	        return subtract(newBorderBoxClientCenter, draggable.client.borderBox.center);
+	      }();
+	
+	      var newHomeOffset = add(clientOffset, getScrollDisplacement(droppable || home, state.viewport));
+	      var isAnimationRequired = !isEqual(state.current.client.offset, newHomeOffset);
+	      var pending = {
+	        newHomeOffset: newHomeOffset,
+	        result: result,
+	        impact: impact
+	      };
+	
+	      if (isAnimationRequired) {
+	        dispatch(animateDrop(pending));
+	        return;
+	      }
+	
+	      dispatch(completeDrop(result));
+	    };
+	  };
+	});
+	
+	var onDragStart = function onDragStart(start) {
+	  return "\n  You have lifted an item in position " + (start.source.index + 1) + ".\n  Use the arrow keys to move, space bar to drop, and escape to cancel.\n";
+	};
+	
+	var onDragUpdate = function onDragUpdate(update) {
+	  if (!update.destination) {
+	    return 'You are currently not dragging over a droppable area';
+	  }
+	
+	  if (update.source.droppableId === update.destination.droppableId) {
+	    return "You have moved the item to position " + (update.destination.index + 1);
+	  }
+	
+	  return "\n    You have moved the item from list " + update.source.droppableId + " in position " + (update.source.index + 1) + "\n    to list " + update.destination.droppableId + " in position " + (update.destination.index + 1) + "\n  ";
+	};
+	
+	var onDragEnd = function onDragEnd(result) {
+	  if (result.reason === 'CANCEL') {
+	    return "\n      Movement cancelled.\n      The item has returned to its starting position of " + (result.source.index + 1) + "\n    ";
+	  }
+	
+	  if (!result.destination) {
+	    return "\n      The item has been dropped while not over a droppable location.\n      The item has returned to its starting position of " + (result.source.index + 1) + "\n    ";
+	  }
+	
+	  if (result.source.droppableId === result.destination.droppableId) {
+	    if (result.source.index === result.destination.index) {
+	      return "\n        You have dropped the item.\n        It has been dropped on its starting position of " + (result.source.index + 1) + "\n      ";
+	    }
+	
+	    return "\n      You have dropped the item.\n      It has moved from position " + (result.source.index + 1) + " to " + (result.destination.index + 1) + "\n    ";
+	  }
+	
+	  return "\n    You have dropped the item.\n    It has moved from position " + (result.source.index + 1) + " in list " + result.source.droppableId + "\n    to position " + (result.destination.index + 1) + " in list " + result.destination.droppableId + "\n  ";
+	};
+	
+	var preset = {
+	  onDragStart: onDragStart,
+	  onDragUpdate: onDragUpdate,
+	  onDragEnd: onDragEnd
+	};
+	
+	var records = {};
+	var flag = '__react-beautiful-dnd-debug-timings-hook__';
+	
+	var isTimingsEnabled = function isTimingsEnabled() {
+	  return Boolean(window[flag]);
+	};
+	
+	var start = function start(key) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (!isTimingsEnabled()) {
+	      return;
+	    }
+	
+	    var now = performance.now();
+	    records[key] = now;
+	  }
+	};
+	var finish = function finish(key) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (!isTimingsEnabled()) {
+	      return;
+	    }
+	
+	    var now = performance.now();
+	    var previous = records[key];
+	    !previous ? process.env.NODE_ENV !== "production" ? invariant(false, 'cannot finish timing as no previous time found') : invariant(false) : void 0;
+	    var result = now - previous;
+	    var rounded = result.toFixed(2);
+	
+	    var style = function () {
+	      if (result < 12) {
+	        return {
+	          textColor: 'green',
+	          symbol: '✅'
+	        };
+	      }
+	
+	      if (result < 40) {
+	        return {
+	          textColor: 'orange',
+	          symbol: '⚠️'
+	        };
+	      }
+	
+	      return {
+	        textColor: 'red',
+	        symbol: '❌'
+	      };
+	    }();
+	
+	    console.log(style.symbol + " %cTiming %c" + rounded + " %cms %c" + key, 'color: blue; font-weight: bold; ', "color: " + style.textColor + "; font-size: 1.1em;", 'color: grey;', 'color: purple; font-weight: bold;');
+	  }
+	};
+	
+	var withTimings = function withTimings(key, fn) {
+	  start(key);
+	  fn();
+	  finish(key);
+	};
+	
+	var areLocationsEqual = function areLocationsEqual(first, second) {
+	  if (first == null && second == null) {
+	    return true;
+	  }
+	
+	  if (first == null || second == null) {
+	    return false;
+	  }
+	
+	  return first.droppableId === second.droppableId && first.index === second.index;
+	};
+	
+	var isCriticalEqual = function isCriticalEqual(first, second) {
+	  if (first === second) {
+	    return true;
+	  }
+	
+	  var isDraggableEqual = first.draggable.id === second.draggable.id && first.draggable.droppableId === second.draggable.droppableId && first.draggable.type === second.draggable.type && first.draggable.index === second.draggable.index;
+	  var isDroppableEqual = first.droppable.id === second.droppable.id && first.droppable.type === second.droppable.type;
+	  return isDraggableEqual && isDroppableEqual;
+	};
+	
+	var getExpiringAnnounce = function getExpiringAnnounce(announce) {
+	  var wasCalled = false;
+	  var isExpired = false;
+	  setTimeout(function () {
+	    isExpired = true;
+	  });
+	
+	  var result = function result(message) {
+	    if (wasCalled) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        console.warn('Announcement already made. Not making a second announcement');
+	      }
+	
+	      return;
+	    }
+	
+	    if (isExpired) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        console.warn("\n          Announcements cannot be made asynchronously.\n          Default message has already been announced.\n        ");
+	      }
+	
+	      return;
+	    }
+	
+	    wasCalled = true;
+	    announce(message);
+	  };
+	
+	  result.wasCalled = function () {
+	    return wasCalled;
+	  };
+	
+	  return result;
+	};
+	
+	var getDragStart = function getDragStart(critical) {
+	  return {
+	    draggableId: critical.draggable.id,
+	    type: critical.droppable.type,
+	    source: {
+	      droppableId: critical.droppable.id,
+	      index: critical.draggable.index
+	    }
+	  };
+	};
+	
+	var hooks = (function (getHooks, announce) {
+	  var execute = function execute(hook, data, getDefaultMessage) {
+	    if (!hook) {
+	      announce(getDefaultMessage(data));
+	      return;
+	    }
+	
+	    var willExpire = getExpiringAnnounce(announce);
+	    var provided = {
+	      announce: willExpire
+	    };
+	    hook(data, provided);
+	
+	    if (!willExpire.wasCalled()) {
+	      announce(getDefaultMessage(data));
+	    }
+	  };
+	
+	  var publisher = function () {
+	    var lastLocation = null;
+	    var lastCritical = null;
+	    var _isDragStartPublished = false;
+	
+	    var beforeStart = function beforeStart(critical) {
+	      !!_isDragStartPublished ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onBeforeDragStart as a drag start has already been published') : invariant(false) : void 0;
+	      withTimings('onBeforeDragStart', function () {
+	        var fn = getHooks().onBeforeDragStart;
+	
+	        if (fn) {
+	          fn(getDragStart(critical));
+	        }
+	      });
+	    };
+	
+	    var start$$1 = function start$$1(critical) {
+	      !!_isDragStartPublished ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onBeforeDragStart as a drag start has already been published') : invariant(false) : void 0;
+	      var data = getDragStart(critical);
+	      lastCritical = critical;
+	      lastLocation = data.source;
+	      _isDragStartPublished = true;
+	      withTimings('onDragStart', function () {
+	        return execute(getHooks().onDragStart, data, preset.onDragStart);
+	      });
+	    };
+	
+	    var move = function move(critical, location) {
+	      !(_isDragStartPublished && lastCritical) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onDragMove when onDragStart has not been called') : invariant(false) : void 0;
+	      var hasCriticalChanged = !isCriticalEqual(critical, lastCritical);
+	
+	      if (hasCriticalChanged) {
+	        lastCritical = critical;
+	      }
+	
+	      var hasLocationChanged = !areLocationsEqual(lastLocation, location);
+	
+	      if (hasLocationChanged) {
+	        lastLocation = location;
+	      }
+	
+	      if (!hasCriticalChanged && !hasLocationChanged) {
+	        return;
+	      }
+	
+	      var data = _extends({}, getDragStart(critical), {
+	        destination: location
+	      });
+	
+	      withTimings('onDragUpdate', function () {
+	        return execute(getHooks().onDragUpdate, data, preset.onDragUpdate);
+	      });
+	    };
+	
+	    var drop = function drop(result) {
+	      !_isDragStartPublished ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onDragEnd when there is no matching onDragStart') : invariant(false) : void 0;
+	      _isDragStartPublished = false;
+	      lastLocation = null;
+	      lastCritical = null;
+	      withTimings('onDragEnd', function () {
+	        return execute(getHooks().onDragEnd, result, preset.onDragEnd);
+	      });
+	    };
+	
+	    var abort = function abort() {
+	      !(_isDragStartPublished && lastCritical) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot cancel when onDragStart not fired') : invariant(false) : void 0;
+	
+	      var result = _extends({}, getDragStart(lastCritical), {
+	        destination: null,
+	        reason: 'CANCEL'
+	      });
+	
+	      drop(result);
+	    };
+	
+	    return {
+	      beforeStart: beforeStart,
+	      start: start$$1,
+	      move: move,
+	      drop: drop,
+	      abort: abort,
+	      isDragStartPublished: function isDragStartPublished() {
+	        return _isDragStartPublished;
+	      }
+	    };
+	  }();
+	
+	  return function (store) {
+	    return function (next) {
+	      return function (action) {
+	        if (action.type === 'INITIAL_PUBLISH') {
+	          var critical = action.payload.critical;
+	          publisher.beforeStart(critical);
+	          next(action);
+	          publisher.start(critical);
+	          return;
+	        }
+	
+	        next(action);
+	
+	        if (action.type === 'DROP_COMPLETE') {
+	          var result = action.payload;
+	          publisher.drop(result);
+	          return;
+	        }
+	
+	        if (action.type === 'CLEAN') {
+	          if (publisher.isDragStartPublished()) {
+	            publisher.abort();
+	          }
+	
+	          return;
+	        }
+	
+	        if (!publisher.isDragStartPublished()) {
+	          return;
+	        }
+	
+	        var state = store.getState();
+	
+	        if (state.phase === 'DRAGGING') {
+	          publisher.move(state.critical, state.impact.destination);
+	        }
+	      };
+	    };
+	  };
+	});
+	
+	var dropAnimationFinish = (function (store) {
+	  return function (next) {
+	    return function (action) {
+	      if (action.type !== 'DROP_ANIMATION_FINISHED') {
+	        next(action);
+	        return;
+	      }
+	
+	      var state = store.getState();
+	      !(state.phase === 'DROP_ANIMATING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot finish a drop animating when no drop is occurring') : invariant(false) : void 0;
+	      store.dispatch(completeDrop(state.pending.result));
+	    };
+	  };
+	});
+	
+	var dimensionMarshalStopper = (function (getMarshal) {
+	  return function () {
+	    return function (next) {
+	      return function (action) {
+	        if (action.type === 'DROP_COMPLETE' || action.type === 'CLEAN' || action.type === 'DROP_ANIMATE') {
+	          var marshal = getMarshal();
+	          marshal.stopPublishing();
+	        }
+	
+	        next(action);
+	      };
+	    };
+	  };
+	});
+	
+	var shouldCancel = function shouldCancel(action) {
+	  return action.type === 'CANCEL' || action.type === 'DROP_ANIMATE' || action.type === 'DROP' || action.type === 'DROP_COMPLETE' || action.type === 'COLLECTION_STARTING';
+	};
+	
+	var autoScroll = (function (getScroller) {
+	  return function (store) {
+	    return function (next) {
+	      return function (action) {
+	        if (shouldCancel(action)) {
+	          getScroller().cancel();
+	          next(action);
+	          return;
+	        }
+	
+	        next(action);
+	        var state = store.getState();
+	
+	        if (state.phase !== 'DRAGGING') {
+	          return;
+	        }
+	
+	        if (state.autoScrollMode === 'FLUID') {
+	          getScroller().fluidScroll(state);
+	          return;
+	        }
+	
+	        if (!state.scrollJumpRequest) {
+	          return;
+	        }
+	
+	        getScroller().jumpScroll(state);
+	      };
+	    };
+	  };
+	});
+	
+	var shouldCheckOnAction = function shouldCheckOnAction(action) {
+	  return action.type === 'MOVE' || action.type === 'MOVE_UP' || action.type === 'MOVE_RIGHT' || action.type === 'MOVE_DOWN' || action.type === 'MOVE_LEFT' || action.type === 'MOVE_BY_WINDOW_SCROLL';
+	};
+	
+	var hasDroppableOverChanged = function hasDroppableOverChanged(previous, current) {
+	  if (!previous) {
+	    return Boolean(current);
+	  }
+	
+	  if (!current) {
+	    return Boolean(previous);
+	  }
+	
+	  return previous.droppableId !== current.droppableId;
+	};
+	
+	var getNewMaxScroll = function getNewMaxScroll(previous, current, action) {
+	  if (!shouldCheckOnAction(action)) {
+	    return null;
+	  }
+	
+	  if (!isMovementAllowed(previous) || !isMovementAllowed(current)) {
+	    return null;
+	  }
+	
+	  if (!hasDroppableOverChanged(previous.impact.destination, current.impact.destination)) {
+	    return null;
+	  }
+	
+	  var viewport = current.viewport;
+	  var doc = document.documentElement;
+	  !doc ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not find document.documentElement') : invariant(false) : void 0;
+	  var maxScroll = getMaxScroll({
+	    scrollHeight: doc.scrollHeight,
+	    scrollWidth: doc.scrollWidth,
+	    width: viewport.frame.width,
+	    height: viewport.frame.height
+	  });
+	
+	  if (isEqual(maxScroll, viewport.scroll.max)) {
+	    return null;
+	  }
+	
+	  return maxScroll;
+	};
+	
+	var maxScrollUpdater = (function (store) {
+	  return function (next) {
+	    return function (action) {
+	      var previous = store.getState();
+	      next(action);
+	      var current = store.getState();
+	      var maxScroll = getNewMaxScroll(previous, current, action);
+	
+	      if (maxScroll) {
+	        next(updateViewportMaxScroll(maxScroll));
+	      }
+	    };
+	  };
+	});
+	
+	var composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : redux.compose;
+	var createStore = (function (_ref) {
+	  var getDimensionMarshal = _ref.getDimensionMarshal,
+	      styleMarshal = _ref.styleMarshal,
+	      getHooks = _ref.getHooks,
+	      announce = _ref.announce,
+	      getScroller = _ref.getScroller;
+	  return redux.createStore(reducer, composeEnhancers(redux.applyMiddleware(style(styleMarshal), dimensionMarshalStopper(getDimensionMarshal), lift$1(getDimensionMarshal), drop$1, dropAnimationFinish, maxScrollUpdater, autoScroll(getScroller), hooks(getHooks, announce))));
+	});
+	
+	var getEmptyMap = function getEmptyMap() {
+	  return {
+	    draggables: {},
+	    droppables: {}
+	  };
+	};
+	
+	var timingKey = 'Publish collection from DOM';
+	var createPublisher = (function (_ref) {
+	  var getProvided = _ref.getProvided,
+	      callbacks = _ref.callbacks;
+	
+	  var advancedUsageWarning = function () {
+	    if (process.env.NODE_ENV === 'production') {
+	      return function () {};
+	    }
+	
+	    var hasAnnounced = false;
+	    return function () {
+	      if (hasAnnounced) {
+	        return;
+	      }
+	
+	      hasAnnounced = true;
+	
+	      if (process.env.NODE_ENV === 'production') {
+	        return;
+	      }
+	
+	      console.warn("\n        Advanced usage warning: you are adding or removing a dimension during a drag\n        This an advanced feature used to support dynamic interactions such as lazy loading lists.\n\n        Keep in mind the following restrictions:\n\n        - Draggable's can only be added to Droppable's that are scroll containers\n        - Adding a Droppable cannot impact the placement of other Droppables\n          (it cannot push a Droppable on the page)\n\n        (This warning will be stripped in production builds)\n      ".trim());
+	    };
+	  }();
+	
+	  var additions = getEmptyMap();
+	  var removals = getEmptyMap();
+	  var frameId = null;
+	
+	  var reset = function reset() {
+	    additions = getEmptyMap();
+	    removals = getEmptyMap();
+	  };
+	
+	  var collect = function collect() {
+	    advancedUsageWarning();
+	
+	    if (frameId) {
+	      return;
+	    }
+	
+	    frameId = requestAnimationFrame(function () {
+	      frameId = null;
+	      callbacks.collectionStarting();
+	      start(timingKey);
+	
+	      var _getProvided = getProvided(),
+	          entries = _getProvided.entries,
+	          collection = _getProvided.collection;
+	
+	      var windowScroll = collection.initialWindowScroll;
+	
+	      var draggables = _Object$keys(additions.draggables).map(function (id) {
+	        return entries.draggables[id].getDimension(windowScroll);
+	      });
+	
+	      var droppables = _Object$keys(additions.droppables).map(function (id) {
+	        return entries.droppables[id].callbacks.getDimensionAndWatchScroll(windowScroll, collection.scrollOptions);
+	      });
+	
+	      var result = {
+	        additions: {
+	          draggables: draggables,
+	          droppables: droppables
+	        },
+	        removals: {
+	          draggables: _Object$keys(removals.draggables),
+	          droppables: _Object$keys(removals.droppables)
+	        }
+	      };
+	      reset();
+	      finish(timingKey);
+	      callbacks.publish(result);
+	    });
+	  };
+	
+	  var addDraggable = function addDraggable(id) {
+	    additions.draggables[id] = true;
+	
+	    if (removals.draggables[id]) {
+	      delete removals.draggables[id];
+	    }
+	
+	    collect();
+	  };
+	
+	  var removeDraggable = function removeDraggable(id) {
+	    removals.draggables[id] = true;
+	
+	    if (additions.draggables[id]) {
+	      delete additions.draggables[id];
+	    }
+	
+	    collect();
+	  };
+	
+	  var addDroppable = function addDroppable(id) {
+	    additions.droppables[id] = true;
+	
+	    if (removals.droppables[id]) {
+	      delete removals.droppables[id];
+	    }
+	
+	    collect();
+	  };
+	
+	  var removeDroppable = function removeDroppable(id) {
+	    removals.droppables[id] = true;
+	
+	    if (additions.droppables[id]) {
+	      delete additions.droppables[id];
+	    }
+	
+	    collect();
+	  };
+	
+	  var stop = function stop() {
+	    if (!frameId) {
+	      return;
+	    }
+	
+	    cancelAnimationFrame(frameId);
+	    frameId = null;
+	    reset();
+	  };
+	
+	  return {
+	    addDraggable: addDraggable,
+	    removeDraggable: removeDraggable,
+	    addDroppable: addDroppable,
+	    removeDroppable: removeDroppable,
+	    stop: stop
+	  };
+	});
+	
+	var createDimensionMarshal = (function (callbacks) {
+	  var entries = {
+	    droppables: {},
+	    draggables: {}
+	  };
+	  var collection = null;
+	  var publisher = createPublisher({
+	    callbacks: {
+	      publish: callbacks.publish,
+	      collectionStarting: callbacks.collectionStarting
+	    },
+	    getProvided: function getProvided() {
+	      !collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get scroll options when there is no collection') : invariant(false) : void 0;
+	      return {
+	        entries: entries,
+	        collection: collection
+	      };
+	    }
+	  });
+	
+	  var registerDraggable = function registerDraggable(descriptor, getDimension) {
+	    var entry = {
+	      descriptor: descriptor,
+	      getDimension: getDimension
+	    };
+	    entries.draggables[descriptor.id] = entry;
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    if (collection.critical.draggable.type !== descriptor.type) {
+	      return;
+	    }
+	
+	    publisher.addDraggable(descriptor.id);
+	  };
+	
+	  var updateDraggable = function updateDraggable(previous, descriptor, getDimension) {
+	    !entries.draggables[previous.id] ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot update draggable registration as no previous registration was found') : invariant(false) : void 0;
+	    delete entries.draggables[previous.id];
+	    var entry = {
+	      descriptor: descriptor,
+	      getDimension: getDimension
+	    };
+	    entries.draggables[descriptor.id] = entry;
+	  };
+	
+	  var unregisterDraggable = function unregisterDraggable(descriptor) {
+	    var entry = entries.draggables[descriptor.id];
+	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot unregister Draggable with id " + descriptor.id + " as it is not registered") : invariant(false) : void 0;
+	
+	    if (entry.descriptor !== descriptor) {
+	      return;
+	    }
+	
+	    delete entries.draggables[descriptor.id];
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    !(collection.critical.draggable.id !== descriptor.id) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot remove the dragging item during a drag') : invariant(false) : void 0;
+	
+	    if (descriptor.type !== collection.critical.draggable.type) {
+	      return;
+	    }
+	
+	    publisher.removeDraggable(descriptor.id);
+	  };
+	
+	  var registerDroppable = function registerDroppable(descriptor, droppableCallbacks) {
+	    var id = descriptor.id;
+	    entries.droppables[id] = {
+	      descriptor: descriptor,
+	      callbacks: droppableCallbacks
+	    };
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    if (descriptor.type !== collection.critical.droppable.type) {
+	      return;
+	    }
+	
+	    publisher.addDroppable(id);
+	  };
+	
+	  var updateDroppable = function updateDroppable(previous, descriptor, droppableCallbacks) {
+	    !entries.droppables[previous.id] ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot update droppable registration as no previous registration was found') : invariant(false) : void 0;
+	    delete entries.droppables[previous.id];
+	    var entry = {
+	      descriptor: descriptor,
+	      callbacks: droppableCallbacks
+	    };
+	    entries.droppables[descriptor.id] = entry;
+	
+	    if (collection) {
+	      process.env.NODE_ENV !== "production" ? invariant(false, 'You are not able to update the id or type of a droppable during a drag') : invariant(false);
+	    }
+	  };
+	
+	  var unregisterDroppable = function unregisterDroppable(descriptor) {
+	    var entry = entries.droppables[descriptor.id];
+	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot unregister Droppable with id " + descriptor.id + " as as it is not registered") : invariant(false) : void 0;
+	
+	    if (entry.descriptor !== descriptor) {
+	      return;
+	    }
+	
+	    delete entries.droppables[descriptor.id];
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    !(collection.critical.droppable.id !== descriptor.id) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot remove the home Droppable during a drag') : invariant(false) : void 0;
+	
+	    if (collection.critical.droppable.type !== descriptor.type) {
+	      return;
+	    }
+	
+	    publisher.removeDroppable(descriptor.id);
+	  };
+	
+	  var updateDroppableIsEnabled = function updateDroppableIsEnabled(id, isEnabled) {
+	    !entries.droppables[id] ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update the scroll on Droppable " + id + " as it is not registered") : invariant(false) : void 0;
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    callbacks.updateDroppableIsEnabled({
+	      id: id,
+	      isEnabled: isEnabled
+	    });
+	  };
+	
+	  var updateDroppableScroll = function updateDroppableScroll(id, newScroll) {
+	    !entries.droppables[id] ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update the scroll on Droppable " + id + " as it is not registered") : invariant(false) : void 0;
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    callbacks.updateDroppableScroll({
+	      id: id,
+	      offset: newScroll
+	    });
+	  };
+	
+	  var scrollDroppable = function scrollDroppable(id, change) {
+	    var entry = entries.droppables[id];
+	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot scroll Droppable " + id + " as it is not registered") : invariant(false) : void 0;
+	
+	    if (!collection) {
+	      return;
+	    }
+	
+	    entry.callbacks.scroll(change);
+	  };
+	
+	  var getInitialPublish = function getInitialPublish(args) {
+	    var critical = args.critical,
+	        scrollOptions = args.scrollOptions,
+	        windowScroll = args.initialWindowScroll;
+	    var timingKey = 'Initial collection from DOM';
+	    start(timingKey);
+	    var home = critical.droppable;
+	
+	    var droppables = _Object$keys(entries.droppables).map(function (id) {
+	      return entries.droppables[id];
+	    }).filter(function (entry) {
+	      return entry.descriptor.type === home.type;
+	    }).map(function (entry) {
+	      return entry.callbacks.getDimensionAndWatchScroll(windowScroll, scrollOptions);
+	    }).reduce(function (previous, dimension) {
+	      previous[dimension.descriptor.id] = dimension;
+	      return previous;
+	    }, {});
+	
+	    var draggables = _Object$keys(entries.draggables).map(function (id) {
+	      return entries.draggables[id];
+	    }).filter(function (entry) {
+	      return entry.descriptor.type === critical.draggable.type;
+	    }).map(function (entry) {
+	      return entry.getDimension(windowScroll);
+	    }).reduce(function (previous, dimension) {
+	      previous[dimension.descriptor.id] = dimension;
+	      return previous;
+	    }, {});
+	
+	    finish(timingKey);
+	    var dimensions = {
+	      draggables: draggables,
+	      droppables: droppables
+	    };
+	    var result = {
+	      dimensions: dimensions,
+	      critical: critical
+	    };
+	    return result;
+	  };
+	
+	  var stopPublishing = function stopPublishing() {
+	    if (!collection) {
+	      return;
+	    }
+	
+	    publisher.stop();
+	    var home = collection.critical.droppable;
+	
+	    _Object$keys(entries.droppables).filter(function (id) {
+	      return entries.droppables[id].descriptor.type === home.type;
+	    }).forEach(function (id) {
+	      return entries.droppables[id].callbacks.unwatchScroll();
+	    });
+	
+	    collection = null;
+	  };
+	
+	  var startPublishing = function startPublishing(request, windowScroll) {
+	    !!collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start capturing critical dimensions as there is already a collection') : invariant(false) : void 0;
+	    var entry = entries.draggables[request.draggableId];
+	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find critical draggable entry') : invariant(false) : void 0;
+	    var home = entries.droppables[entry.descriptor.droppableId];
+	    !home ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find critical droppable entry') : invariant(false) : void 0;
+	    var critical = {
+	      draggable: entry.descriptor,
+	      droppable: home.descriptor
+	    };
+	    collection = {
+	      scrollOptions: request.scrollOptions,
+	      critical: critical,
+	      initialWindowScroll: windowScroll
+	    };
+	    return getInitialPublish(collection);
+	  };
+	
+	  var marshal = {
+	    registerDraggable: registerDraggable,
+	    updateDraggable: updateDraggable,
+	    unregisterDraggable: unregisterDraggable,
+	    registerDroppable: registerDroppable,
+	    updateDroppable: updateDroppable,
+	    unregisterDroppable: unregisterDroppable,
+	    updateDroppableIsEnabled: updateDroppableIsEnabled,
+	    scrollDroppable: scrollDroppable,
+	    updateDroppableScroll: updateDroppableScroll,
+	    startPublishing: startPublishing,
+	    stopPublishing: stopPublishing
+	  };
+	  return marshal;
+	});
+	
+	var physics = function () {
+	  var base = {
+	    stiffness: 1000,
+	    damping: 60,
+	    precision: 0.99
+	  };
+	
+	  var standard = _extends({}, base);
+	
+	  var fast = _extends({}, base, {
+	    stiffness: base.stiffness * 2
+	  });
+	
+	  return {
+	    standard: standard,
+	    fast: fast
+	  };
+	}();
+	var css = {
+	  outOfTheWay: 'transform 0.2s cubic-bezier(0.2, 0, 0, 1)'
+	};
+	
+	var prefix = 'data-react-beautiful-dnd';
+	var dragHandle = prefix + "-drag-handle";
+	var draggable = prefix + "-draggable";
+	var droppable = prefix + "-droppable";
+	
+	var getStyles = (function (styleContext) {
+	  var dragHandleSelector = "[" + dragHandle + "=\"" + styleContext + "\"]";
+	  var draggableSelector = "[" + draggable + "=\"" + styleContext + "\"]";
+	  var droppableSelector = "[" + droppable + "=\"" + styleContext + "\"]";
+	  var dragHandleStyles = {
+	    base: "\n      " + dragHandleSelector + " {\n        -webkit-touch-callout: none;\n        -webkit-tap-highlight-color: rgba(0,0,0,0);\n        touch-action: manipulation;\n      }\n    ",
+	    grabCursor: "\n      " + dragHandleSelector + " {\n        cursor: -webkit-grab;\n        cursor: grab;\n      }\n    ",
+	    blockPointerEvents: "\n      " + dragHandleSelector + " {\n        pointer-events: none;\n      }\n    "
+	  };
+	  var draggableStyles = {
+	    animateMovement: "\n      " + draggableSelector + " {\n        transition: " + css.outOfTheWay + ";\n      }\n    "
+	  };
+	  var droppableStyles = {
+	    base: "\n      " + droppableSelector + " {\n        overflow-anchor: none;\n      }\n    "
+	  };
+	  var bodyStyles = {
+	    whileActiveDragging: "\n      body {\n        cursor: grabbing;\n        cursor: -webkit-grabbing;\n        user-select: none;\n        -webkit-user-select: none;\n        -moz-user-select: none;\n        -ms-user-select: none;\n      }\n    "
+	  };
+	  var base = [dragHandleStyles.base, droppableStyles.base];
+	  var resting = base.concat([dragHandleStyles.grabCursor]);
+	  var collecting = base.concat([dragHandleStyles.blockPointerEvents, bodyStyles.whileActiveDragging]);
+	  var dragging = collecting.concat([draggableStyles.animateMovement]);
+	  var dropAnimating = base.concat([dragHandleStyles.grabCursor, draggableStyles.animateMovement]);
+	  var userCancel = base.concat([draggableStyles.animateMovement]);
+	  return {
+	    resting: resting.join(''),
+	    dragging: dragging.join(''),
+	    dropAnimating: dropAnimating.join(''),
+	    collecting: collecting.join(''),
+	    userCancel: userCancel.join('')
+	  };
+	});
+	
+	var count = 0;
+	var resetStyleContext = function resetStyleContext() {
+	  count = 0;
+	};
+	
+	var getHead = function getHead() {
+	  var head = document.querySelector('head');
+	  !head ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find the head to append a style to') : invariant(false) : void 0;
+	  return head;
+	};
+	
+	var createStyleMarshal = (function () {
+	  var context = "" + count++;
+	  var styles = getStyles(context);
+	  var el = null;
+	  var setStyle = memoizeOne(function (proposed) {
+	    !el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot set style of style tag if not mounted') : invariant(false) : void 0;
+	    el.innerHTML = proposed;
+	  });
+	
+	  var mount = function mount() {
+	    !!el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Style marshal already mounted') : invariant(false) : void 0;
+	    el = document.createElement('style');
+	    el.type = 'text/css';
+	    el.setAttribute(prefix, context);
+	    getHead().appendChild(el);
+	    setStyle(styles.resting);
+	  };
+	
+	  var collecting = function collecting() {
+	    return setStyle(styles.collecting);
+	  };
+	
+	  var dragging = function dragging() {
+	    return setStyle(styles.dragging);
+	  };
+	
+	  var dropping = function dropping(reason) {
+	    if (reason === 'DROP') {
+	      setStyle(styles.dropAnimating);
+	      return;
+	    }
+	
+	    setStyle(styles.userCancel);
+	  };
+	
+	  var resting = function resting() {
+	    return setStyle(styles.resting);
+	  };
+	
+	  var unmount = function unmount() {
+	    !el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot unmount style marshal as it is already unmounted') : invariant(false) : void 0;
+	    getHead().removeChild(el);
+	    el = null;
+	  };
+	
+	  var marshal = {
+	    collecting: collecting,
+	    dragging: dragging,
+	    dropping: dropping,
+	    resting: resting,
+	    styleContext: context,
+	    mount: mount,
+	    unmount: unmount
+	  };
+	  return marshal;
+	});
+	
+	var canStartDrag = (function (state, id) {
+	  if (state.phase === 'IDLE') {
+	    return true;
+	  }
+	
+	  if (state.phase !== 'DROP_ANIMATING') {
+	    return false;
+	  }
+	
+	  if (state.pending.result.draggableId === id) {
+	    return false;
+	  }
+	
+	  return state.pending.result.reason === 'DROP';
+	});
+	
+	var scrollWindow = (function (change) {
+	  window.scrollBy(change.x, change.y);
+	});
+	
+	var count$1 = 0;
+	var visuallyHidden = {
+	  position: 'absolute',
+	  width: '1px',
+	  height: '1px',
+	  margin: '-1px',
+	  border: '0',
+	  padding: '0',
+	  overflow: 'hidden',
+	  clip: 'rect(0 0 0 0)',
+	  'clip-path': 'inset(100%)'
+	};
+	
+	var getBody = function getBody() {
+	  !document.body ? process.env.NODE_ENV !== "production" ? invariant(false, 'Announcer cannot find document.body') : invariant(false) : void 0;
+	  return document.body;
+	};
+	
+	var createAnnouncer = (function () {
+	  var id = "react-beautiful-dnd-announcement-" + count$1++;
+	  var el = null;
+	
+	  var announce = function announce(message) {
+	    !el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot announce to unmounted node') : invariant(false) : void 0;
+	    el.textContent = message;
+	  };
+	
+	  var mount = function mount() {
+	    !!el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Announcer already mounted') : invariant(false) : void 0;
+	    el = document.createElement('div');
+	    el.id = id;
+	    el.setAttribute('aria-live', 'assertive');
+	    el.setAttribute('role', 'log');
+	    el.setAttribute('aria-atomic', 'true');
+	
+	    _Object$assign(el.style, visuallyHidden);
+	
+	    getBody().appendChild(el);
+	  };
+	
+	  var unmount = function unmount() {
+	    !el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Will not unmount annoucer as it is already unmounted') : invariant(false) : void 0;
+	    getBody().removeChild(el);
+	    el = null;
+	  };
+	
+	  var announcer = {
+	    announce: announce,
+	    id: id,
+	    mount: mount,
+	    unmount: unmount
+	  };
+	  return announcer;
+	});
+	
+	var getScrollableDroppables = memoizeOne(function (droppables) {
+	  return toDroppableList(droppables).filter(function (droppable) {
+	    if (!droppable.isEnabled) {
+	      return false;
+	    }
+	
+	    if (!droppable.viewport.closestScrollable) {
+	      return false;
+	    }
+	
+	    return true;
+	  });
+	});
+	
+	var getScrollableDroppableOver = function getScrollableDroppableOver(target, droppables) {
+	  var maybe = getScrollableDroppables(droppables).find(function (droppable) {
+	    !droppable.viewport.closestScrollable ? process.env.NODE_ENV !== "production" ? invariant(false, 'Invalid result') : invariant(false) : void 0;
+	    return isPositionInFrame(droppable.viewport.closestScrollable.framePageMarginBox)(target);
+	  });
+	  return maybe;
+	};
+	
+	var getBestScrollableDroppable = (function (_ref) {
+	  var center = _ref.center,
+	      destination = _ref.destination,
+	      droppables = _ref.droppables;
+	
+	  if (destination) {
+	    var _dimension = droppables[destination.droppableId];
+	
+	    if (!_dimension.viewport.closestScrollable) {
+	      return null;
+	    }
+	
+	    return _dimension;
+	  }
+	
+	  var dimension = getScrollableDroppableOver(center, droppables);
+	  return dimension;
+	});
+	
+	var smallestSigned = apply(function (value) {
+	  if (value === 0) {
+	    return 0;
+	  }
+	
+	  return value > 0 ? 1 : -1;
+	});
+	var getOverlap = function () {
+	  var getRemainder = function getRemainder(target, max) {
+	    if (target < 0) {
+	      return target;
+	    }
+	
+	    if (target > max) {
+	      return target - max;
+	    }
+	
+	    return 0;
+	  };
+	
+	  return function (_ref) {
+	    var current = _ref.current,
+	        max = _ref.max,
+	        change = _ref.change;
+	    var targetScroll = add(current, change);
+	    var overlap = {
+	      x: getRemainder(targetScroll.x, max.x),
+	      y: getRemainder(targetScroll.y, max.y)
+	    };
+	
+	    if (isEqual(overlap, origin)) {
+	      return null;
+	    }
+	
+	    return overlap;
+	  };
+	}();
+	var canPartiallyScroll = function canPartiallyScroll(_ref2) {
+	  var rawMax = _ref2.max,
+	      current = _ref2.current,
+	      change = _ref2.change;
+	  var max = {
+	    x: Math.max(current.x, rawMax.x),
+	    y: Math.max(current.y, rawMax.y)
+	  };
+	  var smallestChange = smallestSigned(change);
+	  var overlap = getOverlap({
+	    max: max,
+	    current: current,
+	    change: smallestChange
+	  });
+	
+	  if (!overlap) {
+	    return true;
+	  }
+	
+	  if (smallestChange.x !== 0 && overlap.x === 0) {
+	    return true;
+	  }
+	
+	  if (smallestChange.y !== 0 && overlap.y === 0) {
+	    return true;
+	  }
+	
+	  return false;
+	};
+	var canScrollWindow = function canScrollWindow(viewport, change) {
+	  return canPartiallyScroll({
+	    current: viewport.scroll.current,
+	    max: viewport.scroll.max,
+	    change: change
+	  });
+	};
+	var getWindowOverlap = function getWindowOverlap(viewport, change) {
+	  if (!canScrollWindow(viewport, change)) {
+	    return null;
+	  }
+	
+	  var max = viewport.scroll.max;
+	  var current = viewport.scroll.current;
+	  return getOverlap({
+	    current: current,
+	    max: max,
+	    change: change
+	  });
+	};
+	var canScrollDroppable = function canScrollDroppable(droppable, change) {
+	  var closest$$1 = droppable.viewport.closestScrollable;
+	
+	  if (!closest$$1) {
+	    return false;
+	  }
+	
+	  return canPartiallyScroll({
+	    current: closest$$1.scroll.current,
+	    max: closest$$1.scroll.max,
+	    change: change
+	  });
+	};
+	var getDroppableOverlap = function getDroppableOverlap(droppable, change) {
+	  var closest$$1 = droppable.viewport.closestScrollable;
+	
+	  if (!closest$$1) {
+	    return null;
+	  }
+	
+	  if (!canScrollDroppable(droppable, change)) {
+	    return null;
+	  }
+	
+	  return getOverlap({
+	    current: closest$$1.scroll.current,
+	    max: closest$$1.scroll.max,
+	    change: change
+	  });
+	};
+	
+	var config = {
+	  startFrom: 0.25,
+	  maxSpeedAt: 0.05,
+	  maxScrollSpeed: 28,
+	  ease: function ease(percentage) {
+	    return Math.pow(percentage, 2);
+	  }
+	};
+	var clean$1 = apply(function (value) {
+	  return value === 0 ? 0 : value;
+	});
+	var getPixelThresholds = function getPixelThresholds(container, axis) {
+	  var startFrom = container[axis.size] * config.startFrom;
+	  var maxSpeedAt = container[axis.size] * config.maxSpeedAt;
+	  var accelerationPlane = startFrom - maxSpeedAt;
+	  var thresholds = {
+	    startFrom: startFrom,
+	    maxSpeedAt: maxSpeedAt,
+	    accelerationPlane: accelerationPlane
+	  };
+	  return thresholds;
+	};
+	
+	var getSpeed = function getSpeed(distance$$1, thresholds) {
+	  if (distance$$1 >= thresholds.startFrom) {
+	    return 0;
+	  }
+	
+	  if (distance$$1 <= thresholds.maxSpeedAt) {
+	    return config.maxScrollSpeed;
+	  }
+	
+	  var distancePastStart = thresholds.startFrom - distance$$1;
+	  var percentage = distancePastStart / thresholds.accelerationPlane;
+	  var transformed = config.ease(percentage);
+	  var speed = config.maxScrollSpeed * transformed;
+	  return speed;
+	};
+	
+	var adjustForSizeLimits = function adjustForSizeLimits(_ref) {
+	  var container = _ref.container,
+	      subject = _ref.subject,
+	      proposedScroll = _ref.proposedScroll;
+	  var isTooBigVertically = subject.height > container.height;
+	  var isTooBigHorizontally = subject.width > container.width;
+	
+	  if (!isTooBigHorizontally && !isTooBigVertically) {
+	    return proposedScroll;
+	  }
+	
+	  if (isTooBigHorizontally && isTooBigVertically) {
+	    return null;
+	  }
+	
+	  return {
+	    x: isTooBigHorizontally ? 0 : proposedScroll.x,
+	    y: isTooBigVertically ? 0 : proposedScroll.y
+	  };
+	};
+	
+	var getRequiredScroll = function getRequiredScroll(_ref2) {
+	  var container = _ref2.container,
+	      subject = _ref2.subject,
+	      center = _ref2.center;
+	  var distance$$1 = {
+	    top: center.y - container.top,
+	    right: container.right - center.x,
+	    bottom: container.bottom - center.y,
+	    left: center.x - container.left
+	  };
+	
+	  var y = function () {
+	    var thresholds = getPixelThresholds(container, vertical);
+	    var isCloserToBottom = distance$$1.bottom < distance$$1.top;
+	
+	    if (isCloserToBottom) {
+	      return getSpeed(distance$$1.bottom, thresholds);
+	    }
+	
+	    return -1 * getSpeed(distance$$1.top, thresholds);
+	  }();
+	
+	  var x = function () {
+	    var thresholds = getPixelThresholds(container, horizontal);
+	    var isCloserToRight = distance$$1.right < distance$$1.left;
+	
+	    if (isCloserToRight) {
+	      return getSpeed(distance$$1.right, thresholds);
+	    }
+	
+	    return -1 * getSpeed(distance$$1.left, thresholds);
+	  }();
+	
+	  var required = clean$1({
+	    x: x,
+	    y: y
+	  });
+	
+	  if (isEqual(required, origin)) {
+	    return null;
+	  }
+	
+	  var limited = adjustForSizeLimits({
+	    container: container,
+	    subject: subject,
+	    proposedScroll: required
+	  });
+	
+	  if (!limited) {
+	    return null;
+	  }
+	
+	  return isEqual(limited, origin) ? null : limited;
+	};
+	
+	var withPlaceholder = function withPlaceholder(droppable, draggable) {
+	  var closest$$1 = droppable.viewport.closestScrollable;
+	
+	  if (!closest$$1) {
+	    return null;
+	  }
+	
+	  var isOverHome = droppable.descriptor.id === draggable.descriptor.droppableId;
+	  var max = closest$$1.scroll.max;
+	  var current = closest$$1.scroll.current;
+	
+	  if (isOverHome) {
+	    return {
+	      max: max,
+	      current: current
+	    };
+	  }
+	
+	  var spaceForPlaceholder = patch(droppable.axis.line, draggable.placeholder.client.borderBox[droppable.axis.size]);
+	  var newMax = add(max, spaceForPlaceholder);
+	  var newCurrent = {
+	    x: Math.min(current.x, newMax.x),
+	    y: Math.min(current.y, newMax.y)
+	  };
+	  return {
+	    max: newMax,
+	    current: newCurrent
+	  };
+	};
+	
+	var createFluidScroller = (function (_ref3) {
+	  var scrollWindow = _ref3.scrollWindow,
+	      scrollDroppable = _ref3.scrollDroppable;
+	  var scheduleWindowScroll = rafSchd(scrollWindow);
+	  var scheduleDroppableScroll = rafSchd(scrollDroppable);
+	
+	  var scroller = function scroller(state) {
+	    var center = state.current.page.borderBoxCenter;
+	    var draggable = state.dimensions.draggables[state.critical.draggable.id];
+	    var subject = draggable.page.marginBox;
+	    var viewport = state.viewport;
+	    var requiredWindowScroll = getRequiredScroll({
+	      container: viewport.frame,
+	      subject: subject,
+	      center: center
+	    });
+	
+	    if (requiredWindowScroll && canScrollWindow(viewport, requiredWindowScroll)) {
+	      scheduleWindowScroll(requiredWindowScroll);
+	      return;
+	    }
+	
+	    var droppable = getBestScrollableDroppable({
+	      center: center,
+	      destination: state.impact.destination,
+	      droppables: state.dimensions.droppables
+	    });
+	
+	    if (!droppable) {
+	      return;
+	    }
+	
+	    var closestScrollable = droppable.viewport.closestScrollable;
+	
+	    if (!closestScrollable) {
+	      return;
+	    }
+	
+	    var requiredFrameScroll = getRequiredScroll({
+	      container: closestScrollable.framePageMarginBox,
+	      subject: subject,
+	      center: center
+	    });
+	
+	    if (!requiredFrameScroll) {
+	      return;
+	    }
+	
+	    var result = withPlaceholder(droppable, draggable);
+	
+	    if (!result) {
+	      return;
+	    }
+	
+	    var closest$$1 = droppable.viewport.closestScrollable;
+	
+	    if (!closest$$1) {
+	      return;
+	    }
+	
+	    var canScrollDroppable$$1 = canPartiallyScroll({
+	      current: result.current,
+	      max: result.max,
+	      change: requiredFrameScroll
+	    });
+	
+	    if (canScrollDroppable$$1) {
+	      scheduleDroppableScroll(droppable.descriptor.id, requiredFrameScroll);
+	    }
+	  };
+	
+	  scroller.cancel = function () {
+	    scheduleWindowScroll.cancel();
+	    scheduleDroppableScroll.cancel();
+	  };
+	
+	  return scroller;
+	});
+	
+	var createJumpScroller = (function (_ref) {
+	  var move = _ref.move,
+	      scrollDroppable = _ref.scrollDroppable,
+	      scrollWindow = _ref.scrollWindow;
+	
+	  var moveByOffset = function moveByOffset(state, offset) {
+	    var client = add(state.current.client.selection, offset);
+	    move({
+	      client: client,
+	      shouldAnimate: true
+	    });
+	  };
+	
+	  var scrollDroppableAsMuchAsItCan = function scrollDroppableAsMuchAsItCan(droppable, change) {
+	    if (!canScrollDroppable(droppable, change)) {
+	      return change;
+	    }
+	
+	    var overlap = getDroppableOverlap(droppable, change);
+	
+	    if (!overlap) {
+	      scrollDroppable(droppable.descriptor.id, change);
+	      return null;
+	    }
+	
+	    var whatTheDroppableCanScroll = subtract(change, overlap);
+	    scrollDroppable(droppable.descriptor.id, whatTheDroppableCanScroll);
+	    var remainder = subtract(change, whatTheDroppableCanScroll);
+	    return remainder;
+	  };
+	
+	  var scrollWindowAsMuchAsItCan = function scrollWindowAsMuchAsItCan(viewport, change) {
+	    if (!canScrollWindow(viewport, change)) {
+	      return change;
+	    }
+	
+	    var overlap = getWindowOverlap(viewport, change);
+	
+	    if (!overlap) {
+	      scrollWindow(change);
+	      return null;
+	    }
+	
+	    var whatTheWindowCanScroll = subtract(change, overlap);
+	    scrollWindow(whatTheWindowCanScroll);
+	    var remainder = subtract(change, whatTheWindowCanScroll);
+	    return remainder;
+	  };
+	
+	  var jumpScroller = function jumpScroller(state) {
+	    var request = state.scrollJumpRequest;
+	
+	    if (!request) {
+	      return;
+	    }
+	
+	    var destination = state.impact.destination;
+	    !destination ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot perform a jump scroll when there is no destination') : invariant(false) : void 0;
+	    var droppableRemainder = scrollDroppableAsMuchAsItCan(state.dimensions.droppables[destination.droppableId], request);
+	
+	    if (!droppableRemainder) {
+	      return;
+	    }
+	
+	    var viewport = state.viewport;
+	    var windowRemainder = scrollWindowAsMuchAsItCan(viewport, droppableRemainder);
+	
+	    if (!windowRemainder) {
+	      return;
+	    }
+	
+	    moveByOffset(state, windowRemainder);
+	  };
+	
+	  return jumpScroller;
+	});
+	
+	var createAutoScroller = (function (_ref) {
+	  var scrollDroppable = _ref.scrollDroppable,
+	      scrollWindow = _ref.scrollWindow,
+	      move = _ref.move;
+	  var fluidScroll = createFluidScroller({
+	    scrollWindow: scrollWindow,
+	    scrollDroppable: scrollDroppable
+	  });
+	  var jumpScroll = createJumpScroller({
+	    move: move,
+	    scrollWindow: scrollWindow,
+	    scrollDroppable: scrollDroppable
+	  });
+	  var marshal = {
+	    cancel: fluidScroll.cancel,
+	    fluidScroll: fluidScroll,
+	    jumpScroll: jumpScroll
+	  };
+	  return marshal;
+	});
+	
+	var prefix$1 = function prefix(key) {
+	  return "private-react-beautiful-dnd-key-do-not-use-" + key;
+	};
+	
+	var storeKey = prefix$1('store');
+	var droppableIdKey = prefix$1('droppable-id');
+	var droppableTypeKey = prefix$1('droppable-type');
+	var dimensionMarshalKey = prefix$1('dimension-marshal');
+	var styleContextKey = prefix$1('style-context');
+	var canLiftContextKey = prefix$1('can-lift');
+	
+	var _DragDropContext$chil;
+	var resetServerContext = function resetServerContext() {
+	  resetStyleContext();
+	};
+	
+	var printFatalDevError = function printFatalDevError(error) {
+	  if (process.env.NODE_ENV === 'production') {
+	    return;
+	  }
+	
+	  console.warn("\n    An error has occurred while a drag is occurring.\n    Any existing drag will be cancelled.\n\n    Raw error:\n  ");
+	  console.error(error);
+	};
+	
+	var DragDropContext = function (_React$Component) {
+	  _inheritsLoose(DragDropContext, _React$Component);
+	
+	  function DragDropContext(props, context) {
+	    var _this;
+	
+	    _this = _React$Component.call(this, props, context) || this;
+	    _this.store = void 0;
+	    _this.dimensionMarshal = void 0;
+	    _this.styleMarshal = void 0;
+	    _this.autoScroller = void 0;
+	    _this.announcer = void 0;
+	    _this.unsubscribe = void 0;
+	
+	    _this.canLift = function (id) {
+	      return canStartDrag(_this.store.getState(), id);
+	    };
+	
+	    _this.onFatalError = function (error) {
+	      printFatalDevError(error);
+	
+	      var state = _this.store.getState();
+	
+	      if (state.phase !== 'IDLE') {
+	        _this.store.dispatch(clean());
+	      }
+	    };
+	
+	    _this.onWindowError = function (error) {
+	      return _this.onFatalError(error);
+	    };
+	
+	    _this.announcer = createAnnouncer();
+	    _this.styleMarshal = createStyleMarshal();
+	    _this.store = createStore({
+	      getDimensionMarshal: function getDimensionMarshal() {
+	        return _this.dimensionMarshal;
+	      },
+	      styleMarshal: _this.styleMarshal,
+	      getHooks: function getHooks() {
+	        return {
+	          onBeforeDragStart: _this.props.onBeforeDragStart,
+	          onDragStart: _this.props.onDragStart,
+	          onDragEnd: _this.props.onDragEnd,
+	          onDragUpdate: _this.props.onDragUpdate
+	        };
+	      },
+	      announce: _this.announcer.announce,
+	      getScroller: function getScroller() {
+	        return _this.autoScroller;
+	      }
+	    });
+	    var callbacks = redux.bindActionCreators({
+	      collectionStarting: collectionStarting,
+	      publish: publish,
+	      updateDroppableScroll: updateDroppableScroll,
+	      updateDroppableIsEnabled: updateDroppableIsEnabled
+	    }, _this.store.dispatch);
+	    _this.dimensionMarshal = createDimensionMarshal(callbacks);
+	    _this.autoScroller = createAutoScroller(_extends({
+	      scrollWindow: scrollWindow,
+	      scrollDroppable: _this.dimensionMarshal.scrollDroppable
+	    }, redux.bindActionCreators({
+	      move: move
+	    }, _this.store.dispatch)));
+	    return _this;
+	  }
+	
+	  var _proto = DragDropContext.prototype;
+	
+	  _proto.getChildContext = function getChildContext() {
+	    var _ref;
+	
+	    return _ref = {}, _ref[storeKey] = this.store, _ref[dimensionMarshalKey] = this.dimensionMarshal, _ref[styleContextKey] = this.styleMarshal.styleContext, _ref[canLiftContextKey] = this.canLift, _ref;
+	  };
+	
+	  _proto.componentDidMount = function componentDidMount() {
+	    window.addEventListener('error', this.onWindowError);
+	    this.styleMarshal.mount();
+	    this.announcer.mount();
+	  };
+	
+	  _proto.componentDidCatch = function componentDidCatch(error) {
+	    this.onFatalError(error);
+	
+	    if (error.message.indexOf('Invariant failed') !== -1) {
+	      this.setState({});
+	      return;
+	    }
+	
+	    throw error;
+	  };
+	
+	  _proto.componentWillUnmount = function componentWillUnmount() {
+	    window.removeEventListener('error', this.onWindowError);
+	    var state = this.store.getState();
+	
+	    if (state.phase !== 'IDLE') {
+	      this.store.dispatch(clean());
+	    }
+	
+	    this.styleMarshal.unmount();
+	    this.announcer.unmount();
+	  };
+	
+	  _proto.render = function render() {
+	    return this.props.children;
+	  };
+	
+	  return DragDropContext;
+	}(React__default.Component);
+	
+	DragDropContext.childContextTypes = (_DragDropContext$chil = {}, _DragDropContext$chil[storeKey] = PropTypes.shape({
+	  dispatch: PropTypes.func.isRequired,
+	  subscribe: PropTypes.func.isRequired,
+	  getState: PropTypes.func.isRequired
+	}).isRequired, _DragDropContext$chil[dimensionMarshalKey] = PropTypes.object.isRequired, _DragDropContext$chil[styleContextKey] = PropTypes.string.isRequired, _DragDropContext$chil[canLiftContextKey] = PropTypes.func.isRequired, _DragDropContext$chil);
+	
+	var isScrollable = function isScrollable() {
+	  for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
+	    values[_key] = arguments[_key];
+	  }
+	
+	  return values.some(function (value) {
+	    return value === 'auto' || value === 'scroll';
+	  });
+	};
+	
+	var isElementScrollable = function isElementScrollable(el) {
+	  var style = window.getComputedStyle(el);
+	  return isScrollable(style.overflow, style.overflowY, style.overflowX);
+	};
+	
+	var getClosestScrollable = function getClosestScrollable(el) {
+	  if (el == null) {
+	    return null;
+	  }
+	
+	  if (!isElementScrollable(el)) {
+	    return getClosestScrollable(el.parentElement);
+	  }
+	
+	  return el;
+	};
+	
+	var _DroppableDimensionPu;
+	
+	var getScroll = function getScroll(el) {
+	  return {
+	    x: el.scrollLeft,
+	    y: el.scrollTop
+	  };
+	};
+	
+	var checkForNestedScrollContainers = function checkForNestedScrollContainers(scrollable) {
+	  if (process.env.NODE_ENV === 'production') {
+	    return;
+	  }
+	
+	  if (!scrollable) {
+	    return;
+	  }
+	
+	  var anotherScrollParent = getClosestScrollable(scrollable.parentElement);
+	
+	  if (!anotherScrollParent) {
+	    return;
+	  }
+	
+	  console.warn("\n    Droppable: unsupported nested scroll container detected.\n    A Droppable can only have one scroll parent (which can be itself)\n    Nested scroll containers are currently not supported.\n\n    We hope to support nested scroll containers soon: https://github.com/atlassian/react-beautiful-dnd/issues/131\n  ");
+	};
+	
+	var listenerOptions = {
+	  passive: true
+	};
+	
+	var DroppableDimensionPublisher = function (_React$Component) {
+	  _inheritsLoose(DroppableDimensionPublisher, _React$Component);
+	
+	  function DroppableDimensionPublisher(props, context) {
+	    var _this;
+	
+	    _this = _React$Component.call(this, props, context) || this;
+	    _this.watchingScroll = null;
+	    _this.callbacks = void 0;
+	    _this.publishedDescriptor = null;
+	
+	    _this.getClosestScroll = function () {
+	      if (!_this.watchingScroll) {
+	        return origin;
+	      }
+	
+	      return getScroll(_this.watchingScroll.closestScrollable);
+	    };
+	
+	    _this.memoizedUpdateScroll = memoizeOne(function (x, y) {
+	      !_this.publishedDescriptor ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot update scroll on unpublished droppable') : invariant(false) : void 0;
+	      var newScroll = {
+	        x: x,
+	        y: y
+	      };
+	      var marshal = _this.context[dimensionMarshalKey];
+	      marshal.updateDroppableScroll(_this.publishedDescriptor.id, newScroll);
+	    });
+	
+	    _this.updateScroll = function () {
+	      var offset = _this.getClosestScroll();
+	
+	      _this.memoizedUpdateScroll(offset.x, offset.y);
+	    };
+	
+	    _this.scheduleScrollUpdate = rafSchd(_this.updateScroll);
+	
+	    _this.onClosestScroll = function () {
+	      !_this.watchingScroll ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not find scroll options while scrolling') : invariant(false) : void 0;
+	      var options = _this.watchingScroll.options;
+	
+	      if (options.shouldPublishImmediately) {
+	        _this.updateScroll();
+	
+	        return;
+	      }
+	
+	      _this.scheduleScrollUpdate();
+	    };
+	
+	    _this.scroll = function (change) {
+	      !_this.watchingScroll ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot scroll a droppable with no closest scrollable') : invariant(false) : void 0;
+	      var closestScrollable = _this.watchingScroll.closestScrollable;
+	      closestScrollable.scrollTop += change.y;
+	      closestScrollable.scrollLeft += change.x;
+	    };
+	
+	    _this.watchScroll = function (closestScrollable, options) {
+	      !!_this.watchingScroll ? process.env.NODE_ENV !== "production" ? invariant(false, 'Droppable cannot watch scroll as it is already watching scroll') : invariant(false) : void 0;
+	
+	      if (!closestScrollable) {
+	        return;
+	      }
+	
+	      _this.watchingScroll = {
+	        options: options,
+	        closestScrollable: closestScrollable
+	      };
+	      closestScrollable.addEventListener('scroll', _this.onClosestScroll, listenerOptions);
+	    };
+	
+	    _this.unwatchScroll = function () {
+	      var watching = _this.watchingScroll;
+	
+	      if (!watching) {
+	        return;
+	      }
+	
+	      _this.scheduleScrollUpdate.cancel();
+	
+	      watching.closestScrollable.removeEventListener('scroll', _this.onClosestScroll, listenerOptions);
+	      _this.watchingScroll = null;
+	    };
+	
+	    _this.getMemoizedDescriptor = memoizeOne(function (id, type) {
+	      return {
+	        id: id,
+	        type: type
+	      };
+	    });
+	
+	    _this.publish = function () {
+	      var marshal = _this.context[dimensionMarshalKey];
+	
+	      var descriptor = _this.getMemoizedDescriptor(_this.props.droppableId, _this.props.type);
+	
+	      if (!_this.publishedDescriptor) {
+	        marshal.registerDroppable(descriptor, _this.callbacks);
+	        _this.publishedDescriptor = descriptor;
+	        return;
+	      }
+	
+	      if (_this.publishedDescriptor === descriptor) {
+	        return;
+	      }
+	
+	      marshal.updateDroppable(_this.publishedDescriptor, descriptor, _this.callbacks);
+	      _this.publishedDescriptor = descriptor;
+	    };
+	
+	    _this.unpublish = function () {
+	      !_this.publishedDescriptor ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot unpublish descriptor when none is published') : invariant(false) : void 0;
+	      var marshal = _this.context[dimensionMarshalKey];
+	      marshal.unregisterDroppable(_this.publishedDescriptor);
+	      _this.publishedDescriptor = null;
+	    };
+	
+	    _this.getDimensionAndWatchScroll = function (windowScroll, options) {
+	      var _this$props = _this.props,
+	          direction = _this$props.direction,
+	          ignoreContainerClipping = _this$props.ignoreContainerClipping,
+	          isDropDisabled = _this$props.isDropDisabled,
+	          getDroppableRef = _this$props.getDroppableRef;
+	      var targetRef = getDroppableRef();
+	      var descriptor = _this.publishedDescriptor;
+	      !targetRef ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot calculate a dimension when not attached to the DOM') : invariant(false) : void 0;
+	      !descriptor ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get dimension for unpublished droppable') : invariant(false) : void 0;
+	      var scrollableRef = getClosestScrollable(targetRef);
+	      checkForNestedScrollContainers(scrollableRef);
+	
+	      _this.watchScroll(scrollableRef, options);
+	
+	      var client = function () {
+	        var base = cssBoxModel.getBox(targetRef);
+	
+	        if (!scrollableRef) {
+	          return base;
+	        }
+	
+	        if (targetRef !== scrollableRef) {
+	          return base;
+	        }
+	
+	        var top = base.paddingBox.top - scrollableRef.scrollTop;
+	        var left = base.paddingBox.left - scrollableRef.scrollLeft;
+	        var bottom = top + scrollableRef.scrollHeight;
+	        var right = left + scrollableRef.scrollWidth;
+	        var paddingBox = {
+	          top: top,
+	          right: right,
+	          bottom: bottom,
+	          left: left
+	        };
+	        var borderBox = {
+	          top: paddingBox.top - base.border.top,
+	          right: paddingBox.right + base.border.right,
+	          bottom: paddingBox.bottom + base.border.bottom,
+	          left: paddingBox.left - base.border.left
+	        };
+	        return cssBoxModel.createBox({
+	          borderBox: borderBox,
+	          margin: base.margin,
+	          border: base.border,
+	          padding: base.padding
+	        });
+	      }();
+	
+	      var page = cssBoxModel.withScroll(client, windowScroll);
+	
+	      var closest$$1 = function () {
+	        if (!scrollableRef) {
+	          return null;
+	        }
+	
+	        var frameClient = cssBoxModel.getBox(scrollableRef);
+	        return {
+	          client: frameClient,
+	          page: cssBoxModel.withScroll(frameClient),
+	          scrollHeight: scrollableRef.scrollHeight,
+	          scrollWidth: scrollableRef.scrollWidth,
+	          scroll: getScroll(scrollableRef),
+	          shouldClipSubject: !ignoreContainerClipping
+	        };
+	      }();
+	
+	      return getDroppableDimension({
+	        descriptor: descriptor,
+	        isEnabled: !isDropDisabled,
+	        direction: direction,
+	        client: client,
+	        page: page,
+	        closest: closest$$1
+	      });
+	    };
+	
+	    var callbacks = {
+	      getDimensionAndWatchScroll: _this.getDimensionAndWatchScroll,
+	      unwatchScroll: _this.unwatchScroll,
+	      scroll: _this.scroll
+	    };
+	    _this.callbacks = callbacks;
+	    return _this;
+	  }
+	
+	  var _proto = DroppableDimensionPublisher.prototype;
+	
+	  _proto.componentDidMount = function componentDidMount() {
+	    this.publish();
+	  };
+	
+	  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+	    this.publish();
+	
+	    if (this.props.isDropDisabled === prevProps.isDropDisabled) {
+	      return;
+	    }
+	
+	    var marshal = this.context[dimensionMarshalKey];
+	    marshal.updateDroppableIsEnabled(this.props.droppableId, !this.props.isDropDisabled);
+	  };
+	
+	  _proto.componentWillUnmount = function componentWillUnmount() {
+	    if (this.watchingScroll) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        console.warn('Unmounting droppable while it was watching scroll');
+	      }
+	
+	      this.unwatchScroll();
+	    }
+	
+	    this.unpublish();
+	  };
+	
+	  _proto.render = function render() {
+	    return this.props.children;
+	  };
+	
+	  return DroppableDimensionPublisher;
+	}(React__default.Component);
+	
+	DroppableDimensionPublisher.contextTypes = (_DroppableDimensionPu = {}, _DroppableDimensionPu[dimensionMarshalKey] = PropTypes.object.isRequired, _DroppableDimensionPu);
+	
+	var Placeholder = function (_PureComponent) {
+	  _inheritsLoose(Placeholder, _PureComponent);
+	
+	  function Placeholder() {
+	    return _PureComponent.apply(this, arguments) || this;
+	  }
+	
+	  var _proto = Placeholder.prototype;
+	
+	  _proto.componentDidMount = function componentDidMount() {
+	    if (this.props.onMount) {
+	      this.props.onMount();
+	    }
+	  };
+	
+	  _proto.componentWillUnmount = function componentWillUnmount() {
+	    if (this.props.onUnmount) {
+	      this.props.onUnmount();
+	    }
+	  };
+	
+	  _proto.render = function render() {
+	    var placeholder = this.props.placeholder;
+	    var client = placeholder.client,
+	        display = placeholder.display,
+	        tagName = placeholder.tagName;
+	    var style = {
+	      display: display,
+	      boxSizing: 'border-box',
+	      width: client.borderBox.width,
+	      height: client.borderBox.height,
+	      marginTop: client.margin.top,
+	      marginRight: client.margin.right,
+	      marginBottom: client.margin.bottom,
+	      marginLeft: client.margin.left,
+	      flexShrink: '0',
+	      flexGrow: '0',
+	      pointerEvents: 'none'
+	    };
+	    return React__default.createElement(tagName, {
+	      style: style
+	    });
+	  };
+	
+	  return Placeholder;
+	}(React.PureComponent);
+	
+	var throwIfRefIsInvalid = (function (ref) {
+	  !(ref && ref instanceof HTMLElement) ? process.env.NODE_ENV !== "production" ? invariant(false, "\n    provided.innerRef has not been provided with a HTMLElement.\n\n    You can find a guide on using the innerRef callback functions at:\n    https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/using-inner-ref.md\n  ") : invariant(false) : void 0;
+	});
+	
+	var _Droppable$contextTyp, _Droppable$childConte;
+	
+	var Droppable = function (_Component) {
+	  _inheritsLoose(Droppable, _Component);
+	
+	  function Droppable(props, context) {
+	    var _this;
+	
+	    _this = _Component.call(this, props, context) || this;
+	    _this.styleContext = void 0;
+	    _this.ref = null;
+	    _this.isPlaceholderMounted = false;
+	
+	    _this.onPlaceholderMount = function () {
+	      _this.isPlaceholderMounted = true;
+	    };
+	
+	    _this.onPlaceholderUnmount = function () {
+	      _this.isPlaceholderMounted = false;
+	    };
+	
+	    _this.setRef = function (ref) {
+	      if (ref === null) {
+	        return;
+	      }
+	
+	      if (ref === _this.ref) {
+	        return;
+	      }
+	
+	      _this.ref = ref;
+	      throwIfRefIsInvalid(ref);
+	    };
+	
+	    _this.getDroppableRef = function () {
+	      return _this.ref;
+	    };
+	
+	    _this.styleContext = context[styleContextKey];
+	    return _this;
+	  }
+	
+	  var _proto = Droppable.prototype;
+	
+	  _proto.getChildContext = function getChildContext() {
+	    var _value;
+	
+	    var value = (_value = {}, _value[droppableIdKey] = this.props.droppableId, _value[droppableTypeKey] = this.props.type, _value);
+	    return value;
+	  };
+	
+	  _proto.componentDidMount = function componentDidMount() {
+	    throwIfRefIsInvalid(this.ref);
+	    this.warnIfPlaceholderNotMounted();
+	  };
+	
+	  _proto.componentDidUpdate = function componentDidUpdate() {
+	    this.warnIfPlaceholderNotMounted();
+	  };
+	
+	  _proto.warnIfPlaceholderNotMounted = function warnIfPlaceholderNotMounted() {
+	    if (process.env.NODE_ENV === 'production') {
+	      return;
+	    }
+	
+	    if (!this.props.placeholder) {
+	      return;
+	    }
+	
+	    if (this.isPlaceholderMounted) {
+	      return;
+	    }
+	
+	    console.warn("\n      Droppable setup issue: DroppableProvided > placeholder could not be found.\n      Please be sure to add the {provided.placeholder} Node as a child of your Droppable\n\n      More information: https://github.com/atlassian/react-beautiful-dnd#1-provided-droppableprovided\n    ");
+	  };
+	
+	  _proto.getPlaceholder = function getPlaceholder() {
+	    if (!this.props.placeholder) {
+	      return null;
+	    }
+	
+	    return React__default.createElement(Placeholder, {
+	      placeholder: this.props.placeholder,
+	      onMount: this.onPlaceholderMount,
+	      onUnmount: this.onPlaceholderUnmount
+	    });
+	  };
+	
+	  _proto.render = function render() {
+	    var _this$props = this.props,
+	        children = _this$props.children,
+	        direction = _this$props.direction,
+	        droppableId = _this$props.droppableId,
+	        ignoreContainerClipping = _this$props.ignoreContainerClipping,
+	        isDraggingOver = _this$props.isDraggingOver,
+	        isDropDisabled = _this$props.isDropDisabled,
+	        draggingOverWith = _this$props.draggingOverWith,
+	        type = _this$props.type;
+	    var provided = {
+	      innerRef: this.setRef,
+	      placeholder: this.getPlaceholder(),
+	      droppableProps: {
+	        'data-react-beautiful-dnd-droppable': this.styleContext
+	      }
+	    };
+	    var snapshot = {
+	      isDraggingOver: isDraggingOver,
+	      draggingOverWith: draggingOverWith
+	    };
+	    return React__default.createElement(DroppableDimensionPublisher, {
+	      droppableId: droppableId,
+	      type: type,
+	      direction: direction,
+	      ignoreContainerClipping: ignoreContainerClipping,
+	      isDropDisabled: isDropDisabled,
+	      getDroppableRef: this.getDroppableRef
+	    }, children(provided, snapshot));
+	  };
+	
+	  return Droppable;
+	}(React.Component);
+	
+	Droppable.contextTypes = (_Droppable$contextTyp = {}, _Droppable$contextTyp[styleContextKey] = PropTypes.string.isRequired, _Droppable$contextTyp);
+	Droppable.childContextTypes = (_Droppable$childConte = {}, _Droppable$childConte[droppableIdKey] = PropTypes.string.isRequired, _Droppable$childConte[droppableTypeKey] = PropTypes.string.isRequired, _Droppable$childConte);
+	
+	var isStrictEqual = (function (a, b) {
+	  return a === b;
+	});
+	
+	var makeMapStateToProps = function makeMapStateToProps() {
+	  var getIsDraggingOver = function getIsDraggingOver(id, destination) {
+	    if (!destination) {
+	      return false;
+	    }
+	
+	    return destination.droppableId === id;
+	  };
+	
+	  var shouldUsePlaceholder = function shouldUsePlaceholder(id, descriptor, destination) {
+	    if (!destination) {
+	      return false;
+	    }
+	
+	    if (id === descriptor.droppableId) {
+	      return false;
+	    }
+	
+	    return id === destination.droppableId;
+	  };
+	
+	  var getMapProps = memoizeOne(function (isDraggingOver, draggingOverWith, placeholder) {
+	    return {
+	      isDraggingOver: isDraggingOver,
+	      draggingOverWith: draggingOverWith,
+	      placeholder: placeholder
+	    };
+	  });
+	
+	  var getDefault = function getDefault() {
+	    return getMapProps(false, null, null);
+	  };
+	
+	  var selector = function selector(state, ownProps) {
+	    if (ownProps.isDropDisabled) {
+	      return getDefault();
+	    }
+	
+	    var id = ownProps.droppableId;
+	
+	    if (state.isDragging) {
+	      var destination = state.impact.destination;
+	      var isDraggingOver = getIsDraggingOver(id, destination);
+	      var draggableId = state.critical.draggable.id;
+	      var draggingOverWith = isDraggingOver ? draggableId : null;
+	      var draggable = state.dimensions.draggables[draggableId];
+	      var placeholder = shouldUsePlaceholder(id, draggable.descriptor, destination) ? draggable.placeholder : null;
+	      return getMapProps(isDraggingOver, draggingOverWith, placeholder);
+	    }
+	
+	    if (state.phase === 'DROP_ANIMATING') {
+	      var _destination = state.pending.impact.destination;
+	
+	      var _isDraggingOver = getIsDraggingOver(id, _destination);
+	
+	      var _draggableId = state.pending.result.draggableId;
+	
+	      var _draggingOverWith = _isDraggingOver ? _draggableId : null;
+	
+	      var _draggable = state.dimensions.draggables[_draggableId];
+	
+	      var _placeholder = shouldUsePlaceholder(id, _draggable.descriptor, _destination) ? _draggable.placeholder : null;
+	
+	      return getMapProps(_isDraggingOver, _draggingOverWith, _placeholder);
+	    }
+	
+	    return getDefault();
+	  };
+	
+	  return selector;
+	};
+	var connectedDroppable = reactRedux.connect(makeMapStateToProps, null, null, {
+	  storeKey: storeKey,
+	  pure: true,
+	  areStatePropsEqual: isStrictEqual
+	})(Droppable);
+	connectedDroppable.defaultProps = {
+	  type: 'DEFAULT',
+	  isDropDisabled: false,
+	  direction: 'vertical',
+	  ignoreContainerClipping: false
+	};
+	
+	var _DraggableDimensionPu;
+	
+	var DraggableDimensionPublisher = function (_Component) {
+	  _inheritsLoose(DraggableDimensionPublisher, _Component);
+	
+	  function DraggableDimensionPublisher() {
+	    var _this;
+	
+	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+	    _this.publishedDescriptor = null;
+	    _this.getMemoizedDescriptor = memoizeOne(function (id, index, droppableId, type) {
+	      return {
+	        id: id,
+	        index: index,
+	        droppableId: droppableId,
+	        type: type
+	      };
+	    });
+	
+	    _this.publish = function () {
+	      var marshal = _this.context[dimensionMarshalKey];
+	
+	      var descriptor = _this.getMemoizedDescriptor(_this.props.draggableId, _this.props.index, _this.props.droppableId, _this.props.type);
+	
+	      if (!_this.publishedDescriptor) {
+	        marshal.registerDraggable(descriptor, _this.getDimension);
+	        _this.publishedDescriptor = descriptor;
+	        return;
+	      }
+	
+	      if (descriptor === _this.publishedDescriptor) {
+	        return;
+	      }
+	
+	      marshal.updateDraggable(_this.publishedDescriptor, descriptor, _this.getDimension);
+	      _this.publishedDescriptor = descriptor;
+	    };
+	
+	    _this.unpublish = function () {
+	      !_this.publishedDescriptor ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot unpublish descriptor when none is published') : invariant(false) : void 0;
+	      var marshal = _this.context[dimensionMarshalKey];
+	      marshal.unregisterDraggable(_this.publishedDescriptor);
+	      _this.publishedDescriptor = null;
+	    };
+	
+	    _this.getDimension = function (windowScroll) {
+	      var targetRef = _this.props.getDraggableRef();
+	
+	      var descriptor = _this.publishedDescriptor;
+	      !targetRef ? process.env.NODE_ENV !== "production" ? invariant(false, 'DraggableDimensionPublisher cannot calculate a dimension when not attached to the DOM') : invariant(false) : void 0;
+	      !descriptor ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get dimension for unpublished draggable') : invariant(false) : void 0;
+	      var computedStyles = window.getComputedStyle(targetRef);
+	      var borderBox = targetRef.getBoundingClientRect();
+	      var client = cssBoxModel.calculateBox(borderBox, computedStyles);
+	      var page = cssBoxModel.withScroll(client, windowScroll);
+	      var placeholder = {
+	        client: client,
+	        tagName: targetRef.tagName.toLowerCase(),
+	        display: computedStyles.display
+	      };
+	      var dimension = {
+	        descriptor: descriptor,
+	        placeholder: placeholder,
+	        client: client,
+	        page: page
+	      };
+	      return dimension;
+	    };
+	
+	    return _this;
+	  }
+	
+	  var _proto = DraggableDimensionPublisher.prototype;
+	
+	  _proto.componentDidMount = function componentDidMount() {
+	    this.publish();
+	  };
+	
+	  _proto.componentDidUpdate = function componentDidUpdate() {
+	    this.publish();
+	  };
+	
+	  _proto.componentWillUnmount = function componentWillUnmount() {
+	    this.unpublish();
+	  };
+	
+	  _proto.render = function render() {
+	    return this.props.children;
+	  };
+	
+	  return DraggableDimensionPublisher;
+	}(React.Component);
+	
+	DraggableDimensionPublisher.contextTypes = (_DraggableDimensionPu = {}, _DraggableDimensionPu[dimensionMarshalKey] = PropTypes.object.isRequired, _DraggableDimensionPu);
+	
+	var DoubleRenderBlocker = function (_React$Component) {
+	  _inheritsLoose(DoubleRenderBlocker, _React$Component);
+	
+	  function DoubleRenderBlocker() {
+	    return _React$Component.apply(this, arguments) || this;
+	  }
+	
+	  var _proto = DoubleRenderBlocker.prototype;
+	
+	  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps) {
+	    if (isEqual(origin, nextProps.change)) {
+	      return true;
+	    }
+	
+	    if (isEqual(this.props.change, nextProps.change)) {
+	      return false;
+	    }
+	
+	    return true;
+	  };
+	
+	  _proto.render = function render() {
+	    return this.props.children(this.props.change);
+	  };
+	
+	  return DoubleRenderBlocker;
+	}(React__default.Component);
+	
+	var Moveable = function (_Component) {
+	  _inheritsLoose(Moveable, _Component);
+	
+	  function Moveable() {
+	    return _Component.apply(this, arguments) || this;
+	  }
+	
+	  var _proto2 = Moveable.prototype;
+	
+	  _proto2.getFinal = function getFinal() {
+	    var destination = this.props.destination;
+	    var speed = this.props.speed;
+	
+	    if (speed === 'INSTANT') {
+	      return destination;
+	    }
+	
+	    var config = speed === 'FAST' ? physics.fast : physics.standard;
+	    return {
+	      x: reactMotion.spring(destination.x, config),
+	      y: reactMotion.spring(destination.y, config)
+	    };
+	  };
+	
+	  _proto2.render = function render() {
+	    var _this = this;
+	
+	    var final = this.getFinal();
+	    return React__default.createElement(reactMotion.Motion, {
+	      defaultStyle: origin,
+	      style: final,
+	      onRest: this.props.onMoveEnd
+	    }, function (current) {
+	      var _this$props = _this.props,
+	          speed = _this$props.speed,
+	          destination = _this$props.destination,
+	          children = _this$props.children;
+	      var target = speed === 'INSTANT' ? destination : current;
+	      return React__default.createElement(DoubleRenderBlocker, {
+	        change: target
+	      }, children);
+	    });
+	  };
+	
+	  return Moveable;
+	}(React.Component);
+	
+	Moveable.defaultProps = {
+	  destination: origin
+	};
+	
+	var getWindowFromRef = (function (ref) {
+	  return ref ? ref.ownerDocument.defaultView : window;
+	});
+	
+	var selector = "[" + dragHandle + "]";
+	
+	var isSVG = function isSVG(el) {
+	  if (typeof SVGElement === 'undefined') {
+	    return false;
+	  }
+	
+	  return el instanceof SVGElement;
+	};
+	
+	var throwIfSVG = function throwIfSVG(el) {
+	  !!isSVG(el) ? process.env.NODE_ENV !== "production" ? invariant(false, "A drag handle cannot be an SVGElement: it has inconsistent focus support.\n\n    More information: https://github.com/atlassian/react-beautiful-dnd/tree/master/docs/guides/dragging-svgs.md") : invariant(false) : void 0;
+	};
+	
+	var getDragHandleRef = function getDragHandleRef(draggableRef) {
+	  if (draggableRef.hasAttribute(dragHandle)) {
+	    throwIfSVG(draggableRef);
+	    return draggableRef;
+	  }
+	
+	  var el = draggableRef.querySelector(selector);
+	  throwIfSVG(draggableRef);
+	  !el ? process.env.NODE_ENV !== "production" ? invariant(false, "\n      Cannot find drag handle element inside of Draggable.\n      Please be sure to apply the {...provided.dragHandleProps} to your Draggable\n\n      More information: https://github.com/atlassian/react-beautiful-dnd#draggable\n    ") : invariant(false) : void 0;
+	  !(el instanceof HTMLElement) ? process.env.NODE_ENV !== "production" ? invariant(false, 'A drag handle must be a HTMLElement') : invariant(false) : void 0;
+	  return el;
+	};
+	
+	var retainingFocusFor = null;
+	var listenerOptions$1 = {
+	  capture: true
+	};
+	
+	var clearRetentionOnFocusChange = function () {
+	  var isBound = false;
+	
+	  var bind = function bind() {
+	    if (isBound) {
+	      return;
+	    }
+	
+	    isBound = true;
+	    window.addEventListener('focus', onWindowFocusChange, listenerOptions$1);
+	  };
+	
+	  var unbind = function unbind() {
+	    if (!isBound) {
+	      return;
+	    }
+	
+	    isBound = false;
+	    window.removeEventListener('focus', onWindowFocusChange, listenerOptions$1);
+	  };
+	
+	  var onWindowFocusChange = function onWindowFocusChange() {
+	    unbind();
+	    retainingFocusFor = null;
+	  };
+	
+	  var result = function result() {
+	    return bind();
+	  };
+	
+	  result.cancel = function () {
+	    return unbind();
+	  };
+	
+	  return result;
+	}();
+	
+	var retain = function retain(id) {
+	  retainingFocusFor = id;
+	  clearRetentionOnFocusChange();
+	};
+	
+	var tryRestoreFocus = function tryRestoreFocus(id, draggableRef) {
+	  if (!retainingFocusFor) {
+	    return;
+	  }
+	
+	  if (id !== retainingFocusFor) {
+	    return;
+	  }
+	
+	  retainingFocusFor = null;
+	  clearRetentionOnFocusChange.cancel();
+	  var dragHandleRef = getDragHandleRef(draggableRef);
+	
+	  if (!dragHandleRef) {
+	    console.warn('Could not find drag handle in the DOM to focus on it');
+	    return;
+	  }
+	
+	  dragHandleRef.focus();
+	};
+	
+	var retainer = {
+	  retain: retain,
+	  tryRestoreFocus: tryRestoreFocus
+	};
+	
+	var interactiveTagNames = {
+	  input: true,
+	  button: true,
+	  textarea: true,
+	  select: true,
+	  option: true,
+	  optgroup: true,
+	  video: true,
+	  audio: true
+	};
+	
+	var isAnInteractiveElement = function isAnInteractiveElement(parent, current) {
+	  if (current == null) {
+	    return false;
+	  }
+	
+	  var hasAnInteractiveTag = Boolean(interactiveTagNames[current.tagName.toLowerCase()]);
+	
+	  if (hasAnInteractiveTag) {
+	    return true;
+	  }
+	
+	  var attribute = current.getAttribute('contenteditable');
+	
+	  if (attribute === 'true' || attribute === '') {
+	    return true;
+	  }
+	
+	  if (current === parent) {
+	    return false;
+	  }
+	
+	  return isAnInteractiveElement(parent, current.parentElement);
+	};
+	
+	var shouldAllowDraggingFromTarget = (function (event, props) {
+	  if (props.canDragInteractiveElements) {
+	    return true;
+	  }
+	
+	  var target = event.target,
+	      currentTarget = event.currentTarget;
+	
+	  if (!(target instanceof Element) || !(currentTarget instanceof Element)) {
+	    return true;
+	  }
+	
+	  return !isAnInteractiveElement(currentTarget, target);
+	});
+	
+	var createScheduler = (function (callbacks) {
+	  var memoizedMove = memoizeOne(function (x, y) {
+	    var point = {
+	      x: x,
+	      y: y
+	    };
+	    callbacks.onMove(point);
+	  });
+	  var move = rafSchd(function (point) {
+	    return memoizedMove(point.x, point.y);
+	  });
+	  var moveUp = rafSchd(callbacks.onMoveUp);
+	  var moveDown = rafSchd(callbacks.onMoveDown);
+	  var moveRight = rafSchd(callbacks.onMoveRight);
+	  var moveLeft = rafSchd(callbacks.onMoveLeft);
+	  var windowScrollMove = rafSchd(callbacks.onWindowScroll);
+	
+	  var cancel = function cancel() {
+	    move.cancel();
+	    moveUp.cancel();
+	    moveDown.cancel();
+	    moveRight.cancel();
+	    moveLeft.cancel();
+	    windowScrollMove.cancel();
+	  };
+	
+	  return {
+	    move: move,
+	    moveUp: moveUp,
+	    moveDown: moveDown,
+	    moveRight: moveRight,
+	    moveLeft: moveLeft,
+	    windowScrollMove: windowScrollMove,
+	    cancel: cancel
+	  };
+	});
+	
+	var sloppyClickThreshold = 5;
+	var isSloppyClickThresholdExceeded = (function (original, current) {
+	  return Math.abs(current.x - original.x) >= sloppyClickThreshold || Math.abs(current.y - original.y) >= sloppyClickThreshold;
+	});
+	
+	var tab = 9;
+	var enter = 13;
+	var escape = 27;
+	var space = 32;
+	var pageUp = 33;
+	var pageDown = 34;
+	var end = 35;
+	var home = 36;
+	var arrowLeft = 37;
+	var arrowUp = 38;
+	var arrowRight = 39;
+	var arrowDown = 40;
+	
+	var _preventedKeys;
+	var preventedKeys = (_preventedKeys = {}, _preventedKeys[enter] = true, _preventedKeys[tab] = true, _preventedKeys);
+	var preventStandardKeyEvents = (function (event) {
+	  if (preventedKeys[event.keyCode]) {
+	    event.preventDefault();
 	  }
 	});
 	
-	var _droppable = __webpack_require__(239);
+	var getOptions = function getOptions(shared, fromBinding) {
+	  return _extends({}, shared, fromBinding);
+	};
 	
-	Object.defineProperty(exports, 'Droppable', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_droppable).default;
-	  }
+	var bindEvents = function bindEvents(el, bindings, sharedOptions) {
+	  bindings.forEach(function (binding) {
+	    var options = getOptions(sharedOptions, binding.options);
+	    el.addEventListener(binding.eventName, binding.fn, options);
+	  });
+	};
+	var unbindEvents = function unbindEvents(el, bindings, sharedOptions) {
+	  bindings.forEach(function (binding) {
+	    var options = getOptions(sharedOptions, binding.options);
+	    el.removeEventListener(binding.eventName, binding.fn, options);
+	  });
+	};
+	
+	var sharedOptions = {
+	  capture: true
+	};
+	var createPostDragEventPreventer = (function (getWindow) {
+	  var isBound = false;
+	
+	  var bind = function bind() {
+	    if (isBound) {
+	      return;
+	    }
+	
+	    isBound = true;
+	    bindEvents(getWindow(), pointerEvents, sharedOptions);
+	  };
+	
+	  var unbind = function unbind() {
+	    if (!isBound) {
+	      return;
+	    }
+	
+	    isBound = false;
+	    unbindEvents(getWindow(), pointerEvents, sharedOptions);
+	  };
+	
+	  var pointerEvents = [{
+	    eventName: 'click',
+	    fn: function fn(event) {
+	      event.preventDefault();
+	      unbind();
+	    }
+	  }, {
+	    eventName: 'mousedown',
+	    fn: unbind
+	  }, {
+	    eventName: 'touchstart',
+	    fn: unbind
+	  }];
+	
+	  var preventNext = function preventNext() {
+	    if (isBound) {
+	      unbind();
+	    }
+	
+	    bind();
+	  };
+	
+	  var preventer = {
+	    preventNext: preventNext,
+	    abort: unbind
+	  };
+	  return preventer;
 	});
 	
-	var _draggable = __webpack_require__(271);
+	var createEventMarshal = (function () {
+	  var isMouseDownHandled = false;
 	
-	Object.defineProperty(exports, 'Draggable', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_draggable).default;
-	  }
+	  var handle = function handle() {
+	    !!isMouseDownHandled ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot handle mouse down as it is already handled') : invariant(false) : void 0;
+	    isMouseDownHandled = true;
+	  };
+	
+	  var isHandled = function isHandled() {
+	    return isMouseDownHandled;
+	  };
+	
+	  var reset = function reset() {
+	    isMouseDownHandled = false;
+	  };
+	
+	  return {
+	    handle: handle,
+	    isHandled: isHandled,
+	    reset: reset
+	  };
 	});
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var supportedEventName = function () {
+	  var base = 'visibilitychange';
+	
+	  if (typeof document === 'undefined') {
+	    return base;
+	  }
+	
+	  var candidates = [base, "ms" + base, "webkit" + base, "moz" + base, "o" + base];
+	  var supported = candidates.find(function (eventName) {
+	    return "on" + eventName in document;
+	  });
+	  return supported || base;
+	}();
+	
+	var primaryButton = 0;
+	
+	var noop = function noop() {};
+	
+	var mouseDownMarshal = createEventMarshal();
+	var createMouseSensor = (function (_ref) {
+	  var callbacks = _ref.callbacks,
+	      getWindow = _ref.getWindow,
+	      canStartCapturing = _ref.canStartCapturing;
+	  var state = {
+	    isDragging: false,
+	    pending: null
+	  };
+	
+	  var setState = function setState(newState) {
+	    state = newState;
+	  };
+	
+	  var isDragging = function isDragging() {
+	    return state.isDragging;
+	  };
+	
+	  var isCapturing = function isCapturing() {
+	    return Boolean(state.pending || state.isDragging);
+	  };
+	
+	  var schedule = createScheduler(callbacks);
+	  var postDragEventPreventer = createPostDragEventPreventer(getWindow);
+	
+	  var startDragging = function startDragging(fn) {
+	    if (fn === void 0) {
+	      fn = noop;
+	    }
+	
+	    setState({
+	      pending: null,
+	      isDragging: true
+	    });
+	    fn();
+	  };
+	
+	  var stopDragging = function stopDragging(fn, shouldBlockClick) {
+	    if (fn === void 0) {
+	      fn = noop;
+	    }
+	
+	    if (shouldBlockClick === void 0) {
+	      shouldBlockClick = true;
+	    }
+	
+	    schedule.cancel();
+	    unbindWindowEvents();
+	    mouseDownMarshal.reset();
+	
+	    if (shouldBlockClick) {
+	      postDragEventPreventer.preventNext();
+	    }
+	
+	    setState({
+	      isDragging: false,
+	      pending: null
+	    });
+	    fn();
+	  };
+	
+	  var startPendingDrag = function startPendingDrag(point) {
+	    setState({
+	      pending: point,
+	      isDragging: false
+	    });
+	    bindWindowEvents();
+	  };
+	
+	  var stopPendingDrag = function stopPendingDrag() {
+	    stopDragging(noop, false);
+	  };
+	
+	  var kill = function kill(fn) {
+	    if (fn === void 0) {
+	      fn = noop;
+	    }
+	
+	    if (state.pending) {
+	      stopPendingDrag();
+	      return;
+	    }
+	
+	    stopDragging(fn);
+	  };
+	
+	  var unmount = function unmount() {
+	    kill();
+	    postDragEventPreventer.abort();
+	  };
+	
+	  var cancel = function cancel() {
+	    kill(callbacks.onCancel);
+	  };
+	
+	  var windowBindings = [{
+	    eventName: 'mousemove',
+	    fn: function fn(event) {
+	      var button = event.button,
+	          clientX = event.clientX,
+	          clientY = event.clientY;
+	
+	      if (button !== primaryButton) {
+	        return;
+	      }
+	
+	      var point = {
+	        x: clientX,
+	        y: clientY
+	      };
+	
+	      if (state.isDragging) {
+	        event.preventDefault();
+	        schedule.move(point);
+	        return;
+	      }
+	
+	      if (!state.pending) {
+	        kill();
+	        process.env.NODE_ENV !== "production" ? invariant(false, 'Expected there to be a pending drag') : invariant(false);
+	      }
+	
+	      if (!isSloppyClickThresholdExceeded(state.pending, point)) {
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      startDragging(function () {
+	        return callbacks.onLift({
+	          clientSelection: point,
+	          autoScrollMode: 'FLUID'
+	        });
+	      });
+	    }
+	  }, {
+	    eventName: 'mouseup',
+	    fn: function fn(event) {
+	      if (state.pending) {
+	        stopPendingDrag();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      stopDragging(callbacks.onDrop);
+	    }
+	  }, {
+	    eventName: 'mousedown',
+	    fn: function fn(event) {
+	      if (state.isDragging) {
+	        event.preventDefault();
+	      }
+	
+	      stopDragging(callbacks.onCancel);
+	    }
+	  }, {
+	    eventName: 'keydown',
+	    fn: function fn(event) {
+	      if (!state.isDragging) {
+	        cancel();
+	        return;
+	      }
+	
+	      if (event.keyCode === escape) {
+	        event.preventDefault();
+	        cancel();
+	        return;
+	      }
+	
+	      preventStandardKeyEvents(event);
+	    }
+	  }, {
+	    eventName: 'resize',
+	    fn: cancel
+	  }, {
+	    eventName: 'scroll',
+	    options: {
+	      passive: true,
+	      capture: false
+	    },
+	    fn: function fn() {
+	      if (state.pending) {
+	        stopPendingDrag();
+	        return;
+	      }
+	
+	      schedule.windowScrollMove();
+	    }
+	  }, {
+	    eventName: 'webkitmouseforcechanged',
+	    fn: function fn(event) {
+	      if (event.webkitForce == null || MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN == null) {
+	        if (process.env.NODE_ENV !== 'production') {
+	          console.warn('handling a mouse force changed event when it is not supported');
+	        }
+	
+	        return;
+	      }
+	
+	      var forcePressThreshold = MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN;
+	      var isForcePressing = event.webkitForce >= forcePressThreshold;
+	
+	      if (isForcePressing) {
+	        cancel();
+	      }
+	    }
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	
+	  var bindWindowEvents = function bindWindowEvents() {
+	    var win = getWindow();
+	    bindEvents(win, windowBindings, {
+	      capture: true
+	    });
+	  };
+	
+	  var unbindWindowEvents = function unbindWindowEvents() {
+	    var win = getWindow();
+	    unbindEvents(win, windowBindings, {
+	      capture: true
+	    });
+	  };
+	
+	  var onMouseDown = function onMouseDown(event) {
+	    if (mouseDownMarshal.isHandled()) {
+	      return;
+	    }
+	
+	    !!isCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not be able to perform a mouse down while a drag or pending drag is occurring') : invariant(false) : void 0;
+	
+	    if (!canStartCapturing(event)) {
+	      return;
+	    }
+	
+	    if (event.button !== primaryButton) {
+	      return;
+	    }
+	
+	    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+	      return;
+	    }
+	
+	    mouseDownMarshal.handle();
+	    event.preventDefault();
+	    var point = {
+	      x: event.clientX,
+	      y: event.clientY
+	    };
+	    startPendingDrag(point);
+	  };
+	
+	  var sensor = {
+	    onMouseDown: onMouseDown,
+	    kill: kill,
+	    isCapturing: isCapturing,
+	    isDragging: isDragging,
+	    unmount: unmount
+	  };
+	  return sensor;
+	});
+	
+	var getBorderBoxCenterPosition = (function (el) {
+	  return cssBoxModel.getRect(el.getBoundingClientRect()).center;
+	});
+	
+	var _scrollJumpKeys;
+	var scrollJumpKeys = (_scrollJumpKeys = {}, _scrollJumpKeys[pageDown] = true, _scrollJumpKeys[pageUp] = true, _scrollJumpKeys[home] = true, _scrollJumpKeys[end] = true, _scrollJumpKeys);
+	
+	var noop$1 = function noop() {};
+	
+	var createKeyboardSensor = (function (_ref) {
+	  var callbacks = _ref.callbacks,
+	      getWindow = _ref.getWindow,
+	      getDraggableRef = _ref.getDraggableRef,
+	      canStartCapturing = _ref.canStartCapturing;
+	  var state = {
+	    isDragging: false
+	  };
+	
+	  var setState = function setState(newState) {
+	    state = newState;
+	  };
+	
+	  var startDragging = function startDragging(fn) {
+	    if (fn === void 0) {
+	      fn = noop$1;
+	    }
+	
+	    setState({
+	      isDragging: true
+	    });
+	    bindWindowEvents();
+	    fn();
+	  };
+	
+	  var stopDragging = function stopDragging(fn) {
+	    if (fn === void 0) {
+	      fn = noop$1;
+	    }
+	
+	    schedule.cancel();
+	    unbindWindowEvents();
+	    setState({
+	      isDragging: false
+	    });
+	    fn();
+	  };
+	
+	  var kill = function kill() {
+	    return stopDragging();
+	  };
+	
+	  var cancel = function cancel() {
+	    stopDragging(callbacks.onCancel);
+	  };
+	
+	  var isDragging = function isDragging() {
+	    return state.isDragging;
+	  };
+	
+	  var schedule = createScheduler(callbacks);
+	
+	  var onKeyDown = function onKeyDown(event) {
+	    if (!isDragging()) {
+	      if (event.defaultPrevented) {
+	        return;
+	      }
+	
+	      if (!canStartCapturing(event)) {
+	        return;
+	      }
+	
+	      if (event.keyCode !== space) {
+	        return;
+	      }
+	
+	      var ref = getDraggableRef();
+	      !ref ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start a keyboard drag without a draggable ref') : invariant(false) : void 0;
+	      var center = getBorderBoxCenterPosition(ref);
+	      event.preventDefault();
+	      startDragging(function () {
+	        return callbacks.onLift({
+	          clientSelection: center,
+	          autoScrollMode: 'JUMP'
+	        });
+	      });
+	      return;
+	    }
+	
+	    if (event.keyCode === escape) {
+	      event.preventDefault();
+	      cancel();
+	      return;
+	    }
+	
+	    if (event.keyCode === space) {
+	      event.preventDefault();
+	      stopDragging(callbacks.onDrop);
+	      return;
+	    }
+	
+	    if (event.keyCode === arrowDown) {
+	      event.preventDefault();
+	      schedule.moveDown();
+	      return;
+	    }
+	
+	    if (event.keyCode === arrowUp) {
+	      event.preventDefault();
+	      schedule.moveUp();
+	      return;
+	    }
+	
+	    if (event.keyCode === arrowRight) {
+	      event.preventDefault();
+	      schedule.moveRight();
+	      return;
+	    }
+	
+	    if (event.keyCode === arrowLeft) {
+	      event.preventDefault();
+	      schedule.moveLeft();
+	      return;
+	    }
+	
+	    if (scrollJumpKeys[event.keyCode]) {
+	      event.preventDefault();
+	      return;
+	    }
+	
+	    preventStandardKeyEvents(event);
+	  };
+	
+	  var windowBindings = [{
+	    eventName: 'mousedown',
+	    fn: cancel
+	  }, {
+	    eventName: 'mouseup',
+	    fn: cancel
+	  }, {
+	    eventName: 'click',
+	    fn: cancel
+	  }, {
+	    eventName: 'touchstart',
+	    fn: cancel
+	  }, {
+	    eventName: 'resize',
+	    fn: cancel
+	  }, {
+	    eventName: 'wheel',
+	    fn: cancel
+	  }, {
+	    eventName: 'scroll',
+	    options: {
+	      capture: false
+	    },
+	    fn: callbacks.onWindowScroll
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	
+	  var bindWindowEvents = function bindWindowEvents() {
+	    bindEvents(getWindow(), windowBindings, {
+	      capture: true
+	    });
+	  };
+	
+	  var unbindWindowEvents = function unbindWindowEvents() {
+	    unbindEvents(getWindow(), windowBindings, {
+	      capture: true
+	    });
+	  };
+	
+	  var sensor = {
+	    onKeyDown: onKeyDown,
+	    kill: kill,
+	    isDragging: isDragging,
+	    isCapturing: isDragging,
+	    unmount: kill
+	  };
+	  return sensor;
+	});
+	
+	var timeForLongPress = 150;
+	var forcePressThreshold = 0.15;
+	var touchStartMarshal = createEventMarshal();
+	
+	var noop$2 = function noop() {};
+	
+	var webkitHack = function () {
+	  var stub = {
+	    preventTouchMove: noop$2,
+	    releaseTouchMove: noop$2
+	  };
+	
+	  if (typeof window === 'undefined') {
+	    return stub;
+	  }
+	
+	  if (!('ontouchstart' in window)) {
+	    return stub;
+	  }
+	
+	  var isBlocking = false;
+	  window.addEventListener('touchmove', function (event) {
+	    if (!isBlocking) {
+	      return;
+	    }
+	
+	    if (event.defaultPrevented) {
+	      return;
+	    }
+	
+	    event.preventDefault();
+	  }, {
+	    passive: false,
+	    capture: false
+	  });
+	
+	  var preventTouchMove = function preventTouchMove() {
+	    isBlocking = true;
+	  };
+	
+	  var releaseTouchMove = function releaseTouchMove() {
+	    isBlocking = false;
+	  };
+	
+	  return {
+	    preventTouchMove: preventTouchMove,
+	    releaseTouchMove: releaseTouchMove
+	  };
+	}();
+	
+	var initial = {
+	  isDragging: false,
+	  pending: null,
+	  hasMoved: false,
+	  longPressTimerId: null
+	};
+	var createTouchSensor = (function (_ref) {
+	  var callbacks = _ref.callbacks,
+	      getWindow = _ref.getWindow,
+	      canStartCapturing = _ref.canStartCapturing;
+	  var state = initial;
+	
+	  var setState = function setState(partial) {
+	    state = _extends({}, state, partial);
+	  };
+	
+	  var isDragging = function isDragging() {
+	    return state.isDragging;
+	  };
+	
+	  var isCapturing = function isCapturing() {
+	    return Boolean(state.pending || state.isDragging || state.longPressTimerId);
+	  };
+	
+	  var schedule = createScheduler(callbacks);
+	  var postDragEventPreventer = createPostDragEventPreventer(getWindow);
+	
+	  var startDragging = function startDragging() {
+	    var pending = state.pending;
+	
+	    if (!pending) {
+	      kill();
+	      process.env.NODE_ENV !== "production" ? invariant(false, 'cannot start a touch drag without a pending position') : invariant(false);
+	    }
+	
+	    setState({
+	      isDragging: true,
+	      hasMoved: false,
+	      pending: null,
+	      longPressTimerId: null
+	    });
+	    callbacks.onLift({
+	      clientSelection: pending,
+	      autoScrollMode: 'FLUID'
+	    });
+	  };
+	
+	  var stopDragging = function stopDragging(fn) {
+	    if (fn === void 0) {
+	      fn = noop$2;
+	    }
+	
+	    schedule.cancel();
+	    touchStartMarshal.reset();
+	    webkitHack.releaseTouchMove();
+	    unbindWindowEvents();
+	    postDragEventPreventer.preventNext();
+	    setState(initial);
+	    fn();
+	  };
+	
+	  var startPendingDrag = function startPendingDrag(event) {
+	    var touch = event.touches[0];
+	    var clientX = touch.clientX,
+	        clientY = touch.clientY;
+	    var point = {
+	      x: clientX,
+	      y: clientY
+	    };
+	    var longPressTimerId = setTimeout(startDragging, timeForLongPress);
+	    setState({
+	      longPressTimerId: longPressTimerId,
+	      pending: point,
+	      isDragging: false,
+	      hasMoved: false
+	    });
+	    bindWindowEvents();
+	  };
+	
+	  var stopPendingDrag = function stopPendingDrag() {
+	    if (state.longPressTimerId) {
+	      clearTimeout(state.longPressTimerId);
+	    }
+	
+	    schedule.cancel();
+	    touchStartMarshal.reset();
+	    webkitHack.releaseTouchMove();
+	    unbindWindowEvents();
+	    setState(initial);
+	  };
+	
+	  var kill = function kill(fn) {
+	    if (fn === void 0) {
+	      fn = noop$2;
+	    }
+	
+	    if (state.pending) {
+	      stopPendingDrag();
+	      return;
+	    }
+	
+	    stopDragging(fn);
+	  };
+	
+	  var unmount = function unmount() {
+	    kill();
+	    postDragEventPreventer.abort();
+	  };
+	
+	  var cancel = function cancel() {
+	    kill(callbacks.onCancel);
+	  };
+	
+	  var windowBindings = [{
+	    eventName: 'touchmove',
+	    options: {
+	      passive: false
+	    },
+	    fn: function fn(event) {
+	      if (!state.isDragging) {
+	        stopPendingDrag();
+	        return;
+	      }
+	
+	      if (!state.hasMoved) {
+	        setState({
+	          hasMoved: true
+	        });
+	      }
+	
+	      var _event$touches$ = event.touches[0],
+	          clientX = _event$touches$.clientX,
+	          clientY = _event$touches$.clientY;
+	      var point = {
+	        x: clientX,
+	        y: clientY
+	      };
+	      event.preventDefault();
+	      schedule.move(point);
+	    }
+	  }, {
+	    eventName: 'touchend',
+	    fn: function fn(event) {
+	      if (!state.isDragging) {
+	        stopPendingDrag();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      stopDragging(callbacks.onDrop);
+	    }
+	  }, {
+	    eventName: 'touchcancel',
+	    fn: function fn(event) {
+	      if (!state.isDragging) {
+	        stopPendingDrag();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      stopDragging(callbacks.onCancel);
+	    }
+	  }, {
+	    eventName: 'touchstart',
+	    fn: cancel
+	  }, {
+	    eventName: 'orientationchange',
+	    fn: cancel
+	  }, {
+	    eventName: 'resize',
+	    fn: cancel
+	  }, {
+	    eventName: 'scroll',
+	    options: {
+	      passive: true,
+	      capture: false
+	    },
+	    fn: function fn() {
+	      if (state.pending) {
+	        stopPendingDrag();
+	        return;
+	      }
+	
+	      schedule.windowScrollMove();
+	    }
+	  }, {
+	    eventName: 'contextmenu',
+	    fn: function fn(event) {
+	      event.preventDefault();
+	    }
+	  }, {
+	    eventName: 'keydown',
+	    fn: function fn(event) {
+	      if (!state.isDragging) {
+	        cancel();
+	        return;
+	      }
+	
+	      if (event.keyCode === escape) {
+	        event.preventDefault();
+	      }
+	
+	      cancel();
+	    }
+	  }, {
+	    eventName: 'touchforcechange',
+	    fn: function fn(event) {
+	      if (state.hasMoved) {
+	        event.preventDefault();
+	        return;
+	      }
+	
+	      var touch = event.touches[0];
+	
+	      if (touch.force >= forcePressThreshold) {
+	        cancel();
+	      }
+	    }
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	
+	  var bindWindowEvents = function bindWindowEvents() {
+	    bindEvents(getWindow(), windowBindings, {
+	      capture: true
+	    });
+	  };
+	
+	  var unbindWindowEvents = function unbindWindowEvents() {
+	    unbindEvents(getWindow(), windowBindings, {
+	      capture: true
+	    });
+	  };
+	
+	  var onTouchStart = function onTouchStart(event) {
+	    if (touchStartMarshal.isHandled()) {
+	      return;
+	    }
+	
+	    !!isCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not be able to perform a touch start while a drag or pending drag is occurring') : invariant(false) : void 0;
+	
+	    if (!canStartCapturing(event)) {
+	      return;
+	    }
+	
+	    touchStartMarshal.handle();
+	    webkitHack.preventTouchMove();
+	    startPendingDrag(event);
+	  };
+	
+	  var sensor = {
+	    onTouchStart: onTouchStart,
+	    kill: kill,
+	    isCapturing: isCapturing,
+	    isDragging: isDragging,
+	    unmount: unmount
+	  };
+	  return sensor;
+	});
+	
+	var _DragHandle$contextTy;
+	
+	var preventHtml5Dnd = function preventHtml5Dnd(event) {
+	  event.preventDefault();
+	};
+	
+	var DragHandle = function (_Component) {
+	  _inheritsLoose(DragHandle, _Component);
+	
+	  function DragHandle(props, context) {
+	    var _this;
+	
+	    _this = _Component.call(this, props, context) || this;
+	    _this.mouseSensor = void 0;
+	    _this.keyboardSensor = void 0;
+	    _this.touchSensor = void 0;
+	    _this.sensors = void 0;
+	    _this.styleContext = void 0;
+	    _this.canLift = void 0;
+	    _this.isFocused = false;
+	    _this.lastDraggableRef = void 0;
+	
+	    _this.onFocus = function () {
+	      _this.isFocused = true;
+	    };
+	
+	    _this.onBlur = function () {
+	      _this.isFocused = false;
+	    };
+	
+	    _this.onKeyDown = function (event) {
+	      if (_this.mouseSensor.isCapturing() || _this.touchSensor.isCapturing()) {
+	        return;
+	      }
+	
+	      _this.keyboardSensor.onKeyDown(event);
+	    };
+	
+	    _this.onMouseDown = function (event) {
+	      if (_this.keyboardSensor.isCapturing() || _this.mouseSensor.isCapturing()) {
+	        return;
+	      }
+	
+	      _this.mouseSensor.onMouseDown(event);
+	    };
+	
+	    _this.onTouchStart = function (event) {
+	      if (_this.mouseSensor.isCapturing() || _this.keyboardSensor.isCapturing()) {
+	        return;
+	      }
+	
+	      _this.touchSensor.onTouchStart(event);
+	    };
+	
+	    _this.canStartCapturing = function (event) {
+	      if (_this.isAnySensorCapturing()) {
+	        return false;
+	      }
+	
+	      if (!_this.canLift(_this.props.draggableId)) {
+	        return false;
+	      }
+	
+	      return shouldAllowDraggingFromTarget(event, _this.props);
+	    };
+	
+	    _this.isAnySensorCapturing = function () {
+	      return _this.sensors.some(function (sensor) {
+	        return sensor.isCapturing();
+	      });
+	    };
+	
+	    _this.getProvided = memoizeOne(function (isEnabled) {
+	      if (!isEnabled) {
+	        return null;
+	      }
+	
+	      var provided = {
+	        onMouseDown: _this.onMouseDown,
+	        onKeyDown: _this.onKeyDown,
+	        onTouchStart: _this.onTouchStart,
+	        onFocus: _this.onFocus,
+	        onBlur: _this.onBlur,
+	        tabIndex: 0,
+	        'data-react-beautiful-dnd-drag-handle': _this.styleContext,
+	        'aria-roledescription': 'Draggable item. Press space bar to lift',
+	        draggable: false,
+	        onDragStart: preventHtml5Dnd
+	      };
+	      return provided;
+	    });
+	
+	    var getWindow = function getWindow() {
+	      return getWindowFromRef(_this.props.getDraggableRef());
+	    };
+	
+	    var args = {
+	      callbacks: _this.props.callbacks,
+	      getDraggableRef: _this.props.getDraggableRef,
+	      getWindow: getWindow,
+	      canStartCapturing: _this.canStartCapturing
+	    };
+	    _this.mouseSensor = createMouseSensor(args);
+	    _this.keyboardSensor = createKeyboardSensor(args);
+	    _this.touchSensor = createTouchSensor(args);
+	    _this.sensors = [_this.mouseSensor, _this.keyboardSensor, _this.touchSensor];
+	    _this.styleContext = context[styleContextKey];
+	    _this.canLift = context[canLiftContextKey];
+	    return _this;
+	  }
+	
+	  var _proto = DragHandle.prototype;
+	
+	  _proto.componentDidMount = function componentDidMount() {
+	    var draggableRef = this.props.getDraggableRef();
+	    this.lastDraggableRef = draggableRef;
+	    !draggableRef ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get draggable ref from drag handle') : invariant(false) : void 0;
+	
+	    if (!this.props.isEnabled) {
+	      return;
+	    }
+	
+	    var dragHandleRef = getDragHandleRef(draggableRef);
+	    retainer.tryRestoreFocus(this.props.draggableId, dragHandleRef);
+	  };
+	
+	  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+	    var _this2 = this;
+	
+	    var ref = this.props.getDraggableRef();
+	
+	    if (ref !== this.lastDraggableRef) {
+	      this.lastDraggableRef = ref;
+	
+	      if (!ref || !this.isFocused) {
+	        return;
+	      }
+	
+	      if (!this.props.isEnabled) {
+	        return;
+	      }
+	
+	      getDragHandleRef(ref).focus();
+	    }
+	
+	    var isCapturing = this.isAnySensorCapturing();
+	
+	    if (!isCapturing) {
+	      return;
+	    }
+	
+	    var isDragStopping = prevProps.isDragging && !this.props.isDragging;
+	
+	    if (isDragStopping) {
+	      this.sensors.forEach(function (sensor) {
+	        if (sensor.isCapturing()) {
+	          sensor.kill();
+	        }
+	      });
+	    }
+	
+	    if (this.props.isEnabled) {
+	      return;
+	    }
+	
+	    this.sensors.forEach(function (sensor) {
+	      if (!sensor.isCapturing()) {
+	        return;
+	      }
+	
+	      var wasDragging = sensor.isDragging();
+	      sensor.kill();
+	
+	      if (wasDragging) {
+	        if (process.env.NODE_ENV !== 'production') {
+	          console.warn('You have disabled dragging on a Draggable while it was dragging. The drag has been cancelled');
+	        }
+	
+	        _this2.props.callbacks.onCancel();
+	      }
+	    });
+	  };
+	
+	  _proto.componentWillUnmount = function componentWillUnmount() {
+	    var _this3 = this;
+	
+	    this.sensors.forEach(function (sensor) {
+	      var wasDragging = sensor.isDragging();
+	      sensor.unmount();
+	
+	      if (wasDragging) {
+	        _this3.props.callbacks.onCancel();
+	      }
+	    });
+	
+	    var shouldRetainFocus = function () {
+	      if (!_this3.props.isEnabled) {
+	        return false;
+	      }
+	
+	      if (!_this3.isFocused) {
+	        return false;
+	      }
+	
+	      return _this3.props.isDragging || _this3.props.isDropAnimating;
+	    }();
+	
+	    if (shouldRetainFocus) {
+	      retainer.retain(this.props.draggableId);
+	    }
+	  };
+	
+	  _proto.render = function render() {
+	    var _this$props = this.props,
+	        children = _this$props.children,
+	        isEnabled = _this$props.isEnabled;
+	    return children(this.getProvided(isEnabled));
+	  };
+	
+	  return DragHandle;
+	}(React.Component);
+	
+	DragHandle.contextTypes = (_DragHandle$contextTy = {}, _DragHandle$contextTy[styleContextKey] = PropTypes.string.isRequired, _DragHandle$contextTy[canLiftContextKey] = PropTypes.func.isRequired, _DragHandle$contextTy);
+	
+	var getWindowScroll = (function () {
+	  return {
+	    x: window.pageXOffset,
+	    y: window.pageYOffset
+	  };
+	});
+	
+	var getViewport = (function () {
+	  var scroll = getWindowScroll();
+	  var top = scroll.y;
+	  var left = scroll.x;
+	  var doc = document.documentElement;
+	  !doc ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not find document.documentElement') : invariant(false) : void 0;
+	  var width = doc.clientWidth;
+	  var height = doc.clientHeight;
+	  var right = left + width;
+	  var bottom = top + height;
+	  var frame = cssBoxModel.getRect({
+	    top: top,
+	    left: left,
+	    right: right,
+	    bottom: bottom
+	  });
+	  var maxScroll = getMaxScroll({
+	    scrollHeight: doc.scrollHeight,
+	    scrollWidth: doc.scrollWidth,
+	    width: frame.width,
+	    height: frame.height
+	  });
+	  var viewport = {
+	    frame: frame,
+	    scroll: {
+	      initial: scroll,
+	      current: scroll,
+	      max: maxScroll,
+	      diff: {
+	        value: origin,
+	        displacement: origin
+	      }
+	    }
+	  };
+	  return viewport;
+	});
+	
+	var _Draggable$contextTyp;
+	var zIndexOptions = {
+	  dragging: 5000,
+	  dropAnimating: 4500
+	};
+	
+	var getTranslate = function getTranslate(offset) {
+	  if (isEqual(offset, origin)) {
+	    return null;
+	  }
+	
+	  return "translate(" + offset.x + "px, " + offset.y + "px)";
+	};
+	
+	var getSpeed$1 = function getSpeed(isDragging, shouldAnimateDragMovement, isDropAnimating) {
+	  if (isDropAnimating) {
+	    return 'STANDARD';
+	  }
+	
+	  if (isDragging && shouldAnimateDragMovement) {
+	    return 'FAST';
+	  }
+	
+	  return 'INSTANT';
+	};
+	
+	var Draggable = function (_Component) {
+	  _inheritsLoose(Draggable, _Component);
+	
+	  function Draggable(props, context) {
+	    var _this;
+	
+	    _this = _Component.call(this, props, context) || this;
+	    _this.callbacks = void 0;
+	    _this.styleContext = void 0;
+	    _this.ref = null;
+	
+	    _this.onMoveEnd = function () {
+	      if (_this.props.isDropAnimating) {
+	        _this.props.dropAnimationFinished();
+	      }
+	    };
+	
+	    _this.onLift = function (options) {
+	      start('LIFT');
+	      var ref = _this.ref;
+	      !ref ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
+	      !!_this.props.isDragDisabled ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot lift a Draggable when it is disabled') : invariant(false) : void 0;
+	      var clientSelection = options.clientSelection,
+	          autoScrollMode = options.autoScrollMode;
+	      var _this$props = _this.props,
+	          lift = _this$props.lift,
+	          draggableId = _this$props.draggableId;
+	      var client = {
+	        selection: clientSelection,
+	        borderBoxCenter: getBorderBoxCenterPosition(ref),
+	        offset: origin
+	      };
+	      lift({
+	        id: draggableId,
+	        client: client,
+	        autoScrollMode: autoScrollMode,
+	        viewport: getViewport()
+	      });
+	      finish('LIFT');
+	    };
+	
+	    _this.setRef = function (ref) {
+	      if (ref === null) {
+	        return;
+	      }
+	
+	      if (ref === _this.ref) {
+	        return;
+	      }
+	
+	      _this.ref = ref;
+	      throwIfRefIsInvalid(ref);
+	    };
+	
+	    _this.getDraggableRef = function () {
+	      return _this.ref;
+	    };
+	
+	    _this.getDraggingStyle = memoizeOne(function (change, dimension, isDropAnimating) {
+	      var box = dimension.client;
+	      var style = {
+	        position: 'fixed',
+	        top: box.marginBox.top,
+	        left: box.marginBox.left,
+	        boxSizing: 'border-box',
+	        width: box.borderBox.width,
+	        height: box.borderBox.height,
+	        transition: 'none',
+	        zIndex: isDropAnimating ? zIndexOptions.dropAnimating : zIndexOptions.dragging,
+	        transform: getTranslate(change),
+	        pointerEvents: 'none'
+	      };
+	      return style;
+	    });
+	    _this.getNotDraggingStyle = memoizeOne(function (current, shouldAnimateDisplacement) {
+	      var style = {
+	        transform: getTranslate(current),
+	        transition: shouldAnimateDisplacement ? null : 'none'
+	      };
+	      return style;
+	    });
+	    _this.getProvided = memoizeOne(function (change, isDragging, isDropAnimating, shouldAnimateDisplacement, dimension, dragHandleProps) {
+	      var useDraggingStyle = isDragging || isDropAnimating;
+	
+	      var draggableStyle = function () {
+	        if (!useDraggingStyle) {
+	          return _this.getNotDraggingStyle(change, shouldAnimateDisplacement);
+	        }
+	
+	        !dimension ? process.env.NODE_ENV !== "production" ? invariant(false, 'draggable dimension required for dragging') : invariant(false) : void 0;
+	        return _this.getDraggingStyle(change, dimension, isDropAnimating);
+	      }();
+	
+	      var provided = {
+	        innerRef: _this.setRef,
+	        draggableProps: {
+	          'data-react-beautiful-dnd-draggable': _this.styleContext,
+	          style: draggableStyle
+	        },
+	        dragHandleProps: dragHandleProps
+	      };
+	      return provided;
+	    });
+	    _this.getSnapshot = memoizeOne(function (isDragging, isDropAnimating, draggingOver) {
+	      return {
+	        isDragging: isDragging || isDropAnimating,
+	        isDropAnimating: isDropAnimating,
+	        draggingOver: draggingOver
+	      };
+	    });
+	
+	    _this.renderChildren = function (change, dragHandleProps) {
+	      var _this$props2 = _this.props,
+	          isDragging = _this$props2.isDragging,
+	          isDropAnimating = _this$props2.isDropAnimating,
+	          dimension = _this$props2.dimension,
+	          draggingOver = _this$props2.draggingOver,
+	          shouldAnimateDisplacement = _this$props2.shouldAnimateDisplacement,
+	          children = _this$props2.children;
+	      var child = children(_this.getProvided(change, isDragging, isDropAnimating, shouldAnimateDisplacement, dimension, dragHandleProps), _this.getSnapshot(isDragging, isDropAnimating, draggingOver));
+	      var isDraggingOrDropping = isDragging || isDropAnimating;
+	
+	      var placeholder = function () {
+	        if (!isDraggingOrDropping) {
+	          return null;
+	        }
+	
+	        !dimension ? process.env.NODE_ENV !== "production" ? invariant(false, 'Draggable: Dimension is required for dragging') : invariant(false) : void 0;
+	        return React__default.createElement(Placeholder, {
+	          placeholder: dimension.placeholder
+	        });
+	      }();
+	
+	      return React__default.createElement(React.Fragment, null, child, placeholder);
+	    };
+	
+	    var callbacks = {
+	      onLift: _this.onLift,
+	      onMove: function onMove(clientSelection) {
+	        return props.move({
+	          client: clientSelection,
+	          shouldAnimate: false
+	        });
+	      },
+	      onDrop: function onDrop() {
+	        return props.drop({
+	          reason: 'DROP'
+	        });
+	      },
+	      onCancel: function onCancel() {
+	        return props.drop({
+	          reason: 'CANCEL'
+	        });
+	      },
+	      onMoveUp: props.moveUp,
+	      onMoveDown: props.moveDown,
+	      onMoveRight: props.moveRight,
+	      onMoveLeft: props.moveLeft,
+	      onWindowScroll: function onWindowScroll() {
+	        return props.moveByWindowScroll({
+	          scroll: getWindowScroll()
+	        });
+	      }
+	    };
+	    _this.callbacks = callbacks;
+	    _this.styleContext = context[styleContextKey];
+	    return _this;
+	  }
+	
+	  var _proto = Draggable.prototype;
+	
+	  _proto.componentWillUnmount = function componentWillUnmount() {
+	    this.ref = null;
+	  };
+	
+	  _proto.render = function render() {
+	    var _this2 = this;
+	
+	    var _this$props3 = this.props,
+	        draggableId = _this$props3.draggableId,
+	        index = _this$props3.index,
+	        offset = _this$props3.offset,
+	        isDragging = _this$props3.isDragging,
+	        isDropAnimating = _this$props3.isDropAnimating,
+	        isDragDisabled = _this$props3.isDragDisabled,
+	        shouldAnimateDragMovement = _this$props3.shouldAnimateDragMovement,
+	        disableInteractiveElementBlocking = _this$props3.disableInteractiveElementBlocking;
+	    var droppableId = this.context[droppableIdKey];
+	    var type = this.context[droppableTypeKey];
+	    var speed = getSpeed$1(isDragging, shouldAnimateDragMovement, isDropAnimating);
+	    return React__default.createElement(DraggableDimensionPublisher, {
+	      key: draggableId,
+	      draggableId: draggableId,
+	      droppableId: droppableId,
+	      type: type,
+	      index: index,
+	      getDraggableRef: this.getDraggableRef
+	    }, React__default.createElement(Moveable, {
+	      speed: speed,
+	      destination: offset,
+	      onMoveEnd: this.onMoveEnd
+	    }, function (change) {
+	      return React__default.createElement(DragHandle, {
+	        draggableId: draggableId,
+	        isDragging: isDragging,
+	        isDropAnimating: isDropAnimating,
+	        isEnabled: !isDragDisabled,
+	        callbacks: _this2.callbacks,
+	        getDraggableRef: _this2.getDraggableRef,
+	        canDragInteractiveElements: disableInteractiveElementBlocking
+	      }, function (dragHandleProps) {
+	        return _this2.renderChildren(change, dragHandleProps);
+	      });
+	    }));
+	  };
+	
+	  return Draggable;
+	}(React.Component);
+	
+	Draggable.contextTypes = (_Draggable$contextTyp = {}, _Draggable$contextTyp[droppableIdKey] = PropTypes.string.isRequired, _Draggable$contextTyp[droppableTypeKey] = PropTypes.string.isRequired, _Draggable$contextTyp[styleContextKey] = PropTypes.string.isRequired, _Draggable$contextTyp);
+	
+	var defaultMapProps = {
+	  isDropAnimating: false,
+	  isDragging: false,
+	  offset: origin,
+	  shouldAnimateDragMovement: false,
+	  shouldAnimateDisplacement: true,
+	  dimension: null,
+	  draggingOver: null
+	};
+	var makeMapStateToProps$1 = function makeMapStateToProps() {
+	  var memoizedOffset = memoizeOne(function (x, y) {
+	    return {
+	      x: x,
+	      y: y
+	    };
+	  });
+	  var getNotDraggingProps = memoizeOne(function (offset, shouldAnimateDisplacement) {
+	    return {
+	      isDropAnimating: false,
+	      isDragging: false,
+	      offset: offset,
+	      shouldAnimateDisplacement: shouldAnimateDisplacement,
+	      shouldAnimateDragMovement: false,
+	      dimension: null,
+	      draggingOver: null
+	    };
+	  });
+	  var getDraggingProps = memoizeOne(function (offset, shouldAnimateDragMovement, dimension, draggingOver) {
+	    return {
+	      isDragging: true,
+	      isDropAnimating: false,
+	      shouldAnimateDisplacement: false,
+	      offset: offset,
+	      shouldAnimateDragMovement: shouldAnimateDragMovement,
+	      dimension: dimension,
+	      draggingOver: draggingOver
+	    };
+	  });
+	
+	  var getOutOfTheWayMovement = function getOutOfTheWayMovement(id, movement) {
+	    var map = getDisplacementMap(movement.displaced);
+	    var displacement = map[id];
+	
+	    if (!displacement) {
+	      return null;
+	    }
+	
+	    if (!displacement.isVisible) {
+	      return null;
+	    }
+	
+	    var amount = movement.isBeyondStartPosition ? negate(movement.amount) : movement.amount;
+	    return getNotDraggingProps(memoizedOffset(amount.x, amount.y), displacement.shouldAnimate);
+	  };
+	
+	  var draggingSelector = function draggingSelector(state, ownProps) {
+	    if (state.isDragging) {
+	      if (state.critical.draggable.id !== ownProps.draggableId) {
+	        return null;
+	      }
+	
+	      var offset = state.current.client.offset;
+	      var dimension = state.dimensions.draggables[ownProps.draggableId];
+	      var shouldAnimateDragMovement = state.shouldAnimate;
+	      var draggingOver = state.impact.destination ? state.impact.destination.droppableId : null;
+	      return getDraggingProps(memoizedOffset(offset.x, offset.y), shouldAnimateDragMovement, dimension, draggingOver);
+	    }
+	
+	    if (state.phase === 'DROP_ANIMATING') {
+	      var pending = state.pending;
+	
+	      if (pending.result.draggableId !== ownProps.draggableId) {
+	        return null;
+	      }
+	
+	      var _draggingOver = pending.result.destination ? pending.result.destination.droppableId : null;
+	
+	      return {
+	        isDragging: false,
+	        isDropAnimating: true,
+	        offset: pending.newHomeOffset,
+	        dimension: state.dimensions.draggables[ownProps.draggableId],
+	        draggingOver: _draggingOver,
+	        shouldAnimateDragMovement: false,
+	        shouldAnimateDisplacement: false
+	      };
+	    }
+	
+	    return null;
+	  };
+	
+	  var movingOutOfTheWaySelector = function movingOutOfTheWaySelector(state, ownProps) {
+	    if (state.isDragging) {
+	      if (state.critical.draggable.id === ownProps.draggableId) {
+	        return null;
+	      }
+	
+	      return getOutOfTheWayMovement(ownProps.draggableId, state.impact.movement);
+	    }
+	
+	    if (state.phase === 'DROP_ANIMATING') {
+	      if (state.pending.result.draggableId === ownProps.draggableId) {
+	        return null;
+	      }
+	
+	      return getOutOfTheWayMovement(ownProps.draggableId, state.pending.impact.movement);
+	    }
+	
+	    return null;
+	  };
+	
+	  var selector = function selector(state, ownProps) {
+	    var dragging = draggingSelector(state, ownProps);
+	
+	    if (dragging) {
+	      return dragging;
+	    }
+	
+	    var movingOutOfTheWay = movingOutOfTheWaySelector(state, ownProps);
+	
+	    if (movingOutOfTheWay) {
+	      return movingOutOfTheWay;
+	    }
+	
+	    return defaultMapProps;
+	  };
+	
+	  return selector;
+	};
+	var mapDispatchToProps = {
+	  lift: lift,
+	  move: move,
+	  moveUp: moveUp,
+	  moveDown: moveDown,
+	  moveLeft: moveLeft,
+	  moveRight: moveRight,
+	  moveByWindowScroll: moveByWindowScroll,
+	  drop: drop,
+	  dropAnimationFinished: dropAnimationFinished
+	};
+	var ConnectedDraggable = reactRedux.connect(makeMapStateToProps$1, mapDispatchToProps, null, {
+	  storeKey: storeKey,
+	  pure: true,
+	  areStatePropsEqual: isStrictEqual
+	})(Draggable);
+	ConnectedDraggable.defaultProps = {
+	  isDragDisabled: false,
+	  disableInteractiveElementBlocking: false
+	};
+	
+	exports.DragDropContext = DragDropContext;
+	exports.Droppable = connectedDroppable;
+	exports.Draggable = ConnectedDraggable;
+	exports.resetServerContext = resetServerContext;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
 /* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	var _Object$assign = __webpack_require__(84);
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	function _extends() {
+	  module.exports = _extends = _Object$assign || function (target) {
+	    for (var i = 1; i < arguments.length; i++) {
+	      var source = arguments[i];
 	
-	var _dragDropContext = __webpack_require__(84);
+	      for (var key in source) {
+	        if (Object.prototype.hasOwnProperty.call(source, key)) {
+	          target[key] = source[key];
+	        }
+	      }
+	    }
 	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_dragDropContext).default;
-	  }
-	});
+	    return target;
+	  };
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	  return _extends.apply(this, arguments);
+	}
+	
+	module.exports = _extends;
 
 /***/ }),
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _defineProperty2 = __webpack_require__(85);
-	
-	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _propTypes = __webpack_require__(5);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _createStore = __webpack_require__(171);
-	
-	var _createStore2 = _interopRequireDefault(_createStore);
-	
-	var _fireHooks = __webpack_require__(237);
-	
-	var _fireHooks2 = _interopRequireDefault(_fireHooks);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var DragDropContext = function (_React$Component) {
-	  (0, _inherits3.default)(DragDropContext, _React$Component);
-	
-	  function DragDropContext() {
-	    (0, _classCallCheck3.default)(this, DragDropContext);
-	    return (0, _possibleConstructorReturn3.default)(this, (DragDropContext.__proto__ || (0, _getPrototypeOf2.default)(DragDropContext)).apply(this, arguments));
-	  }
-	
-	  (0, _createClass3.default)(DragDropContext, [{
-	    key: 'getChildContext',
-	    value: function getChildContext() {
-	      return (0, _defineProperty3.default)({}, _contextKeys.storeKey, this.store);
-	    }
-	  }, {
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      var _this2 = this;
-	
-	      this.store = (0, _createStore2.default)();
-	
-	      var previous = this.store.getState();
-	
-	      this.unsubscribe = this.store.subscribe(function () {
-	        var current = _this2.store.getState();
-	
-	        var hooks = {
-	          onDragStart: _this2.props.onDragStart,
-	          onDragEnd: _this2.props.onDragEnd
-	        };
-	
-	        (0, _fireHooks2.default)(hooks, current, previous);
-	        previous = current;
-	      });
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      this.unsubscribe();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return this.props.children;
-	    }
-	  }]);
-	  return DragDropContext;
-	}(_react2.default.Component);
-	
-	DragDropContext.childContextTypes = (0, _defineProperty3.default)({}, _contextKeys.storeKey, _propTypes2.default.shape({
-	  dispatch: _propTypes2.default.func.isRequired,
-	  subscribe: _propTypes2.default.func.isRequired,
-	  getState: _propTypes2.default.func.isRequired
-	}).isRequired);
-	exports.default = DragDropContext;
+	module.exports = __webpack_require__(85);
 
 /***/ }),
 /* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _defineProperty = __webpack_require__(86);
-	
-	var _defineProperty2 = _interopRequireDefault(_defineProperty);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (obj, key, value) {
-	  if (key in obj) {
-	    (0, _defineProperty2.default)(obj, key, {
-	      value: value,
-	      enumerable: true,
-	      configurable: true,
-	      writable: true
-	    });
-	  } else {
-	    obj[key] = value;
-	  }
-	
-	  return obj;
-	};
+	__webpack_require__(86);
+	module.exports = __webpack_require__(89).Object.assign;
+
 
 /***/ }),
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(87), __esModule: true };
+	// 19.1.3.1 Object.assign(target, source)
+	var $export = __webpack_require__(87);
+	
+	$export($export.S + $export.F, 'Object', { assign: __webpack_require__(103) });
+
 
 /***/ }),
 /* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(88);
-	var $Object = __webpack_require__(91).Object;
-	module.exports = function defineProperty(it, key, desc) {
-	  return $Object.defineProperty(it, key, desc);
-	};
-
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var $export = __webpack_require__(89);
-	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-	$export($export.S + $export.F * !__webpack_require__(99), 'Object', { defineProperty: __webpack_require__(95).f });
-
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(90);
-	var core = __webpack_require__(91);
-	var ctx = __webpack_require__(92);
-	var hide = __webpack_require__(94);
-	var has = __webpack_require__(104);
+	var global = __webpack_require__(88);
+	var core = __webpack_require__(89);
+	var ctx = __webpack_require__(90);
+	var hide = __webpack_require__(92);
+	var has = __webpack_require__(102);
 	var PROTOTYPE = 'prototype';
 	
 	var $export = function (type, name, source) {
@@ -8335,7 +14592,7 @@
 
 
 /***/ }),
-/* 90 */
+/* 88 */
 /***/ (function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -8347,7 +14604,7 @@
 
 
 /***/ }),
-/* 91 */
+/* 89 */
 /***/ (function(module, exports) {
 
 	var core = module.exports = { version: '2.5.7' };
@@ -8355,11 +14612,11 @@
 
 
 /***/ }),
-/* 92 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(93);
+	var aFunction = __webpack_require__(91);
 	module.exports = function (fn, that, length) {
 	  aFunction(fn);
 	  if (that === undefined) return fn;
@@ -8381,7 +14638,7 @@
 
 
 /***/ }),
-/* 93 */
+/* 91 */
 /***/ (function(module, exports) {
 
 	module.exports = function (it) {
@@ -8391,12 +14648,12 @@
 
 
 /***/ }),
-/* 94 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var dP = __webpack_require__(95);
-	var createDesc = __webpack_require__(103);
-	module.exports = __webpack_require__(99) ? function (object, key, value) {
+	var dP = __webpack_require__(93);
+	var createDesc = __webpack_require__(101);
+	module.exports = __webpack_require__(97) ? function (object, key, value) {
 	  return dP.f(object, key, createDesc(1, value));
 	} : function (object, key, value) {
 	  object[key] = value;
@@ -8405,15 +14662,15 @@
 
 
 /***/ }),
-/* 95 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var anObject = __webpack_require__(96);
-	var IE8_DOM_DEFINE = __webpack_require__(98);
-	var toPrimitive = __webpack_require__(102);
+	var anObject = __webpack_require__(94);
+	var IE8_DOM_DEFINE = __webpack_require__(96);
+	var toPrimitive = __webpack_require__(100);
 	var dP = Object.defineProperty;
 	
-	exports.f = __webpack_require__(99) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+	exports.f = __webpack_require__(97) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
 	  anObject(O);
 	  P = toPrimitive(P, true);
 	  anObject(Attributes);
@@ -8427,10 +14684,10 @@
 
 
 /***/ }),
-/* 96 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(97);
+	var isObject = __webpack_require__(95);
 	module.exports = function (it) {
 	  if (!isObject(it)) throw TypeError(it + ' is not an object!');
 	  return it;
@@ -8438,7 +14695,7 @@
 
 
 /***/ }),
-/* 97 */
+/* 95 */
 /***/ (function(module, exports) {
 
 	module.exports = function (it) {
@@ -8447,26 +14704,26 @@
 
 
 /***/ }),
-/* 98 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = !__webpack_require__(99) && !__webpack_require__(100)(function () {
-	  return Object.defineProperty(__webpack_require__(101)('div'), 'a', { get: function () { return 7; } }).a != 7;
+	module.exports = !__webpack_require__(97) && !__webpack_require__(98)(function () {
+	  return Object.defineProperty(__webpack_require__(99)('div'), 'a', { get: function () { return 7; } }).a != 7;
 	});
 
 
 /***/ }),
-/* 99 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(100)(function () {
+	module.exports = !__webpack_require__(98)(function () {
 	  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 	});
 
 
 /***/ }),
-/* 100 */
+/* 98 */
 /***/ (function(module, exports) {
 
 	module.exports = function (exec) {
@@ -8479,11 +14736,11 @@
 
 
 /***/ }),
-/* 101 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(97);
-	var document = __webpack_require__(90).document;
+	var isObject = __webpack_require__(95);
+	var document = __webpack_require__(88).document;
 	// typeof document.createElement is 'object' in old IE
 	var is = isObject(document) && isObject(document.createElement);
 	module.exports = function (it) {
@@ -8492,11 +14749,11 @@
 
 
 /***/ }),
-/* 102 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(97);
+	var isObject = __webpack_require__(95);
 	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
 	// and the second argument - flag - preferred type is a string
 	module.exports = function (it, S) {
@@ -8510,7 +14767,7 @@
 
 
 /***/ }),
-/* 103 */
+/* 101 */
 /***/ (function(module, exports) {
 
 	module.exports = function (bitmap, value) {
@@ -8524,7 +14781,7 @@
 
 
 /***/ }),
-/* 104 */
+/* 102 */
 /***/ (function(module, exports) {
 
 	var hasOwnProperty = {}.hasOwnProperty;
@@ -8534,42 +14791,113 @@
 
 
 /***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	// 19.1.2.1 Object.assign(target, source, ...)
+	var getKeys = __webpack_require__(104);
+	var gOPS = __webpack_require__(119);
+	var pIE = __webpack_require__(120);
+	var toObject = __webpack_require__(121);
+	var IObject = __webpack_require__(107);
+	var $assign = Object.assign;
+	
+	// should work with symbols and should have deterministic property order (V8 bug)
+	module.exports = !$assign || __webpack_require__(98)(function () {
+	  var A = {};
+	  var B = {};
+	  // eslint-disable-next-line no-undef
+	  var S = Symbol();
+	  var K = 'abcdefghijklmnopqrst';
+	  A[S] = 7;
+	  K.split('').forEach(function (k) { B[k] = k; });
+	  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+	}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+	  var T = toObject(target);
+	  var aLen = arguments.length;
+	  var index = 1;
+	  var getSymbols = gOPS.f;
+	  var isEnum = pIE.f;
+	  while (aLen > index) {
+	    var S = IObject(arguments[index++]);
+	    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+	    var length = keys.length;
+	    var j = 0;
+	    var key;
+	    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+	  } return T;
+	} : $assign;
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+	var $keys = __webpack_require__(105);
+	var enumBugKeys = __webpack_require__(118);
+	
+	module.exports = Object.keys || function keys(O) {
+	  return $keys(O, enumBugKeys);
+	};
+
+
+/***/ }),
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(106), __esModule: true };
+	var has = __webpack_require__(102);
+	var toIObject = __webpack_require__(106);
+	var arrayIndexOf = __webpack_require__(110)(false);
+	var IE_PROTO = __webpack_require__(114)('IE_PROTO');
+	
+	module.exports = function (object, names) {
+	  var O = toIObject(object);
+	  var i = 0;
+	  var result = [];
+	  var key;
+	  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
+	  // Don't enum bug & hidden keys
+	  while (names.length > i) if (has(O, key = names[i++])) {
+	    ~arrayIndexOf(result, key) || result.push(key);
+	  }
+	  return result;
+	};
+
 
 /***/ }),
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(107);
-	module.exports = __webpack_require__(91).Object.getPrototypeOf;
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(107);
+	var defined = __webpack_require__(109);
+	module.exports = function (it) {
+	  return IObject(defined(it));
+	};
 
 
 /***/ }),
 /* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	// 19.1.2.9 Object.getPrototypeOf(O)
-	var toObject = __webpack_require__(108);
-	var $getPrototypeOf = __webpack_require__(110);
-	
-	__webpack_require__(115)('getPrototypeOf', function () {
-	  return function getPrototypeOf(it) {
-	    return $getPrototypeOf(toObject(it));
-	  };
-	});
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(108);
+	// eslint-disable-next-line no-prototype-builtins
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
 
 
 /***/ }),
 /* 108 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(109);
+	var toString = {}.toString;
+	
 	module.exports = function (it) {
-	  return Object(defined(it));
+	  return toString.call(it).slice(8, -1);
 	};
 
 
@@ -8588,505 +14916,11 @@
 /* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-	var has = __webpack_require__(104);
-	var toObject = __webpack_require__(108);
-	var IE_PROTO = __webpack_require__(111)('IE_PROTO');
-	var ObjectProto = Object.prototype;
-	
-	module.exports = Object.getPrototypeOf || function (O) {
-	  O = toObject(O);
-	  if (has(O, IE_PROTO)) return O[IE_PROTO];
-	  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
-	    return O.constructor.prototype;
-	  } return O instanceof Object ? ObjectProto : null;
-	};
-
-
-/***/ }),
-/* 111 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var shared = __webpack_require__(112)('keys');
-	var uid = __webpack_require__(114);
-	module.exports = function (key) {
-	  return shared[key] || (shared[key] = uid(key));
-	};
-
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var core = __webpack_require__(91);
-	var global = __webpack_require__(90);
-	var SHARED = '__core-js_shared__';
-	var store = global[SHARED] || (global[SHARED] = {});
-	
-	(module.exports = function (key, value) {
-	  return store[key] || (store[key] = value !== undefined ? value : {});
-	})('versions', []).push({
-	  version: core.version,
-	  mode: __webpack_require__(113) ? 'pure' : 'global',
-	  copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
-	});
-
-
-/***/ }),
-/* 113 */
-/***/ (function(module, exports) {
-
-	module.exports = true;
-
-
-/***/ }),
-/* 114 */
-/***/ (function(module, exports) {
-
-	var id = 0;
-	var px = Math.random();
-	module.exports = function (key) {
-	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-	};
-
-
-/***/ }),
-/* 115 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(89);
-	var core = __webpack_require__(91);
-	var fails = __webpack_require__(100);
-	module.exports = function (KEY, exec) {
-	  var fn = (core.Object || {})[KEY] || Object[KEY];
-	  var exp = {};
-	  exp[KEY] = exec(fn);
-	  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
-	};
-
-
-/***/ }),
-/* 116 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	exports.default = function (instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	};
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _defineProperty = __webpack_require__(86);
-	
-	var _defineProperty2 = _interopRequireDefault(_defineProperty);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function () {
-	  function defineProperties(target, props) {
-	    for (var i = 0; i < props.length; i++) {
-	      var descriptor = props[i];
-	      descriptor.enumerable = descriptor.enumerable || false;
-	      descriptor.configurable = true;
-	      if ("value" in descriptor) descriptor.writable = true;
-	      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
-	    }
-	  }
-	
-	  return function (Constructor, protoProps, staticProps) {
-	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-	    if (staticProps) defineProperties(Constructor, staticProps);
-	    return Constructor;
-	  };
-	}();
-
-/***/ }),
-/* 118 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _typeof2 = __webpack_require__(119);
-	
-	var _typeof3 = _interopRequireDefault(_typeof2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }
-	
-	  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
-	};
-
-/***/ }),
-/* 119 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _iterator = __webpack_require__(120);
-	
-	var _iterator2 = _interopRequireDefault(_iterator);
-	
-	var _symbol = __webpack_require__(148);
-	
-	var _symbol2 = _interopRequireDefault(_symbol);
-	
-	var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
-	  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
-	} : function (obj) {
-	  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
-	};
-
-/***/ }),
-/* 120 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(121), __esModule: true };
-
-/***/ }),
-/* 121 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(122);
-	__webpack_require__(143);
-	module.exports = __webpack_require__(147).f('iterator');
-
-
-/***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $at = __webpack_require__(123)(true);
-	
-	// 21.1.3.27 String.prototype[@@iterator]()
-	__webpack_require__(125)(String, 'String', function (iterated) {
-	  this._t = String(iterated); // target
-	  this._i = 0;                // next index
-	// 21.1.5.2.1 %StringIteratorPrototype%.next()
-	}, function () {
-	  var O = this._t;
-	  var index = this._i;
-	  var point;
-	  if (index >= O.length) return { value: undefined, done: true };
-	  point = $at(O, index);
-	  this._i += point.length;
-	  return { value: point, done: false };
-	});
-
-
-/***/ }),
-/* 123 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var toInteger = __webpack_require__(124);
-	var defined = __webpack_require__(109);
-	// true  -> String#at
-	// false -> String#codePointAt
-	module.exports = function (TO_STRING) {
-	  return function (that, pos) {
-	    var s = String(defined(that));
-	    var i = toInteger(pos);
-	    var l = s.length;
-	    var a, b;
-	    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
-	    a = s.charCodeAt(i);
-	    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-	      ? TO_STRING ? s.charAt(i) : a
-	      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-	  };
-	};
-
-
-/***/ }),
-/* 124 */
-/***/ (function(module, exports) {
-
-	// 7.1.4 ToInteger
-	var ceil = Math.ceil;
-	var floor = Math.floor;
-	module.exports = function (it) {
-	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-	};
-
-
-/***/ }),
-/* 125 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var LIBRARY = __webpack_require__(113);
-	var $export = __webpack_require__(89);
-	var redefine = __webpack_require__(126);
-	var hide = __webpack_require__(94);
-	var Iterators = __webpack_require__(127);
-	var $iterCreate = __webpack_require__(128);
-	var setToStringTag = __webpack_require__(141);
-	var getPrototypeOf = __webpack_require__(110);
-	var ITERATOR = __webpack_require__(142)('iterator');
-	var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
-	var FF_ITERATOR = '@@iterator';
-	var KEYS = 'keys';
-	var VALUES = 'values';
-	
-	var returnThis = function () { return this; };
-	
-	module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
-	  $iterCreate(Constructor, NAME, next);
-	  var getMethod = function (kind) {
-	    if (!BUGGY && kind in proto) return proto[kind];
-	    switch (kind) {
-	      case KEYS: return function keys() { return new Constructor(this, kind); };
-	      case VALUES: return function values() { return new Constructor(this, kind); };
-	    } return function entries() { return new Constructor(this, kind); };
-	  };
-	  var TAG = NAME + ' Iterator';
-	  var DEF_VALUES = DEFAULT == VALUES;
-	  var VALUES_BUG = false;
-	  var proto = Base.prototype;
-	  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
-	  var $default = $native || getMethod(DEFAULT);
-	  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
-	  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
-	  var methods, key, IteratorPrototype;
-	  // Fix native
-	  if ($anyNative) {
-	    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
-	    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
-	      // Set @@toStringTag to native iterators
-	      setToStringTag(IteratorPrototype, TAG, true);
-	      // fix for some old engines
-	      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
-	    }
-	  }
-	  // fix Array#{values, @@iterator}.name in V8 / FF
-	  if (DEF_VALUES && $native && $native.name !== VALUES) {
-	    VALUES_BUG = true;
-	    $default = function values() { return $native.call(this); };
-	  }
-	  // Define iterator
-	  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
-	    hide(proto, ITERATOR, $default);
-	  }
-	  // Plug for library
-	  Iterators[NAME] = $default;
-	  Iterators[TAG] = returnThis;
-	  if (DEFAULT) {
-	    methods = {
-	      values: DEF_VALUES ? $default : getMethod(VALUES),
-	      keys: IS_SET ? $default : getMethod(KEYS),
-	      entries: $entries
-	    };
-	    if (FORCED) for (key in methods) {
-	      if (!(key in proto)) redefine(proto, key, methods[key]);
-	    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-	  }
-	  return methods;
-	};
-
-
-/***/ }),
-/* 126 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(94);
-
-
-/***/ }),
-/* 127 */
-/***/ (function(module, exports) {
-
-	module.exports = {};
-
-
-/***/ }),
-/* 128 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var create = __webpack_require__(129);
-	var descriptor = __webpack_require__(103);
-	var setToStringTag = __webpack_require__(141);
-	var IteratorPrototype = {};
-	
-	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(94)(IteratorPrototype, __webpack_require__(142)('iterator'), function () { return this; });
-	
-	module.exports = function (Constructor, NAME, next) {
-	  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
-	  setToStringTag(Constructor, NAME + ' Iterator');
-	};
-
-
-/***/ }),
-/* 129 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-	var anObject = __webpack_require__(96);
-	var dPs = __webpack_require__(130);
-	var enumBugKeys = __webpack_require__(139);
-	var IE_PROTO = __webpack_require__(111)('IE_PROTO');
-	var Empty = function () { /* empty */ };
-	var PROTOTYPE = 'prototype';
-	
-	// Create object with fake `null` prototype: use iframe Object with cleared prototype
-	var createDict = function () {
-	  // Thrash, waste and sodomy: IE GC bug
-	  var iframe = __webpack_require__(101)('iframe');
-	  var i = enumBugKeys.length;
-	  var lt = '<';
-	  var gt = '>';
-	  var iframeDocument;
-	  iframe.style.display = 'none';
-	  __webpack_require__(140).appendChild(iframe);
-	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-	  // createDict = iframe.contentWindow.Object;
-	  // html.removeChild(iframe);
-	  iframeDocument = iframe.contentWindow.document;
-	  iframeDocument.open();
-	  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
-	  iframeDocument.close();
-	  createDict = iframeDocument.F;
-	  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
-	  return createDict();
-	};
-	
-	module.exports = Object.create || function create(O, Properties) {
-	  var result;
-	  if (O !== null) {
-	    Empty[PROTOTYPE] = anObject(O);
-	    result = new Empty();
-	    Empty[PROTOTYPE] = null;
-	    // add "__proto__" for Object.getPrototypeOf polyfill
-	    result[IE_PROTO] = O;
-	  } else result = createDict();
-	  return Properties === undefined ? result : dPs(result, Properties);
-	};
-
-
-/***/ }),
-/* 130 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var dP = __webpack_require__(95);
-	var anObject = __webpack_require__(96);
-	var getKeys = __webpack_require__(131);
-	
-	module.exports = __webpack_require__(99) ? Object.defineProperties : function defineProperties(O, Properties) {
-	  anObject(O);
-	  var keys = getKeys(Properties);
-	  var length = keys.length;
-	  var i = 0;
-	  var P;
-	  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
-	  return O;
-	};
-
-
-/***/ }),
-/* 131 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-	var $keys = __webpack_require__(132);
-	var enumBugKeys = __webpack_require__(139);
-	
-	module.exports = Object.keys || function keys(O) {
-	  return $keys(O, enumBugKeys);
-	};
-
-
-/***/ }),
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var has = __webpack_require__(104);
-	var toIObject = __webpack_require__(133);
-	var arrayIndexOf = __webpack_require__(136)(false);
-	var IE_PROTO = __webpack_require__(111)('IE_PROTO');
-	
-	module.exports = function (object, names) {
-	  var O = toIObject(object);
-	  var i = 0;
-	  var result = [];
-	  var key;
-	  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
-	  // Don't enum bug & hidden keys
-	  while (names.length > i) if (has(O, key = names[i++])) {
-	    ~arrayIndexOf(result, key) || result.push(key);
-	  }
-	  return result;
-	};
-
-
-/***/ }),
-/* 133 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(134);
-	var defined = __webpack_require__(109);
-	module.exports = function (it) {
-	  return IObject(defined(it));
-	};
-
-
-/***/ }),
-/* 134 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(135);
-	// eslint-disable-next-line no-prototype-builtins
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-
-/***/ }),
-/* 135 */
-/***/ (function(module, exports) {
-
-	var toString = {}.toString;
-	
-	module.exports = function (it) {
-	  return toString.call(it).slice(8, -1);
-	};
-
-
-/***/ }),
-/* 136 */
-/***/ (function(module, exports, __webpack_require__) {
-
 	// false -> Array#indexOf
 	// true  -> Array#includes
-	var toIObject = __webpack_require__(133);
-	var toLength = __webpack_require__(137);
-	var toAbsoluteIndex = __webpack_require__(138);
+	var toIObject = __webpack_require__(106);
+	var toLength = __webpack_require__(111);
+	var toAbsoluteIndex = __webpack_require__(113);
 	module.exports = function (IS_INCLUDES) {
 	  return function ($this, el, fromIndex) {
 	    var O = toIObject($this);
@@ -9108,11 +14942,11 @@
 
 
 /***/ }),
-/* 137 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 7.1.15 ToLength
-	var toInteger = __webpack_require__(124);
+	var toInteger = __webpack_require__(112);
 	var min = Math.min;
 	module.exports = function (it) {
 	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -9120,10 +14954,22 @@
 
 
 /***/ }),
-/* 138 */
+/* 112 */
+/***/ (function(module, exports) {
+
+	// 7.1.4 ToInteger
+	var ceil = Math.ceil;
+	var floor = Math.floor;
+	module.exports = function (it) {
+	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+	};
+
+
+/***/ }),
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var toInteger = __webpack_require__(124);
+	var toInteger = __webpack_require__(112);
 	var max = Math.max;
 	var min = Math.min;
 	module.exports = function (index, length) {
@@ -9133,7 +14979,54 @@
 
 
 /***/ }),
-/* 139 */
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var shared = __webpack_require__(115)('keys');
+	var uid = __webpack_require__(117);
+	module.exports = function (key) {
+	  return shared[key] || (shared[key] = uid(key));
+	};
+
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var core = __webpack_require__(89);
+	var global = __webpack_require__(88);
+	var SHARED = '__core-js_shared__';
+	var store = global[SHARED] || (global[SHARED] = {});
+	
+	(module.exports = function (key, value) {
+	  return store[key] || (store[key] = value !== undefined ? value : {});
+	})('versions', []).push({
+	  version: core.version,
+	  mode: __webpack_require__(116) ? 'pure' : 'global',
+	  copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
+	});
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports) {
+
+	module.exports = true;
+
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports) {
+
+	var id = 0;
+	var px = Math.random();
+	module.exports = function (key) {
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+
+/***/ }),
+/* 118 */
 /***/ (function(module, exports) {
 
 	// IE 8- don't enum bug keys
@@ -9143,809 +15036,331 @@
 
 
 /***/ }),
-/* 140 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var document = __webpack_require__(90).document;
-	module.exports = document && document.documentElement;
-
-
-/***/ }),
-/* 141 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var def = __webpack_require__(95).f;
-	var has = __webpack_require__(104);
-	var TAG = __webpack_require__(142)('toStringTag');
-	
-	module.exports = function (it, tag, stat) {
-	  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
-	};
-
-
-/***/ }),
-/* 142 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var store = __webpack_require__(112)('wks');
-	var uid = __webpack_require__(114);
-	var Symbol = __webpack_require__(90).Symbol;
-	var USE_SYMBOL = typeof Symbol == 'function';
-	
-	var $exports = module.exports = function (name) {
-	  return store[name] || (store[name] =
-	    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
-	};
-	
-	$exports.store = store;
-
-
-/***/ }),
-/* 143 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(144);
-	var global = __webpack_require__(90);
-	var hide = __webpack_require__(94);
-	var Iterators = __webpack_require__(127);
-	var TO_STRING_TAG = __webpack_require__(142)('toStringTag');
-	
-	var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
-	  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
-	  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
-	  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
-	  'TextTrackList,TouchList').split(',');
-	
-	for (var i = 0; i < DOMIterables.length; i++) {
-	  var NAME = DOMIterables[i];
-	  var Collection = global[NAME];
-	  var proto = Collection && Collection.prototype;
-	  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
-	  Iterators[NAME] = Iterators.Array;
-	}
-
-
-/***/ }),
-/* 144 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var addToUnscopables = __webpack_require__(145);
-	var step = __webpack_require__(146);
-	var Iterators = __webpack_require__(127);
-	var toIObject = __webpack_require__(133);
-	
-	// 22.1.3.4 Array.prototype.entries()
-	// 22.1.3.13 Array.prototype.keys()
-	// 22.1.3.29 Array.prototype.values()
-	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(125)(Array, 'Array', function (iterated, kind) {
-	  this._t = toIObject(iterated); // target
-	  this._i = 0;                   // next index
-	  this._k = kind;                // kind
-	// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-	}, function () {
-	  var O = this._t;
-	  var kind = this._k;
-	  var index = this._i++;
-	  if (!O || index >= O.length) {
-	    this._t = undefined;
-	    return step(1);
-	  }
-	  if (kind == 'keys') return step(0, index);
-	  if (kind == 'values') return step(0, O[index]);
-	  return step(0, [index, O[index]]);
-	}, 'values');
-	
-	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-	Iterators.Arguments = Iterators.Array;
-	
-	addToUnscopables('keys');
-	addToUnscopables('values');
-	addToUnscopables('entries');
-
-
-/***/ }),
-/* 145 */
-/***/ (function(module, exports) {
-
-	module.exports = function () { /* empty */ };
-
-
-/***/ }),
-/* 146 */
-/***/ (function(module, exports) {
-
-	module.exports = function (done, value) {
-	  return { value: value, done: !!done };
-	};
-
-
-/***/ }),
-/* 147 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports.f = __webpack_require__(142);
-
-
-/***/ }),
-/* 148 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(149), __esModule: true };
-
-/***/ }),
-/* 149 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(150);
-	__webpack_require__(160);
-	__webpack_require__(161);
-	__webpack_require__(162);
-	module.exports = __webpack_require__(91).Symbol;
-
-
-/***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	// ECMAScript 6 symbols shim
-	var global = __webpack_require__(90);
-	var has = __webpack_require__(104);
-	var DESCRIPTORS = __webpack_require__(99);
-	var $export = __webpack_require__(89);
-	var redefine = __webpack_require__(126);
-	var META = __webpack_require__(151).KEY;
-	var $fails = __webpack_require__(100);
-	var shared = __webpack_require__(112);
-	var setToStringTag = __webpack_require__(141);
-	var uid = __webpack_require__(114);
-	var wks = __webpack_require__(142);
-	var wksExt = __webpack_require__(147);
-	var wksDefine = __webpack_require__(152);
-	var enumKeys = __webpack_require__(153);
-	var isArray = __webpack_require__(156);
-	var anObject = __webpack_require__(96);
-	var isObject = __webpack_require__(97);
-	var toIObject = __webpack_require__(133);
-	var toPrimitive = __webpack_require__(102);
-	var createDesc = __webpack_require__(103);
-	var _create = __webpack_require__(129);
-	var gOPNExt = __webpack_require__(157);
-	var $GOPD = __webpack_require__(159);
-	var $DP = __webpack_require__(95);
-	var $keys = __webpack_require__(131);
-	var gOPD = $GOPD.f;
-	var dP = $DP.f;
-	var gOPN = gOPNExt.f;
-	var $Symbol = global.Symbol;
-	var $JSON = global.JSON;
-	var _stringify = $JSON && $JSON.stringify;
-	var PROTOTYPE = 'prototype';
-	var HIDDEN = wks('_hidden');
-	var TO_PRIMITIVE = wks('toPrimitive');
-	var isEnum = {}.propertyIsEnumerable;
-	var SymbolRegistry = shared('symbol-registry');
-	var AllSymbols = shared('symbols');
-	var OPSymbols = shared('op-symbols');
-	var ObjectProto = Object[PROTOTYPE];
-	var USE_NATIVE = typeof $Symbol == 'function';
-	var QObject = global.QObject;
-	// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
-	var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
-	
-	// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
-	var setSymbolDesc = DESCRIPTORS && $fails(function () {
-	  return _create(dP({}, 'a', {
-	    get: function () { return dP(this, 'a', { value: 7 }).a; }
-	  })).a != 7;
-	}) ? function (it, key, D) {
-	  var protoDesc = gOPD(ObjectProto, key);
-	  if (protoDesc) delete ObjectProto[key];
-	  dP(it, key, D);
-	  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
-	} : dP;
-	
-	var wrap = function (tag) {
-	  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
-	  sym._k = tag;
-	  return sym;
-	};
-	
-	var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
-	  return typeof it == 'symbol';
-	} : function (it) {
-	  return it instanceof $Symbol;
-	};
-	
-	var $defineProperty = function defineProperty(it, key, D) {
-	  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
-	  anObject(it);
-	  key = toPrimitive(key, true);
-	  anObject(D);
-	  if (has(AllSymbols, key)) {
-	    if (!D.enumerable) {
-	      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
-	      it[HIDDEN][key] = true;
-	    } else {
-	      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
-	      D = _create(D, { enumerable: createDesc(0, false) });
-	    } return setSymbolDesc(it, key, D);
-	  } return dP(it, key, D);
-	};
-	var $defineProperties = function defineProperties(it, P) {
-	  anObject(it);
-	  var keys = enumKeys(P = toIObject(P));
-	  var i = 0;
-	  var l = keys.length;
-	  var key;
-	  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
-	  return it;
-	};
-	var $create = function create(it, P) {
-	  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
-	};
-	var $propertyIsEnumerable = function propertyIsEnumerable(key) {
-	  var E = isEnum.call(this, key = toPrimitive(key, true));
-	  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
-	  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
-	};
-	var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
-	  it = toIObject(it);
-	  key = toPrimitive(key, true);
-	  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
-	  var D = gOPD(it, key);
-	  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
-	  return D;
-	};
-	var $getOwnPropertyNames = function getOwnPropertyNames(it) {
-	  var names = gOPN(toIObject(it));
-	  var result = [];
-	  var i = 0;
-	  var key;
-	  while (names.length > i) {
-	    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
-	  } return result;
-	};
-	var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
-	  var IS_OP = it === ObjectProto;
-	  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
-	  var result = [];
-	  var i = 0;
-	  var key;
-	  while (names.length > i) {
-	    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
-	  } return result;
-	};
-	
-	// 19.4.1.1 Symbol([description])
-	if (!USE_NATIVE) {
-	  $Symbol = function Symbol() {
-	    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
-	    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
-	    var $set = function (value) {
-	      if (this === ObjectProto) $set.call(OPSymbols, value);
-	      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
-	      setSymbolDesc(this, tag, createDesc(1, value));
-	    };
-	    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
-	    return wrap(tag);
-	  };
-	  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
-	    return this._k;
-	  });
-	
-	  $GOPD.f = $getOwnPropertyDescriptor;
-	  $DP.f = $defineProperty;
-	  __webpack_require__(158).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(155).f = $propertyIsEnumerable;
-	  __webpack_require__(154).f = $getOwnPropertySymbols;
-	
-	  if (DESCRIPTORS && !__webpack_require__(113)) {
-	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
-	  }
-	
-	  wksExt.f = function (name) {
-	    return wrap(wks(name));
-	  };
-	}
-	
-	$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
-	
-	for (var es6Symbols = (
-	  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
-	  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
-	).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
-	
-	for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
-	
-	$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
-	  // 19.4.2.1 Symbol.for(key)
-	  'for': function (key) {
-	    return has(SymbolRegistry, key += '')
-	      ? SymbolRegistry[key]
-	      : SymbolRegistry[key] = $Symbol(key);
-	  },
-	  // 19.4.2.5 Symbol.keyFor(sym)
-	  keyFor: function keyFor(sym) {
-	    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
-	    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
-	  },
-	  useSetter: function () { setter = true; },
-	  useSimple: function () { setter = false; }
-	});
-	
-	$export($export.S + $export.F * !USE_NATIVE, 'Object', {
-	  // 19.1.2.2 Object.create(O [, Properties])
-	  create: $create,
-	  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
-	  defineProperty: $defineProperty,
-	  // 19.1.2.3 Object.defineProperties(O, Properties)
-	  defineProperties: $defineProperties,
-	  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-	  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
-	  // 19.1.2.7 Object.getOwnPropertyNames(O)
-	  getOwnPropertyNames: $getOwnPropertyNames,
-	  // 19.1.2.8 Object.getOwnPropertySymbols(O)
-	  getOwnPropertySymbols: $getOwnPropertySymbols
-	});
-	
-	// 24.3.2 JSON.stringify(value [, replacer [, space]])
-	$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
-	  var S = $Symbol();
-	  // MS Edge converts symbol values to JSON as {}
-	  // WebKit converts symbol values to JSON as null
-	  // V8 throws on boxed symbols
-	  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
-	})), 'JSON', {
-	  stringify: function stringify(it) {
-	    var args = [it];
-	    var i = 1;
-	    var replacer, $replacer;
-	    while (arguments.length > i) args.push(arguments[i++]);
-	    $replacer = replacer = args[1];
-	    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
-	    if (!isArray(replacer)) replacer = function (key, value) {
-	      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
-	      if (!isSymbol(value)) return value;
-	    };
-	    args[1] = replacer;
-	    return _stringify.apply($JSON, args);
-	  }
-	});
-	
-	// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-	$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(94)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
-	// 19.4.3.5 Symbol.prototype[@@toStringTag]
-	setToStringTag($Symbol, 'Symbol');
-	// 20.2.1.9 Math[@@toStringTag]
-	setToStringTag(Math, 'Math', true);
-	// 24.3.3 JSON[@@toStringTag]
-	setToStringTag(global.JSON, 'JSON', true);
-
-
-/***/ }),
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var META = __webpack_require__(114)('meta');
-	var isObject = __webpack_require__(97);
-	var has = __webpack_require__(104);
-	var setDesc = __webpack_require__(95).f;
-	var id = 0;
-	var isExtensible = Object.isExtensible || function () {
-	  return true;
-	};
-	var FREEZE = !__webpack_require__(100)(function () {
-	  return isExtensible(Object.preventExtensions({}));
-	});
-	var setMeta = function (it) {
-	  setDesc(it, META, { value: {
-	    i: 'O' + ++id, // object ID
-	    w: {}          // weak collections IDs
-	  } });
-	};
-	var fastKey = function (it, create) {
-	  // return primitive with prefix
-	  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-	  if (!has(it, META)) {
-	    // can't set metadata to uncaught frozen object
-	    if (!isExtensible(it)) return 'F';
-	    // not necessary to add metadata
-	    if (!create) return 'E';
-	    // add missing metadata
-	    setMeta(it);
-	  // return object ID
-	  } return it[META].i;
-	};
-	var getWeak = function (it, create) {
-	  if (!has(it, META)) {
-	    // can't set metadata to uncaught frozen object
-	    if (!isExtensible(it)) return true;
-	    // not necessary to add metadata
-	    if (!create) return false;
-	    // add missing metadata
-	    setMeta(it);
-	  // return hash weak collections IDs
-	  } return it[META].w;
-	};
-	// add metadata on freeze-family methods calling
-	var onFreeze = function (it) {
-	  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
-	  return it;
-	};
-	var meta = module.exports = {
-	  KEY: META,
-	  NEED: false,
-	  fastKey: fastKey,
-	  getWeak: getWeak,
-	  onFreeze: onFreeze
-	};
-
-
-/***/ }),
-/* 152 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(90);
-	var core = __webpack_require__(91);
-	var LIBRARY = __webpack_require__(113);
-	var wksExt = __webpack_require__(147);
-	var defineProperty = __webpack_require__(95).f;
-	module.exports = function (name) {
-	  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
-	  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
-	};
-
-
-/***/ }),
-/* 153 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// all enumerable object keys, includes symbols
-	var getKeys = __webpack_require__(131);
-	var gOPS = __webpack_require__(154);
-	var pIE = __webpack_require__(155);
-	module.exports = function (it) {
-	  var result = getKeys(it);
-	  var getSymbols = gOPS.f;
-	  if (getSymbols) {
-	    var symbols = getSymbols(it);
-	    var isEnum = pIE.f;
-	    var i = 0;
-	    var key;
-	    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
-	  } return result;
-	};
-
-
-/***/ }),
-/* 154 */
+/* 119 */
 /***/ (function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 155 */
+/* 120 */
 /***/ (function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 156 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	// 7.2.2 IsArray(argument)
-	var cof = __webpack_require__(135);
-	module.exports = Array.isArray || function isArray(arg) {
-	  return cof(arg) == 'Array';
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(109);
+	module.exports = function (it) {
+	  return Object(defined(it));
 	};
 
 
 /***/ }),
-/* 157 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-	var toIObject = __webpack_require__(133);
-	var gOPN = __webpack_require__(158).f;
-	var toString = {}.toString;
-	
-	var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
-	  ? Object.getOwnPropertyNames(window) : [];
-	
-	var getWindowNames = function (it) {
-	  try {
-	    return gOPN(it);
-	  } catch (e) {
-	    return windowNames.slice();
-	  }
-	};
-	
-	module.exports.f = function getOwnPropertyNames(it) {
-	  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
-	};
-
-
-/***/ }),
-/* 158 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-	var $keys = __webpack_require__(132);
-	var hiddenKeys = __webpack_require__(139).concat('length', 'prototype');
-	
-	exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
-	  return $keys(O, hiddenKeys);
-	};
-
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var pIE = __webpack_require__(155);
-	var createDesc = __webpack_require__(103);
-	var toIObject = __webpack_require__(133);
-	var toPrimitive = __webpack_require__(102);
-	var has = __webpack_require__(104);
-	var IE8_DOM_DEFINE = __webpack_require__(98);
-	var gOPD = Object.getOwnPropertyDescriptor;
-	
-	exports.f = __webpack_require__(99) ? gOPD : function getOwnPropertyDescriptor(O, P) {
-	  O = toIObject(O);
-	  P = toPrimitive(P, true);
-	  if (IE8_DOM_DEFINE) try {
-	    return gOPD(O, P);
-	  } catch (e) { /* empty */ }
-	  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
-	};
-
-
-/***/ }),
-/* 160 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 161 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(152)('asyncIterator');
-
-
-/***/ }),
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(152)('observable');
-
-
-/***/ }),
-/* 163 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _setPrototypeOf = __webpack_require__(164);
-	
-	var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
-	
-	var _create = __webpack_require__(168);
-	
-	var _create2 = _interopRequireDefault(_create);
-	
-	var _typeof2 = __webpack_require__(119);
-	
-	var _typeof3 = _interopRequireDefault(_typeof2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
-	  }
-	
-	  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
-	    constructor: {
-	      value: subClass,
-	      enumerable: false,
-	      writable: true,
-	      configurable: true
-	    }
-	  });
-	  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
-	};
-
-/***/ }),
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(165), __esModule: true };
-
-/***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(166);
-	module.exports = __webpack_require__(91).Object.setPrototypeOf;
-
-
-/***/ }),
-/* 166 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.3.19 Object.setPrototypeOf(O, proto)
-	var $export = __webpack_require__(89);
-	$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(167).set });
-
-
-/***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// Works with __proto__ only. Old v8 can't work with null proto objects.
-	/* eslint-disable no-proto */
-	var isObject = __webpack_require__(97);
-	var anObject = __webpack_require__(96);
-	var check = function (O, proto) {
-	  anObject(O);
-	  if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
-	};
-	module.exports = {
-	  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
-	    function (test, buggy, set) {
-	      try {
-	        set = __webpack_require__(92)(Function.call, __webpack_require__(159).f(Object.prototype, '__proto__').set, 2);
-	        set(test, []);
-	        buggy = !(test instanceof Array);
-	      } catch (e) { buggy = true; }
-	      return function setPrototypeOf(O, proto) {
-	        check(O, proto);
-	        if (buggy) O.__proto__ = proto;
-	        else set(O, proto);
-	        return O;
-	      };
-	    }({}, false) : undefined),
-	  check: check
-	};
-
-
-/***/ }),
-/* 168 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(169), __esModule: true };
-
-/***/ }),
-/* 169 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(170);
-	var $Object = __webpack_require__(91).Object;
-	module.exports = function create(P, D) {
-	  return $Object.create(P, D);
-	};
-
-
-/***/ }),
-/* 170 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var $export = __webpack_require__(89);
-	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-	$export($export.S, 'Object', { create: __webpack_require__(129) });
-
-
-/***/ }),
-/* 171 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _typeof2 = __webpack_require__(119);
-	
-	var _typeof3 = _interopRequireDefault(_typeof2);
-	
-	var _redux = __webpack_require__(172);
-	
-	var _reduxThunk = __webpack_require__(192);
-	
-	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-	
-	var _reducer = __webpack_require__(193);
-	
-	var _reducer2 = _interopRequireDefault(_reducer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var composeEnhancers = (typeof window === 'undefined' ? 'undefined' : (0, _typeof3.default)(window)) === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : _redux.compose;
-	
-	exports.default = function () {
-	  return (0, _redux.createStore)(_reducer2.default, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
-	};
-
-/***/ }),
-/* 172 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	exports.__esModule = true;
-	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
+	var isProduction = process.env.NODE_ENV === 'production';
+	var prefix = 'Invariant failed';
 	
-	var _createStore = __webpack_require__(173);
+	var index = (function (condition, message) {
+	  if (condition) {
+	    return;
+	  }
 	
-	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(187);
+	  if (isProduction) {
+	    throw new Error(prefix);
+	  } else {
+	    throw new Error(prefix + ': ' + (message || ''));
+	  }
+	});
 	
-	var _combineReducers2 = _interopRequireDefault(_combineReducers);
+	module.exports = index;
 	
-	var _bindActionCreators = __webpack_require__(189);
-	
-	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
-	
-	var _applyMiddleware = __webpack_require__(190);
-	
-	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
-	
-	var _compose = __webpack_require__(191);
-	
-	var _compose2 = _interopRequireDefault(_compose);
-	
-	var _warning = __webpack_require__(188);
-	
-	var _warning2 = _interopRequireDefault(_warning);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/*
-	* This is a dummy function to check if the function name has been altered by minification.
-	* If the function has been minified and NODE_ENV !== 'production', warn the user.
-	*/
-	function isCrushed() {}
-	
-	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-	}
-	
-	exports.createStore = _createStore2['default'];
-	exports.combineReducers = _combineReducers2['default'];
-	exports.bindActionCreators = _bindActionCreators2['default'];
-	exports.applyMiddleware = _applyMiddleware2['default'];
-	exports.compose = _compose2['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 173 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 123 */
+/***/ (function(module, exports) {
 
 	'use strict';
 	
-	exports.__esModule = true;
-	exports.ActionTypes = undefined;
-	exports['default'] = createStore;
+	Object.defineProperty(exports, '__esModule', { value: true });
 	
-	var _isPlainObject = __webpack_require__(174);
+	var getRect = function getRect(_ref) {
+	  var top = _ref.top,
+	      right = _ref.right,
+	      bottom = _ref.bottom,
+	      left = _ref.left;
 	
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+	  var width = right - left;
+	  var height = bottom - top;
 	
-	var _symbolObservable = __webpack_require__(184);
+	  var rect = {
+	    top: top,
+	    right: right,
+	    bottom: bottom,
+	    left: left,
+	    width: width,
+	    height: height,
 	
-	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
+	    x: left,
+	    y: top,
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	    center: {
+	      x: (right + left) / 2,
+	      y: (bottom + top) / 2
+	    }
+	  };
+	
+	  return rect;
+	};
+	
+	var expand = function expand(target, expandBy) {
+	  return {
+	    top: target.top - expandBy.top,
+	    left: target.left - expandBy.left,
+	
+	    bottom: target.bottom + expandBy.bottom,
+	    right: target.right + expandBy.right
+	  };
+	};
+	
+	var shrink = function shrink(target, shrinkBy) {
+	  return {
+	    top: target.top + shrinkBy.top,
+	    left: target.left + shrinkBy.left,
+	
+	    bottom: target.bottom - shrinkBy.bottom,
+	    right: target.right - shrinkBy.right
+	  };
+	};
+	
+	var shift = function shift(spacing, point) {
+	  return {
+	    top: spacing.top + point.y,
+	    left: spacing.left + point.x,
+	    bottom: spacing.bottom + point.y,
+	    right: spacing.right + point.x
+	  };
+	};
+	
+	var noSpacing = {
+	  top: 0,
+	  right: 0,
+	  bottom: 0,
+	  left: 0
+	};
+	
+	var createBox = function createBox(_ref2) {
+	  var borderBox = _ref2.borderBox,
+	      _ref2$margin = _ref2.margin,
+	      margin = _ref2$margin === undefined ? noSpacing : _ref2$margin,
+	      _ref2$border = _ref2.border,
+	      border = _ref2$border === undefined ? noSpacing : _ref2$border,
+	      _ref2$padding = _ref2.padding,
+	      padding = _ref2$padding === undefined ? noSpacing : _ref2$padding;
+	
+	  var marginBox = getRect(expand(borderBox, margin));
+	
+	  var paddingBox = getRect(shrink(borderBox, border));
+	
+	  var contentBox = getRect(shrink(paddingBox, padding));
+	
+	  return {
+	    marginBox: marginBox,
+	    borderBox: getRect(borderBox),
+	    paddingBox: paddingBox,
+	    contentBox: contentBox,
+	    margin: margin,
+	    border: border,
+	    padding: padding
+	  };
+	};
+	
+	var parse = function parse(value) {
+	  return parseInt(value, 10);
+	};
+	var getWindowScroll = function getWindowScroll() {
+	  return {
+	    x: window.pageXOffset,
+	    y: window.pageYOffset
+	  };
+	};
+	
+	var offset = function offset(original, change) {
+	  var borderBox = original.borderBox,
+	      border = original.border,
+	      margin = original.margin,
+	      padding = original.padding;
+	
+	  var shifted = shift(borderBox, change);
+	
+	  return createBox({
+	    borderBox: shifted,
+	    border: border,
+	    margin: margin,
+	    padding: padding
+	  });
+	};
+	
+	var withScroll = function withScroll(original) {
+	  var scroll = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : getWindowScroll();
+	  return offset(original, scroll);
+	};
+	
+	var calculateBox = function calculateBox(borderBox, styles) {
+	  var margin = {
+	    top: parse(styles.marginTop),
+	    right: parse(styles.marginRight),
+	    bottom: parse(styles.marginBottom),
+	    left: parse(styles.marginLeft)
+	  };
+	  var padding = {
+	    top: parse(styles.paddingTop),
+	    right: parse(styles.paddingRight),
+	    bottom: parse(styles.paddingBottom),
+	    left: parse(styles.paddingLeft)
+	  };
+	  var border = {
+	    top: parse(styles.borderTopWidth),
+	    right: parse(styles.borderRightWidth),
+	    bottom: parse(styles.borderBottomWidth),
+	    left: parse(styles.borderLeftWidth)
+	  };
+	
+	  return createBox({
+	    borderBox: borderBox,
+	    margin: margin,
+	    padding: padding,
+	    border: border
+	  });
+	};
+	
+	var getBox = function getBox(el) {
+	  var borderBox = el.getBoundingClientRect();
+	  var styles = window.getComputedStyle(el);
+	
+	  return calculateBox(borderBox, styles);
+	};
+	
+	exports.getRect = getRect;
+	exports.createBox = createBox;
+	exports.offset = offset;
+	exports.withScroll = withScroll;
+	exports.calculateBox = calculateBox;
+	exports.getBox = getBox;
+
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(125);
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	__webpack_require__(126);
+	module.exports = __webpack_require__(89).Object.keys;
+
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 Object.keys(O)
+	var toObject = __webpack_require__(121);
+	var $keys = __webpack_require__(104);
+	
+	__webpack_require__(127)('keys', function () {
+	  return function keys(it) {
+	    return $keys(toObject(it));
+	  };
+	});
+
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// most Object methods by ES6 should accept primitives
+	var $export = __webpack_require__(87);
+	var core = __webpack_require__(89);
+	var fails = __webpack_require__(98);
+	module.exports = function (KEY, exec) {
+	  var fn = (core.Object || {})[KEY] || Object[KEY];
+	  var exp = {};
+	  exp[KEY] = exec(fn);
+	  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+	};
+
+
+/***/ }),
+/* 128 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	var simpleIsEqual = function simpleIsEqual(a, b) {
+	  return a === b;
+	};
+	
+	function index (resultFn, isEqual) {
+	  if (isEqual === void 0) {
+	    isEqual = simpleIsEqual;
+	  }
+	
+	  var lastThis;
+	  var lastArgs = [];
+	  var lastResult;
+	  var calledOnce = false;
+	
+	  var isNewArgEqualToLast = function isNewArgEqualToLast(newArg, index) {
+	    return isEqual(newArg, lastArgs[index]);
+	  };
+	
+	  var result = function result() {
+	    for (var _len = arguments.length, newArgs = new Array(_len), _key = 0; _key < _len; _key++) {
+	      newArgs[_key] = arguments[_key];
+	    }
+	
+	    if (calledOnce && lastThis === this && newArgs.length === lastArgs.length && newArgs.every(isNewArgEqualToLast)) {
+	      return lastResult;
+	    }
+	
+	    lastResult = resultFn.apply(this, newArgs);
+	    calledOnce = true;
+	    lastThis = this;
+	    lastArgs = newArgs;
+	    return lastResult;
+	  };
+	
+	  return result;
+	}
+	
+	module.exports = index;
+
+
+/***/ }),
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	Object.defineProperty(exports, '__esModule', { value: true });
+	
+	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+	
+	var $$observable = _interopDefault(__webpack_require__(130));
 	
 	/**
 	 * These are private action types reserved by Redux.
@@ -9953,35 +15368,72 @@
 	 * If the current state is undefined, you must return the initial state.
 	 * Do not reference these action types directly in your code.
 	 */
-	var ActionTypes = exports.ActionTypes = {
-	  INIT: '@@redux/INIT'
+	var ActionTypes = {
+	  INIT: '@@redux/INIT' + Math.random().toString(36).substring(7).split('').join('.'),
+	  REPLACE: '@@redux/REPLACE' + Math.random().toString(36).substring(7).split('').join('.')
+	};
 	
-	  /**
-	   * Creates a Redux store that holds the state tree.
-	   * The only way to change the data in the store is to call `dispatch()` on it.
-	   *
-	   * There should only be a single store in your app. To specify how different
-	   * parts of the state tree respond to actions, you may combine several reducers
-	   * into a single reducer function by using `combineReducers`.
-	   *
-	   * @param {Function} reducer A function that returns the next state tree, given
-	   * the current state tree and the action to handle.
-	   *
-	   * @param {any} [preloadedState] The initial state. You may optionally specify it
-	   * to hydrate the state from the server in universal apps, or to restore a
-	   * previously serialized user session.
-	   * If you use `combineReducers` to produce the root reducer function, this must be
-	   * an object with the same shape as `combineReducers` keys.
-	   *
-	   * @param {Function} [enhancer] The store enhancer. You may optionally specify it
-	   * to enhance the store with third-party capabilities such as middleware,
-	   * time travel, persistence, etc. The only store enhancer that ships with Redux
-	   * is `applyMiddleware()`.
-	   *
-	   * @returns {Store} A Redux store that lets you read the state, dispatch actions
-	   * and subscribe to changes.
-	   */
-	};function createStore(reducer, preloadedState, enhancer) {
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+	  return typeof obj;
+	} : function (obj) {
+	  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+	};
+	
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];
+	
+	    for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }
+	
+	  return target;
+	};
+	
+	/**
+	 * @param {any} obj The object to inspect.
+	 * @returns {boolean} True if the argument appears to be a plain object.
+	 */
+	function isPlainObject(obj) {
+	  if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) !== 'object' || obj === null) return false;
+	
+	  var proto = obj;
+	  while (Object.getPrototypeOf(proto) !== null) {
+	    proto = Object.getPrototypeOf(proto);
+	  }
+	
+	  return Object.getPrototypeOf(obj) === proto;
+	}
+	
+	/**
+	 * Creates a Redux store that holds the state tree.
+	 * The only way to change the data in the store is to call `dispatch()` on it.
+	 *
+	 * There should only be a single store in your app. To specify how different
+	 * parts of the state tree respond to actions, you may combine several reducers
+	 * into a single reducer function by using `combineReducers`.
+	 *
+	 * @param {Function} reducer A function that returns the next state tree, given
+	 * the current state tree and the action to handle.
+	 *
+	 * @param {any} [preloadedState] The initial state. You may optionally specify it
+	 * to hydrate the state from the server in universal apps, or to restore a
+	 * previously serialized user session.
+	 * If you use `combineReducers` to produce the root reducer function, this must be
+	 * an object with the same shape as `combineReducers` keys.
+	 *
+	 * @param {Function} [enhancer] The store enhancer. You may optionally specify it
+	 * to enhance the store with third-party capabilities such as middleware,
+	 * time travel, persistence, etc. The only store enhancer that ships with Redux
+	 * is `applyMiddleware()`.
+	 *
+	 * @returns {Store} A Redux store that lets you read the state, dispatch actions
+	 * and subscribe to changes.
+	 */
+	function createStore(reducer, preloadedState, enhancer) {
 	  var _ref2;
 	
 	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
@@ -10019,6 +15471,10 @@
 	   * @returns {any} The current state tree of your application.
 	   */
 	  function getState() {
+	    if (isDispatching) {
+	      throw new Error('You may not call store.getState() while the reducer is executing. ' + 'The reducer has already received the state as an argument. ' + 'Pass it down from the top reducer instead of reading it from the store.');
+	    }
+	
 	    return currentState;
 	  }
 	
@@ -10047,7 +15503,11 @@
 	   */
 	  function subscribe(listener) {
 	    if (typeof listener !== 'function') {
-	      throw new Error('Expected listener to be a function.');
+	      throw new Error('Expected the listener to be a function.');
+	    }
+	
+	    if (isDispatching) {
+	      throw new Error('You may not call store.subscribe() while the reducer is executing. ' + 'If you would like to be notified after the store has been updated, subscribe from a ' + 'component and invoke store.getState() in the callback to access the latest state. ' + 'See https://redux.js.org/api-reference/store#subscribe(listener) for more details.');
 	    }
 	
 	    var isSubscribed = true;
@@ -10058,6 +15518,10 @@
 	    return function unsubscribe() {
 	      if (!isSubscribed) {
 	        return;
+	      }
+	
+	      if (isDispatching) {
+	        throw new Error('You may not unsubscribe from a store listener while the reducer is executing. ' + 'See https://redux.js.org/api-reference/store#subscribe(listener) for more details.');
 	      }
 	
 	      isSubscribed = false;
@@ -10094,7 +15558,7 @@
 	   * return something else (for example, a Promise you can await).
 	   */
 	  function dispatch(action) {
-	    if (!(0, _isPlainObject2['default'])(action)) {
+	    if (!isPlainObject(action)) {
 	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
 	    }
 	
@@ -10138,7 +15602,7 @@
 	    }
 	
 	    currentReducer = nextReducer;
-	    dispatch({ type: ActionTypes.INIT });
+	    dispatch({ type: ActionTypes.REPLACE });
 	  }
 	
 	  /**
@@ -10161,7 +15625,7 @@
 	       * emission of values from the observable.
 	       */
 	      subscribe: function subscribe(observer) {
-	        if (typeof observer !== 'object') {
+	        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object' || observer === null) {
 	          throw new TypeError('Expected the observer to be an object.');
 	        }
 	
@@ -10175,7 +15639,7 @@
 	        var unsubscribe = outerSubscribe(observeState);
 	        return { unsubscribe: unsubscribe };
 	      }
-	    }, _ref[_symbolObservable2['default']] = function () {
+	    }, _ref[$$observable] = function () {
 	      return this;
 	    }, _ref;
 	  }
@@ -10190,413 +15654,45 @@
 	    subscribe: subscribe,
 	    getState: getState,
 	    replaceReducer: replaceReducer
-	  }, _ref2[_symbolObservable2['default']] = observable, _ref2;
-	}
-
-/***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var baseGetTag = __webpack_require__(175),
-	    getPrototype = __webpack_require__(181),
-	    isObjectLike = __webpack_require__(183);
-	
-	/** `Object#toString` result references. */
-	var objectTag = '[object Object]';
-	
-	/** Used for built-in method references. */
-	var funcProto = Function.prototype,
-	    objectProto = Object.prototype;
-	
-	/** Used to resolve the decompiled source of functions. */
-	var funcToString = funcProto.toString;
-	
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-	
-	/** Used to infer the `Object` constructor. */
-	var objectCtorString = funcToString.call(Object);
-	
-	/**
-	 * Checks if `value` is a plain object, that is, an object created by the
-	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.8.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
-	 * _.isPlainObject({ 'x': 0, 'y': 0 });
-	 * // => true
-	 *
-	 * _.isPlainObject(Object.create(null));
-	 * // => true
-	 */
-	function isPlainObject(value) {
-	  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
-	    return false;
-	  }
-	  var proto = getPrototype(value);
-	  if (proto === null) {
-	    return true;
-	  }
-	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
-	    funcToString.call(Ctor) == objectCtorString;
+	  }, _ref2[$$observable] = observable, _ref2;
 	}
 	
-	module.exports = isPlainObject;
-
-
-/***/ }),
-/* 175 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var Symbol = __webpack_require__(176),
-	    getRawTag = __webpack_require__(179),
-	    objectToString = __webpack_require__(180);
-	
-	/** `Object#toString` result references. */
-	var nullTag = '[object Null]',
-	    undefinedTag = '[object Undefined]';
-	
-	/** Built-in value references. */
-	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-	
 	/**
-	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 * Prints a warning in the console if it exists.
 	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {string} Returns the `toStringTag`.
+	 * @param {String} message The warning message.
+	 * @returns {void}
 	 */
-	function baseGetTag(value) {
-	  if (value == null) {
-	    return value === undefined ? undefinedTag : nullTag;
+	function warning(message) {
+	  /* eslint-disable no-console */
+	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+	    console.error(message);
 	  }
-	  return (symToStringTag && symToStringTag in Object(value))
-	    ? getRawTag(value)
-	    : objectToString(value);
-	}
-	
-	module.exports = baseGetTag;
-
-
-/***/ }),
-/* 176 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var root = __webpack_require__(177);
-	
-	/** Built-in value references. */
-	var Symbol = root.Symbol;
-	
-	module.exports = Symbol;
-
-
-/***/ }),
-/* 177 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var freeGlobal = __webpack_require__(178);
-	
-	/** Detect free variable `self`. */
-	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-	
-	/** Used as a reference to the global object. */
-	var root = freeGlobal || freeSelf || Function('return this')();
-	
-	module.exports = root;
-
-
-/***/ }),
-/* 178 */
-/***/ (function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
-	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-	
-	module.exports = freeGlobal;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var Symbol = __webpack_require__(176);
-	
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-	
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-	
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var nativeObjectToString = objectProto.toString;
-	
-	/** Built-in value references. */
-	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-	
-	/**
-	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {string} Returns the raw `toStringTag`.
-	 */
-	function getRawTag(value) {
-	  var isOwn = hasOwnProperty.call(value, symToStringTag),
-	      tag = value[symToStringTag];
-	
+	  /* eslint-enable no-console */
 	  try {
-	    value[symToStringTag] = undefined;
-	    var unmasked = true;
-	  } catch (e) {}
-	
-	  var result = nativeObjectToString.call(value);
-	  if (unmasked) {
-	    if (isOwn) {
-	      value[symToStringTag] = tag;
-	    } else {
-	      delete value[symToStringTag];
-	    }
-	  }
-	  return result;
+	    // This error was thrown as a convenience so that if you enable
+	    // "break on all exceptions" in your console,
+	    // it would pause the execution at this line.
+	    throw new Error(message);
+	  } catch (e) {} // eslint-disable-line no-empty
 	}
-	
-	module.exports = getRawTag;
-
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports) {
-
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-	
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var nativeObjectToString = objectProto.toString;
-	
-	/**
-	 * Converts `value` to a string using `Object.prototype.toString`.
-	 *
-	 * @private
-	 * @param {*} value The value to convert.
-	 * @returns {string} Returns the converted string.
-	 */
-	function objectToString(value) {
-	  return nativeObjectToString.call(value);
-	}
-	
-	module.exports = objectToString;
-
-
-/***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var overArg = __webpack_require__(182);
-	
-	/** Built-in value references. */
-	var getPrototype = overArg(Object.getPrototypeOf, Object);
-	
-	module.exports = getPrototype;
-
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Creates a unary function that invokes `func` with its argument transformed.
-	 *
-	 * @private
-	 * @param {Function} func The function to wrap.
-	 * @param {Function} transform The argument transform.
-	 * @returns {Function} Returns the new function.
-	 */
-	function overArg(func, transform) {
-	  return function(arg) {
-	    return func(transform(arg));
-	  };
-	}
-	
-	module.exports = overArg;
-
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return value != null && typeof value == 'object';
-	}
-	
-	module.exports = isObjectLike;
-
-
-/***/ }),
-/* 184 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _ponyfill = __webpack_require__(186);
-	
-	var _ponyfill2 = _interopRequireDefault(_ponyfill);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var root; /* global window */
-	
-	
-	if (typeof self !== 'undefined') {
-	  root = self;
-	} else if (typeof window !== 'undefined') {
-	  root = window;
-	} else if (typeof global !== 'undefined') {
-	  root = global;
-	} else if (true) {
-	  root = module;
-	} else {
-	  root = Function('return this')();
-	}
-	
-	var result = (0, _ponyfill2['default'])(root);
-	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(185)(module)))
-
-/***/ }),
-/* 185 */
-/***/ (function(module, exports) {
-
-	module.exports = function(module) {
-		if(!module.webpackPolyfill) {
-			module.deprecate = function() {};
-			module.paths = [];
-			// module.parent = undefined by default
-			module.children = [];
-			module.webpackPolyfill = 1;
-		}
-		return module;
-	}
-
-
-/***/ }),
-/* 186 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports['default'] = symbolObservablePonyfill;
-	function symbolObservablePonyfill(root) {
-		var result;
-		var _Symbol = root.Symbol;
-	
-		if (typeof _Symbol === 'function') {
-			if (_Symbol.observable) {
-				result = _Symbol.observable;
-			} else {
-				result = _Symbol('observable');
-				_Symbol.observable = result;
-			}
-		} else {
-			result = '@@observable';
-		}
-	
-		return result;
-	};
-
-/***/ }),
-/* 187 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	exports.__esModule = true;
-	exports['default'] = combineReducers;
-	
-	var _createStore = __webpack_require__(173);
-	
-	var _isPlainObject = __webpack_require__(174);
-	
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-	
-	var _warning = __webpack_require__(188);
-	
-	var _warning2 = _interopRequireDefault(_warning);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	function getUndefinedStateErrorMessage(key, action) {
 	  var actionType = action && action.type;
-	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
+	  var actionDescription = actionType && 'action "' + String(actionType) + '"' || 'an action';
 	
-	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state. ' + 'If you want this reducer to hold no value, you can return null instead of undefined.';
+	  return 'Given ' + actionDescription + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state. ' + 'If you want this reducer to hold no value, you can return null instead of undefined.';
 	}
 	
 	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
 	  var reducerKeys = Object.keys(reducers);
-	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
+	  var argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
 	
 	  if (reducerKeys.length === 0) {
 	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
 	  }
 	
-	  if (!(0, _isPlainObject2['default'])(inputState)) {
+	  if (!isPlainObject(inputState)) {
 	    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
 	  }
 	
@@ -10608,6 +15704,8 @@
 	    unexpectedKeyCache[key] = true;
 	  });
 	
+	  if (action && action.type === ActionTypes.REPLACE) return;
+	
 	  if (unexpectedKeys.length > 0) {
 	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
 	  }
@@ -10616,7 +15714,7 @@
 	function assertReducerShape(reducers) {
 	  Object.keys(reducers).forEach(function (key) {
 	    var reducer = reducers[key];
-	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
+	    var initialState = reducer(undefined, { type: ActionTypes.INIT });
 	
 	    if (typeof initialState === 'undefined') {
 	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined. If you don\'t want to set a value for this reducer, ' + 'you can use null instead of undefined.');
@@ -10624,7 +15722,7 @@
 	
 	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
 	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined, but can be null.');
+	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined, but can be null.');
 	    }
 	  });
 	}
@@ -10653,7 +15751,7 @@
 	
 	    if (process.env.NODE_ENV !== 'production') {
 	      if (typeof reducers[key] === 'undefined') {
-	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
+	        warning('No reducer provided for key "' + key + '"');
 	      }
 	    }
 	
@@ -10686,7 +15784,7 @@
 	    if (process.env.NODE_ENV !== 'production') {
 	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
 	      if (warningMessage) {
-	        (0, _warning2['default'])(warningMessage);
+	        warning(warningMessage);
 	      }
 	    }
 	
@@ -10707,49 +15805,10 @@
 	    return hasChanged ? nextState : state;
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
-
-/***/ }),
-/* 188 */
-/***/ (function(module, exports) {
-
-	'use strict';
 	
-	exports.__esModule = true;
-	exports['default'] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that if you enable
-	    // "break on all exceptions" in your console,
-	    // it would pause the execution at this line.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ }),
-/* 189 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	exports['default'] = bindActionCreators;
 	function bindActionCreator(actionCreator, dispatch) {
 	  return function () {
-	    return dispatch(actionCreator.apply(undefined, arguments));
+	    return dispatch(actionCreator.apply(this, arguments));
 	  };
 	}
 	
@@ -10779,8 +15838,8 @@
 	    return bindActionCreator(actionCreators, dispatch);
 	  }
 	
-	  if (typeof actionCreators !== 'object' || actionCreators === null) {
-	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
+	  if ((typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) !== 'object' || actionCreators === null) {
+	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
 	  }
 	
 	  var keys = Object.keys(actionCreators);
@@ -10794,78 +15853,7 @@
 	  }
 	  return boundActionCreators;
 	}
-
-/***/ }),
-/* 190 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
 	
-	exports.__esModule = true;
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	exports['default'] = applyMiddleware;
-	
-	var _compose = __webpack_require__(191);
-	
-	var _compose2 = _interopRequireDefault(_compose);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	/**
-	 * Creates a store enhancer that applies middleware to the dispatch method
-	 * of the Redux store. This is handy for a variety of tasks, such as expressing
-	 * asynchronous actions in a concise manner, or logging every action payload.
-	 *
-	 * See `redux-thunk` package as an example of the Redux middleware.
-	 *
-	 * Because middleware is potentially asynchronous, this should be the first
-	 * store enhancer in the composition chain.
-	 *
-	 * Note that each middleware will be given the `dispatch` and `getState` functions
-	 * as named arguments.
-	 *
-	 * @param {...Function} middlewares The middleware chain to be applied.
-	 * @returns {Function} A store enhancer applying the middleware.
-	 */
-	function applyMiddleware() {
-	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
-	    middlewares[_key] = arguments[_key];
-	  }
-	
-	  return function (createStore) {
-	    return function (reducer, preloadedState, enhancer) {
-	      var store = createStore(reducer, preloadedState, enhancer);
-	      var _dispatch = store.dispatch;
-	      var chain = [];
-	
-	      var middlewareAPI = {
-	        getState: store.getState,
-	        dispatch: function dispatch(action) {
-	          return _dispatch(action);
-	        }
-	      };
-	      chain = middlewares.map(function (middleware) {
-	        return middleware(middlewareAPI);
-	      });
-	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
-	
-	      return _extends({}, store, {
-	        dispatch: _dispatch
-	      });
-	    };
-	  };
-	}
-
-/***/ }),
-/* 191 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	exports["default"] = compose;
 	/**
 	 * Composes single-argument functions from right to left. The rightmost
 	 * function can take multiple arguments as it provides the signature for
@@ -10898,2876 +15886,315 @@
 	    };
 	  });
 	}
-
-/***/ }),
-/* 192 */
-/***/ (function(module, exports) {
-
-	'use strict';
 	
-	exports.__esModule = true;
-	function createThunkMiddleware(extraArgument) {
-	  return function (_ref) {
-	    var dispatch = _ref.dispatch,
-	        getState = _ref.getState;
-	    return function (next) {
-	      return function (action) {
-	        if (typeof action === 'function') {
-	          return action(dispatch, getState, extraArgument);
-	        }
+	/**
+	 * Creates a store enhancer that applies middleware to the dispatch method
+	 * of the Redux store. This is handy for a variety of tasks, such as expressing
+	 * asynchronous actions in a concise manner, or logging every action payload.
+	 *
+	 * See `redux-thunk` package as an example of the Redux middleware.
+	 *
+	 * Because middleware is potentially asynchronous, this should be the first
+	 * store enhancer in the composition chain.
+	 *
+	 * Note that each middleware will be given the `dispatch` and `getState` functions
+	 * as named arguments.
+	 *
+	 * @param {...Function} middlewares The middleware chain to be applied.
+	 * @returns {Function} A store enhancer applying the middleware.
+	 */
+	function applyMiddleware() {
+	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
+	    middlewares[_key] = arguments[_key];
+	  }
 	
-	        return next(action);
+	  return function (createStore) {
+	    return function () {
+	      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	        args[_key2] = arguments[_key2];
+	      }
+	
+	      var store = createStore.apply(undefined, args);
+	      var _dispatch = function dispatch() {
+	        throw new Error('Dispatching while constructing your middleware is not allowed. ' + 'Other middleware would not be applied to this dispatch.');
 	      };
+	
+	      var middlewareAPI = {
+	        getState: store.getState,
+	        dispatch: function dispatch() {
+	          return _dispatch.apply(undefined, arguments);
+	        }
+	      };
+	      var chain = middlewares.map(function (middleware) {
+	        return middleware(middlewareAPI);
+	      });
+	      _dispatch = compose.apply(undefined, chain)(store.dispatch);
+	
+	      return _extends({}, store, {
+	        dispatch: _dispatch
+	      });
 	    };
 	  };
 	}
 	
-	var thunk = createThunkMiddleware();
-	thunk.withExtraArgument = createThunkMiddleware;
+	/*
+	 * This is a dummy function to check if the function name has been altered by minification.
+	 * If the function has been minified and NODE_ENV !== 'production', warn the user.
+	 */
+	function isCrushed() {}
 	
-	exports['default'] = thunk;
+	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+	  warning("You are currently using minified code outside of NODE_ENV === 'production'. " + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+	}
+	
+	exports.createStore = createStore;
+	exports.combineReducers = combineReducers;
+	exports.bindActionCreators = bindActionCreators;
+	exports.applyMiddleware = applyMiddleware;
+	exports.compose = compose;
+	exports.__DO_NOT_USE__ActionTypes = ActionTypes;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 193 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
-	var _keys = __webpack_require__(194);
+	var _ponyfill = __webpack_require__(132);
 	
-	var _keys2 = _interopRequireDefault(_keys);
+	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
-	var _defineProperty2 = __webpack_require__(85);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+	var root; /* global window */
 	
-	var _extends6 = __webpack_require__(197);
 	
-	var _extends7 = _interopRequireDefault(_extends6);
+	if (typeof self !== 'undefined') {
+	  root = self;
+	} else if (typeof window !== 'undefined') {
+	  root = window;
+	} else if (typeof global !== 'undefined') {
+	  root = global;
+	} else if (true) {
+	  root = module;
+	} else {
+	  root = Function('return this')();
+	}
 	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _getInitialImpact = __webpack_require__(203);
-	
-	var _getInitialImpact2 = _interopRequireDefault(_getInitialImpact);
-	
-	var _position = __webpack_require__(206);
-	
-	var _getDragImpact = __webpack_require__(217);
-	
-	var _getDragImpact2 = _interopRequireDefault(_getDragImpact);
-	
-	var _moveToNextIndex = __webpack_require__(227);
-	
-	var _moveToNextIndex2 = _interopRequireDefault(_moveToNextIndex);
-	
-	var _moveCrossAxis = __webpack_require__(231);
-	
-	var _moveCrossAxis2 = _interopRequireDefault(_moveCrossAxis);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var noDimensions = {
-	  request: null,
-	  draggable: {},
-	  droppable: {}
-	};
-	
-	var origin = { x: 0, y: 0 };
-	
-	var clean = (0, _memoizeOne2.default)(function () {
-	  var phase = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'IDLE';
-	  return {
-	    phase: phase,
-	    drag: null,
-	    drop: null,
-	    dimension: noDimensions
-	  };
-	});
-	
-	var move = function move(_ref) {
-	  var state = _ref.state,
-	      clientSelection = _ref.clientSelection,
-	      _ref$shouldAnimate = _ref.shouldAnimate,
-	      shouldAnimate = _ref$shouldAnimate === undefined ? false : _ref$shouldAnimate,
-	      windowScroll = _ref.windowScroll,
-	      impact = _ref.impact;
-	
-	  if (state.phase !== 'DRAGGING') {
-	    console.error('cannot move while not dragging');
-	    return clean();
-	  }
-	
-	  if (state.drag == null) {
-	    console.error('cannot move if there is no drag information');
-	    return clean();
-	  }
-	
-	  var previous = state.drag.current;
-	  var initial = state.drag.initial;
-	  var currentWindowScroll = windowScroll || previous.windowScroll;
-	
-	  var client = function () {
-	    var offset = (0, _position.subtract)(clientSelection, initial.client.selection);
-	
-	    var result = {
-	      offset: offset,
-	      selection: clientSelection,
-	      center: (0, _position.add)(offset, initial.client.center)
-	    };
-	    return result;
-	  }();
-	
-	  var page = {
-	    selection: (0, _position.add)(client.selection, currentWindowScroll),
-	    offset: (0, _position.add)(client.offset, currentWindowScroll),
-	    center: (0, _position.add)(client.center, currentWindowScroll)
-	  };
-	
-	  var current = {
-	    id: previous.id,
-	    type: previous.type,
-	    isScrollAllowed: previous.isScrollAllowed,
-	    client: client,
-	    page: page,
-	    shouldAnimate: shouldAnimate,
-	    windowScroll: currentWindowScroll
-	  };
-	
-	  var previousDroppableOverId = state.drag && state.drag.impact.destination ? state.drag.impact.destination.droppableId : null;
-	
-	  var newImpact = impact || (0, _getDragImpact2.default)({
-	    pageCenter: page.center,
-	    draggable: state.dimension.draggable[current.id],
-	    draggables: state.dimension.draggable,
-	    droppables: state.dimension.droppable,
-	    previousDroppableOverId: previousDroppableOverId
-	  });
-	
-	  var drag = {
-	    initial: initial,
-	    impact: newImpact,
-	    current: current,
-	    previous: {
-	      droppableOverId: previousDroppableOverId
-	    }
-	  };
-	
-	  return (0, _extends7.default)({}, state, {
-	    drag: drag
-	  });
-	};
-	
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : clean('IDLE');
-	  var action = arguments[1];
-	
-	  if (action.type === 'CLEAN') {
-	    return clean();
-	  }
-	
-	  if (action.type === 'PREPARE') {
-	    return clean('PREPARING');
-	  }
-	
-	  if (action.type === 'REQUEST_DIMENSIONS') {
-	    if (state.phase !== 'PREPARING') {
-	      console.error('trying to start a lift while not preparing for a lift');
-	      return clean();
-	    }
-	
-	    var typeId = action.payload;
-	
-	    return {
-	      phase: 'COLLECTING_DIMENSIONS',
-	      drag: null,
-	      drop: null,
-	      dimension: {
-	        request: typeId,
-	        draggable: {},
-	        droppable: {}
-	      }
-	    };
-	  }
-	
-	  if (action.type === 'PUBLISH_DRAGGABLE_DIMENSION') {
-	    var dimension = action.payload;
-	
-	    if (state.phase !== 'COLLECTING_DIMENSIONS') {
-	      console.warn('dimension rejected as no longer requesting dimensions', dimension);
-	      return state;
-	    }
-	
-	    if (state.dimension.draggable[dimension.id]) {
-	      console.error('dimension already exists for ' + dimension.id);
-	      return state;
-	    }
-	
-	    return (0, _extends7.default)({}, state, {
-	      dimension: {
-	        request: state.dimension.request,
-	        droppable: state.dimension.droppable,
-	        draggable: (0, _extends7.default)({}, state.dimension.draggable, (0, _defineProperty3.default)({}, dimension.id, dimension))
-	      }
-	    });
-	  }
-	
-	  if (action.type === 'PUBLISH_DROPPABLE_DIMENSION') {
-	    var _dimension = action.payload;
-	
-	    if (state.phase !== 'COLLECTING_DIMENSIONS') {
-	      console.warn('dimension rejected as no longer requesting dimensions', _dimension);
-	      return state;
-	    }
-	
-	    if (state.dimension.droppable[_dimension.id]) {
-	      console.error('dimension already exists for ' + _dimension.id);
-	      return state;
-	    }
-	
-	    return (0, _extends7.default)({}, state, {
-	      dimension: {
-	        request: state.dimension.request,
-	        draggable: state.dimension.draggable,
-	        droppable: (0, _extends7.default)({}, state.dimension.droppable, (0, _defineProperty3.default)({}, _dimension.id, _dimension))
-	      }
-	    });
-	  }
-	
-	  if (action.type === 'COMPLETE_LIFT') {
-	    if (state.phase !== 'COLLECTING_DIMENSIONS') {
-	      console.error('trying complete lift without collecting dimensions');
-	      return state;
-	    }
-	
-	    var _action$payload = action.payload,
-	        id = _action$payload.id,
-	        type = _action$payload.type,
-	        client = _action$payload.client,
-	        _windowScroll = _action$payload.windowScroll,
-	        isScrollAllowed = _action$payload.isScrollAllowed;
-	
-	    var draggables = state.dimension.draggable;
-	    var draggable = state.dimension.draggable[id];
-	    var droppable = state.dimension.droppable[draggable.droppableId];
-	    var page = {
-	      selection: (0, _position.add)(client.selection, _windowScroll),
-	      center: (0, _position.add)(client.center, _windowScroll)
-	    };
-	
-	    var _impact = (0, _getInitialImpact2.default)({
-	      draggable: draggable,
-	      droppable: droppable,
-	      draggables: draggables
-	    });
-	
-	    if (!_impact || !_impact.destination) {
-	      console.error('invalid lift state');
-	      return clean();
-	    }
-	
-	    var source = _impact.destination;
-	
-	    var initial = {
-	      source: source,
-	      client: client,
-	      page: page,
-	      windowScroll: _windowScroll
-	    };
-	
-	    var current = {
-	      id: id,
-	      type: type,
-	      client: {
-	        selection: client.selection,
-	        center: client.center,
-	        offset: origin
-	      },
-	      page: {
-	        selection: page.selection,
-	        center: page.center,
-	        offset: origin
-	      },
-	      windowScroll: _windowScroll,
-	      isScrollAllowed: isScrollAllowed,
-	      shouldAnimate: false
-	    };
-	
-	    return (0, _extends7.default)({}, state, {
-	      phase: 'DRAGGING',
-	      drag: {
-	        initial: initial,
-	        current: current,
-	        impact: _impact
-	      }
-	    });
-	  }
-	
-	  if (action.type === 'UPDATE_DROPPABLE_DIMENSION_SCROLL') {
-	    if (state.phase !== 'DRAGGING') {
-	      console.error('cannot update a droppable dimensions scroll when not dragging');
-	      return clean();
-	    }
-	
-	    if (state.drag == null) {
-	      console.error('invalid store state');
-	      return clean();
-	    }
-	
-	    if (!state.drag.current.isScrollAllowed) {
-	      return clean();
-	    }
-	
-	    var _action$payload2 = action.payload,
-	        _id = _action$payload2.id,
-	        offset = _action$payload2.offset;
-	
-	
-	    var target = state.dimension.droppable[_id];
-	
-	    if (!target) {
-	      console.error('cannot update a droppable that is not inside of the state', _id);
-	      return clean();
-	    }
-	
-	    var _dimension2 = (0, _extends7.default)({}, target, {
-	      container: (0, _extends7.default)({}, target.container, {
-	        scroll: (0, _extends7.default)({}, target.container.scroll, {
-	          current: offset
-	        })
-	      })
-	    });
-	
-	    var withUpdatedDimension = (0, _extends7.default)({}, state, {
-	      dimension: {
-	        request: state.dimension.request,
-	        draggable: state.dimension.draggable,
-	        droppable: (0, _extends7.default)({}, state.dimension.droppable, (0, _defineProperty3.default)({}, _id, _dimension2))
-	      }
-	    });
-	
-	    return move({
-	      state: withUpdatedDimension,
-	      clientSelection: state.drag.current.client.selection
-	    });
-	  }
-	
-	  if (action.type === 'UPDATE_DROPPABLE_DIMENSION_IS_ENABLED') {
-	    if (!(0, _keys2.default)(state.dimension.droppable).length) {
-	      return state;
-	    }
-	
-	    var _action$payload3 = action.payload,
-	        _id2 = _action$payload3.id,
-	        isEnabled = _action$payload3.isEnabled;
-	
-	    var _target = state.dimension.droppable[_id2];
-	
-	    if (!_target) {
-	      console.error('cannot update enabled flag on droppable that does not have a dimension');
-	      return clean();
-	    }
-	
-	    if (_target.isEnabled === isEnabled) {
-	      console.warn('trying to set droppable isEnabled to ' + String(isEnabled) + ' but it is already ' + String(isEnabled));
-	      return state;
-	    }
-	
-	    var updatedDroppableDimension = (0, _extends7.default)({}, _target, {
-	      isEnabled: isEnabled
-	    });
-	
-	    return (0, _extends7.default)({}, state, {
-	      dimension: (0, _extends7.default)({}, state.dimension, {
-	        droppable: (0, _extends7.default)({}, state.dimension.droppable, (0, _defineProperty3.default)({}, _id2, updatedDroppableDimension))
-	      })
-	    });
-	  }
-	
-	  if (action.type === 'MOVE') {
-	    var _action$payload4 = action.payload,
-	        _client = _action$payload4.client,
-	        _windowScroll2 = _action$payload4.windowScroll;
-	
-	    return move({
-	      state: state,
-	      clientSelection: _client,
-	      windowScroll: _windowScroll2
-	    });
-	  }
-	
-	  if (action.type === 'MOVE_BY_WINDOW_SCROLL') {
-	    var _windowScroll3 = action.payload.windowScroll;
-	
-	
-	    if (!state.drag) {
-	      console.error('cannot move with window scrolling if no current drag');
-	      return clean();
-	    }
-	
-	    return move({
-	      state: state,
-	      clientSelection: state.drag.current.client.selection,
-	      windowScroll: _windowScroll3
-	    });
-	  }
-	
-	  if (action.type === 'MOVE_FORWARD' || action.type === 'MOVE_BACKWARD') {
-	    if (state.phase !== 'DRAGGING') {
-	      console.error('cannot move while not dragging', action);
-	      return clean();
-	    }
-	
-	    if (!state.drag) {
-	      console.error('cannot move if there is no drag information');
-	      return clean();
-	    }
-	
-	    var existing = state.drag;
-	    var isMovingForward = action.type === 'MOVE_FORWARD';
-	
-	    if (!existing.impact.destination) {
-	      console.error('cannot move if there is no previous destination');
-	      return clean();
-	    }
-	
-	    var _droppable = state.dimension.droppable[existing.impact.destination.droppableId];
-	
-	    var result = (0, _moveToNextIndex2.default)({
-	      isMovingForward: isMovingForward,
-	      draggableId: existing.current.id,
-	      impact: existing.impact,
-	      droppable: _droppable,
-	      draggables: state.dimension.draggable
-	    });
-	
-	    if (!result) {
-	      return state;
-	    }
-	
-	    var _impact2 = result.impact;
-	    var _page = result.pageCenter;
-	    var _client2 = (0, _position.subtract)(_page, existing.current.windowScroll);
-	
-	    return move({
-	      state: state,
-	      impact: _impact2,
-	      clientSelection: _client2,
-	      shouldAnimate: true
-	    });
-	  }
-	
-	  if (action.type === 'CROSS_AXIS_MOVE_FORWARD' || action.type === 'CROSS_AXIS_MOVE_BACKWARD') {
-	    if (state.phase !== 'DRAGGING') {
-	      console.error('cannot move cross axis when not dragging');
-	      return clean();
-	    }
-	
-	    if (!state.drag) {
-	      console.error('cannot move cross axis if there is no drag information');
-	      return clean();
-	    }
-	
-	    if (!state.drag.impact.destination) {
-	      console.error('cannot move cross axis if not in a droppable');
-	      return clean();
-	    }
-	
-	    var _current = state.drag.current;
-	    var draggableId = _current.id;
-	    var center = _current.page.center;
-	    var droppableId = state.drag.impact.destination.droppableId;
-	    var home = state.drag.initial.source;
-	
-	    var _result = (0, _moveCrossAxis2.default)({
-	      isMovingForward: action.type === 'CROSS_AXIS_MOVE_FORWARD',
-	      pageCenter: center,
-	      draggableId: draggableId,
-	      droppableId: droppableId,
-	      home: home,
-	      draggables: state.dimension.draggable,
-	      droppables: state.dimension.droppable
-	    });
-	
-	    if (!_result) {
-	      return state;
-	    }
-	
-	    var _page2 = _result.pageCenter;
-	    var _client3 = (0, _position.subtract)(_page2, _current.windowScroll);
-	
-	    return move({
-	      state: state,
-	      clientSelection: _client3,
-	      impact: _result.impact,
-	      shouldAnimate: true
-	    });
-	  }
-	
-	  if (action.type === 'DROP_ANIMATE') {
-	    var _action$payload5 = action.payload,
-	        trigger = _action$payload5.trigger,
-	        newHomeOffset = _action$payload5.newHomeOffset,
-	        _impact3 = _action$payload5.impact,
-	        _result2 = _action$payload5.result;
-	
-	
-	    if (state.phase !== 'DRAGGING') {
-	      console.error('cannot animate drop while not dragging', action);
-	      return state;
-	    }
-	
-	    if (!state.drag) {
-	      console.error('cannot animate drop - invalid drag state');
-	      return clean();
-	    }
-	
-	    var pending = {
-	      trigger: trigger,
-	      newHomeOffset: newHomeOffset,
-	      result: _result2,
-	      impact: _impact3
-	    };
-	
-	    return {
-	      phase: 'DROP_ANIMATING',
-	      drag: null,
-	      drop: {
-	        pending: pending,
-	        result: null
-	      },
-	      dimension: state.dimension
-	    };
-	  }
-	
-	  if (action.type === 'DROP_COMPLETE') {
-	    var _result3 = action.payload;
-	
-	    return {
-	      phase: 'DROP_COMPLETE',
-	      drag: null,
-	      drop: {
-	        pending: null,
-	        result: _result3
-	      },
-	      dimension: noDimensions
-	    };
-	  }
-	
-	  return state;
-	};
+	var result = (0, _ponyfill2['default'])(root);
+	exports['default'] = result;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(131)(module)))
 
 /***/ }),
-/* 194 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(195), __esModule: true };
-
-/***/ }),
-/* 195 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(196);
-	module.exports = __webpack_require__(91).Object.keys;
-
-
-/***/ }),
-/* 196 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(108);
-	var $keys = __webpack_require__(131);
-	
-	__webpack_require__(115)('keys', function () {
-	  return function keys(it) {
-	    return $keys(toObject(it));
-	  };
-	});
-
-
-/***/ }),
-/* 197 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _assign = __webpack_require__(198);
-	
-	var _assign2 = _interopRequireDefault(_assign);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _assign2.default || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];
-	
-	    for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }
-	
-	  return target;
-	};
-
-/***/ }),
-/* 198 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(199), __esModule: true };
-
-/***/ }),
-/* 199 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(200);
-	module.exports = __webpack_require__(91).Object.assign;
-
-
-/***/ }),
-/* 200 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.3.1 Object.assign(target, source)
-	var $export = __webpack_require__(89);
-	
-	$export($export.S + $export.F, 'Object', { assign: __webpack_require__(201) });
-
-
-/***/ }),
-/* 201 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	// 19.1.2.1 Object.assign(target, source, ...)
-	var getKeys = __webpack_require__(131);
-	var gOPS = __webpack_require__(154);
-	var pIE = __webpack_require__(155);
-	var toObject = __webpack_require__(108);
-	var IObject = __webpack_require__(134);
-	var $assign = Object.assign;
-	
-	// should work with symbols and should have deterministic property order (V8 bug)
-	module.exports = !$assign || __webpack_require__(100)(function () {
-	  var A = {};
-	  var B = {};
-	  // eslint-disable-next-line no-undef
-	  var S = Symbol();
-	  var K = 'abcdefghijklmnopqrst';
-	  A[S] = 7;
-	  K.split('').forEach(function (k) { B[k] = k; });
-	  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-	}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-	  var T = toObject(target);
-	  var aLen = arguments.length;
-	  var index = 1;
-	  var getSymbols = gOPS.f;
-	  var isEnum = pIE.f;
-	  while (aLen > index) {
-	    var S = IObject(arguments[index++]);
-	    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
-	    var length = keys.length;
-	    var j = 0;
-	    var key;
-	    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-	  } return T;
-	} : $assign;
-
-
-/***/ }),
-/* 202 */
+/* 131 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
+
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports) {
+
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
+	exports['default'] = symbolObservablePonyfill;
+	function symbolObservablePonyfill(root) {
+		var result;
+		var _Symbol = root.Symbol;
 	
-	exports.default = function (resultFn) {
-	  var isEqual = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : simpleIsEqual;
+		if (typeof _Symbol === 'function') {
+			if (_Symbol.observable) {
+				result = _Symbol.observable;
+			} else {
+				result = _Symbol('observable');
+				_Symbol.observable = result;
+			}
+		} else {
+			result = '@@observable';
+		}
 	
-	  var lastThis = void 0;
+		return result;
+	};
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	var index = (function (fn) {
 	  var lastArgs = [];
-	  var lastResult = void 0;
-	  var calledOnce = false;
+	  var frameId = null;
 	
-	  var isNewArgEqualToLast = function isNewArgEqualToLast(newArg, index) {
-	    return isEqual(newArg, lastArgs[index]);
-	  };
-	
-	  var result = function result() {
-	    for (var _len = arguments.length, newArgs = Array(_len), _key = 0; _key < _len; _key++) {
-	      newArgs[_key] = arguments[_key];
+	  var wrapperFn = function wrapperFn() {
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
 	    }
 	
-	    if (calledOnce && lastThis === this && newArgs.length === lastArgs.length && newArgs.every(isNewArgEqualToLast)) {
-	      return lastResult;
+	    lastArgs = args;
+	
+	    if (frameId) {
+	      return;
 	    }
 	
-	    calledOnce = true;
-	    lastThis = this;
-	    lastArgs = newArgs;
-	    lastResult = resultFn.apply(this, newArgs);
-	    return lastResult;
-	  };
-	
-	  return result;
-	};
-	
-	var simpleIsEqual = function simpleIsEqual(a, b) {
-	  return a === b;
-	};
-
-/***/ }),
-/* 203 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	var _noImpact = __webpack_require__(205);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var draggable = _ref.draggable,
-	      droppable = _ref.droppable,
-	      draggables = _ref.draggables;
-	
-	  var insideDroppable = (0, _getDraggablesInsideDroppable2.default)(droppable, draggables);
-	
-	  var homeIndex = insideDroppable.indexOf(draggable);
-	
-	  if (homeIndex === -1) {
-	    console.error('lifting a draggable that is not inside a droppable');
-	    return null;
-	  }
-	
-	  var home = {
-	    index: homeIndex,
-	    droppableId: droppable.id
-	  };
-	
-	  var impact = {
-	    movement: _noImpact.noMovement,
-	    direction: droppable.axis.direction,
-	    destination: home
-	  };
-	
-	  return impact;
-	};
-
-/***/ }),
-/* 204 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keys = __webpack_require__(194);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _memoizeOne2.default)(function (droppable, draggables) {
-	  return (0, _keys2.default)(draggables).map(function (id) {
-	    return draggables[id];
-	  }).filter(function (draggable) {
-	    return droppable.id === draggable.droppableId;
-	  }).sort(function (a, b) {
-	    return a.page.withoutMargin.center[droppable.axis.line] - b.page.withoutMargin.center[droppable.axis.line];
-	  });
-	});
-
-/***/ }),
-/* 205 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	
-	var origin = { x: 0, y: 0 };
-	
-	var noMovement = exports.noMovement = {
-	  draggables: [],
-	  amount: origin,
-	  isBeyondStartPosition: false
-	};
-	
-	var noImpact = {
-	  movement: noMovement,
-	  direction: null,
-	  destination: null
-	};
-	
-	exports.default = noImpact;
-
-/***/ }),
-/* 206 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.closest = exports.distance = exports.patch = exports.absolute = exports.negate = exports.isEqual = exports.subtract = exports.add = undefined;
-	
-	var _toConsumableArray2 = __webpack_require__(207);
-	
-	var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-	
-	var _defineProperty2 = __webpack_require__(85);
-	
-	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var add = exports.add = function add(point1, point2) {
-	  return {
-	    x: point1.x + point2.x,
-	    y: point1.y + point2.y
-	  };
-	};
-	
-	var subtract = exports.subtract = function subtract(point1, point2) {
-	  return {
-	    x: point1.x - point2.x,
-	    y: point1.y - point2.y
-	  };
-	};
-	
-	var isEqual = exports.isEqual = function isEqual(point1, point2) {
-	  return point1.x === point2.x && point1.y === point2.y;
-	};
-	
-	var negate = exports.negate = function negate(point) {
-	  return {
-	    x: point.x !== 0 ? -point.x : 0,
-	    y: point.y !== 0 ? -point.y : 0
-	  };
-	};
-	
-	var absolute = exports.absolute = function absolute(point) {
-	  return {
-	    x: Math.abs(point.x),
-	    y: Math.abs(point.y)
-	  };
-	};
-	
-	var patch = exports.patch = function patch(line, value) {
-	  var _ref;
-	
-	  var otherValue = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-	  return _ref = {}, (0, _defineProperty3.default)(_ref, line, value), (0, _defineProperty3.default)(_ref, line === 'x' ? 'y' : 'x', otherValue), _ref;
-	};
-	
-	var distance = exports.distance = function distance(point1, point2) {
-	  return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
-	};
-	
-	var closest = exports.closest = function closest(target, points) {
-	  return Math.min.apply(Math, (0, _toConsumableArray3.default)(points.map(function (point) {
-	    return distance(target, point);
-	  })));
-	};
-
-/***/ }),
-/* 207 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _from = __webpack_require__(208);
-	
-	var _from2 = _interopRequireDefault(_from);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (arr) {
-	  if (Array.isArray(arr)) {
-	    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-	      arr2[i] = arr[i];
-	    }
-	
-	    return arr2;
-	  } else {
-	    return (0, _from2.default)(arr);
-	  }
-	};
-
-/***/ }),
-/* 208 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(209), __esModule: true };
-
-/***/ }),
-/* 209 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(122);
-	__webpack_require__(210);
-	module.exports = __webpack_require__(91).Array.from;
-
-
-/***/ }),
-/* 210 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var ctx = __webpack_require__(92);
-	var $export = __webpack_require__(89);
-	var toObject = __webpack_require__(108);
-	var call = __webpack_require__(211);
-	var isArrayIter = __webpack_require__(212);
-	var toLength = __webpack_require__(137);
-	var createProperty = __webpack_require__(213);
-	var getIterFn = __webpack_require__(214);
-	
-	$export($export.S + $export.F * !__webpack_require__(216)(function (iter) { Array.from(iter); }), 'Array', {
-	  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
-	  from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
-	    var O = toObject(arrayLike);
-	    var C = typeof this == 'function' ? this : Array;
-	    var aLen = arguments.length;
-	    var mapfn = aLen > 1 ? arguments[1] : undefined;
-	    var mapping = mapfn !== undefined;
-	    var index = 0;
-	    var iterFn = getIterFn(O);
-	    var length, result, step, iterator;
-	    if (mapping) mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
-	    // if object isn't iterable or it's array with default iterator - use simple case
-	    if (iterFn != undefined && !(C == Array && isArrayIter(iterFn))) {
-	      for (iterator = iterFn.call(O), result = new C(); !(step = iterator.next()).done; index++) {
-	        createProperty(result, index, mapping ? call(iterator, mapfn, [step.value, index], true) : step.value);
-	      }
-	    } else {
-	      length = toLength(O.length);
-	      for (result = new C(length); length > index; index++) {
-	        createProperty(result, index, mapping ? mapfn(O[index], index) : O[index]);
-	      }
-	    }
-	    result.length = index;
-	    return result;
-	  }
-	});
-
-
-/***/ }),
-/* 211 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// call something on iterator step with safe closing on error
-	var anObject = __webpack_require__(96);
-	module.exports = function (iterator, fn, value, entries) {
-	  try {
-	    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
-	  // 7.4.6 IteratorClose(iterator, completion)
-	  } catch (e) {
-	    var ret = iterator['return'];
-	    if (ret !== undefined) anObject(ret.call(iterator));
-	    throw e;
-	  }
-	};
-
-
-/***/ }),
-/* 212 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// check on default Array iterator
-	var Iterators = __webpack_require__(127);
-	var ITERATOR = __webpack_require__(142)('iterator');
-	var ArrayProto = Array.prototype;
-	
-	module.exports = function (it) {
-	  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
-	};
-
-
-/***/ }),
-/* 213 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $defineProperty = __webpack_require__(95);
-	var createDesc = __webpack_require__(103);
-	
-	module.exports = function (object, index, value) {
-	  if (index in object) $defineProperty.f(object, index, createDesc(0, value));
-	  else object[index] = value;
-	};
-
-
-/***/ }),
-/* 214 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var classof = __webpack_require__(215);
-	var ITERATOR = __webpack_require__(142)('iterator');
-	var Iterators = __webpack_require__(127);
-	module.exports = __webpack_require__(91).getIteratorMethod = function (it) {
-	  if (it != undefined) return it[ITERATOR]
-	    || it['@@iterator']
-	    || Iterators[classof(it)];
-	};
-
-
-/***/ }),
-/* 215 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// getting tag from 19.1.3.6 Object.prototype.toString()
-	var cof = __webpack_require__(135);
-	var TAG = __webpack_require__(142)('toStringTag');
-	// ES3 wrong here
-	var ARG = cof(function () { return arguments; }()) == 'Arguments';
-	
-	// fallback for IE11 Script Access Denied error
-	var tryGet = function (it, key) {
-	  try {
-	    return it[key];
-	  } catch (e) { /* empty */ }
-	};
-	
-	module.exports = function (it) {
-	  var O, T, B;
-	  return it === undefined ? 'Undefined' : it === null ? 'Null'
-	    // @@toStringTag case
-	    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
-	    // builtinTag case
-	    : ARG ? cof(O)
-	    // ES3 arguments fallback
-	    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
-	};
-
-
-/***/ }),
-/* 216 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var ITERATOR = __webpack_require__(142)('iterator');
-	var SAFE_CLOSING = false;
-	
-	try {
-	  var riter = [7][ITERATOR]();
-	  riter['return'] = function () { SAFE_CLOSING = true; };
-	  // eslint-disable-next-line no-throw-literal
-	  Array.from(riter, function () { throw 2; });
-	} catch (e) { /* empty */ }
-	
-	module.exports = function (exec, skipClosing) {
-	  if (!skipClosing && !SAFE_CLOSING) return false;
-	  var safe = false;
-	  try {
-	    var arr = [7];
-	    var iter = arr[ITERATOR]();
-	    iter.next = function () { return { done: safe = true }; };
-	    arr[ITERATOR] = function () { return iter; };
-	    exec(arr);
-	  } catch (e) { /* empty */ }
-	  return safe;
-	};
-
-
-/***/ }),
-/* 217 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getDroppableOver = __webpack_require__(218);
-	
-	var _getDroppableOver2 = _interopRequireDefault(_getDroppableOver);
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	var _noImpact = __webpack_require__(205);
-	
-	var _noImpact2 = _interopRequireDefault(_noImpact);
-	
-	var _inHomeList = __webpack_require__(225);
-	
-	var _inHomeList2 = _interopRequireDefault(_inHomeList);
-	
-	var _inForeignList = __webpack_require__(226);
-	
-	var _inForeignList2 = _interopRequireDefault(_inForeignList);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var pageCenter = _ref.pageCenter,
-	      draggable = _ref.draggable,
-	      draggables = _ref.draggables,
-	      droppables = _ref.droppables,
-	      previousDroppableOverId = _ref.previousDroppableOverId;
-	
-	  var destinationId = (0, _getDroppableOver2.default)({
-	    target: pageCenter,
-	    draggable: draggable,
-	    draggables: draggables,
-	    droppables: droppables,
-	    previousDroppableOverId: previousDroppableOverId
-	  });
-	
-	  if (!destinationId) {
-	    return _noImpact2.default;
-	  }
-	
-	  var destination = droppables[destinationId];
-	
-	  if (!destination.isEnabled) {
-	    return _noImpact2.default;
-	  }
-	
-	  var home = droppables[draggable.droppableId];
-	  var isWithinHomeDroppable = home.id === destinationId;
-	  var insideDestination = (0, _getDraggablesInsideDroppable2.default)(destination, draggables);
-	
-	  if (isWithinHomeDroppable) {
-	    return (0, _inHomeList2.default)({
-	      pageCenter: pageCenter,
-	      draggable: draggable,
-	      home: home,
-	      insideHome: insideDestination
+	    frameId = requestAnimationFrame(function () {
+	      frameId = null;
+	      fn.apply(undefined, lastArgs);
 	    });
-	  }
-	
-	  return (0, _inForeignList2.default)({
-	    pageCenter: pageCenter,
-	    draggable: draggable,
-	    destination: destination,
-	    insideDestination: insideDestination
-	  });
-	};
-
-/***/ }),
-/* 218 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keys = __webpack_require__(194);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _extends2 = __webpack_require__(197);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _dimension = __webpack_require__(219);
-	
-	var _getClientRect = __webpack_require__(221);
-	
-	var _getClientRect2 = _interopRequireDefault(_getClientRect);
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	var _isWithinVisibleBoundsOfDroppable = __webpack_require__(223);
-	
-	var _position = __webpack_require__(206);
-	
-	var _spacing = __webpack_require__(222);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var noBuffer = { x: 0, y: 0 };
-	
-	var bufferDimensionFragment = function bufferDimensionFragment(buffer) {
-	  return function (fragment) {
-	    return (0, _dimension.getFragment)((0, _getClientRect2.default)((0, _spacing.addPosition)(fragment, buffer)));
-	  };
-	};
-	
-	var addBufferToDroppableDimension = (0, _memoizeOne2.default)(function (buffer, droppable) {
-	  var id = droppable.id,
-	      axis = droppable.axis,
-	      isEnabled = droppable.isEnabled,
-	      client = droppable.client,
-	      container = droppable.container,
-	      page = droppable.page;
-	
-	  var withBuffer = bufferDimensionFragment(buffer);
-	
-	  var newClient = {
-	    withoutMargin: withBuffer(client.withoutMargin),
-	    withMargin: withBuffer(client.withMargin),
-	    withMarginAndPadding: withBuffer(client.withMarginAndPadding)
 	  };
 	
-	  var newPage = {
-	    withoutMargin: withBuffer(page.withoutMargin),
-	    withMargin: withBuffer(page.withMargin),
-	    withMarginAndPadding: withBuffer(page.withMarginAndPadding)
-	  };
-	
-	  var shouldBufferContainer = droppable.page.withMargin[droppable.axis.size] <= droppable.container.bounds[droppable.axis.size];
-	  var newContainerBounds = shouldBufferContainer ? withBuffer(container.bounds) : (0, _extends3.default)({}, container.bounds);
-	
-	  return {
-	    id: id,
-	    axis: axis,
-	    isEnabled: isEnabled,
-	    client: newClient,
-	    page: newPage,
-	    container: {
-	      scroll: container.scroll,
-	      bounds: newContainerBounds
-	    }
-	  };
-	});
-	
-	var calculateBufferSize = (0, _memoizeOne2.default)(function (draggable, draggables, droppable) {
-	
-	  var draggablesInDroppable = (0, _getDraggablesInsideDroppable2.default)(droppable, draggables);
-	
-	  if (!draggablesInDroppable.length) {
-	    return noBuffer;
-	  }
-	  var excessSpace = droppable.page.withMargin[droppable.axis.end] - draggablesInDroppable[draggablesInDroppable.length - 1].page.withMargin[droppable.axis.end];
-	  var bufferSize = Math.max(draggable.page.withMargin[droppable.axis.size] - excessSpace, 0);
-	
-	  var buffer = (0, _position.patch)(droppable.axis.line, bufferSize);
-	
-	  return buffer;
-	});
-	
-	var bufferDroppable = function bufferDroppable(_ref) {
-	  var draggable = _ref.draggable,
-	      draggables = _ref.draggables,
-	      droppable = _ref.droppable,
-	      previousDroppableOverId = _ref.previousDroppableOverId;
-	
-	  var isHomeDroppable = draggable.droppableId === droppable.id;
-	  var isCurrentlyHovered = previousDroppableOverId && previousDroppableOverId === droppable.id;
-	
-	  if (isHomeDroppable || !isCurrentlyHovered) {
-	    return droppable;
-	  }
-	
-	  var buffer = calculateBufferSize(draggable, draggables, droppable);
-	
-	  return addBufferToDroppableDimension(buffer, droppable);
-	};
-	
-	exports.default = function (_ref2) {
-	  var target = _ref2.target,
-	      draggable = _ref2.draggable,
-	      draggables = _ref2.draggables,
-	      droppables = _ref2.droppables,
-	      previousDroppableOverId = _ref2.previousDroppableOverId;
-	
-	  var maybe = (0, _keys2.default)(droppables).map(function (id) {
-	    return droppables[id];
-	  }).find(function (droppable) {
-	    var bufferedDroppable = bufferDroppable({
-	      draggable: draggable, draggables: draggables, droppable: droppable, previousDroppableOverId: previousDroppableOverId
-	    });
-	
-	    return (0, _isWithinVisibleBoundsOfDroppable.isPointWithinDroppable)(bufferedDroppable)(target);
-	  });
-	
-	  return maybe ? maybe.id : null;
-	};
-
-/***/ }),
-/* 219 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.getDroppableDimension = exports.getDraggableDimension = exports.getFragment = exports.noSpacing = undefined;
-	
-	var _axis = __webpack_require__(220);
-	
-	var _getClientRect = __webpack_require__(221);
-	
-	var _getClientRect2 = _interopRequireDefault(_getClientRect);
-	
-	var _spacing = __webpack_require__(222);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var origin = { x: 0, y: 0 };
-	
-	var noSpacing = exports.noSpacing = {
-	  top: 0,
-	  right: 0,
-	  bottom: 0,
-	  left: 0
-	};
-	
-	var getWithPosition = function getWithPosition(clientRect, point) {
-	  var top = clientRect.top,
-	      right = clientRect.right,
-	      bottom = clientRect.bottom,
-	      left = clientRect.left;
-	
-	  return (0, _getClientRect2.default)({
-	    top: top + point.y,
-	    left: left + point.x,
-	    bottom: bottom + point.y,
-	    right: right + point.x
-	  });
-	};
-	
-	var getWithSpacing = function getWithSpacing(clientRect, spacing) {
-	  var top = clientRect.top,
-	      right = clientRect.right,
-	      bottom = clientRect.bottom,
-	      left = clientRect.left;
-	
-	  return (0, _getClientRect2.default)({
-	    top: top - spacing.top,
-	    left: left - spacing.left,
-	    bottom: bottom + spacing.bottom,
-	    right: right + spacing.right
-	  });
-	};
-	
-	var getFragment = exports.getFragment = function getFragment(initial) {
-	  var point = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : origin;
-	
-	  var rect = (0, _getClientRect2.default)({
-	    top: initial.top + point.y,
-	    left: initial.left + point.x,
-	    bottom: initial.bottom + point.y,
-	    right: initial.right + point.x
-	  });
-	
-	  return {
-	    top: rect.top,
-	    right: rect.right,
-	    bottom: rect.bottom,
-	    left: rect.left,
-	    width: rect.width,
-	    height: rect.height,
-	    center: {
-	      x: (rect.right + rect.left) / 2,
-	      y: (rect.bottom + rect.top) / 2
-	    }
-	  };
-	};
-	
-	var getDraggableDimension = exports.getDraggableDimension = function getDraggableDimension(_ref) {
-	  var id = _ref.id,
-	      droppableId = _ref.droppableId,
-	      clientRect = _ref.clientRect,
-	      _ref$margin = _ref.margin,
-	      margin = _ref$margin === undefined ? noSpacing : _ref$margin,
-	      _ref$windowScroll = _ref.windowScroll,
-	      windowScroll = _ref$windowScroll === undefined ? origin : _ref$windowScroll;
-	
-	  var withScroll = getWithPosition(clientRect, windowScroll);
-	
-	  var dimension = {
-	    id: id,
-	    droppableId: droppableId,
-	
-	    client: {
-	      withoutMargin: getFragment(clientRect),
-	      withMargin: getFragment(getWithSpacing(clientRect, margin))
-	    },
-	
-	    page: {
-	      withoutMargin: getFragment(withScroll),
-	      withMargin: getFragment(getWithSpacing(withScroll, margin))
-	    }
-	  };
-	
-	  return dimension;
-	};
-	
-	var getDroppableDimension = exports.getDroppableDimension = function getDroppableDimension(_ref2) {
-	  var id = _ref2.id,
-	      clientRect = _ref2.clientRect,
-	      containerRect = _ref2.containerRect,
-	      _ref2$direction = _ref2.direction,
-	      direction = _ref2$direction === undefined ? 'vertical' : _ref2$direction,
-	      _ref2$margin = _ref2.margin,
-	      margin = _ref2$margin === undefined ? noSpacing : _ref2$margin,
-	      _ref2$padding = _ref2.padding,
-	      padding = _ref2$padding === undefined ? noSpacing : _ref2$padding,
-	      _ref2$windowScroll = _ref2.windowScroll,
-	      windowScroll = _ref2$windowScroll === undefined ? origin : _ref2$windowScroll,
-	      _ref2$scroll = _ref2.scroll,
-	      scroll = _ref2$scroll === undefined ? origin : _ref2$scroll,
-	      _ref2$isEnabled = _ref2.isEnabled,
-	      isEnabled = _ref2$isEnabled === undefined ? true : _ref2$isEnabled;
-	
-	  var withMargin = getWithSpacing(clientRect, margin);
-	  var withWindowScroll = getWithPosition(clientRect, windowScroll);
-	
-	  var containerRectWithWindowScroll = !containerRect || (0, _spacing.isEqual)(containerRect, clientRect) ? getWithPosition(withMargin, windowScroll) : getWithPosition(containerRect, windowScroll);
-	
-	  var dimension = {
-	    id: id,
-	    isEnabled: isEnabled,
-	    axis: direction === 'vertical' ? _axis.vertical : _axis.horizontal,
-	    client: {
-	      withoutMargin: getFragment(clientRect),
-	      withMargin: getFragment(withMargin),
-	      withMarginAndPadding: getFragment(getWithSpacing(withMargin, padding))
-	    },
-	    page: {
-	      withoutMargin: getFragment(withWindowScroll),
-	      withMargin: getFragment(getWithSpacing(withWindowScroll, margin)),
-	      withMarginAndPadding: getFragment(getWithSpacing(withWindowScroll, (0, _spacing.add)(margin, padding)))
-	    },
-	    container: {
-	      scroll: {
-	        initial: scroll,
-	
-	        current: scroll
-	      },
-	      bounds: getFragment(containerRectWithWindowScroll)
-	    }
-	  };
-	
-	  return dimension;
-	};
-
-/***/ }),
-/* 220 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var vertical = exports.vertical = {
-	  direction: 'vertical',
-	  line: 'y',
-	  crossLine: 'x',
-	  start: 'top',
-	  end: 'bottom',
-	  size: 'height',
-	  crossAxisStart: 'left',
-	  crossAxisEnd: 'right',
-	  crossAxisSize: 'width'
-	};
-	
-	var horizontal = exports.horizontal = {
-	  direction: 'horizontal',
-	  line: 'x',
-	  crossLine: 'y',
-	  start: 'left',
-	  end: 'right',
-	  size: 'width',
-	  crossAxisStart: 'top',
-	  crossAxisEnd: 'bottom',
-	  crossAxisSize: 'height'
-	};
-
-/***/ }),
-/* 221 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (_ref) {
-	  var top = _ref.top,
-	      right = _ref.right,
-	      bottom = _ref.bottom,
-	      left = _ref.left;
-	  return {
-	    top: top,
-	    right: right,
-	    bottom: bottom,
-	    left: left,
-	    width: right - left,
-	    height: bottom - top
-	  };
-	};
-
-/***/ }),
-/* 222 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.getCorners = exports.offset = exports.isEqual = exports.addPosition = exports.add = undefined;
-	
-	var _extends2 = __webpack_require__(197);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var add = exports.add = function add(spacing1, spacing2) {
-	  return {
-	    top: spacing1.top + spacing2.top,
-	    left: spacing1.left + spacing2.left,
-	    right: spacing1.right + spacing2.right,
-	    bottom: spacing1.bottom + spacing2.bottom
-	  };
-	};
-	
-	var addPosition = exports.addPosition = function addPosition(spacing, position) {
-	  return (0, _extends3.default)({}, spacing, {
-	    right: spacing.right + position.x,
-	    bottom: spacing.bottom + position.y
-	  });
-	};
-	
-	var isEqual = exports.isEqual = function isEqual(spacing1, spacing2) {
-	  return spacing1.top === spacing2.top && spacing1.right === spacing2.right && spacing1.bottom === spacing2.bottom && spacing1.left === spacing2.left;
-	};
-	
-	var offset = exports.offset = function offset(spacing, position) {
-	  return {
-	    top: spacing.top + position.y,
-	    right: spacing.right + position.x,
-	    bottom: spacing.bottom + position.y,
-	    left: spacing.left + position.x
-	  };
-	};
-	
-	var getCorners = exports.getCorners = function getCorners(spacing) {
-	  return [{ x: spacing.left, y: spacing.top }, { x: spacing.right, y: spacing.top }, { x: spacing.left, y: spacing.bottom }, { x: spacing.right, y: spacing.bottom }];
-	};
-
-/***/ }),
-/* 223 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.isDraggableWithin = exports.isPointWithinDroppable = exports.getVisibleBounds = undefined;
-	
-	var _isWithin = __webpack_require__(224);
-	
-	var _isWithin2 = _interopRequireDefault(_isWithin);
-	
-	var _position = __webpack_require__(206);
-	
-	var _spacing = __webpack_require__(222);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var getVisibleBounds = exports.getVisibleBounds = function getVisibleBounds(droppable) {
-	  var _droppable$container = droppable.container,
-	      scroll = _droppable$container.scroll,
-	      containerBounds = _droppable$container.bounds;
-	
-	  var containerScrollDiff = (0, _position.subtract)(scroll.initial, scroll.current);
-	
-	  var droppableBounds = (0, _spacing.offset)(droppable.page.withMargin, containerScrollDiff);
-	
-	  var clippedBounds = {
-	    top: Math.max(droppableBounds.top, containerBounds.top),
-	    right: Math.min(droppableBounds.right, containerBounds.right),
-	    bottom: Math.min(droppableBounds.bottom, containerBounds.bottom),
-	    left: Math.max(droppableBounds.left, containerBounds.left)
-	  };
-	
-	  return clippedBounds;
-	};
-	
-	var isPointWithin = function isPointWithin(bounds) {
-	  var isWithinHorizontal = (0, _isWithin2.default)(bounds.left, bounds.right);
-	  var isWithinVertical = (0, _isWithin2.default)(bounds.top, bounds.bottom);
-	
-	  return function (point) {
-	    return isWithinHorizontal(point.x) && isWithinVertical(point.y);
-	  };
-	};
-	
-	var isPointWithinDroppable = exports.isPointWithinDroppable = function isPointWithinDroppable(droppable) {
-	  return isPointWithin(getVisibleBounds(droppable));
-	};
-	
-	var isDraggableWithin = exports.isDraggableWithin = function isDraggableWithin(bounds) {
-	  var top = bounds.top,
-	      right = bounds.right,
-	      bottom = bounds.bottom,
-	      left = bounds.left;
-	
-	  var isWithinHorizontal = (0, _isWithin2.default)(left - 1, right + 1);
-	  var isWithinVertical = (0, _isWithin2.default)(top - 1, bottom + 1);
-	
-	  return function (draggable) {
-	    var fragment = draggable.page.withMargin;
-	
-	    return isWithinHorizontal(fragment.left) && isWithinHorizontal(fragment.right) && isWithinVertical(fragment.top) && isWithinVertical(fragment.bottom);
-	  };
-	};
-
-/***/ }),
-/* 224 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (lowerBound, upperBound) {
-	  return function (value) {
-	    return value <= upperBound && value >= lowerBound;
-	  };
-	};
-
-/***/ }),
-/* 225 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _position = __webpack_require__(206);
-	
-	exports.default = function (_ref) {
-	  var pageCenter = _ref.pageCenter,
-	      draggable = _ref.draggable,
-	      home = _ref.home,
-	      insideHome = _ref.insideHome;
-	
-	  var axis = home.axis;
-	  var homeScrollDiff = (0, _position.subtract)(home.container.scroll.current, home.container.scroll.initial);
-	
-	  var currentCenter = (0, _position.add)(pageCenter, homeScrollDiff);
-	
-	  var originalCenter = draggable.page.withoutMargin.center;
-	
-	  var isBeyondStartPosition = currentCenter[axis.line] - originalCenter[axis.line] > 0;
-	
-	  var moved = insideHome.filter(function (child) {
-	    if (child === draggable) {
-	      return false;
-	    }
-	
-	    var fragment = child.page.withoutMargin;
-	
-	    if (isBeyondStartPosition) {
-	      if (fragment.center[axis.line] < originalCenter[axis.line]) {
-	        return false;
-	      }
-	
-	      return currentCenter[axis.line] > fragment[axis.start];
-	    }
-	
-	    if (originalCenter[axis.line] < fragment.center[axis.line]) {
-	      return false;
-	    }
-	
-	    return currentCenter[axis.line] < fragment[axis.end];
-	  }).map(function (dimension) {
-	    return dimension.id;
-	  });
-	
-	  var ordered = isBeyondStartPosition ? moved.reverse() : moved;
-	
-	  var index = function () {
-	    var startIndex = insideHome.indexOf(draggable);
-	    if (!moved.length) {
-	      return startIndex;
-	    }
-	
-	    if (isBeyondStartPosition) {
-	      return startIndex + moved.length;
-	    }
-	
-	    return startIndex - moved.length;
-	  }();
-	
-	  var movement = {
-	    amount: (0, _position.patch)(axis.line, draggable.page.withMargin[axis.size]),
-	    draggables: ordered,
-	    isBeyondStartPosition: isBeyondStartPosition
-	  };
-	
-	  var impact = {
-	    movement: movement,
-	    direction: axis.direction,
-	    destination: {
-	      droppableId: home.id,
-	      index: index
-	    }
-	  };
-	
-	  return impact;
-	};
-
-/***/ }),
-/* 226 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _position = __webpack_require__(206);
-	
-	exports.default = function (_ref) {
-	  var pageCenter = _ref.pageCenter,
-	      draggable = _ref.draggable,
-	      destination = _ref.destination,
-	      insideDestination = _ref.insideDestination;
-	
-	  var axis = destination.axis;
-	
-	  var destinationScrollDiff = (0, _position.subtract)(destination.container.scroll.current, destination.container.scroll.initial);
-	
-	  var currentCenter = (0, _position.add)(pageCenter, destinationScrollDiff);
-	
-	  var moved = insideDestination.filter(function (child) {
-	    var threshold = child.page.withoutMargin[axis.end];
-	    return threshold > currentCenter[axis.line];
-	  }).map(function (dimension) {
-	    return dimension.id;
-	  });
-	
-	  var newIndex = insideDestination.length - moved.length;
-	
-	  var movement = {
-	    amount: (0, _position.patch)(axis.line, draggable.page.withMargin[axis.size]),
-	    draggables: moved,
-	    isBeyondStartPosition: false
-	  };
-	
-	  var impact = {
-	    movement: movement,
-	    direction: axis.direction,
-	    destination: {
-	      droppableId: destination.id,
-	      index: newIndex
-	    }
-	  };
-	
-	  return impact;
-	};
-
-/***/ }),
-/* 227 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _inHomeList = __webpack_require__(228);
-	
-	var _inHomeList2 = _interopRequireDefault(_inHomeList);
-	
-	var _inForeignList = __webpack_require__(230);
-	
-	var _inForeignList2 = _interopRequireDefault(_inForeignList);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (args) {
-	  var draggableId = args.draggableId,
-	      draggables = args.draggables,
-	      droppable = args.droppable;
-	
-	
-	  var draggable = draggables[draggableId];
-	  var isInHomeList = draggable.droppableId === droppable.id;
-	
-	  if (!droppable.isEnabled) {
-	    return null;
-	  }
-	
-	  if (isInHomeList) {
-	    return (0, _inHomeList2.default)(args);
-	  }
-	
-	  return (0, _inForeignList2.default)(args);
-	};
-
-/***/ }),
-/* 228 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _toConsumableArray2 = __webpack_require__(207);
-	
-	var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	var _isWithinVisibleBoundsOfDroppable = __webpack_require__(223);
-	
-	var _position = __webpack_require__(206);
-	
-	var _moveToEdge = __webpack_require__(229);
-	
-	var _moveToEdge2 = _interopRequireDefault(_moveToEdge);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var getIndex = (0, _memoizeOne2.default)(function (draggables, target) {
-	  return draggables.indexOf(target);
-	});
-	
-	exports.default = function (_ref) {
-	  var isMovingForward = _ref.isMovingForward,
-	      draggableId = _ref.draggableId,
-	      impact = _ref.impact,
-	      droppable = _ref.droppable,
-	      draggables = _ref.draggables;
-	
-	  if (!impact.destination) {
-	    console.error('cannot move to next index when there is not previous destination');
-	    return null;
-	  }
-	
-	  var location = impact.destination;
-	  var draggable = draggables[draggableId];
-	  var axis = droppable.axis;
-	
-	  var insideDroppable = (0, _getDraggablesInsideDroppable2.default)(droppable, draggables);
-	
-	  var startIndex = getIndex(insideDroppable, draggable);
-	  var currentIndex = location.index;
-	  var proposedIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
-	
-	  if (startIndex === -1) {
-	    console.error('could not find draggable inside current droppable');
-	    return null;
-	  }
-	
-	  if (proposedIndex > insideDroppable.length - 1) {
-	    return null;
-	  }
-	
-	  if (proposedIndex < 0) {
-	    return null;
-	  }
-	
-	  var destination = insideDroppable[proposedIndex];
-	  var isMovingTowardStart = isMovingForward && proposedIndex <= startIndex || !isMovingForward && proposedIndex >= startIndex;
-	
-	  var edge = function () {
-	    if (!isMovingTowardStart) {
-	      return isMovingForward ? 'end' : 'start';
-	    }
-	
-	    return isMovingForward ? 'start' : 'end';
-	  }();
-	
-	  var newCenter = (0, _moveToEdge2.default)({
-	    source: draggable.page.withoutMargin,
-	    sourceEdge: edge,
-	    destination: destination.page.withoutMargin,
-	    destinationEdge: edge,
-	    destinationAxis: droppable.axis
-	  });
-	
-	  var isVisible = (0, _isWithinVisibleBoundsOfDroppable.isPointWithinDroppable)(droppable)(newCenter);
-	
-	  if (!isVisible) {
-	    return null;
-	  }
-	
-	  var moved = isMovingTowardStart ? impact.movement.draggables.slice(1, impact.movement.draggables.length) : [destination.id].concat((0, _toConsumableArray3.default)(impact.movement.draggables));
-	
-	  var newImpact = {
-	    movement: {
-	      draggables: moved,
-	
-	      amount: (0, _position.patch)(axis.line, draggable.page.withMargin[axis.size]),
-	      isBeyondStartPosition: proposedIndex > startIndex
-	    },
-	    destination: {
-	      droppableId: droppable.id,
-	      index: proposedIndex
-	    },
-	    direction: droppable.axis.direction
-	  };
-	
-	  var result = {
-	    pageCenter: newCenter,
-	    impact: newImpact
-	  };
-	
-	  return result;
-	};
-
-/***/ }),
-/* 229 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _position = __webpack_require__(206);
-	
-	exports.default = function (_ref) {
-	  var source = _ref.source,
-	      sourceEdge = _ref.sourceEdge,
-	      destination = _ref.destination,
-	      destinationEdge = _ref.destinationEdge,
-	      destinationAxis = _ref.destinationAxis;
-	
-	  var getCorner = function getCorner(fragment) {
-	    return (0, _position.patch)(destinationAxis.line, fragment[destinationAxis[destinationEdge]], fragment[destinationAxis.crossAxisStart]);
-	  };
-	
-	  var corner = getCorner(destination);
-	
-	  var centerDiff = (0, _position.absolute)((0, _position.subtract)(source.center, getCorner(source)));
-	
-	  var signed = (0, _position.patch)(destinationAxis.line, (sourceEdge === 'end' ? -1 : 1) * centerDiff[destinationAxis.line], centerDiff[destinationAxis.crossLine]);
-	
-	  return (0, _position.add)(corner, signed);
-	};
-
-/***/ }),
-/* 230 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _toConsumableArray2 = __webpack_require__(207);
-	
-	var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	var _isWithinVisibleBoundsOfDroppable = __webpack_require__(223);
-	
-	var _position = __webpack_require__(206);
-	
-	var _moveToEdge = __webpack_require__(229);
-	
-	var _moveToEdge2 = _interopRequireDefault(_moveToEdge);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var isMovingForward = _ref.isMovingForward,
-	      draggableId = _ref.draggableId,
-	      impact = _ref.impact,
-	      droppable = _ref.droppable,
-	      draggables = _ref.draggables;
-	
-	  if (!impact.destination) {
-	    console.error('cannot move to next index when there is not previous destination');
-	    return null;
-	  }
-	
-	  var location = impact.destination;
-	  var draggable = draggables[draggableId];
-	  var axis = droppable.axis;
-	
-	  var insideForeignDroppable = (0, _getDraggablesInsideDroppable2.default)(droppable, draggables);
-	
-	  var currentIndex = location.index;
-	  var proposedIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
-	  var lastIndex = insideForeignDroppable.length - 1;
-	
-	  if (proposedIndex > insideForeignDroppable.length) {
-	    return null;
-	  }
-	
-	  if (proposedIndex < 0) {
-	    return null;
-	  }
-	
-	  var movingRelativeTo = insideForeignDroppable[Math.min(proposedIndex, lastIndex)];
-	
-	  var isMovingPastLastIndex = proposedIndex > lastIndex;
-	  var sourceEdge = 'start';
-	  var destinationEdge = function () {
-	    if (isMovingPastLastIndex) {
-	      return 'end';
-	    }
-	
-	    return 'start';
-	  }();
-	
-	  var newCenter = (0, _moveToEdge2.default)({
-	    source: draggable.page.withoutMargin,
-	    sourceEdge: sourceEdge,
-	    destination: movingRelativeTo.page.withMargin,
-	    destinationEdge: destinationEdge,
-	    destinationAxis: droppable.axis
-	  });
-	
-	  var isVisible = function () {
-	    if (isMovingPastLastIndex) {
-	      return true;
-	    }
-	
-	    return (0, _isWithinVisibleBoundsOfDroppable.isPointWithinDroppable)(droppable)(newCenter);
-	  }();
-	
-	  if (!isVisible) {
-	    return null;
-	  }
-	
-	  var moved = isMovingForward ? impact.movement.draggables.slice(1, impact.movement.draggables.length) : [movingRelativeTo.id].concat((0, _toConsumableArray3.default)(impact.movement.draggables));
-	
-	  var newImpact = {
-	    movement: {
-	      draggables: moved,
-	
-	      amount: (0, _position.patch)(axis.line, draggable.page.withMargin[axis.size]),
-	
-	      isBeyondStartPosition: false
-	    },
-	    destination: {
-	      droppableId: droppable.id,
-	      index: proposedIndex
-	    },
-	    direction: droppable.axis.direction
-	  };
-	
-	  return {
-	    pageCenter: newCenter,
-	    impact: newImpact
-	  };
-	};
-
-/***/ }),
-/* 231 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getBestCrossAxisDroppable = __webpack_require__(232);
-	
-	var _getBestCrossAxisDroppable2 = _interopRequireDefault(_getBestCrossAxisDroppable);
-	
-	var _getClosestDraggable = __webpack_require__(233);
-	
-	var _getClosestDraggable2 = _interopRequireDefault(_getClosestDraggable);
-	
-	var _moveToNewDroppable = __webpack_require__(234);
-	
-	var _moveToNewDroppable2 = _interopRequireDefault(_moveToNewDroppable);
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var isMovingForward = _ref.isMovingForward,
-	      pageCenter = _ref.pageCenter,
-	      draggableId = _ref.draggableId,
-	      droppableId = _ref.droppableId,
-	      home = _ref.home,
-	      draggables = _ref.draggables,
-	      droppables = _ref.droppables;
-	
-	  var draggable = draggables[draggableId];
-	  var source = droppables[droppableId];
-	
-	  var destination = (0, _getBestCrossAxisDroppable2.default)({
-	    isMovingForward: isMovingForward,
-	    pageCenter: pageCenter,
-	    source: source,
-	    droppables: droppables
-	  });
-	
-	  if (!destination) {
-	    return null;
-	  }
-	
-	  var insideDestination = (0, _getDraggablesInsideDroppable2.default)(destination, draggables);
-	
-	  var target = (0, _getClosestDraggable2.default)({
-	    axis: destination.axis,
-	    pageCenter: pageCenter,
-	    destination: destination,
-	    insideDestination: insideDestination
-	  });
-	
-	  if (insideDestination.length && !target) {
-	    return null;
-	  }
-	
-	  return (0, _moveToNewDroppable2.default)({
-	    pageCenter: pageCenter,
-	    destination: destination,
-	    draggable: draggable,
-	    target: target,
-	    insideDestination: insideDestination,
-	    home: home
-	  });
-	};
-
-/***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keys = __webpack_require__(194);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _position = __webpack_require__(206);
-	
-	var _isWithin = __webpack_require__(224);
-	
-	var _isWithin2 = _interopRequireDefault(_isWithin);
-	
-	var _spacing = __webpack_require__(222);
-	
-	var _isWithinVisibleBoundsOfDroppable = __webpack_require__(223);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var isMovingForward = _ref.isMovingForward,
-	      pageCenter = _ref.pageCenter,
-	      source = _ref.source,
-	      droppables = _ref.droppables;
-	
-	  var axis = source.axis;
-	  var sourceBounds = (0, _isWithinVisibleBoundsOfDroppable.getVisibleBounds)(source);
-	
-	  var candidates = (0, _keys2.default)(droppables).map(function (id) {
-	    return droppables[id];
-	  }).filter(function (droppable) {
-	    return droppable !== source;
-	  }).filter(function (droppable) {
-	    return droppable.isEnabled;
-	  }).map(function (droppable) {
-	    return {
-	      bounds: (0, _isWithinVisibleBoundsOfDroppable.getVisibleBounds)(droppable),
-	      droppable: droppable
-	    };
-	  }).filter(function (_ref2) {
-	    var bounds = _ref2.bounds;
-	
-	    if (isMovingForward) {
-	      return sourceBounds[axis.crossAxisEnd] <= bounds[axis.crossAxisStart];
-	    }
-	
-	    return bounds[axis.crossAxisEnd] <= sourceBounds[axis.crossAxisStart];
-	  }).filter(function (_ref3) {
-	    var bounds = _ref3.bounds;
-	
-	    var isBetweenSourceBounds = (0, _isWithin2.default)(sourceBounds[axis.start], sourceBounds[axis.end]);
-	    var isBetweenDestinationBounds = (0, _isWithin2.default)(bounds[axis.start], bounds[axis.end]);
-	
-	    return isBetweenSourceBounds(bounds[axis.start]) || isBetweenSourceBounds(bounds[axis.end]) || isBetweenDestinationBounds(sourceBounds[axis.start]) || isBetweenDestinationBounds(sourceBounds[axis.end]);
-	  }).filter(function (_ref4) {
-	    var droppable = _ref4.droppable;
-	    return droppable.page.withoutMargin[axis.crossAxisStart] >= droppable.container.bounds[axis.crossAxisStart] && droppable.page.withoutMargin[axis.crossAxisEnd] <= droppable.container.bounds[axis.crossAxisEnd];
-	  }).sort(function (_ref5, _ref6) {
-	    var a = _ref5.bounds;
-	    var b = _ref6.bounds;
-	
-	    var first = a[axis.crossAxisStart];
-	    var second = b[axis.crossAxisStart];
-	
-	    if (isMovingForward) {
-	      return first - second;
-	    }
-	    return second - first;
-	  }).filter(function (_ref7, index, array) {
-	    var bounds = _ref7.bounds;
-	    return bounds[axis.crossAxisStart] === array[0].bounds[axis.crossAxisStart];
-	  });
-	
-	  if (!candidates.length) {
-	    return null;
-	  }
-	
-	  if (candidates.length === 1) {
-	    return candidates[0].droppable;
-	  }
-	
-	  var contains = candidates.filter(function (_ref8) {
-	    var bounds = _ref8.bounds;
-	
-	    var isWithinDroppable = (0, _isWithin2.default)(bounds[axis.start], bounds[axis.end]);
-	    return isWithinDroppable(pageCenter[axis.line]);
-	  });
-	
-	  if (contains.length === 1) {
-	    return contains[0].droppable;
-	  }
-	
-	  if (contains.length > 1) {
-	    return contains.sort(function (_ref9, _ref10) {
-	      var a = _ref9.bounds;
-	      var b = _ref10.bounds;
-	      return a[axis.start] - b[axis.start];
-	    })[0].droppable;
-	  }
-	
-	  return candidates.sort(function (_ref11, _ref12) {
-	    var a = _ref11.bounds;
-	    var b = _ref12.bounds;
-	
-	    var first = (0, _position.closest)(pageCenter, (0, _spacing.getCorners)(a));
-	    var second = (0, _position.closest)(pageCenter, (0, _spacing.getCorners)(b));
-	
-	    if (first !== second) {
-	      return first - second;
-	    }
-	
-	    return a[axis.start] - b[axis.start];
-	  })[0].droppable;
-	};
-
-/***/ }),
-/* 233 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _position = __webpack_require__(206);
-	
-	var _isWithinVisibleBoundsOfDroppable = __webpack_require__(223);
-	
-	exports.default = function (_ref) {
-	  var axis = _ref.axis,
-	      pageCenter = _ref.pageCenter,
-	      destination = _ref.destination,
-	      insideDestination = _ref.insideDestination;
-	
-	  if (!insideDestination.length) {
-	    return null;
-	  }
-	
-	  var isWithinDestination = (0, _isWithinVisibleBoundsOfDroppable.isDraggableWithin)(destination.container.bounds);
-	
-	  var result = insideDestination.filter(isWithinDestination).sort(function (a, b) {
-	    var distanceToA = (0, _position.distance)(pageCenter, a.page.withMargin.center);
-	    var distanceToB = (0, _position.distance)(pageCenter, b.page.withMargin.center);
-	
-	    if (distanceToA < distanceToB) {
-	      return -1;
-	    }
-	
-	    if (distanceToB < distanceToA) {
-	      return 1;
-	    }
-	
-	    return a.page.withMargin[axis.start] - b.page.withMargin[axis.start];
-	  });
-	
-	  return result.length ? result[0] : null;
-	};
-
-/***/ }),
-/* 234 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _toHomeList = __webpack_require__(235);
-	
-	var _toHomeList2 = _interopRequireDefault(_toHomeList);
-	
-	var _toForeignList = __webpack_require__(236);
-	
-	var _toForeignList2 = _interopRequireDefault(_toForeignList);
-	
-	var _position = __webpack_require__(206);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var pageCenter = _ref.pageCenter,
-	      destination = _ref.destination,
-	      draggable = _ref.draggable,
-	      target = _ref.target,
-	      home = _ref.home,
-	      insideDestination = _ref.insideDestination;
-	
-	  var amount = (0, _position.patch)(destination.axis.line, draggable.page.withMargin[destination.axis.size]);
-	
-	  if (destination.id === draggable.droppableId) {
-	    return (0, _toHomeList2.default)({
-	      amount: amount,
-	      originalIndex: home.index,
-	      target: target,
-	      insideDroppable: insideDestination,
-	      draggable: draggable,
-	      droppable: destination
-	    });
-	  }
-	
-	  return (0, _toForeignList2.default)({
-	    amount: amount,
-	    pageCenter: pageCenter,
-	    target: target,
-	    insideDroppable: insideDestination,
-	    draggable: draggable,
-	    droppable: destination
-	  });
-	};
-
-/***/ }),
-/* 235 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _moveToEdge = __webpack_require__(229);
-	
-	var _moveToEdge2 = _interopRequireDefault(_moveToEdge);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var amount = _ref.amount,
-	      originalIndex = _ref.originalIndex,
-	      target = _ref.target,
-	      insideDroppable = _ref.insideDroppable,
-	      draggable = _ref.draggable,
-	      droppable = _ref.droppable;
-	
-	  if (!target) {
-	    console.error('there will always be a target in the original list');
-	    return null;
-	  }
-	
-	  var axis = droppable.axis;
-	  var targetIndex = insideDroppable.indexOf(target);
-	
-	  if (targetIndex === -1) {
-	    console.error('unable to find target in destination droppable');
-	    return null;
-	  }
-	
-	  if (targetIndex === originalIndex) {
-	    var _newCenter = draggable.page.withoutMargin.center;
-	    var _newImpact = {
-	      movement: {
-	        draggables: [],
-	        amount: amount,
-	        isBeyondStartPosition: false
-	      },
-	      direction: droppable.axis.direction,
-	      destination: {
-	        droppableId: droppable.id,
-	        index: originalIndex
-	      }
-	    };
-	
-	    return {
-	      pageCenter: _newCenter,
-	      impact: _newImpact
-	    };
-	  }
-	
-	  var isMovingPastOriginalIndex = targetIndex > originalIndex;
-	  var edge = isMovingPastOriginalIndex ? 'end' : 'start';
-	
-	  var newCenter = (0, _moveToEdge2.default)({
-	    source: draggable.page.withoutMargin,
-	    sourceEdge: edge,
-	    destination: isMovingPastOriginalIndex ? target.page.withoutMargin : target.page.withMargin,
-	    destinationEdge: edge,
-	    destinationAxis: axis
-	  });
-	
-	  var needsToMove = function () {
-	    if (!isMovingPastOriginalIndex) {
-	      return insideDroppable.slice(targetIndex, originalIndex);
-	    }
-	
-	    var from = originalIndex + 1;
-	
-	    var to = targetIndex + 1;
-	
-	    return insideDroppable.slice(from, to).reverse();
-	  }().map(function (d) {
-	    return d.id;
-	  });
-	
-	  var newImpact = {
-	    movement: {
-	      draggables: needsToMove,
-	      amount: amount,
-	      isBeyondStartPosition: isMovingPastOriginalIndex
-	    },
-	    direction: axis.direction,
-	    destination: {
-	      droppableId: droppable.id,
-	      index: targetIndex
-	    }
-	  };
-	
-	  return {
-	    pageCenter: newCenter,
-	    impact: newImpact
-	  };
-	};
-
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _moveToEdge = __webpack_require__(229);
-	
-	var _moveToEdge2 = _interopRequireDefault(_moveToEdge);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var amount = _ref.amount,
-	      pageCenter = _ref.pageCenter,
-	      target = _ref.target,
-	      insideDroppable = _ref.insideDroppable,
-	      draggable = _ref.draggable,
-	      droppable = _ref.droppable;
-	
-	  var axis = droppable.axis;
-	  var isGoingBeforeTarget = Boolean(target && pageCenter[droppable.axis.line] < target.page.withMargin.center[droppable.axis.line]);
-	
-	  if (!target) {
-	
-	    var _newCenter = (0, _moveToEdge2.default)({
-	      source: draggable.page.withoutMargin,
-	      sourceEdge: 'start',
-	      destination: droppable.page.withMarginAndPadding,
-	      destinationEdge: 'start',
-	      destinationAxis: axis
-	    });
-	
-	    var _newImpact = {
-	      movement: {
-	        draggables: [],
-	        amount: amount,
-	        isBeyondStartPosition: false
-	      },
-	      direction: axis.direction,
-	      destination: {
-	        droppableId: droppable.id,
-	        index: 0
-	      }
-	    };
-	
-	    return {
-	      pageCenter: _newCenter,
-	      impact: _newImpact
-	    };
-	  }
-	
-	  var targetIndex = insideDroppable.indexOf(target);
-	  var proposedIndex = isGoingBeforeTarget ? targetIndex : targetIndex + 1;
-	
-	  if (targetIndex === -1) {
-	    console.error('could not find target inside destination');
-	    return null;
-	  }
-	
-	  var newCenter = (0, _moveToEdge2.default)({
-	    source: draggable.page.withoutMargin,
-	    sourceEdge: 'start',
-	    destination: target.page.withMargin,
-	    destinationEdge: isGoingBeforeTarget ? 'start' : 'end',
-	    destinationAxis: axis
-	  });
-	
-	  var needsToMove = insideDroppable.slice(proposedIndex, insideDroppable.length).map(function (dimension) {
-	    return dimension.id;
-	  });
-	
-	  var newImpact = {
-	    movement: {
-	      draggables: needsToMove,
-	      amount: amount,
-	      isBeyondStartPosition: false
-	    },
-	    direction: axis.direction,
-	    destination: {
-	      droppableId: droppable.id,
-	      index: proposedIndex
-	    }
-	  };
-	
-	  return {
-	    pageCenter: newCenter,
-	    impact: newImpact
-	  };
-	};
-
-/***/ }),
-/* 237 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (hooks, current, previous) {
-	  var onDragStart = hooks.onDragStart,
-	      onDragEnd = hooks.onDragEnd;
-	
-	  var currentPhase = current.phase;
-	  var previousPhase = previous.phase;
-	
-	  if (currentPhase === previousPhase) {
-	    return;
-	  }
-	
-	  if (currentPhase === 'DRAGGING' && previousPhase !== 'DRAGGING') {
-	    if (!onDragStart) {
+	  wrapperFn.cancel = function () {
+	    if (!frameId) {
 	      return;
 	    }
 	
-	    if (!current.drag) {
-	      console.error('cannot fire onDragStart hook without drag state', { current: current, previous: previous });
-	      return;
-	    }
+	    cancelAnimationFrame(frameId);
+	    frameId = null;
+	  };
 	
-	    var start = {
-	      draggableId: current.drag.current.id,
-	      type: current.drag.current.type,
-	      source: current.drag.initial.source
-	    };
+	  var resultFn = wrapperFn;
 	
-	    onDragStart(start);
-	    return;
-	  }
-	
-	  if (currentPhase === 'DROP_COMPLETE' && previousPhase !== 'DROP_COMPLETE') {
-	    if (!current.drop || !current.drop.result) {
-	      console.error('cannot fire onDragEnd hook without drag state', { current: current, previous: previous });
-	      return;
-	    }
-	
-	    var _current$drop$result = current.drop.result,
-	        source = _current$drop$result.source,
-	        destination = _current$drop$result.destination,
-	        draggableId = _current$drop$result.draggableId,
-	        type = _current$drop$result.type;
-	
-	    if (!destination) {
-	      onDragEnd(current.drop.result);
-	      return;
-	    }
-	
-	    var didMove = source.droppableId !== destination.droppableId || source.index !== destination.index;
-	
-	    if (didMove) {
-	      onDragEnd(current.drop.result);
-	      return;
-	    }
-	
-	    var muted = {
-	      draggableId: draggableId,
-	      type: type,
-	      source: source,
-	      destination: null
-	    };
-	
-	    onDragEnd(muted);
-	  }
-	
-	  if (currentPhase === 'IDLE' && previousPhase === 'DRAGGING') {
-	    if (!previous.drag) {
-	      console.error('cannot fire onDragEnd for cancel because cannot find previous drag');
-	      return;
-	    }
-	    var result = {
-	      draggableId: previous.drag.current.id,
-	      type: previous.drag.current.type,
-	      source: previous.drag.initial.source,
-	      destination: null
-	    };
-	    onDragEnd(result);
-	  }
-	
-	  if (currentPhase === 'IDLE' && previousPhase === 'DROP_ANIMATING') {
-	    if (!previous.drop || !previous.drop.pending) {
-	      console.error('cannot fire onDragEnd for cancel because cannot find previous pending drop');
-	      return;
-	    }
-	
-	    var _result = {
-	      draggableId: previous.drop.pending.result.draggableId,
-	      type: previous.drop.pending.result.type,
-	      source: previous.drop.pending.result.source,
-	      destination: null
-	    };
-	    onDragEnd(_result);
-	  }
-	};
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	  return resultFn;
 	});
 	
-	var prefix = function prefix(key) {
-	  return 'private-drag-drop-key-do-not-use-store-' + key;
-	};
-	
-	var storeKey = exports.storeKey = prefix('store');
-	var droppableIdKey = exports.droppableIdKey = prefix('droppable-id');
+	module.exports = index;
+
 
 /***/ }),
-/* 239 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	var _Object$create = __webpack_require__(135);
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	function _inheritsLoose(subClass, superClass) {
+	  subClass.prototype = _Object$create(superClass.prototype);
+	  subClass.prototype.constructor = subClass;
+	  subClass.__proto__ = superClass;
+	}
 	
-	var _connectedDroppable = __webpack_require__(240);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_connectedDroppable).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	module.exports = _inheritsLoose;
 
 /***/ }),
-/* 240 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.makeSelector = undefined;
-	
-	var _reactRedux = __webpack_require__(241);
-	
-	var _reselect = __webpack_require__(258);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	var _selectors = __webpack_require__(259);
-	
-	var _droppable = __webpack_require__(260);
-	
-	var _droppable2 = _interopRequireDefault(_droppable);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var makeSelector = exports.makeSelector = function makeSelector() {
-	  var idSelector = function idSelector(state, ownProps) {
-	    return ownProps.droppableId;
-	  };
-	  var isDropDisabledSelector = function isDropDisabledSelector(state, ownProps) {
-	    return ownProps.isDropDisabled || false;
-	  };
-	
-	  var getIsDraggingOver = (0, _memoizeOne2.default)(function (id, destination) {
-	    if (!destination) {
-	      return false;
-	    }
-	    return destination.droppableId === id;
-	  });
-	
-	  var memoizedPlaceholder = (0, _memoizeOne2.default)(function (width, height) {
-	    return {
-	      width: width, height: height
-	    };
-	  });
-	
-	  var getPlaceholder = (0, _memoizeOne2.default)(function (id, source, destination, draggable) {
-	    if (!destination) {
-	      return null;
-	    }
-	
-	    if (destination.droppableId !== id) {
-	      return null;
-	    }
-	
-	    if (source.droppableId === destination.droppableId) {
-	      return null;
-	    }
-	
-	    if (!draggable) {
-	      return null;
-	    }
-	
-	    var placeholder = memoizedPlaceholder(draggable.client.withoutMargin.width, draggable.client.withoutMargin.height);
-	
-	    return placeholder;
-	  });
-	
-	  var getMapProps = (0, _memoizeOne2.default)(function (isDraggingOver, placeholder) {
-	    return {
-	      isDraggingOver: isDraggingOver,
-	      placeholder: placeholder
-	    };
-	  });
-	
-	  return (0, _reselect.createSelector)([_selectors.phaseSelector, _selectors.dragSelector, _selectors.draggingDraggableSelector, _selectors.pendingDropSelector, idSelector, isDropDisabledSelector], function (phase, drag, draggable, pending, id, isDropDisabled) {
-	    if (isDropDisabled) {
-	      return getMapProps(false, null);
-	    }
-	
-	    if (phase === 'DRAGGING') {
-	      if (!drag) {
-	        console.error('cannot determine dragging over as there is not drag');
-	        return getMapProps(false, null);
-	      }
-	
-	      var isDraggingOver = getIsDraggingOver(id, drag.impact.destination);
-	
-	      var placeholder = getPlaceholder(id, drag.initial.source, drag.impact.destination, draggable);
-	      return getMapProps(isDraggingOver, placeholder);
-	    }
-	
-	    if (phase === 'DROP_ANIMATING') {
-	      if (!pending) {
-	        console.error('cannot determine dragging over as there is no pending result');
-	        return getMapProps(false, null);
-	      }
-	
-	      var _isDraggingOver = getIsDraggingOver(id, pending.impact.destination);
-	      var _placeholder = getPlaceholder(id, pending.result.source, pending.result.destination, draggable);
-	      return getMapProps(_isDraggingOver, _placeholder);
-	    }
-	
-	    return getMapProps(false, null);
-	  });
-	};
-	
-	var makeMapStateToProps = function makeMapStateToProps() {
-	  var selector = makeSelector();
-	  return function (state, props) {
-	    return selector(state, props);
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(makeMapStateToProps, null, null, { storeKey: _contextKeys.storeKey })(_droppable2.default);
+	module.exports = __webpack_require__(136);
 
 /***/ }),
-/* 241 */
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	__webpack_require__(137);
+	var $Object = __webpack_require__(89).Object;
+	module.exports = function create(P, D) {
+	  return $Object.create(P, D);
+	};
+
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $export = __webpack_require__(87);
+	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+	$export($export.S, 'Object', { create: __webpack_require__(138) });
+
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+	var anObject = __webpack_require__(94);
+	var dPs = __webpack_require__(139);
+	var enumBugKeys = __webpack_require__(118);
+	var IE_PROTO = __webpack_require__(114)('IE_PROTO');
+	var Empty = function () { /* empty */ };
+	var PROTOTYPE = 'prototype';
+	
+	// Create object with fake `null` prototype: use iframe Object with cleared prototype
+	var createDict = function () {
+	  // Thrash, waste and sodomy: IE GC bug
+	  var iframe = __webpack_require__(99)('iframe');
+	  var i = enumBugKeys.length;
+	  var lt = '<';
+	  var gt = '>';
+	  var iframeDocument;
+	  iframe.style.display = 'none';
+	  __webpack_require__(140).appendChild(iframe);
+	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+	  // createDict = iframe.contentWindow.Object;
+	  // html.removeChild(iframe);
+	  iframeDocument = iframe.contentWindow.document;
+	  iframeDocument.open();
+	  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
+	  iframeDocument.close();
+	  createDict = iframeDocument.F;
+	  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
+	  return createDict();
+	};
+	
+	module.exports = Object.create || function create(O, Properties) {
+	  var result;
+	  if (O !== null) {
+	    Empty[PROTOTYPE] = anObject(O);
+	    result = new Empty();
+	    Empty[PROTOTYPE] = null;
+	    // add "__proto__" for Object.getPrototypeOf polyfill
+	    result[IE_PROTO] = O;
+	  } else result = createDict();
+	  return Properties === undefined ? result : dPs(result, Properties);
+	};
+
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var dP = __webpack_require__(93);
+	var anObject = __webpack_require__(94);
+	var getKeys = __webpack_require__(104);
+	
+	module.exports = __webpack_require__(97) ? Object.defineProperties : function defineProperties(O, Properties) {
+	  anObject(O);
+	  var keys = getKeys(Properties);
+	  var length = keys.length;
+	  var i = 0;
+	  var P;
+	  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+	  return O;
+	};
+
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var document = __webpack_require__(88).document;
+	module.exports = document && document.documentElement;
+
+
+/***/ }),
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13775,15 +16202,15 @@
 	exports.__esModule = true;
 	exports.connect = exports.connectAdvanced = exports.createProvider = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(242);
+	var _Provider = __webpack_require__(142);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connectAdvanced = __webpack_require__(245);
+	var _connectAdvanced = __webpack_require__(145);
 	
 	var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 	
-	var _connect = __webpack_require__(249);
+	var _connect = __webpack_require__(149);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -13795,7 +16222,7 @@
 	exports.connect = _connect2.default;
 
 /***/ }),
-/* 242 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -13809,9 +16236,9 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _PropTypes = __webpack_require__(243);
+	var _PropTypes = __webpack_require__(143);
 	
-	var _warning = __webpack_require__(244);
+	var _warning = __webpack_require__(144);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -13887,7 +16314,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 243 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13915,7 +16342,7 @@
 	});
 
 /***/ }),
-/* 244 */
+/* 144 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13945,7 +16372,7 @@
 	}
 
 /***/ }),
-/* 245 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -13956,21 +16383,21 @@
 	
 	exports.default = connectAdvanced;
 	
-	var _hoistNonReactStatics = __webpack_require__(246);
+	var _hoistNonReactStatics = __webpack_require__(146);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _invariant = __webpack_require__(247);
+	var _invariant = __webpack_require__(147);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
 	var _react = __webpack_require__(4);
 	
-	var _Subscription = __webpack_require__(248);
+	var _Subscription = __webpack_require__(148);
 	
 	var _Subscription2 = _interopRequireDefault(_Subscription);
 	
-	var _PropTypes = __webpack_require__(243);
+	var _PropTypes = __webpack_require__(143);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -14257,7 +16684,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 246 */
+/* 146 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -14331,7 +16758,7 @@
 
 
 /***/ }),
-/* 247 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14387,7 +16814,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 248 */
+/* 148 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -14488,7 +16915,7 @@
 	exports.default = Subscription;
 
 /***/ }),
-/* 249 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14499,27 +16926,27 @@
 	
 	exports.createConnect = createConnect;
 	
-	var _connectAdvanced = __webpack_require__(245);
+	var _connectAdvanced = __webpack_require__(145);
 	
 	var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 	
-	var _shallowEqual = __webpack_require__(250);
+	var _shallowEqual = __webpack_require__(150);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _mapDispatchToProps = __webpack_require__(251);
+	var _mapDispatchToProps = __webpack_require__(151);
 	
 	var _mapDispatchToProps2 = _interopRequireDefault(_mapDispatchToProps);
 	
-	var _mapStateToProps = __webpack_require__(254);
+	var _mapStateToProps = __webpack_require__(164);
 	
 	var _mapStateToProps2 = _interopRequireDefault(_mapStateToProps);
 	
-	var _mergeProps = __webpack_require__(255);
+	var _mergeProps = __webpack_require__(165);
 	
 	var _mergeProps2 = _interopRequireDefault(_mergeProps);
 	
-	var _selectorFactory = __webpack_require__(256);
+	var _selectorFactory = __webpack_require__(166);
 	
 	var _selectorFactory2 = _interopRequireDefault(_selectorFactory);
 	
@@ -14621,7 +17048,7 @@
 	exports.default = createConnect();
 
 /***/ }),
-/* 250 */
+/* 150 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -14660,7 +17087,7 @@
 	}
 
 /***/ }),
-/* 251 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14670,9 +17097,9 @@
 	exports.whenMapDispatchToPropsIsMissing = whenMapDispatchToPropsIsMissing;
 	exports.whenMapDispatchToPropsIsObject = whenMapDispatchToPropsIsObject;
 	
-	var _redux = __webpack_require__(172);
+	var _redux = __webpack_require__(129);
 	
-	var _wrapMapToProps = __webpack_require__(252);
+	var _wrapMapToProps = __webpack_require__(152);
 	
 	function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
 	  return typeof mapDispatchToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, 'mapDispatchToProps') : undefined;
@@ -14693,7 +17120,7 @@
 	exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
 
 /***/ }),
-/* 252 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -14703,7 +17130,7 @@
 	exports.getDependsOnOwnProps = getDependsOnOwnProps;
 	exports.wrapMapToPropsFunc = wrapMapToPropsFunc;
 	
-	var _verifyPlainObject = __webpack_require__(253);
+	var _verifyPlainObject = __webpack_require__(153);
 	
 	var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
 	
@@ -14777,7 +17204,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 253 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14785,11 +17212,11 @@
 	exports.__esModule = true;
 	exports.default = verifyPlainObject;
 	
-	var _isPlainObject = __webpack_require__(174);
+	var _isPlainObject = __webpack_require__(154);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(244);
+	var _warning = __webpack_require__(144);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -14802,7 +17229,295 @@
 	}
 
 /***/ }),
-/* 254 */
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseGetTag = __webpack_require__(155),
+	    getPrototype = __webpack_require__(161),
+	    isObjectLike = __webpack_require__(163);
+	
+	/** `Object#toString` result references. */
+	var objectTag = '[object Object]';
+	
+	/** Used for built-in method references. */
+	var funcProto = Function.prototype,
+	    objectProto = Object.prototype;
+	
+	/** Used to resolve the decompiled source of functions. */
+	var funcToString = funcProto.toString;
+	
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+	
+	/** Used to infer the `Object` constructor. */
+	var objectCtorString = funcToString.call(Object);
+	
+	/**
+	 * Checks if `value` is a plain object, that is, an object created by the
+	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.8.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+	 * @example
+	 *
+	 * function Foo() {
+	 *   this.a = 1;
+	 * }
+	 *
+	 * _.isPlainObject(new Foo);
+	 * // => false
+	 *
+	 * _.isPlainObject([1, 2, 3]);
+	 * // => false
+	 *
+	 * _.isPlainObject({ 'x': 0, 'y': 0 });
+	 * // => true
+	 *
+	 * _.isPlainObject(Object.create(null));
+	 * // => true
+	 */
+	function isPlainObject(value) {
+	  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
+	    return false;
+	  }
+	  var proto = getPrototype(value);
+	  if (proto === null) {
+	    return true;
+	  }
+	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+	  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
+	    funcToString.call(Ctor) == objectCtorString;
+	}
+	
+	module.exports = isPlainObject;
+
+
+/***/ }),
+/* 155 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(156),
+	    getRawTag = __webpack_require__(159),
+	    objectToString = __webpack_require__(160);
+	
+	/** `Object#toString` result references. */
+	var nullTag = '[object Null]',
+	    undefinedTag = '[object Undefined]';
+	
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+	
+	/**
+	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the `toStringTag`.
+	 */
+	function baseGetTag(value) {
+	  if (value == null) {
+	    return value === undefined ? undefinedTag : nullTag;
+	  }
+	  return (symToStringTag && symToStringTag in Object(value))
+	    ? getRawTag(value)
+	    : objectToString(value);
+	}
+	
+	module.exports = baseGetTag;
+
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var root = __webpack_require__(157);
+	
+	/** Built-in value references. */
+	var Symbol = root.Symbol;
+	
+	module.exports = Symbol;
+
+
+/***/ }),
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var freeGlobal = __webpack_require__(158);
+	
+	/** Detect free variable `self`. */
+	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+	
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+	
+	module.exports = root;
+
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+	
+	module.exports = freeGlobal;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Symbol = __webpack_require__(156);
+	
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/** Built-in value references. */
+	var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+	
+	/**
+	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the raw `toStringTag`.
+	 */
+	function getRawTag(value) {
+	  var isOwn = hasOwnProperty.call(value, symToStringTag),
+	      tag = value[symToStringTag];
+	
+	  try {
+	    value[symToStringTag] = undefined;
+	    var unmasked = true;
+	  } catch (e) {}
+	
+	  var result = nativeObjectToString.call(value);
+	  if (unmasked) {
+	    if (isOwn) {
+	      value[symToStringTag] = tag;
+	    } else {
+	      delete value[symToStringTag];
+	    }
+	  }
+	  return result;
+	}
+	
+	module.exports = getRawTag;
+
+
+/***/ }),
+/* 160 */
+/***/ (function(module, exports) {
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/**
+	 * Converts `value` to a string using `Object.prototype.toString`.
+	 *
+	 * @private
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 */
+	function objectToString(value) {
+	  return nativeObjectToString.call(value);
+	}
+	
+	module.exports = objectToString;
+
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var overArg = __webpack_require__(162);
+	
+	/** Built-in value references. */
+	var getPrototype = overArg(Object.getPrototypeOf, Object);
+	
+	module.exports = getPrototype;
+
+
+/***/ }),
+/* 162 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Creates a unary function that invokes `func` with its argument transformed.
+	 *
+	 * @private
+	 * @param {Function} func The function to wrap.
+	 * @param {Function} transform The argument transform.
+	 * @returns {Function} Returns the new function.
+	 */
+	function overArg(func, transform) {
+	  return function(arg) {
+	    return func(transform(arg));
+	  };
+	}
+	
+	module.exports = overArg;
+
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Checks if `value` is object-like. A value is object-like if it's not `null`
+	 * and has a `typeof` result of "object".
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+	 * @example
+	 *
+	 * _.isObjectLike({});
+	 * // => true
+	 *
+	 * _.isObjectLike([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isObjectLike(_.noop);
+	 * // => false
+	 *
+	 * _.isObjectLike(null);
+	 * // => false
+	 */
+	function isObjectLike(value) {
+	  return value != null && typeof value == 'object';
+	}
+	
+	module.exports = isObjectLike;
+
+
+/***/ }),
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14811,7 +17526,7 @@
 	exports.whenMapStateToPropsIsFunction = whenMapStateToPropsIsFunction;
 	exports.whenMapStateToPropsIsMissing = whenMapStateToPropsIsMissing;
 	
-	var _wrapMapToProps = __webpack_require__(252);
+	var _wrapMapToProps = __webpack_require__(152);
 	
 	function whenMapStateToPropsIsFunction(mapStateToProps) {
 	  return typeof mapStateToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, 'mapStateToProps') : undefined;
@@ -14826,7 +17541,7 @@
 	exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
 
 /***/ }),
-/* 255 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -14840,7 +17555,7 @@
 	exports.whenMergePropsIsFunction = whenMergePropsIsFunction;
 	exports.whenMergePropsIsOmitted = whenMergePropsIsOmitted;
 	
-	var _verifyPlainObject = __webpack_require__(253);
+	var _verifyPlainObject = __webpack_require__(153);
 	
 	var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
 	
@@ -14890,7 +17605,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 256 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -14900,7 +17615,7 @@
 	exports.pureFinalPropsSelectorFactory = pureFinalPropsSelectorFactory;
 	exports.default = finalPropsSelectorFactory;
 	
-	var _verifySubselectors = __webpack_require__(257);
+	var _verifySubselectors = __webpack_require__(167);
 	
 	var _verifySubselectors2 = _interopRequireDefault(_verifySubselectors);
 	
@@ -15009,7 +17724,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 257 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15017,7 +17732,7 @@
 	exports.__esModule = true;
 	exports.default = verifySubselectors;
 	
-	var _warning = __webpack_require__(244);
+	var _warning = __webpack_require__(144);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -15040,2232 +17755,7 @@
 	}
 
 /***/ }),
-/* 258 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	exports.defaultMemoize = defaultMemoize;
-	exports.createSelectorCreator = createSelectorCreator;
-	exports.createStructuredSelector = createStructuredSelector;
-	function defaultEqualityCheck(a, b) {
-	  return a === b;
-	}
-	
-	function areArgumentsShallowlyEqual(equalityCheck, prev, next) {
-	  if (prev === null || next === null || prev.length !== next.length) {
-	    return false;
-	  }
-	
-	  // Do this in a for loop (and not a `forEach` or an `every`) so we can determine equality as fast as possible.
-	  var length = prev.length;
-	  for (var i = 0; i < length; i++) {
-	    if (!equalityCheck(prev[i], next[i])) {
-	      return false;
-	    }
-	  }
-	
-	  return true;
-	}
-	
-	function defaultMemoize(func) {
-	  var equalityCheck = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultEqualityCheck;
-	
-	  var lastArgs = null;
-	  var lastResult = null;
-	  // we reference arguments instead of spreading them for performance reasons
-	  return function () {
-	    if (!areArgumentsShallowlyEqual(equalityCheck, lastArgs, arguments)) {
-	      // apply arguments instead of spreading for performance.
-	      lastResult = func.apply(null, arguments);
-	    }
-	
-	    lastArgs = arguments;
-	    return lastResult;
-	  };
-	}
-	
-	function getDependencies(funcs) {
-	  var dependencies = Array.isArray(funcs[0]) ? funcs[0] : funcs;
-	
-	  if (!dependencies.every(function (dep) {
-	    return typeof dep === 'function';
-	  })) {
-	    var dependencyTypes = dependencies.map(function (dep) {
-	      return typeof dep;
-	    }).join(', ');
-	    throw new Error('Selector creators expect all input-selectors to be functions, ' + ('instead received the following types: [' + dependencyTypes + ']'));
-	  }
-	
-	  return dependencies;
-	}
-	
-	function createSelectorCreator(memoize) {
-	  for (var _len = arguments.length, memoizeOptions = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	    memoizeOptions[_key - 1] = arguments[_key];
-	  }
-	
-	  return function () {
-	    for (var _len2 = arguments.length, funcs = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	      funcs[_key2] = arguments[_key2];
-	    }
-	
-	    var recomputations = 0;
-	    var resultFunc = funcs.pop();
-	    var dependencies = getDependencies(funcs);
-	
-	    var memoizedResultFunc = memoize.apply(undefined, [function () {
-	      recomputations++;
-	      // apply arguments instead of spreading for performance.
-	      return resultFunc.apply(null, arguments);
-	    }].concat(memoizeOptions));
-	
-	    // If a selector is called with the exact same arguments we don't need to traverse our dependencies again.
-	    var selector = defaultMemoize(function () {
-	      var params = [];
-	      var length = dependencies.length;
-	
-	      for (var i = 0; i < length; i++) {
-	        // apply arguments instead of spreading and mutate a local list of params for performance.
-	        params.push(dependencies[i].apply(null, arguments));
-	      }
-	
-	      // apply arguments instead of spreading for performance.
-	      return memoizedResultFunc.apply(null, params);
-	    });
-	
-	    selector.resultFunc = resultFunc;
-	    selector.recomputations = function () {
-	      return recomputations;
-	    };
-	    selector.resetRecomputations = function () {
-	      return recomputations = 0;
-	    };
-	    return selector;
-	  };
-	}
-	
-	var createSelector = exports.createSelector = createSelectorCreator(defaultMemoize);
-	
-	function createStructuredSelector(selectors) {
-	  var selectorCreator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : createSelector;
-	
-	  if (typeof selectors !== 'object') {
-	    throw new Error('createStructuredSelector expects first argument to be an object ' + ('where each property is a selector, instead received a ' + typeof selectors));
-	  }
-	  var objectKeys = Object.keys(selectors);
-	  return selectorCreator(objectKeys.map(function (key) {
-	    return selectors[key];
-	  }), function () {
-	    for (var _len3 = arguments.length, values = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	      values[_key3] = arguments[_key3];
-	    }
-	
-	    return values.reduce(function (composition, value, index) {
-	      composition[objectKeys[index]] = value;
-	      return composition;
-	    }, {});
-	  });
-	}
-
-/***/ }),
-/* 259 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.draggingDraggableSelector = exports.dragSelector = exports.pendingDropSelector = exports.phaseSelector = undefined;
-	
-	var _reselect = __webpack_require__(258);
-	
-	var phaseSelector = exports.phaseSelector = function phaseSelector(state) {
-	  return state.phase;
-	};
-	
-	var pendingDropSelector = exports.pendingDropSelector = function pendingDropSelector(state) {
-	  if (!state.drop || !state.drop.pending) {
-	    return null;
-	  }
-	  return state.drop.pending;
-	};
-	
-	var dragSelector = exports.dragSelector = function dragSelector(state) {
-	  return state.drag;
-	};
-	
-	var draggableMapSelector = function draggableMapSelector(state) {
-	  return state.dimension.draggable;
-	};
-	
-	var draggingDraggableSelector = exports.draggingDraggableSelector = (0, _reselect.createSelector)([phaseSelector, dragSelector, pendingDropSelector, draggableMapSelector], function (phase, drag, pending, draggables) {
-	  if (phase === 'DRAGGING') {
-	    if (!drag) {
-	      console.error('cannot get placeholder dimensions as there is an invalid drag state');
-	      return null;
-	    }
-	
-	    var draggable = draggables[drag.current.id];
-	    return draggable;
-	  }
-	
-	  if (phase === 'DROP_ANIMATING') {
-	    if (!pending) {
-	      console.error('cannot get placeholder dimensions as there is an invalid drag state');
-	      return null;
-	    }
-	
-	    if (!pending.result.destination) {
-	      return null;
-	    }
-	
-	    var _draggable = draggables[pending.result.draggableId];
-	    return _draggable;
-	  }
-	
-	  return null;
-	});
-
-/***/ }),
-/* 260 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _defineProperty2 = __webpack_require__(85);
-	
-	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _propTypes = __webpack_require__(5);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _droppableDimensionPublisher = __webpack_require__(261);
-	
-	var _droppableDimensionPublisher2 = _interopRequireDefault(_droppableDimensionPublisher);
-	
-	var _placeholder = __webpack_require__(269);
-	
-	var _placeholder2 = _interopRequireDefault(_placeholder);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Droppable = function (_Component) {
-	  (0, _inherits3.default)(Droppable, _Component);
-	
-	  function Droppable() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, Droppable);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Droppable.__proto__ || (0, _getPrototypeOf2.default)(Droppable)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      ref: null
-	    }, _this.setRef = function (ref) {
-	      if (ref === null) {
-	        return;
-	      }
-	
-	      if (ref === _this.state.ref) {
-	        return;
-	      }
-	
-	      _this.setState({
-	        ref: ref
-	      });
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(Droppable, [{
-	    key: 'getChildContext',
-	    value: function getChildContext() {
-	      var value = (0, _defineProperty3.default)({}, _contextKeys.droppableIdKey, this.props.droppableId);
-	      return value;
-	    }
-	  }, {
-	    key: 'getPlaceholder',
-	    value: function getPlaceholder() {
-	      if (!this.props.placeholder) {
-	        return null;
-	      }
-	
-	      return _react2.default.createElement(_placeholder2.default, {
-	        height: this.props.placeholder.height,
-	        width: this.props.placeholder.width
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props,
-	          children = _props.children,
-	          direction = _props.direction,
-	          droppableId = _props.droppableId,
-	          ignoreContainerClipping = _props.ignoreContainerClipping,
-	          isDraggingOver = _props.isDraggingOver,
-	          isDropDisabled = _props.isDropDisabled,
-	          type = _props.type;
-	
-	      var provided = {
-	        innerRef: this.setRef,
-	        placeholder: this.getPlaceholder()
-	      };
-	      var snapshot = {
-	        isDraggingOver: isDraggingOver
-	      };
-	
-	      return _react2.default.createElement(
-	        _droppableDimensionPublisher2.default,
-	        {
-	          droppableId: droppableId,
-	          direction: direction,
-	          ignoreContainerClipping: ignoreContainerClipping,
-	          isDropDisabled: isDropDisabled,
-	          type: type,
-	          targetRef: this.state.ref
-	        },
-	        children(provided, snapshot)
-	      );
-	    }
-	  }]);
-	  return Droppable;
-	}(_react.Component);
-	
-	Droppable.defaultProps = {
-	  type: 'DEFAULT',
-	  isDropDisabled: false,
-	  direction: 'vertical',
-	  ignoreContainerClipping: false
-	};
-	Droppable.childContextTypes = (0, _defineProperty3.default)({}, _contextKeys.droppableIdKey, _propTypes2.default.string.isRequired);
-	exports.default = Droppable;
-
-/***/ }),
-/* 261 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _connectedDroppableDimensionPublisher = __webpack_require__(262);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_connectedDroppableDimensionPublisher).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 262 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.makeSelector = undefined;
-	
-	var _reactRedux = __webpack_require__(241);
-	
-	var _reselect = __webpack_require__(258);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	var _droppableDimensionPublisher = __webpack_require__(263);
-	
-	var _droppableDimensionPublisher2 = _interopRequireDefault(_droppableDimensionPublisher);
-	
-	var _actionCreators = __webpack_require__(267);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var requestDimensionSelector = function requestDimensionSelector(state) {
-	  return state.dimension.request;
-	};
-	
-	var getOwnType = function getOwnType(state, props) {
-	  return props.type;
-	};
-	
-	var makeSelector = exports.makeSelector = function makeSelector() {
-	  var getMapProps = (0, _memoizeOne2.default)(function (shouldPublish) {
-	    return {
-	      shouldPublish: shouldPublish
-	    };
-	  });
-	
-	  return (0, _reselect.createSelector)([getOwnType, requestDimensionSelector], function (ownType, requested) {
-	    return getMapProps(ownType === requested);
-	  });
-	};
-	
-	var makeMapStateToProps = function makeMapStateToProps() {
-	  var selector = makeSelector();
-	  return function (state, props) {
-	    return selector(state, props);
-	  };
-	};
-	
-	var mapDispatchToProps = {
-	  publish: _actionCreators.publishDroppableDimension,
-	  updateScroll: _actionCreators.updateDroppableDimensionScroll,
-	  updateIsEnabled: _actionCreators.updateDroppableDimensionIsEnabled
-	};
-	
-	exports.default = (0, _reactRedux.connect)(makeMapStateToProps, mapDispatchToProps, null, { storeKey: _contextKeys.storeKey })(_droppableDimensionPublisher2.default);
-
-/***/ }),
-/* 263 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _invariant = __webpack_require__(247);
-	
-	var _invariant2 = _interopRequireDefault(_invariant);
-	
-	var _rafSchd = __webpack_require__(264);
-	
-	var _rafSchd2 = _interopRequireDefault(_rafSchd);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _getWindowScrollPosition = __webpack_require__(265);
-	
-	var _getWindowScrollPosition2 = _interopRequireDefault(_getWindowScrollPosition);
-	
-	var _getClientRect = __webpack_require__(221);
-	
-	var _getClientRect2 = _interopRequireDefault(_getClientRect);
-	
-	var _dimension = __webpack_require__(219);
-	
-	var _getClosestScrollable = __webpack_require__(266);
-	
-	var _getClosestScrollable2 = _interopRequireDefault(_getClosestScrollable);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var origin = { x: 0, y: 0 };
-	
-	var DroppableDimensionPublisher = function (_Component) {
-	  (0, _inherits3.default)(DroppableDimensionPublisher, _Component);
-	
-	  function DroppableDimensionPublisher() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, DroppableDimensionPublisher);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = DroppableDimensionPublisher.__proto__ || (0, _getPrototypeOf2.default)(DroppableDimensionPublisher)).call.apply(_ref, [this].concat(args))), _this), _this.isWatchingScroll = false, _this.closestScrollable = null, _this.getScrollOffset = function () {
-	      if (!_this.closestScrollable) {
-	        return origin;
-	      }
-	
-	      var offset = {
-	        x: _this.closestScrollable.scrollLeft,
-	        y: _this.closestScrollable.scrollTop
-	      };
-	
-	      return offset;
-	    }, _this.getDimension = function () {
-	      var _this$props = _this.props,
-	          droppableId = _this$props.droppableId,
-	          direction = _this$props.direction,
-	          ignoreContainerClipping = _this$props.ignoreContainerClipping,
-	          isDropDisabled = _this$props.isDropDisabled,
-	          targetRef = _this$props.targetRef;
-	
-	      if (!targetRef) {
-	        throw new Error('DimensionPublisher cannot calculate a dimension when not attached to the DOM');
-	      }
-	
-	      var scroll = _this.getScrollOffset();
-	      var style = window.getComputedStyle(targetRef);
-	
-	      var margin = {
-	        top: parseInt(style.marginTop, 10),
-	        right: parseInt(style.marginRight, 10),
-	        bottom: parseInt(style.marginBottom, 10),
-	        left: parseInt(style.marginLeft, 10)
-	      };
-	      var padding = {
-	        top: parseInt(style.paddingTop, 10),
-	        right: parseInt(style.paddingRight, 10),
-	        bottom: parseInt(style.paddingBottom, 10),
-	        left: parseInt(style.paddingLeft, 10)
-	      };
-	
-	      var clientRect = targetRef.getBoundingClientRect();
-	
-	      var containerRect = ignoreContainerClipping || !_this.closestScrollable || _this.closestScrollable === targetRef ? clientRect : (0, _getClientRect2.default)(_this.closestScrollable.getBoundingClientRect());
-	
-	      var dimension = (0, _dimension.getDroppableDimension)({
-	        id: droppableId,
-	        direction: direction,
-	        clientRect: clientRect,
-	        containerRect: containerRect,
-	        margin: margin,
-	        padding: padding,
-	        windowScroll: (0, _getWindowScrollPosition2.default)(),
-	        scroll: scroll,
-	        isEnabled: !isDropDisabled
-	      });
-	
-	      return dimension;
-	    }, _this.memoizedUpdateScroll = (0, _memoizeOne2.default)(function (x, y) {
-	      var offset = { x: x, y: y };
-	      _this.props.updateScroll(_this.props.droppableId, offset);
-	    }), _this.scheduleScrollUpdate = (0, _rafSchd2.default)(function (offset) {
-	      if (_this.isWatchingScroll) {
-	        _this.memoizedUpdateScroll(offset.x, offset.y);
-	      }
-	    }), _this.onClosestScroll = function () {
-	      _this.scheduleScrollUpdate(_this.getScrollOffset());
-	    }, _this.watchScroll = function () {
-	      (0, _invariant2.default)(_this.props.targetRef, 'cannot watch scroll if not in the dom');
-	
-	      if (_this.closestScrollable == null) {
-	        return;
-	      }
-	
-	      if (_this.isWatchingScroll) {
-	        return;
-	      }
-	
-	      _this.isWatchingScroll = true;
-	      _this.closestScrollable.addEventListener('scroll', _this.onClosestScroll, { passive: true });
-	    }, _this.unwatchScroll = function () {
-	      if (!_this.isWatchingScroll) {
-	        return;
-	      }
-	
-	      _this.isWatchingScroll = false;
-	
-	      if (!_this.closestScrollable) {
-	        console.error('cannot unbind event listener if element is null');
-	        return;
-	      }
-	
-	      _this.closestScrollable.removeEventListener('scroll', _this.onClosestScroll);
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(DroppableDimensionPublisher, [{
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      if (this.isWatchingScroll) {
-	        this.unwatchScroll();
-	      }
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	
-	      var shouldStartPublishing = !this.props.shouldPublish && nextProps.shouldPublish;
-	      var alreadyPublishing = this.props.shouldPublish && nextProps.shouldPublish;
-	      var stopPublishing = this.props.shouldPublish && !nextProps.shouldPublish;
-	
-	      if (stopPublishing) {
-	        this.unwatchScroll();
-	        return;
-	      }
-	
-	      if (alreadyPublishing) {
-	        if (nextProps.targetRef !== this.props.targetRef) {
-	          if (this.isWatchingScroll) {
-	            console.warn('changing targetRef while watching scroll!');
-	            this.unwatchScroll();
-	          }
-	        }
-	
-	        if (nextProps.isDropDisabled !== this.props.isDropDisabled) {
-	          this.props.updateIsEnabled(this.props.droppableId, !nextProps.isDropDisabled);
-	        }
-	
-	        return;
-	      }
-	
-	      if (!shouldStartPublishing) {
-	        return;
-	      }
-	
-	      this.closestScrollable = (0, _getClosestScrollable2.default)(this.props.targetRef);
-	      this.props.publish(this.getDimension());
-	      this.watchScroll();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return this.props.children;
-	    }
-	  }]);
-	  return DroppableDimensionPublisher;
-	}(_react.Component);
-	
-	exports.default = DroppableDimensionPublisher;
-
-/***/ }),
-/* 264 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (fn) {
-	  var lastArgs = [];
-	  var frameId = null;
-	
-	  var wrapperFn = function wrapperFn() {
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    lastArgs = args;
-	
-	    if (frameId) {
-	      return frameId;
-	    }
-	
-	    frameId = requestAnimationFrame(function () {
-	      frameId = null;
-	      fn.apply(undefined, lastArgs);
-	    });
-	
-	    return frameId;
-	  };
-	
-	  wrapperFn.cancel = function () {
-	    if (!frameId) {
-	      return;
-	    }
-	
-	    cancelAnimationFrame(frameId);
-	    frameId = null;
-	  };
-	
-	  var resultFn = wrapperFn;
-	
-	  return resultFn;
-	};
-
-/***/ }),
-/* 265 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function () {
-	  return {
-	    x: window.pageXOffset,
-	    y: window.pageYOffset
-	  };
-	};
-
-/***/ }),
-/* 266 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var isScrollable = function isScrollable() {
-	  for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
-	    values[_key] = arguments[_key];
-	  }
-	
-	  return values.some(function (value) {
-	    return value === 'auto' || value === 'scroll';
-	  });
-	};
-	
-	var isElementScrollable = function isElementScrollable(el) {
-	  var style = window.getComputedStyle(el);
-	  return isScrollable(style.overflow, style.overflowY, style.overflowX);
-	};
-	
-	var getClosestScrollable = function getClosestScrollable(el) {
-	  if (el == null) {
-	    return null;
-	  }
-	
-	  if (!isElementScrollable(el)) {
-	    return getClosestScrollable(el.parentElement);
-	  }
-	
-	  return el;
-	};
-	
-	exports.default = getClosestScrollable;
-
-/***/ }),
-/* 267 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.lift = exports.dropAnimationFinished = exports.cancel = exports.drop = exports.completeDrop = exports.prepare = exports.clean = exports.crossAxisMoveBackward = exports.crossAxisMoveForward = exports.moveForward = exports.moveBackward = exports.moveByWindowScroll = exports.move = exports.updateDroppableDimensionIsEnabled = exports.updateDroppableDimensionScroll = exports.publishDroppableDimension = exports.publishDraggableDimension = exports.completeLift = exports.requestDimensions = undefined;
-	
-	var _noImpact = __webpack_require__(205);
-	
-	var _noImpact2 = _interopRequireDefault(_noImpact);
-	
-	var _getNewHomeClientCenter = __webpack_require__(268);
-	
-	var _getNewHomeClientCenter2 = _interopRequireDefault(_getNewHomeClientCenter);
-	
-	var _position = __webpack_require__(206);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var origin = { x: 0, y: 0 };
-	
-	var getScrollDiff = function getScrollDiff(_ref) {
-	  var initial = _ref.initial,
-	      current = _ref.current,
-	      droppable = _ref.droppable;
-	
-	  var windowScrollDiff = (0, _position.subtract)(initial.windowScroll, current.windowScroll);
-	
-	  var droppableScrollDiff = droppable ? (0, _position.subtract)(droppable.container.scroll.initial, droppable.container.scroll.current) : origin;
-	
-	  return (0, _position.add)(windowScrollDiff, droppableScrollDiff);
-	};
-	
-	var requestDimensions = exports.requestDimensions = function requestDimensions(type) {
-	  return {
-	    type: 'REQUEST_DIMENSIONS',
-	    payload: type
-	  };
-	};
-	
-	var completeLift = exports.completeLift = function completeLift(id, type, client, windowScroll, isScrollAllowed) {
-	  return {
-	    type: 'COMPLETE_LIFT',
-	    payload: {
-	      id: id,
-	      type: type,
-	      client: client,
-	      windowScroll: windowScroll,
-	      isScrollAllowed: isScrollAllowed
-	    }
-	  };
-	};
-	
-	var publishDraggableDimension = exports.publishDraggableDimension = function publishDraggableDimension(dimension) {
-	  return {
-	    type: 'PUBLISH_DRAGGABLE_DIMENSION',
-	    payload: dimension
-	  };
-	};
-	
-	var publishDroppableDimension = exports.publishDroppableDimension = function publishDroppableDimension(dimension) {
-	  return {
-	    type: 'PUBLISH_DROPPABLE_DIMENSION',
-	    payload: dimension
-	  };
-	};
-	
-	var updateDroppableDimensionScroll = exports.updateDroppableDimensionScroll = function updateDroppableDimensionScroll(id, offset) {
-	  return {
-	    type: 'UPDATE_DROPPABLE_DIMENSION_SCROLL',
-	    payload: {
-	      id: id,
-	      offset: offset
-	    }
-	  };
-	};
-	
-	var updateDroppableDimensionIsEnabled = exports.updateDroppableDimensionIsEnabled = function updateDroppableDimensionIsEnabled(id, isEnabled) {
-	  return {
-	    type: 'UPDATE_DROPPABLE_DIMENSION_IS_ENABLED',
-	    payload: {
-	      id: id,
-	      isEnabled: isEnabled
-	    }
-	  };
-	};
-	
-	var move = exports.move = function move(id, client, windowScroll) {
-	  return {
-	    type: 'MOVE',
-	    payload: {
-	      id: id,
-	      client: client,
-	      windowScroll: windowScroll
-	    }
-	  };
-	};
-	
-	var moveByWindowScroll = exports.moveByWindowScroll = function moveByWindowScroll(id, windowScroll) {
-	  return {
-	    type: 'MOVE_BY_WINDOW_SCROLL',
-	    payload: {
-	      id: id,
-	      windowScroll: windowScroll
-	    }
-	  };
-	};
-	
-	var moveBackward = exports.moveBackward = function moveBackward(id) {
-	  return {
-	    type: 'MOVE_BACKWARD',
-	    payload: id
-	  };
-	};
-	
-	var moveForward = exports.moveForward = function moveForward(id) {
-	  return {
-	    type: 'MOVE_FORWARD',
-	    payload: id
-	  };
-	};
-	
-	var crossAxisMoveForward = exports.crossAxisMoveForward = function crossAxisMoveForward(id) {
-	  return {
-	    type: 'CROSS_AXIS_MOVE_FORWARD',
-	    payload: id
-	  };
-	};
-	
-	var crossAxisMoveBackward = exports.crossAxisMoveBackward = function crossAxisMoveBackward(id) {
-	  return {
-	    type: 'CROSS_AXIS_MOVE_BACKWARD',
-	    payload: id
-	  };
-	};
-	
-	var clean = exports.clean = function clean() {
-	  return {
-	    type: 'CLEAN',
-	    payload: null
-	  };
-	};
-	
-	var prepare = exports.prepare = function prepare() {
-	  return {
-	    type: 'PREPARE',
-	    payload: null
-	  };
-	};
-	
-	var animateDrop = function animateDrop(_ref2) {
-	  var trigger = _ref2.trigger,
-	      newHomeOffset = _ref2.newHomeOffset,
-	      impact = _ref2.impact,
-	      result = _ref2.result;
-	  return {
-	    type: 'DROP_ANIMATE',
-	    payload: {
-	      trigger: trigger,
-	      newHomeOffset: newHomeOffset,
-	      impact: impact,
-	      result: result
-	    }
-	  };
-	};
-	
-	var completeDrop = exports.completeDrop = function completeDrop(result) {
-	  return {
-	    type: 'DROP_COMPLETE',
-	    payload: result
-	  };
-	};
-	
-	var drop = exports.drop = function drop() {
-	  return function (dispatch, getState) {
-	    var state = getState();
-	
-	    if (state.phase === 'COLLECTING_DIMENSIONS') {
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    if (state.phase !== 'DRAGGING') {
-	      console.error('not able to drop in phase: \'' + state.phase + '\'');
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    if (!state.drag) {
-	      console.error('not able to drop when there is invalid drag state', state);
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    var _state$drag = state.drag,
-	        impact = _state$drag.impact,
-	        initial = _state$drag.initial,
-	        current = _state$drag.current;
-	
-	    var draggable = state.dimension.draggable[current.id];
-	    var home = state.dimension.droppable[draggable.droppableId];
-	    var destination = impact.destination ? state.dimension.droppable[impact.destination.droppableId] : null;
-	
-	    var result = {
-	      draggableId: current.id,
-	      type: current.type,
-	      source: initial.source,
-	      destination: impact.destination
-	    };
-	
-	    var newCenter = (0, _getNewHomeClientCenter2.default)({
-	      movement: impact.movement,
-	      draggable: draggable,
-	      draggables: state.dimension.draggable,
-	      destination: destination
-	    });
-	
-	    var clientOffset = (0, _position.subtract)(newCenter, draggable.client.withMargin.center);
-	    var scrollDiff = getScrollDiff({
-	      initial: initial,
-	      current: current,
-	      droppable: destination || home
-	    });
-	    var newHomeOffset = (0, _position.add)(clientOffset, scrollDiff);
-	
-	    var isAnimationRequired = !(0, _position.isEqual)(current.client.offset, newHomeOffset);
-	
-	    if (!isAnimationRequired) {
-	      dispatch(completeDrop(result));
-	      return;
-	    }
-	
-	    dispatch(animateDrop({
-	      trigger: 'DROP',
-	      newHomeOffset: newHomeOffset,
-	      impact: impact,
-	      result: result
-	    }));
-	  };
-	};
-	
-	var cancel = exports.cancel = function cancel() {
-	  return function (dispatch, getState) {
-	    var state = getState();
-	
-	    if (state.phase !== 'DRAGGING') {
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    if (!state.drag) {
-	      console.error('invalid drag state', state);
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    var _state$drag2 = state.drag,
-	        initial = _state$drag2.initial,
-	        current = _state$drag2.current;
-	
-	    var droppable = state.dimension.droppable[initial.source.droppableId];
-	
-	    var result = {
-	      draggableId: current.id,
-	      type: current.type,
-	      source: initial.source,
-	
-	      destination: null
-	    };
-	
-	    var isAnimationRequired = !(0, _position.isEqual)(current.client.offset, origin);
-	
-	    if (!isAnimationRequired) {
-	      dispatch(completeDrop(result));
-	      return;
-	    }
-	
-	    var scrollDiff = getScrollDiff({ initial: initial, current: current, droppable: droppable });
-	
-	    dispatch(animateDrop({
-	      trigger: 'CANCEL',
-	      newHomeOffset: scrollDiff,
-	      impact: _noImpact2.default,
-	      result: result
-	    }));
-	  };
-	};
-	
-	var dropAnimationFinished = exports.dropAnimationFinished = function dropAnimationFinished() {
-	  return function (dispatch, getState) {
-	    var state = getState();
-	
-	    if (state.phase !== 'DROP_ANIMATING') {
-	      console.error('cannot end drop that is no longer animating', state);
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    if (!state.drop || !state.drop.pending) {
-	      console.error('cannot end drop that has no pending state', state);
-	      dispatch(clean());
-	      return;
-	    }
-	
-	    dispatch(completeDrop(state.drop.pending.result));
-	  };
-	};
-	
-	var lift = exports.lift = function lift(id, type, client, windowScroll, isScrollAllowed) {
-	  return function (dispatch, getState) {
-	    var initial = getState();
-	
-	    if (initial.phase === 'DROP_ANIMATING') {
-	      if (!initial.drop || !initial.drop.pending) {
-	        console.error('cannot flush drop animation if there is no pending');
-	        dispatch(clean());
-	      } else {
-	        dispatch(completeDrop(initial.drop.pending.result));
-	      }
-	    }
-	
-	    dispatch(prepare());
-	
-	    setTimeout(function () {
-	      var state = getState();
-	
-	      if (state.phase !== 'PREPARING') {
-	        return;
-	      }
-	
-	      dispatch(requestDimensions(type));
-	
-	      setTimeout(function () {
-	        var newState = getState();
-	
-	        if (newState.phase !== 'COLLECTING_DIMENSIONS') {
-	          return;
-	        }
-	
-	        dispatch(completeLift(id, type, client, windowScroll, isScrollAllowed));
-	      });
-	    });
-	  };
-	};
-
-/***/ }),
-/* 268 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _moveToEdge = __webpack_require__(229);
-	
-	var _moveToEdge2 = _interopRequireDefault(_moveToEdge);
-	
-	var _getDraggablesInsideDroppable = __webpack_require__(204);
-	
-	var _getDraggablesInsideDroppable2 = _interopRequireDefault(_getDraggablesInsideDroppable);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (_ref) {
-	  var movement = _ref.movement,
-	      draggable = _ref.draggable,
-	      draggables = _ref.draggables,
-	      destination = _ref.destination;
-	
-	  var homeCenter = draggable.client.withMargin.center;
-	
-	  if (destination == null) {
-	    return homeCenter;
-	  }
-	
-	  var movedDraggables = movement.draggables,
-	      isBeyondStartPosition = movement.isBeyondStartPosition;
-	
-	  var axis = destination.axis;
-	
-	  var isWithinHomeDroppable = destination.id === draggable.droppableId;
-	
-	  if (isWithinHomeDroppable && !movedDraggables.length) {
-	    return homeCenter;
-	  }
-	
-	  var draggablesInDestination = (0, _getDraggablesInsideDroppable2.default)(destination, draggables);
-	
-	  var destinationFragment = function () {
-	    if (isWithinHomeDroppable) {
-	      return draggables[movedDraggables[0]].client.withMargin;
-	    }
-	
-	    if (movedDraggables.length) {
-	      return draggables[movedDraggables[0]].client.withMargin;
-	    }
-	
-	    if (draggablesInDestination.length) {
-	      return draggablesInDestination[draggablesInDestination.length - 1].client.withMargin;
-	    }
-	
-	    return destination.client.withMarginAndPadding;
-	  }();
-	
-	  var _ref2 = function () {
-	    if (isWithinHomeDroppable) {
-	      if (isBeyondStartPosition) {
-	        return { sourceEdge: 'end', destinationEdge: 'end' };
-	      }
-	
-	      return { sourceEdge: 'start', destinationEdge: 'start' };
-	    }
-	
-	    if (!movedDraggables.length && draggablesInDestination.length) {
-	      return { sourceEdge: 'start', destinationEdge: 'end' };
-	    }
-	
-	    return { sourceEdge: 'start', destinationEdge: 'start' };
-	  }(),
-	      sourceEdge = _ref2.sourceEdge,
-	      destinationEdge = _ref2.destinationEdge;
-	
-	  var source = draggable.client.withMargin;
-	
-	  var targetCenter = (0, _moveToEdge2.default)({
-	    source: source,
-	    sourceEdge: sourceEdge,
-	    destination: destinationFragment,
-	    destinationEdge: destinationEdge,
-	    destinationAxis: axis
-	  });
-	
-	  return targetCenter;
-	};
-
-/***/ }),
-/* 269 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _placeholder = __webpack_require__(270);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_placeholder).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 270 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Placeholder = function (_PureComponent) {
-	  (0, _inherits3.default)(Placeholder, _PureComponent);
-	
-	  function Placeholder() {
-	    (0, _classCallCheck3.default)(this, Placeholder);
-	    return (0, _possibleConstructorReturn3.default)(this, (Placeholder.__proto__ || (0, _getPrototypeOf2.default)(Placeholder)).apply(this, arguments));
-	  }
-	
-	  (0, _createClass3.default)(Placeholder, [{
-	    key: 'render',
-	    value: function render() {
-	      var style = {
-	        width: this.props.width,
-	        height: this.props.height,
-	        pointerEvents: 'none'
-	      };
-	      return _react2.default.createElement('div', { style: style });
-	    }
-	  }]);
-	  return Placeholder;
-	}(_react.PureComponent);
-	
-	exports.default = Placeholder;
-
-/***/ }),
-/* 271 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _connectedDraggable = __webpack_require__(272);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_connectedDraggable).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 272 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.makeSelector = undefined;
-	
-	var _extends2 = __webpack_require__(197);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _reactRedux = __webpack_require__(241);
-	
-	var _reselect = __webpack_require__(258);
-	
-	var _selectors = __webpack_require__(259);
-	
-	var _draggable = __webpack_require__(273);
-	
-	var _draggable2 = _interopRequireDefault(_draggable);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	var _position = __webpack_require__(206);
-	
-	var _actionCreators = __webpack_require__(267);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var origin = { x: 0, y: 0 };
-	
-	var defaultMapProps = {
-	  isDropAnimating: false,
-	  isDragging: false,
-	  canLift: true,
-	
-	  canAnimate: false,
-	  offset: origin,
-	
-	  dimension: null,
-	  direction: null
-	};
-	
-	var preLiftMapProps = (0, _extends3.default)({}, defaultMapProps, {
-	  canLift: false
-	});
-	
-	var makeSelector = exports.makeSelector = function makeSelector() {
-	  var idSelector = function idSelector(state, ownProps) {
-	    return ownProps.draggableId;
-	  };
-	  var typeSelector = function typeSelector(state, ownProps) {
-	    return ownProps.type || 'DEFAULT';
-	  };
-	
-	  var memoizedOffset = (0, _memoizeOne2.default)(function (x, y) {
-	    return {
-	      x: x, y: y
-	    };
-	  });
-	
-	  var getWithMovement = (0, _memoizeOne2.default)(function (offset, canLift) {
-	    return {
-	      isDropAnimating: false,
-	      isDragging: false,
-	      canAnimate: true,
-	      canLift: canLift,
-	      offset: offset,
-	      dimension: null,
-	      direction: null
-	    };
-	  });
-	
-	  var getNotDraggingProps = (0, _memoizeOne2.default)(function (draggableId, movement, canLift) {
-	    var needsToMove = movement.draggables.indexOf(draggableId) !== -1;
-	
-	    if (!needsToMove) {
-	      return getWithMovement(origin, canLift);
-	    }
-	
-	    var amount = movement.isBeyondStartPosition ? (0, _position.negate)(movement.amount) : movement.amount;
-	
-	    return getWithMovement(memoizedOffset(amount.x, amount.y), canLift);
-	  });
-	
-	  var draggableSelector = function draggableSelector(state, ownProps) {
-	    if (!state.dimension) {
-	      return null;
-	    }
-	    var dimension = state.dimension.draggable[ownProps.draggableId];
-	
-	    if (!dimension) {
-	      return null;
-	    }
-	
-	    return dimension;
-	  };
-	
-	  return (0, _reselect.createSelector)([idSelector, typeSelector, _selectors.phaseSelector, _selectors.dragSelector, _selectors.pendingDropSelector, draggableSelector], function (id, type, phase, drag, pending, dimension) {
-	    if (phase === 'DRAGGING') {
-	      if (!drag) {
-	        console.error('invalid dragging state');
-	        return defaultMapProps;
-	      }
-	
-	      var current = drag.current,
-	          impact = drag.impact;
-	
-	
-	      if (current.type !== type) {
-	        return defaultMapProps;
-	      }
-	
-	      if (current.id !== id) {
-	        return getNotDraggingProps(id, impact.movement, false);
-	      }
-	
-	      var offset = current.client.offset;
-	      var canAnimate = current.shouldAnimate;
-	
-	      return {
-	        isDragging: true,
-	        canLift: false,
-	        isDropAnimating: false,
-	        canAnimate: canAnimate,
-	        offset: offset,
-	        dimension: dimension,
-	        direction: impact.direction
-	      };
-	    }
-	
-	    if (phase === 'DROP_ANIMATING') {
-	      if (!pending) {
-	        console.error('cannot animate drop without a pending drop');
-	        return defaultMapProps;
-	      }
-	
-	      if (type !== pending.result.type) {
-	        return defaultMapProps;
-	      }
-	
-	      if (pending.result.draggableId !== id) {
-	        var canLift = pending.trigger === 'DROP';
-	
-	        return getNotDraggingProps(id, pending.impact.movement, canLift);
-	      }
-	
-	      return {
-	        isDragging: false,
-	        isDropAnimating: true,
-	        canAnimate: true,
-	        offset: pending.newHomeOffset,
-	
-	        canLift: false,
-	
-	        dimension: dimension,
-	
-	        direction: null
-	      };
-	    }
-	
-	    if (phase === 'PREPARING' || phase === 'COLLECTING_DIMENSIONS') {
-	      return preLiftMapProps;
-	    }
-	
-	    return defaultMapProps;
-	  });
-	};
-	
-	var makeMapStateToProps = function makeMapStateToProps() {
-	  var selector = makeSelector();
-	
-	  return function (state, props) {
-	    return selector(state, props);
-	  };
-	};
-	
-	var mapDispatchToProps = {
-	  lift: _actionCreators.lift,
-	  move: _actionCreators.move,
-	  moveForward: _actionCreators.moveForward,
-	  moveBackward: _actionCreators.moveBackward,
-	  crossAxisMoveForward: _actionCreators.crossAxisMoveForward,
-	  crossAxisMoveBackward: _actionCreators.crossAxisMoveBackward,
-	  moveByWindowScroll: _actionCreators.moveByWindowScroll,
-	  drop: _actionCreators.drop,
-	  dropAnimationFinished: _actionCreators.dropAnimationFinished,
-	  cancel: _actionCreators.cancel
-	};
-	
-	exports.default = (0, _reactRedux.connect)(makeMapStateToProps, mapDispatchToProps, null, { storeKey: _contextKeys.storeKey })(_draggable2.default);
-
-/***/ }),
-/* 273 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.zIndexOptions = undefined;
-	
-	var _defineProperty2 = __webpack_require__(85);
-	
-	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _propTypes = __webpack_require__(5);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _invariant = __webpack_require__(247);
-	
-	var _invariant2 = _interopRequireDefault(_invariant);
-	
-	var _draggableDimensionPublisher = __webpack_require__(274);
-	
-	var _draggableDimensionPublisher2 = _interopRequireDefault(_draggableDimensionPublisher);
-	
-	var _moveable = __webpack_require__(277);
-	
-	var _moveable2 = _interopRequireDefault(_moveable);
-	
-	var _dragHandle = __webpack_require__(294);
-	
-	var _dragHandle2 = _interopRequireDefault(_dragHandle);
-	
-	var _animation = __webpack_require__(293);
-	
-	var _getWindowScrollPosition = __webpack_require__(265);
-	
-	var _getWindowScrollPosition2 = _interopRequireDefault(_getWindowScrollPosition);
-	
-	var _getCenterPosition = __webpack_require__(304);
-	
-	var _getCenterPosition2 = _interopRequireDefault(_getCenterPosition);
-	
-	var _placeholder = __webpack_require__(269);
-	
-	var _placeholder2 = _interopRequireDefault(_placeholder);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var zIndexOptions = exports.zIndexOptions = {
-	  dragging: 5000,
-	  dropAnimating: 4500
-	};
-	
-	var Draggable = function (_Component) {
-	  (0, _inherits3.default)(Draggable, _Component);
-	
-	  function Draggable(props, context) {
-	    (0, _classCallCheck3.default)(this, Draggable);
-	
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (Draggable.__proto__ || (0, _getPrototypeOf2.default)(Draggable)).call(this, props, context));
-	
-	    _this.state = {
-	      ref: null
-	    };
-	
-	    _this.onMoveEnd = function () {
-	      if (!_this.props.isDropAnimating) {
-	        return;
-	      }
-	
-	      _this.props.dropAnimationFinished();
-	    };
-	
-	    _this.onLift = function (options) {
-	      _this.throwIfCannotDrag();
-	      var client = options.client,
-	          isScrollAllowed = options.isScrollAllowed;
-	      var _this$props = _this.props,
-	          lift = _this$props.lift,
-	          draggableId = _this$props.draggableId,
-	          type = _this$props.type;
-	      var ref = _this.state.ref;
-	
-	
-	      if (!ref) {
-	        throw new Error('cannot lift at this time');
-	      }
-	
-	      var initial = {
-	        selection: client,
-	        center: (0, _getCenterPosition2.default)(ref)
-	      };
-	
-	      var windowScroll = (0, _getWindowScrollPosition2.default)();
-	
-	      lift(draggableId, type, initial, windowScroll, isScrollAllowed);
-	    };
-	
-	    _this.onMove = function (client) {
-	      _this.throwIfCannotDrag();
-	
-	      var _this$props2 = _this.props,
-	          draggableId = _this$props2.draggableId,
-	          dimension = _this$props2.dimension,
-	          move = _this$props2.move;
-	
-	      if (!dimension) {
-	        return;
-	      }
-	
-	      var windowScroll = (0, _getWindowScrollPosition2.default)();
-	
-	      move(draggableId, client, windowScroll);
-	    };
-	
-	    _this.onMoveForward = function () {
-	      _this.throwIfCannotDrag();
-	      _this.props.moveForward(_this.props.draggableId);
-	    };
-	
-	    _this.onMoveBackward = function () {
-	      _this.throwIfCannotDrag();
-	      _this.props.moveBackward(_this.props.draggableId);
-	    };
-	
-	    _this.onCrossAxisMoveForward = function () {
-	      _this.throwIfCannotDrag();
-	      _this.props.crossAxisMoveForward(_this.props.draggableId);
-	    };
-	
-	    _this.onCrossAxisMoveBackward = function () {
-	      _this.throwIfCannotDrag();
-	      _this.props.crossAxisMoveBackward(_this.props.draggableId);
-	    };
-	
-	    _this.onWindowScroll = function () {
-	      _this.throwIfCannotDrag();
-	      var windowScroll = (0, _getWindowScrollPosition2.default)();
-	      _this.props.moveByWindowScroll(_this.props.draggableId, windowScroll);
-	    };
-	
-	    _this.onDrop = function () {
-	      _this.throwIfCannotDrag();
-	      _this.props.drop();
-	    };
-	
-	    _this.onCancel = function () {
-	      _this.props.cancel();
-	    };
-	
-	    _this.setRef = function (ref) {
-	      if (ref === null) {
-	        return;
-	      }
-	
-	      if (ref === _this.state.ref) {
-	        return;
-	      }
-	
-	      _this.setState({
-	        ref: ref
-	      });
-	    };
-	
-	    _this.getDraggableRef = function () {
-	      return _this.state.ref;
-	    };
-	
-	    _this.getDraggingStyle = (0, _memoizeOne2.default)(function (width, height, top, left, isDropAnimating, movementStyle) {
-	      var style = {
-	        position: 'fixed',
-	        boxSizing: 'border-box',
-	        pointerEvents: 'none',
-	        zIndex: isDropAnimating ? zIndexOptions.dropAnimating : zIndexOptions.dragging,
-	        width: width,
-	        height: height,
-	        top: top,
-	        left: left,
-	        margin: 0,
-	        transform: movementStyle.transform ? '' + movementStyle.transform : null,
-	
-	        WebkitTouchCallout: 'none',
-	        WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-	        touchAction: 'none'
-	      };
-	      return style;
-	    });
-	    _this.getNotDraggingStyle = (0, _memoizeOne2.default)(function (canAnimate, movementStyle, canLift) {
-	      var style = {
-	        transition: canAnimate ? _animation.css.outOfTheWay : null,
-	        transform: movementStyle.transform,
-	        pointerEvents: canLift ? 'auto' : 'none',
-	
-	        WebkitTouchCallout: 'none',
-	        WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-	        touchAction: 'none'
-	      };
-	      return style;
-	    });
-	    _this.getProvided = (0, _memoizeOne2.default)(function (isDragging, isDropAnimating, canLift, canAnimate, dimension, dragHandleProps, movementStyle) {
-	      var useDraggingStyle = isDragging || isDropAnimating;
-	
-	      var draggableStyle = function () {
-	        if (!useDraggingStyle) {
-	          return _this.getNotDraggingStyle(canAnimate, movementStyle, canLift);
-	        }
-	        (0, _invariant2.default)(dimension, 'draggable dimension required for dragging');
-	
-	        var _dimension$client$wit = dimension.client.withoutMargin,
-	            width = _dimension$client$wit.width,
-	            height = _dimension$client$wit.height,
-	            top = _dimension$client$wit.top,
-	            left = _dimension$client$wit.left;
-	
-	
-	        return _this.getDraggingStyle(width, height, top, left, isDropAnimating, movementStyle);
-	      }();
-	
-	      var provided = {
-	        innerRef: _this.setRef,
-	        placeholder: useDraggingStyle ? _this.getPlaceholder() : null,
-	        dragHandleProps: dragHandleProps,
-	        draggableStyle: draggableStyle
-	      };
-	      return provided;
-	    });
-	    _this.getSnapshot = (0, _memoizeOne2.default)(function (isDragging, isDropAnimating) {
-	      return {
-	        isDragging: isDragging || isDropAnimating
-	      };
-	    });
-	    _this.getSpeed = (0, _memoizeOne2.default)(function (isDragging, isDropAnimating, canAnimate) {
-	      if (!canAnimate) {
-	        return 'INSTANT';
-	      }
-	
-	      if (isDropAnimating) {
-	        return 'STANDARD';
-	      }
-	
-	      if (isDragging) {
-	        return 'FAST';
-	      }
-	
-	      return 'INSTANT';
-	    });
-	
-	
-	    var callbacks = {
-	      onLift: _this.onLift,
-	      onMove: _this.onMove,
-	      onDrop: _this.onDrop,
-	      onCancel: _this.onCancel,
-	      onMoveBackward: _this.onMoveBackward,
-	      onMoveForward: _this.onMoveForward,
-	      onCrossAxisMoveForward: _this.onCrossAxisMoveForward,
-	      onCrossAxisMoveBackward: _this.onCrossAxisMoveBackward,
-	      onWindowScroll: _this.onWindowScroll
-	    };
-	
-	    _this.callbacks = callbacks;
-	    return _this;
-	  }
-	
-	  (0, _createClass3.default)(Draggable, [{
-	    key: 'throwIfCannotDrag',
-	    value: function throwIfCannotDrag() {
-	      (0, _invariant2.default)(this.state.ref, 'Draggable: cannot drag as no DOM node has been provided');
-	      (0, _invariant2.default)(!this.props.isDragDisabled, 'Draggable: cannot drag as dragging is not enabled');
-	    }
-	  }, {
-	    key: 'getPlaceholder',
-	    value: function getPlaceholder() {
-	      var dimension = this.props.dimension;
-	      (0, _invariant2.default)(dimension, 'cannot get a drag placeholder when not dragging');
-	
-	      return _react2.default.createElement(_placeholder2.default, {
-	        height: dimension.page.withMargin.height,
-	        width: dimension.page.withMargin.width
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var _props = this.props,
-	          draggableId = _props.draggableId,
-	          type = _props.type,
-	          offset = _props.offset,
-	          isDragging = _props.isDragging,
-	          isDropAnimating = _props.isDropAnimating,
-	          canLift = _props.canLift,
-	          canAnimate = _props.canAnimate,
-	          isDragDisabled = _props.isDragDisabled,
-	          dimension = _props.dimension,
-	          children = _props.children,
-	          direction = _props.direction;
-	
-	
-	      var speed = this.getSpeed(isDragging, isDropAnimating, canAnimate);
-	
-	      return _react2.default.createElement(
-	        _draggableDimensionPublisher2.default,
-	        {
-	          draggableId: draggableId,
-	          droppableId: this.context[_contextKeys.droppableIdKey],
-	          type: type,
-	          targetRef: this.state.ref
-	        },
-	        _react2.default.createElement(
-	          _moveable2.default,
-	          {
-	            speed: speed,
-	            destination: offset,
-	            onMoveEnd: this.onMoveEnd
-	          },
-	          function (movementStyle) {
-	            return _react2.default.createElement(
-	              _dragHandle2.default,
-	              {
-	                isDragging: isDragging,
-	                direction: direction,
-	                isEnabled: !isDragDisabled,
-	                canLift: canLift,
-	                callbacks: _this2.callbacks,
-	                getDraggableRef: _this2.getDraggableRef
-	              },
-	              function (dragHandleProps) {
-	                return children(_this2.getProvided(isDragging, isDropAnimating, canLift, canAnimate, dimension, dragHandleProps, movementStyle), _this2.getSnapshot(isDragging, isDropAnimating));
-	              }
-	            );
-	          }
-	        )
-	      );
-	    }
-	  }]);
-	  return Draggable;
-	}(_react.Component);
-	
-	Draggable.defaultProps = {
-	  isDragDisabled: false,
-	  type: 'DEFAULT'
-	};
-	Draggable.contextTypes = (0, _defineProperty3.default)({}, _contextKeys.droppableIdKey, _propTypes2.default.string.isRequired);
-	exports.default = Draggable;
-
-/***/ }),
-/* 274 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _connectedDraggableDimensionPublisher = __webpack_require__(275);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_connectedDraggableDimensionPublisher).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 275 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.makeSelector = undefined;
-	
-	var _reactRedux = __webpack_require__(241);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _reselect = __webpack_require__(258);
-	
-	var _contextKeys = __webpack_require__(238);
-	
-	var _actionCreators = __webpack_require__(267);
-	
-	var _draggableDimensionPublisher = __webpack_require__(276);
-	
-	var _draggableDimensionPublisher2 = _interopRequireDefault(_draggableDimensionPublisher);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var requestDimensionSelector = function requestDimensionSelector(state) {
-	  return state.dimension.request;
-	};
-	
-	var getOwnType = function getOwnType(state, props) {
-	  return props.type;
-	};
-	
-	var makeSelector = exports.makeSelector = function makeSelector() {
-	  var getMapProps = (0, _memoizeOne2.default)(function (shouldPublish) {
-	    return {
-	      shouldPublish: shouldPublish
-	    };
-	  });
-	
-	  return (0, _reselect.createSelector)([getOwnType, requestDimensionSelector], function (ownType, requestId) {
-	    return getMapProps(ownType === requestId);
-	  });
-	};
-	
-	var makeMapStateToProps = function makeMapStateToProps() {
-	  var selector = makeSelector();
-	  return function (state, props) {
-	    return selector(state, props);
-	  };
-	};
-	
-	var mapDispatchToProps = {
-	  publish: _actionCreators.publishDraggableDimension
-	};
-	
-	exports.default = (0, _reactRedux.connect)(makeMapStateToProps, mapDispatchToProps, null, { storeKey: _contextKeys.storeKey })(_draggableDimensionPublisher2.default);
-
-/***/ }),
-/* 276 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _invariant = __webpack_require__(247);
-	
-	var _invariant2 = _interopRequireDefault(_invariant);
-	
-	var _getWindowScrollPosition = __webpack_require__(265);
-	
-	var _getWindowScrollPosition2 = _interopRequireDefault(_getWindowScrollPosition);
-	
-	var _dimension = __webpack_require__(219);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var DraggableDimensionPublisher = function (_Component) {
-	  (0, _inherits3.default)(DraggableDimensionPublisher, _Component);
-	
-	  function DraggableDimensionPublisher() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, DraggableDimensionPublisher);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = DraggableDimensionPublisher.__proto__ || (0, _getPrototypeOf2.default)(DraggableDimensionPublisher)).call.apply(_ref, [this].concat(args))), _this), _this.getDimension = function () {
-	      var _this$props = _this.props,
-	          draggableId = _this$props.draggableId,
-	          droppableId = _this$props.droppableId,
-	          targetRef = _this$props.targetRef;
-	
-	
-	      (0, _invariant2.default)(targetRef, 'DraggableDimensionPublisher cannot calculate a dimension when not attached to the DOM');
-	
-	      var style = window.getComputedStyle(targetRef);
-	
-	      var margin = {
-	        top: parseInt(style.marginTop, 10),
-	        right: parseInt(style.marginRight, 10),
-	        bottom: parseInt(style.marginBottom, 10),
-	        left: parseInt(style.marginLeft, 10)
-	      };
-	
-	      var clientRect = targetRef.getBoundingClientRect();
-	
-	      var dimension = (0, _dimension.getDraggableDimension)({
-	        id: draggableId,
-	        droppableId: droppableId,
-	        clientRect: clientRect,
-	        margin: margin,
-	        windowScroll: (0, _getWindowScrollPosition2.default)()
-	      });
-	
-	      return dimension;
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(DraggableDimensionPublisher, [{
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      var shouldPublish = !this.props.shouldPublish && nextProps.shouldPublish;
-	
-	      if (shouldPublish) {
-	        this.props.publish(this.getDimension());
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return this.props.children;
-	    }
-	  }]);
-	  return DraggableDimensionPublisher;
-	}(_react.Component);
-	
-	exports.default = DraggableDimensionPublisher;
-
-/***/ }),
-/* 277 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _moveable = __webpack_require__(278);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_moveable).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 278 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactMotion = __webpack_require__(279);
-	
-	var _animation = __webpack_require__(293);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var origin = {
-	  x: 0,
-	  y: 0
-	};
-	
-	var noMovement = {
-	  transform: null
-	};
-	
-	var isAtOrigin = function isAtOrigin(point) {
-	  return point.x === origin.x && point.y === origin.y;
-	};
-	
-	var getStyle = function getStyle(isNotMoving, x, y) {
-	  if (isNotMoving) {
-	    return noMovement;
-	  }
-	
-	  var point = { x: x, y: y };
-	
-	  if (isAtOrigin(point)) {
-	    return noMovement;
-	  }
-	  var style = {
-	    transform: 'translate(' + point.x + 'px, ' + point.y + 'px)'
-	  };
-	  return style;
-	};
-	
-	var Movable = function (_Component) {
-	  (0, _inherits3.default)(Movable, _Component);
-	
-	  function Movable() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, Movable);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Movable.__proto__ || (0, _getPrototypeOf2.default)(Movable)).call.apply(_ref, [this].concat(args))), _this), _this.onRest = function () {
-	      var onMoveEnd = _this.props.onMoveEnd;
-	
-	
-	      if (!onMoveEnd) {
-	        return;
-	      }
-	
-	      setTimeout(function () {
-	        return onMoveEnd();
-	      });
-	    }, _this.getFinal = function () {
-	      var destination = _this.props.destination;
-	      var speed = _this.props.speed;
-	
-	      if (speed === 'INSTANT') {
-	        return destination;
-	      }
-	
-	      var selected = speed === 'FAST' ? _animation.physics.fast : _animation.physics.standard;
-	
-	      return {
-	        x: (0, _reactMotion.spring)(destination.x, selected),
-	        y: (0, _reactMotion.spring)(destination.y, selected)
-	      };
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(Movable, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var final = this.getFinal();
-	
-	      var isNotMoving = isAtOrigin(final);
-	
-	      return _react2.default.createElement(
-	        _reactMotion.Motion,
-	        { defaultStyle: origin, style: final, onRest: this.onRest },
-	        function (current) {
-	          return _this2.props.children(getStyle(isNotMoving, current.x, current.y));
-	        }
-	      );
-	    }
-	  }]);
-	  return Movable;
-	}(_react.Component);
-	
-	Movable.defaultProps = {
-	  destination: origin
-	};
-	exports.default = Movable;
-
-/***/ }),
-/* 279 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17274,38 +17764,38 @@
 	
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
 	
-	var _Motion = __webpack_require__(280);
+	var _Motion = __webpack_require__(169);
 	
 	exports.Motion = _interopRequire(_Motion);
 	
-	var _StaggeredMotion = __webpack_require__(287);
+	var _StaggeredMotion = __webpack_require__(176);
 	
 	exports.StaggeredMotion = _interopRequire(_StaggeredMotion);
 	
-	var _TransitionMotion = __webpack_require__(288);
+	var _TransitionMotion = __webpack_require__(177);
 	
 	exports.TransitionMotion = _interopRequire(_TransitionMotion);
 	
-	var _spring = __webpack_require__(290);
+	var _spring = __webpack_require__(179);
 	
 	exports.spring = _interopRequire(_spring);
 	
-	var _presets = __webpack_require__(291);
+	var _presets = __webpack_require__(180);
 	
 	exports.presets = _interopRequire(_presets);
 	
-	var _stripStyle = __webpack_require__(282);
+	var _stripStyle = __webpack_require__(171);
 	
 	exports.stripStyle = _interopRequire(_stripStyle);
 	
 	// deprecated, dummy warning function
 	
-	var _reorderKeys = __webpack_require__(292);
+	var _reorderKeys = __webpack_require__(181);
 	
 	exports.reorderKeys = _interopRequire(_reorderKeys);
 
 /***/ }),
-/* 280 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17322,27 +17812,27 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _mapToZero = __webpack_require__(281);
+	var _mapToZero = __webpack_require__(170);
 	
 	var _mapToZero2 = _interopRequireDefault(_mapToZero);
 	
-	var _stripStyle = __webpack_require__(282);
+	var _stripStyle = __webpack_require__(171);
 	
 	var _stripStyle2 = _interopRequireDefault(_stripStyle);
 	
-	var _stepper3 = __webpack_require__(283);
+	var _stepper3 = __webpack_require__(172);
 	
 	var _stepper4 = _interopRequireDefault(_stepper3);
 	
-	var _performanceNow = __webpack_require__(284);
+	var _performanceNow = __webpack_require__(173);
 	
 	var _performanceNow2 = _interopRequireDefault(_performanceNow);
 	
-	var _raf = __webpack_require__(285);
+	var _raf = __webpack_require__(174);
 	
 	var _raf2 = _interopRequireDefault(_raf);
 	
-	var _shouldStopAnimation = __webpack_require__(286);
+	var _shouldStopAnimation = __webpack_require__(175);
 	
 	var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
 	
@@ -17577,7 +18067,7 @@
 	// config)
 
 /***/ }),
-/* 281 */
+/* 170 */
 /***/ (function(module, exports) {
 
 	
@@ -17601,7 +18091,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 282 */
+/* 171 */
 /***/ (function(module, exports) {
 
 	
@@ -17627,7 +18117,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 283 */
+/* 172 */
 /***/ (function(module, exports) {
 
 	
@@ -17675,12 +18165,12 @@
 	// array reference around.
 
 /***/ }),
-/* 284 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
+	/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
 	(function() {
-	  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
+	  var getNanoSeconds, hrtime, loadTime;
 	
 	  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
 	    module.exports = function() {
@@ -17688,7 +18178,7 @@
 	    };
 	  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
 	    module.exports = function() {
-	      return (getNanoSeconds() - nodeLoadTime) / 1e6;
+	      return (getNanoSeconds() - loadTime) / 1e6;
 	    };
 	    hrtime = process.hrtime;
 	    getNanoSeconds = function() {
@@ -17696,9 +18186,7 @@
 	      hr = hrtime();
 	      return hr[0] * 1e9 + hr[1];
 	    };
-	    moduleLoadTime = getNanoSeconds();
-	    upTime = process.uptime() * 1e9;
-	    nodeLoadTime = moduleLoadTime - upTime;
+	    loadTime = getNanoSeconds();
 	  } else if (Date.now) {
 	    module.exports = function() {
 	      return Date.now() - loadTime;
@@ -17713,15 +18201,13 @@
 	
 	}).call(this);
 	
-	//# sourceMappingURL=performance-now.js.map
-	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 285 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(284)
+	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(173)
 	  , root = typeof window === 'undefined' ? global : window
 	  , vendors = ['moz', 'webkit']
 	  , suffix = 'AnimationFrame'
@@ -17800,7 +18286,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 286 */
+/* 175 */
 /***/ (function(module, exports) {
 
 	
@@ -17836,7 +18322,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 287 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17853,27 +18339,27 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _mapToZero = __webpack_require__(281);
+	var _mapToZero = __webpack_require__(170);
 	
 	var _mapToZero2 = _interopRequireDefault(_mapToZero);
 	
-	var _stripStyle = __webpack_require__(282);
+	var _stripStyle = __webpack_require__(171);
 	
 	var _stripStyle2 = _interopRequireDefault(_stripStyle);
 	
-	var _stepper3 = __webpack_require__(283);
+	var _stepper3 = __webpack_require__(172);
 	
 	var _stepper4 = _interopRequireDefault(_stepper3);
 	
-	var _performanceNow = __webpack_require__(284);
+	var _performanceNow = __webpack_require__(173);
 	
 	var _performanceNow2 = _interopRequireDefault(_performanceNow);
 	
-	var _raf = __webpack_require__(285);
+	var _raf = __webpack_require__(174);
 	
 	var _raf2 = _interopRequireDefault(_raf);
 	
-	var _shouldStopAnimation = __webpack_require__(286);
+	var _shouldStopAnimation = __webpack_require__(175);
 	
 	var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
 	
@@ -18129,7 +18615,7 @@
 	// config)
 
 /***/ }),
-/* 288 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18146,31 +18632,31 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _mapToZero = __webpack_require__(281);
+	var _mapToZero = __webpack_require__(170);
 	
 	var _mapToZero2 = _interopRequireDefault(_mapToZero);
 	
-	var _stripStyle = __webpack_require__(282);
+	var _stripStyle = __webpack_require__(171);
 	
 	var _stripStyle2 = _interopRequireDefault(_stripStyle);
 	
-	var _stepper3 = __webpack_require__(283);
+	var _stepper3 = __webpack_require__(172);
 	
 	var _stepper4 = _interopRequireDefault(_stepper3);
 	
-	var _mergeDiff = __webpack_require__(289);
+	var _mergeDiff = __webpack_require__(178);
 	
 	var _mergeDiff2 = _interopRequireDefault(_mergeDiff);
 	
-	var _performanceNow = __webpack_require__(284);
+	var _performanceNow = __webpack_require__(173);
 	
 	var _performanceNow2 = _interopRequireDefault(_performanceNow);
 	
-	var _raf = __webpack_require__(285);
+	var _raf = __webpack_require__(174);
 	
 	var _raf2 = _interopRequireDefault(_raf);
 	
-	var _shouldStopAnimation = __webpack_require__(286);
+	var _shouldStopAnimation = __webpack_require__(175);
 	
 	var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
 	
@@ -18656,7 +19142,7 @@
 	// In reality currentStyle should be 400
 
 /***/ }),
-/* 289 */
+/* 178 */
 /***/ (function(module, exports) {
 
 	
@@ -18769,7 +19255,7 @@
 	// to loop through and find a key's index each time), but I no longer care
 
 /***/ }),
-/* 290 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18782,7 +19268,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _presets = __webpack_require__(291);
+	var _presets = __webpack_require__(180);
 	
 	var _presets2 = _interopRequireDefault(_presets);
 	
@@ -18797,7 +19283,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 291 */
+/* 180 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -18812,7 +19298,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 292 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -18835,1207 +19321,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 293 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.css = exports.physics = undefined;
-	
-	var _extends2 = __webpack_require__(197);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var physics = exports.physics = function () {
-	  var base = {
-	    stiffness: 1000,
-	    damping: 60,
-	
-	    precision: 0.99
-	  };
-	
-	  var standard = (0, _extends3.default)({}, base);
-	
-	  var fast = (0, _extends3.default)({}, base, {
-	    stiffness: base.stiffness * 2
-	  });
-	
-	  return { standard: standard, fast: fast };
-	}();
-	
-	var css = exports.css = {
-	  outOfTheWay: 'transform 0.2s cubic-bezier(0.2, 0, 0, 1)'
-	};
-
-/***/ }),
-/* 294 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _dragHandle = __webpack_require__(295);
-	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_dragHandle).default;
-	  }
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 295 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(105);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(116);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(117);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(118);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(163);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _react = __webpack_require__(4);
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _createMouseSensor = __webpack_require__(296);
-	
-	var _createMouseSensor2 = _interopRequireDefault(_createMouseSensor);
-	
-	var _createKeyboardSensor = __webpack_require__(303);
-	
-	var _createKeyboardSensor2 = _interopRequireDefault(_createKeyboardSensor);
-	
-	var _createTouchSensor = __webpack_require__(305);
-	
-	var _createTouchSensor2 = _interopRequireDefault(_createTouchSensor);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var getFalse = function getFalse() {
-	  return false;
-	};
-	
-	var DragHandle = function (_Component) {
-	  (0, _inherits3.default)(DragHandle, _Component);
-	
-	  function DragHandle() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, DragHandle);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = DragHandle.__proto__ || (0, _getPrototypeOf2.default)(DragHandle)).call.apply(_ref, [this].concat(args))), _this), _this.mouseSensor = (0, _createMouseSensor2.default)(_this.props.callbacks, _this.props.getDraggableRef), _this.keyboardSensor = (0, _createKeyboardSensor2.default)(_this.props.callbacks, _this.props.getDraggableRef), _this.touchSensor = (0, _createTouchSensor2.default)(_this.props.callbacks, _this.props.getDraggableRef), _this.sensors = [_this.mouseSensor, _this.keyboardSensor, _this.touchSensor], _this.onKeyDown = function (event) {
-	      if (_this.mouseSensor.isCapturing()) {
-	        return;
-	      }
-	
-	      _this.keyboardSensor.onKeyDown(event, _this.props);
-	    }, _this.onMouseDown = function (event) {
-	      if (_this.keyboardSensor.isCapturing()) {
-	        return;
-	      }
-	
-	      _this.mouseSensor.onMouseDown(event, _this.props);
-	    }, _this.onTouchStart = function (event) {
-	      if (_this.mouseSensor.isCapturing() || _this.keyboardSensor.isCapturing()) {
-	        console.error('mouse or keyboard already listening when attempting to touch drag');
-	        return;
-	      }
-	
-	      _this.touchSensor.onTouchStart(event, _this.props);
-	    }, _this.onTouchMove = function (event) {
-	      _this.touchSensor.onTouchMove(event);
-	    }, _this.onClick = function (event) {
-	      _this.mouseSensor.onClick(event);
-	      _this.touchSensor.onClick(event);
-	    }, _this.isAnySensorDragging = function () {
-	      return _this.sensors.some(function (sensor) {
-	        return sensor.isDragging();
-	      });
-	    }, _this.isAnySensorCapturing = function () {
-	      return _this.sensors.some(function (sensor) {
-	        return sensor.isCapturing();
-	      });
-	    }, _this.getProvided = (0, _memoizeOne2.default)(function (isEnabled, isDragging) {
-	      if (!isEnabled) {
-	        return null;
-	      }
-	
-	      var provided = {
-	        onMouseDown: _this.onMouseDown,
-	        onKeyDown: _this.onKeyDown,
-	        onTouchStart: _this.onTouchStart,
-	        onTouchMove: _this.onTouchMove,
-	        onClick: _this.onClick,
-	        tabIndex: 0,
-	        'aria-grabbed': isDragging,
-	        draggable: false,
-	        onDragStart: getFalse,
-	        onDrop: getFalse
-	      };
-	
-	      return provided;
-	    }), _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(DragHandle, [{
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      var _this2 = this;
-	
-	      this.sensors.forEach(function (sensor) {
-	        var wasCapturing = sensor.isCapturing();
-	        var wasDragging = sensor.isDragging();
-	
-	        if (wasCapturing) {
-	          sensor.kill();
-	        }
-	
-	        if (wasDragging) {
-	          _this2.props.callbacks.onCancel();
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      var _this3 = this;
-	
-	      var isCapturing = this.isAnySensorCapturing();
-	
-	      if (!isCapturing) {
-	        return;
-	      }
-	
-	      var isDragStopping = this.props.isDragging && !nextProps.isDragging;
-	
-	      if (isDragStopping) {
-	        this.sensors.forEach(function (sensor) {
-	          if (sensor.isCapturing()) {
-	            sensor.kill();
-	          }
-	        });
-	        return;
-	      }
-	
-	      if (!nextProps.isEnabled) {
-	        this.sensors.forEach(function (sensor) {
-	          if (sensor.isCapturing()) {
-	            var wasDragging = sensor.isDragging();
-	
-	            sensor.kill();
-	
-	            if (wasDragging) {
-	              _this3.props.callbacks.onCancel();
-	            }
-	          }
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props,
-	          children = _props.children,
-	          isEnabled = _props.isEnabled;
-	
-	
-	      return children(this.getProvided(isEnabled, this.isAnySensorDragging()));
-	    }
-	  }]);
-	  return DragHandle;
-	}(_react.Component);
-	
-	exports.default = DragHandle;
-
-/***/ }),
-/* 296 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keys = __webpack_require__(194);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _extends2 = __webpack_require__(197);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _stopEvent = __webpack_require__(297);
-	
-	var _stopEvent2 = _interopRequireDefault(_stopEvent);
-	
-	var _createScheduler = __webpack_require__(298);
-	
-	var _createScheduler2 = _interopRequireDefault(_createScheduler);
-	
-	var _isSloppyClickThresholdExceeded = __webpack_require__(299);
-	
-	var _isSloppyClickThresholdExceeded2 = _interopRequireDefault(_isSloppyClickThresholdExceeded);
-	
-	var _getWindowFromRef = __webpack_require__(300);
-	
-	var _getWindowFromRef2 = _interopRequireDefault(_getWindowFromRef);
-	
-	var _keyCodes = __webpack_require__(301);
-	
-	var keyCodes = _interopRequireWildcard(_keyCodes);
-	
-	var _blockStandardKeyEvents = __webpack_require__(302);
-	
-	var _blockStandardKeyEvents2 = _interopRequireDefault(_blockStandardKeyEvents);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var primaryButton = 0;
-	var noop = function noop() {};
-	
-	exports.default = function (callbacks, getDraggableRef) {
-	  var state = {
-	    isDragging: false,
-	    pending: null,
-	    preventClick: false
-	  };
-	  var setState = function setState(partial) {
-	    var newState = (0, _extends3.default)({}, state, partial);
-	    state = newState;
-	  };
-	  var isDragging = function isDragging() {
-	    return state.isDragging;
-	  };
-	  var isCapturing = function isCapturing() {
-	    return Boolean(state.pending || state.isDragging);
-	  };
-	  var schedule = (0, _createScheduler2.default)(callbacks, isDragging);
-	
-	  var startDragging = function startDragging() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    setState({
-	      pending: null,
-	      isDragging: true,
-	      preventClick: true
-	    });
-	    fn();
-	  };
-	  var stopDragging = function stopDragging() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    unbindWindowEvents();
-	    setState({
-	      isDragging: false,
-	      pending: null
-	    });
-	    fn();
-	  };
-	  var startPendingDrag = function startPendingDrag(point) {
-	    setState({ pending: point, isDragging: false });
-	    bindWindowEvents();
-	  };
-	  var stopPendingDrag = function stopPendingDrag() {
-	    setState({
-	      preventClick: false
-	    });
-	    stopDragging();
-	  };
-	
-	  var kill = function kill() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    if (state.pending) {
-	      stopPendingDrag();
-	      return;
-	    }
-	    stopDragging(fn);
-	  };
-	
-	  var cancel = function cancel() {
-	    kill(callbacks.onCancel);
-	  };
-	
-	  var windowBindings = {
-	    mousemove: function mousemove(event) {
-	      var button = event.button,
-	          clientX = event.clientX,
-	          clientY = event.clientY;
-	
-	      if (button !== primaryButton) {
-	        return;
-	      }
-	
-	      var point = {
-	        x: clientX,
-	        y: clientY
-	      };
-	
-	      if (state.isDragging) {
-	        schedule.move(point);
-	        return;
-	      }
-	
-	      if (!state.pending) {
-	        console.error('invalid state');
-	        return;
-	      }
-	
-	      if (!(0, _isSloppyClickThresholdExceeded2.default)(state.pending, point)) {
-	        return;
-	      }
-	
-	      startDragging(function () {
-	        return callbacks.onLift({ client: point, isScrollAllowed: true });
-	      });
-	    },
-	    mouseup: function mouseup() {
-	      if (state.pending) {
-	        stopPendingDrag();
-	        return;
-	      }
-	
-	      stopDragging(callbacks.onDrop);
-	    },
-	    mousedown: function mousedown() {
-	      stopDragging(callbacks.onCancel);
-	    },
-	    keydown: function keydown(event) {
-	      if (event.keyCode === keyCodes.escape) {
-	        (0, _stopEvent2.default)(event);
-	        cancel();
-	        return;
-	      }
-	
-	      (0, _blockStandardKeyEvents2.default)(event);
-	    },
-	    resize: cancel,
-	    scroll: function scroll() {
-	      if (state.pending) {
-	        stopPendingDrag();
-	        return;
-	      }
-	      schedule.windowScrollMove();
-	    },
-	
-	    webkitmouseforcechanged: function webkitmouseforcechanged(event) {
-	      if (event.webkitForce == null || MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN == null) {
-	        console.error('handling a mouse force changed event when it is not supported');
-	        return;
-	      }
-	
-	      var forcePressThreshold = MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN;
-	      var isForcePressing = event.webkitForce >= forcePressThreshold;
-	
-	      if (isForcePressing) {
-	        cancel();
-	      }
-	    }
-	  };
-	
-	  var eventKeys = (0, _keys2.default)(windowBindings);
-	
-	  var bindWindowEvents = function bindWindowEvents() {
-	    var win = (0, _getWindowFromRef2.default)(getDraggableRef());
-	
-	    eventKeys.forEach(function (eventKey) {
-	      if (eventKey === 'scroll') {
-	        win.addEventListener(eventKey, windowBindings.scroll, { passive: true });
-	        return;
-	      }
-	
-	      win.addEventListener(eventKey, windowBindings[eventKey]);
-	    });
-	  };
-	
-	  var unbindWindowEvents = function unbindWindowEvents() {
-	    var win = (0, _getWindowFromRef2.default)(getDraggableRef());
-	
-	    eventKeys.forEach(function (eventKey) {
-	      return win.removeEventListener(eventKey, windowBindings[eventKey]);
-	    });
-	  };
-	
-	  var onMouseDown = function onMouseDown(event, props) {
-	    if (!props.canLift) {
-	      return;
-	    }
-	
-	    if (isCapturing()) {
-	      console.error('should not be able to perform a mouse down while a drag or pending drag is occurring');
-	      cancel();
-	      return;
-	    }
-	
-	    var button = event.button,
-	        clientX = event.clientX,
-	        clientY = event.clientY;
-	
-	    if (button !== primaryButton) {
-	      return;
-	    }
-	
-	    (0, _stopEvent2.default)(event);
-	    var point = {
-	      x: clientX,
-	      y: clientY
-	    };
-	
-	    startPendingDrag(point);
-	  };
-	
-	  var onClick = function onClick(event) {
-	    if (!state.preventClick) {
-	      return;
-	    }
-	
-	    setState({
-	      preventClick: false
-	    });
-	    (0, _stopEvent2.default)(event);
-	  };
-	
-	  var sensor = {
-	    onMouseDown: onMouseDown,
-	    onClick: onClick,
-	    kill: kill,
-	    isCapturing: isCapturing,
-	    isDragging: isDragging
-	  };
-	
-	  return sensor;
-	};
-
-/***/ }),
-/* 297 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (event) {
-	  event.preventDefault();
-	  event.stopPropagation();
-	};
-
-/***/ }),
-/* 298 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _memoizeOne = __webpack_require__(202);
-	
-	var _memoizeOne2 = _interopRequireDefault(_memoizeOne);
-	
-	var _rafSchd = __webpack_require__(264);
-	
-	var _rafSchd2 = _interopRequireDefault(_rafSchd);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (callbacks, isDraggingFn) {
-	  var ifDragging = function ifDragging(fn) {
-	    if (isDraggingFn()) {
-	      fn();
-	    }
-	  };
-	
-	  var memoizedMove = (0, _memoizeOne2.default)(function (x, y) {
-	    var point = { x: x, y: y };
-	    callbacks.onMove(point);
-	  });
-	
-	  var move = (0, _rafSchd2.default)(function (point) {
-	    ifDragging(function () {
-	      return memoizedMove(point.x, point.y);
-	    });
-	  });
-	
-	  var moveForward = (0, _rafSchd2.default)(function () {
-	    ifDragging(callbacks.onMoveForward);
-	  });
-	
-	  var moveBackward = (0, _rafSchd2.default)(function () {
-	    ifDragging(callbacks.onMoveBackward);
-	  });
-	
-	  var crossAxisMoveForward = (0, _rafSchd2.default)(function () {
-	    ifDragging(callbacks.onCrossAxisMoveForward);
-	  });
-	
-	  var crossAxisMoveBackward = (0, _rafSchd2.default)(function () {
-	    ifDragging(callbacks.onCrossAxisMoveBackward);
-	  });
-	
-	  var windowScrollMove = (0, _rafSchd2.default)(function () {
-	    ifDragging(callbacks.onWindowScroll);
-	  });
-	
-	  return {
-	    move: move,
-	    moveForward: moveForward,
-	    moveBackward: moveBackward,
-	    crossAxisMoveForward: crossAxisMoveForward,
-	    crossAxisMoveBackward: crossAxisMoveBackward,
-	    windowScrollMove: windowScrollMove
-	  };
-	};
-
-/***/ }),
-/* 299 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var sloppyClickThreshold = exports.sloppyClickThreshold = 5;
-	
-	exports.default = function (original, current) {
-	  return Math.abs(current.x - original.x) >= sloppyClickThreshold || Math.abs(current.y - original.y) >= sloppyClickThreshold;
-	};
-
-/***/ }),
-/* 300 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (ref) {
-	  return ref ? ref.ownerDocument.defaultView : window;
-	};
-
-/***/ }),
-/* 301 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var tab = exports.tab = 9;
-	var enter = exports.enter = 13;
-	var escape = exports.escape = 27;
-	var space = exports.space = 32;
-	var arrowLeft = exports.arrowLeft = 37;
-	var arrowUp = exports.arrowUp = 38;
-	var arrowRight = exports.arrowRight = 39;
-	var arrowDown = exports.arrowDown = 40;
-
-/***/ }),
-/* 302 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keyCodes = __webpack_require__(301);
-	
-	var keyCodes = _interopRequireWildcard(_keyCodes);
-	
-	var _stopEvent = __webpack_require__(297);
-	
-	var _stopEvent2 = _interopRequireDefault(_stopEvent);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	var blocked = [keyCodes.enter, keyCodes.tab];
-	
-	exports.default = function (event) {
-	  if (blocked.indexOf(event.keyCode) >= 0) {
-	    (0, _stopEvent2.default)(event);
-	  }
-	};
-
-/***/ }),
-/* 303 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keys = __webpack_require__(194);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _stopEvent = __webpack_require__(297);
-	
-	var _stopEvent2 = _interopRequireDefault(_stopEvent);
-	
-	var _createScheduler = __webpack_require__(298);
-	
-	var _createScheduler2 = _interopRequireDefault(_createScheduler);
-	
-	var _blockStandardKeyEvents = __webpack_require__(302);
-	
-	var _blockStandardKeyEvents2 = _interopRequireDefault(_blockStandardKeyEvents);
-	
-	var _keyCodes = __webpack_require__(301);
-	
-	var keyCodes = _interopRequireWildcard(_keyCodes);
-	
-	var _getWindowFromRef = __webpack_require__(300);
-	
-	var _getWindowFromRef2 = _interopRequireDefault(_getWindowFromRef);
-	
-	var _getCenterPosition = __webpack_require__(304);
-	
-	var _getCenterPosition2 = _interopRequireDefault(_getCenterPosition);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var noop = function noop() {};
-	
-	exports.default = function (callbacks, getDraggableRef) {
-	  var state = {
-	    isDragging: false
-	  };
-	  var setState = function setState(newState) {
-	    state = newState;
-	  };
-	  var startDragging = function startDragging() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    setState({
-	      isDragging: true
-	    });
-	    bindWindowEvents();
-	    fn();
-	  };
-	  var stopDragging = function stopDragging() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    unbindWindowEvents();
-	    setState({
-	      isDragging: false
-	    });
-	    fn();
-	  };
-	  var kill = function kill() {
-	    return stopDragging();
-	  };
-	  var cancel = function cancel() {
-	    stopDragging(callbacks.onCancel);
-	  };
-	  var isDragging = function isDragging() {
-	    return state.isDragging;
-	  };
-	  var schedule = (0, _createScheduler2.default)(callbacks, isDragging);
-	
-	  var onKeyDown = function onKeyDown(event, props) {
-	    var canLift = props.canLift,
-	        direction = props.direction;
-	
-	    if (!isDragging()) {
-	      if (!canLift) {
-	        return;
-	      }
-	
-	      if (event.keyCode !== keyCodes.space) {
-	        return;
-	      }
-	      (0, _stopEvent2.default)(event);
-	
-	      var ref = getDraggableRef();
-	
-	      if (!ref) {
-	        console.error('cannot start a keyboard drag without a draggable ref');
-	        return;
-	      }
-	
-	      var center = (0, _getCenterPosition2.default)(ref);
-	
-	      startDragging(function () {
-	        return callbacks.onLift({ client: center, isScrollAllowed: false });
-	      });
-	      return;
-	    }
-	
-	    if (!direction) {
-	      console.error('cannot handle keyboard event if direction is not provided');
-	      (0, _stopEvent2.default)(event);
-	      cancel();
-	      return;
-	    }
-	
-	    if (event.keyCode === keyCodes.escape) {
-	      (0, _stopEvent2.default)(event);
-	      cancel();
-	      return;
-	    }
-	
-	    if (event.keyCode === keyCodes.space) {
-	      (0, _stopEvent2.default)(event);
-	      stopDragging(callbacks.onDrop);
-	      return;
-	    }
-	
-	    var executeBasedOnDirection = function executeBasedOnDirection(fns) {
-	      if (direction === 'vertical') {
-	        fns.vertical();
-	        return;
-	      }
-	      fns.horizontal();
-	    };
-	
-	    if (event.keyCode === keyCodes.arrowDown) {
-	      (0, _stopEvent2.default)(event);
-	      executeBasedOnDirection({
-	        vertical: schedule.moveForward,
-	        horizontal: schedule.crossAxisMoveForward
-	      });
-	      return;
-	    }
-	
-	    if (event.keyCode === keyCodes.arrowUp) {
-	      (0, _stopEvent2.default)(event);
-	      executeBasedOnDirection({
-	        vertical: schedule.moveBackward,
-	        horizontal: schedule.crossAxisMoveBackward
-	      });
-	      return;
-	    }
-	
-	    if (event.keyCode === keyCodes.arrowRight) {
-	      (0, _stopEvent2.default)(event);
-	      executeBasedOnDirection({
-	        vertical: schedule.crossAxisMoveForward,
-	        horizontal: schedule.moveForward
-	      });
-	      return;
-	    }
-	
-	    if (event.keyCode === keyCodes.arrowLeft) {
-	      (0, _stopEvent2.default)(event);
-	      executeBasedOnDirection({
-	        vertical: schedule.crossAxisMoveBackward,
-	        horizontal: schedule.moveBackward
-	      });
-	    }
-	
-	    (0, _blockStandardKeyEvents2.default)(event);
-	  };
-	
-	  var windowBindings = {
-	    mousedown: cancel,
-	    resize: cancel,
-	
-	    scroll: cancel
-	  };
-	
-	  var eventKeys = (0, _keys2.default)(windowBindings);
-	
-	  var bindWindowEvents = function bindWindowEvents() {
-	    var win = (0, _getWindowFromRef2.default)(getDraggableRef());
-	
-	    eventKeys.forEach(function (eventKey) {
-	      win.addEventListener(eventKey, windowBindings[eventKey]);
-	    });
-	  };
-	
-	  var unbindWindowEvents = function unbindWindowEvents() {
-	    var win = (0, _getWindowFromRef2.default)(getDraggableRef());
-	
-	    eventKeys.forEach(function (eventKey) {
-	      win.removeEventListener(eventKey, windowBindings[eventKey]);
-	    });
-	  };
-	
-	  var sensor = {
-	    onKeyDown: onKeyDown,
-	    kill: kill,
-	    isDragging: isDragging,
-	
-	    isCapturing: isDragging
-	  };
-	
-	  return sensor;
-	};
-
-/***/ }),
-/* 304 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (el) {
-	  var _el$getBoundingClient = el.getBoundingClientRect(),
-	      top = _el$getBoundingClient.top,
-	      right = _el$getBoundingClient.right,
-	      bottom = _el$getBoundingClient.bottom,
-	      left = _el$getBoundingClient.left;
-	
-	  var centerX = (left + right) / 2;
-	  var centerY = (top + bottom) / 2;
-	
-	  return {
-	    x: centerX,
-	    y: centerY
-	  };
-	};
-
-/***/ }),
-/* 305 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.forcePressThreshold = exports.timeForLongPress = undefined;
-	
-	var _keys = __webpack_require__(194);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _extends2 = __webpack_require__(197);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _stopEvent = __webpack_require__(297);
-	
-	var _stopEvent2 = _interopRequireDefault(_stopEvent);
-	
-	var _createScheduler = __webpack_require__(298);
-	
-	var _createScheduler2 = _interopRequireDefault(_createScheduler);
-	
-	var _isSloppyClickThresholdExceeded = __webpack_require__(299);
-	
-	var _isSloppyClickThresholdExceeded2 = _interopRequireDefault(_isSloppyClickThresholdExceeded);
-	
-	var _getWindowFromRef = __webpack_require__(300);
-	
-	var _getWindowFromRef2 = _interopRequireDefault(_getWindowFromRef);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var timeForLongPress = exports.timeForLongPress = 200;
-	var forcePressThreshold = exports.forcePressThreshold = 0.15;
-	
-	var noop = function noop() {};
-	
-	var initial = {
-	  isDragging: false,
-	  pending: null,
-	  hasMoved: false,
-	  preventClick: false,
-	  longPressTimerId: null
-	};
-	
-	exports.default = function (callbacks, getDraggableRef) {
-	  var state = initial;
-	
-	  var setState = function setState(partial) {
-	    state = (0, _extends3.default)({}, state, partial);
-	  };
-	  var isDragging = function isDragging() {
-	    return state.isDragging;
-	  };
-	  var isCapturing = function isCapturing() {
-	    return Boolean(state.pending || state.isDragging || state.longPressTimerId);
-	  };
-	  var schedule = (0, _createScheduler2.default)(callbacks, isDragging);
-	
-	  var startDragging = function startDragging() {
-	    if (state.longPressTimerId) {
-	      clearTimeout(state.longPressTimerId);
-	    }
-	
-	    var pending = state.pending;
-	
-	    if (!state.pending) {
-	      console.error('cannot start a touch drag without a pending position');
-	      kill();
-	      return;
-	    }
-	
-	    setState({
-	      isDragging: true,
-	
-	      hasMoved: false,
-	
-	      pending: null,
-	      longPressTimerId: null
-	    });
-	
-	    callbacks.onLift({
-	      client: pending,
-	
-	      isScrollAllowed: false
-	    });
-	  };
-	  var stopDragging = function stopDragging() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    unbindWindowEvents();
-	    setState((0, _extends3.default)({}, initial, {
-	      preventClick: true
-	    }));
-	    fn();
-	  };
-	
-	  var startPendingDrag = function startPendingDrag(event) {
-	    var touch = event.touches[0];
-	    var clientX = touch.clientX,
-	        clientY = touch.clientY;
-	
-	    var point = {
-	      x: clientX,
-	      y: clientY
-	    };
-	
-	    var longPressTimerId = setTimeout(startDragging, timeForLongPress);
-	
-	    setState({
-	      longPressTimerId: longPressTimerId,
-	      pending: point,
-	      isDragging: false,
-	      hasMoved: false
-	    });
-	    bindWindowEvents();
-	  };
-	
-	  var stopPendingDrag = function stopPendingDrag() {
-	    clearTimeout(state.longPressTimerId);
-	    unbindWindowEvents();
-	
-	    setState(initial);
-	  };
-	
-	  var kill = function kill() {
-	    var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-	
-	    if (state.pending) {
-	      stopPendingDrag();
-	      return;
-	    }
-	    stopDragging(fn);
-	  };
-	
-	  var cancel = function cancel() {
-	    kill(callbacks.onCancel);
-	  };
-	
-	  var windowBindings = {
-	    touchmove: function touchmove(event) {
-	      var _event$touches$ = event.touches[0],
-	          clientX = _event$touches$.clientX,
-	          clientY = _event$touches$.clientY;
-	
-	
-	      var point = {
-	        x: clientX,
-	        y: clientY
-	      };
-	
-	      (0, _stopEvent2.default)(event);
-	
-	      if (!state.hasMoved) {
-	        setState({
-	          hasMoved: true
-	        });
-	      }
-	
-	      if (state.pending) {
-	        if (!(0, _isSloppyClickThresholdExceeded2.default)(state.pending, point)) {
-	          return;
-	        }
-	
-	        startDragging();
-	        return;
-	      }
-	
-	      schedule.move(point);
-	    },
-	    touchend: function touchend(event) {
-	      if (state.pending) {
-	        stopPendingDrag();
-	
-	        return;
-	      }
-	
-	      stopDragging(callbacks.onDrop);
-	      (0, _stopEvent2.default)(event);
-	    },
-	    touchcancel: function touchcancel() {
-	      if (state.pending) {
-	        stopPendingDrag();
-	        return;
-	      }
-	      cancel();
-	    },
-	    touchstart: function touchstart() {
-	      if (isDragging()) {
-	        console.error('touch start fired while already dragging');
-	        cancel();
-	      }
-	    },
-	
-	    orientationchange: cancel,
-	
-	    resize: cancel,
-	
-	    scroll: cancel,
-	
-	    contextmenu: _stopEvent2.default,
-	
-	    keydown: cancel,
-	
-	    touchforcechange: function touchforcechange(event) {
-	      if (state.hasMoved) {
-	        return;
-	      }
-	
-	      var touch = event.touches[0];
-	
-	      if (touch.force >= forcePressThreshold) {
-	        cancel();
-	      }
-	    }
-	  };
-	
-	  var eventKeys = (0, _keys2.default)(windowBindings);
-	
-	  var bindWindowEvents = function bindWindowEvents() {
-	    var win = (0, _getWindowFromRef2.default)(getDraggableRef());
-	
-	    eventKeys.forEach(function (eventKey) {
-	      var fn = windowBindings[eventKey];
-	
-	      if (eventKey === 'touchmove') {
-	        win.addEventListener(eventKey, fn, { passive: false });
-	        return;
-	      }
-	
-	      win.addEventListener(eventKey, fn);
-	    });
-	  };
-	
-	  var unbindWindowEvents = function unbindWindowEvents() {
-	    var win = (0, _getWindowFromRef2.default)(getDraggableRef());
-	
-	    eventKeys.forEach(function (eventKey) {
-	      return win.removeEventListener(eventKey, windowBindings[eventKey]);
-	    });
-	  };
-	
-	  var onTouchStart = function onTouchStart(event, props) {
-	    if (!props.canLift) {
-	      return;
-	    }
-	
-	    if (isCapturing()) {
-	      console.error('should not be able to perform a touch start while a drag or pending drag is occurring');
-	      cancel();
-	      return;
-	    }
-	
-	    event.stopPropagation();
-	
-	    startPendingDrag(event);
-	  };
-	
-	  var onTouchMove = function onTouchMove(event) {
-	
-	    if (isCapturing()) {
-	      event.preventDefault();
-	    }
-	  };
-	
-	  var onClick = function onClick(event) {
-	    if (!state.preventClick) {
-	      return;
-	    }
-	
-	    (0, _stopEvent2.default)(event);
-	    setState(initial);
-	  };
-	
-	  var sensor = {
-	    onTouchStart: onTouchStart,
-	    onTouchMove: onTouchMove,
-	    onClick: onClick,
-	    kill: kill,
-	    isCapturing: isCapturing,
-	    isDragging: isDragging
-	  };
-	
-	  return sensor;
-	};
-
-/***/ }),
-/* 306 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -22786,7 +22072,7 @@
 	//# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 307 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -24638,10 +23924,476 @@
 	
 	module.exports = isEqual;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(185)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(131)(module)))
 
 /***/ }),
-/* 308 */
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(12);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _reactBeautifulDnd = __webpack_require__(82);
+	
+	var _util = __webpack_require__(185);
+	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _lodash = __webpack_require__(183);
+	
+	var _lodash2 = _interopRequireDefault(_lodash);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	
+	var reorder = function reorder(list, startIndex, endIndex) {
+	  var result = Array.from(list);
+	
+	  var _result$splice = result.splice(startIndex, 1),
+	      _result$splice2 = _slicedToArray(_result$splice, 1),
+	      removed = _result$splice2[0];
+	
+	  result.splice(endIndex, 0, removed);
+	
+	  return result;
+	};
+	
+	var Vertical = function (_Component) {
+	  _inherits(Vertical, _Component);
+	
+	  function Vertical(props) {
+	    _classCallCheck(this, Vertical);
+	
+	    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+	
+	    _this.onDragEnd = function (result) {
+	      if (!result.destination) {
+	        return;
+	      }
+	      var items = reorder(_this.state.items, result.source.index, result.destination.index);
+	
+	      _this.setState({
+	        items: items
+	      });
+	      _this.props.onStop(result, items);
+	    };
+	
+	    _this.onDragStart = function (result) {
+	      _this.props.onStart(result, _this.state.items);
+	    };
+	
+	    _this.state = {
+	      items: _this.props.list || []
+	    };
+	    return _this;
+	  }
+	
+	  Vertical.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	    if (!(0, _lodash2['default'])(this.state.items, nextProps.list)) {
+	      this.setState({
+	        items: nextProps.list
+	      });
+	    }
+	  };
+	
+	  Vertical.prototype.render = function render() {
+	    var _this2 = this;
+	
+	    var _props = this.props,
+	        onStart = _props.onStart,
+	        onDrag = _props.onDrag,
+	        onStop = _props.onStop,
+	        onDragUpdate = _props.onDragUpdate,
+	        dropClass = _props.dropClass,
+	        dropOverClass = _props.dropOverClass,
+	        dragClass = _props.dragClass,
+	        dragingClass = _props.dragingClass,
+	        showKey = _props.showKey,
+	        type = _props.type;
+	
+	
+	    return _react2['default'].createElement(
+	      _reactBeautifulDnd.DragDropContext,
+	      { onDragEnd: this.onDragEnd, onDragStart: this.onDragStart, onDragUpdate: onDragUpdate },
+	      _react2['default'].createElement(
+	        _reactBeautifulDnd.Droppable,
+	        { droppableId: 'droppable', direction: type },
+	        function (provided, snapshot) {
+	          return _react2['default'].createElement(
+	            'div',
+	            {
+	              ref: provided.innerRef,
+	              className: (0, _classnames2['default'])(_extends({}, (0, _util.getClass)(_this2.props, snapshot.isDraggingOver).drop))
+	            },
+	            _this2.state.items.map(function (item, index) {
+	              return _react2['default'].createElement(
+	                _reactBeautifulDnd.Draggable,
+	                { key: index, draggableId: index, index: index },
+	                function (provided, snapshot) {
+	                  return _react2['default'].createElement(
+	                    'div',
+	                    _extends({
+	                      ref: provided.innerRef
+	                    }, provided.draggableProps, provided.dragHandleProps, {
+	                      className: (0, _classnames2['default'])(_extends({}, (0, _util.getClass)(_this2.props, snapshot.isDragging).drag)),
+	                      style: _extends({}, provided.draggableProps.style)
+	                    }),
+	                    showKey ? item[showKey] : item
+	                  );
+	                }
+	              );
+	            }),
+	            provided.placeholder
+	          );
+	        }
+	      )
+	    );
+	  };
+	
+	  return Vertical;
+	}(_react.Component);
+	
+	exports['default'] = Vertical;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var getClass = exports.getClass = function getClass(props, doing) {
+	    var dropClass = props.dropClass,
+	        dropOverClass = props.dropOverClass,
+	        dragClass = props.dragClass,
+	        dragingClass = props.dragingClass,
+	        type = props.type;
+	
+	
+	    var verticalObj = {
+	        drop: {}, drag: {}
+	    };
+	    verticalObj.drop['u-drop ' + dropClass] = true;
+	    verticalObj.drop['u-droping ' + dropOverClass] = doing;
+	    verticalObj.drag['u-drag ' + dragClass] = true;
+	    verticalObj.drag['u-draging ' + dragingClass] = doing;
+	
+	    var horizontalObj = {
+	        drop: {}, drag: {}
+	    };
+	    horizontalObj.drop['u-drop u-drop-horizontal ' + dropClass] = true;
+	    horizontalObj.drop['u-droping u-droping-horizontal ' + dropOverClass] = doing;
+	    horizontalObj.drag['u-drag u-drag-horizontal ' + dragClass] = true;
+	    horizontalObj.drag['u-draging u-draging-horizontal ' + dragingClass] = doing;
+	
+	    switch (type) {
+	        case 'vertical':
+	            return verticalObj;
+	            break;
+	        case 'horizontal':
+	            return horizontalObj;
+	            break;
+	        case 'betweenVertical':
+	            return verticalObj;
+	            break;
+	        case 'betweenHorizontal':
+	            return horizontalObj;
+	            break;
+	    }
+	};
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(12);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _reactBeautifulDnd = __webpack_require__(82);
+	
+	var _util = __webpack_require__(185);
+	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _lodash = __webpack_require__(183);
+	
+	var _lodash2 = _interopRequireDefault(_lodash);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	
+	var reorder = function reorder(list, startIndex, endIndex) {
+	    var result = Array.from(list);
+	
+	    var _result$splice = result.splice(startIndex, 1),
+	        _result$splice2 = _slicedToArray(_result$splice, 1),
+	        removed = _result$splice2[0];
+	
+	    result.splice(endIndex, 0, removed);
+	
+	    return result;
+	};
+	
+	/**
+	 * Moves an item from one list to another list.
+	 */
+	var move = function move(source, destination, droppableSource, droppableDestination) {
+	    var sourceClone = Array.from(source);
+	    var destClone = Array.from(destination);
+	
+	    var _sourceClone$splice = sourceClone.splice(droppableSource.index, 1),
+	        _sourceClone$splice2 = _slicedToArray(_sourceClone$splice, 1),
+	        removed = _sourceClone$splice2[0];
+	
+	    destClone.splice(droppableDestination.index, 0, removed);
+	
+	    var result = {};
+	    result[droppableSource.droppableId] = sourceClone;
+	    result[droppableDestination.droppableId] = destClone;
+	
+	    return result;
+	};
+	
+	var Between = function (_Component) {
+	    _inherits(Between, _Component);
+	
+	    function Between(props) {
+	        _classCallCheck(this, Between);
+	
+	        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+	
+	        _this.id2List = {
+	            droppable: 'items',
+	            droppable2: 'selected'
+	        };
+	
+	        _this.getList = function (id) {
+	            return _this.state[_this.id2List[id]];
+	        };
+	
+	        _this.onDragEnd = function (result) {
+	            console.log(result);
+	            var source = result.source,
+	                destination = result.destination;
+	
+	            // dropped outside the list
+	
+	            if (!destination) {
+	                return;
+	            }
+	            var list = _this.state.items;
+	            var otherList = _this.state.selected;
+	
+	            if (source.droppableId === destination.droppableId) {
+	                var items = reorder(_this.getList(source.droppableId), source.index, destination.index);
+	
+	                var state = { items: items };
+	                list = items;
+	
+	                if (source.droppableId === 'droppable2') {
+	                    state = { selected: items };
+	                    otherList = items;
+	                    list = _this.state.items;
+	                }
+	                _this.setState(state);
+	            } else {
+	                var _result = move(_this.getList(source.droppableId), _this.getList(destination.droppableId), source, destination);
+	
+	                _this.setState({
+	                    items: _result.droppable,
+	                    selected: _result.droppable2
+	                });
+	                list = _result.droppable;
+	                otherList = _result.droppable2;
+	            }
+	            _this.props.onStop(result, {
+	                list: list,
+	                otherList: otherList
+	            });
+	        };
+	
+	        _this.onDragStart = function (result) {
+	            _this.props.onStart(result, {
+	                list: _this.state.list,
+	                otherList: _this.state.selected
+	            });
+	        };
+	
+	        _this.state = {
+	            items: _this.props.list,
+	            selected: _this.props.otherList
+	        };
+	        return _this;
+	    }
+	
+	    Between.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if (!(0, _lodash2['default'])(this.state.items, nextProps.list)) {
+	            this.setState({
+	                items: nextProps.list
+	            });
+	        }
+	        if (!(0, _lodash2['default'])(this.state.selected, nextProps.otherList)) {
+	            this.setState({
+	                selected: nextProps.otherList
+	            });
+	        }
+	    };
+	
+	    Between.prototype.render = function render() {
+	        var _this2 = this;
+	
+	        var _props = this.props,
+	            onStart = _props.onStart,
+	            onDrag = _props.onDrag,
+	            onStop = _props.onStop,
+	            onDragUpdate = _props.onDragUpdate,
+	            dropClass = _props.dropClass,
+	            dropOverClass = _props.dropOverClass,
+	            dragClass = _props.dragClass,
+	            dragingClass = _props.dragingClass,
+	            showKey = _props.showKey,
+	            type = _props.type;
+	
+	
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: (0, _classnames2['default'])({
+	                    'u-drag-between': type == 'betweenVertical',
+	                    'u-drag-between u-drag-between-horizontal': type == 'betweenHorizontal'
+	
+	                }) },
+	            _react2['default'].createElement(
+	                _reactBeautifulDnd.DragDropContext,
+	                { onDragEnd: this.onDragEnd, onDragStart: this.onDragStart, onDragUpdate: onDragUpdate },
+	                _react2['default'].createElement(
+	                    _reactBeautifulDnd.Droppable,
+	                    { droppableId: 'droppable', direction: type == 'betweenVertical' ? 'vertical' : 'horizontal' },
+	                    function (provided, snapshot) {
+	                        return _react2['default'].createElement(
+	                            'div',
+	                            {
+	                                ref: provided.innerRef,
+	                                className: (0, _classnames2['default'])(_extends({}, (0, _util.getClass)(_this2.props, snapshot.isDraggingOver).drop)) },
+	                            _this2.state.items.map(function (item, index) {
+	                                return _react2['default'].createElement(
+	                                    _reactBeautifulDnd.Draggable,
+	                                    {
+	                                        key: '1' + index,
+	                                        draggableId: '1' + index,
+	                                        index: index },
+	                                    function (provided, snapshot) {
+	                                        return _react2['default'].createElement(
+	                                            'div',
+	                                            _extends({
+	                                                ref: provided.innerRef
+	                                            }, provided.draggableProps, provided.dragHandleProps, {
+	                                                className: (0, _classnames2['default'])(_extends({}, (0, _util.getClass)(_this2.props, snapshot.isDragging).drag)),
+	                                                style: _extends({}, provided.draggableProps.style) }),
+	                                            showKey ? item[showKey] : item
+	                                        );
+	                                    }
+	                                );
+	                            }),
+	                            provided.placeholder
+	                        );
+	                    }
+	                ),
+	                _react2['default'].createElement(
+	                    _reactBeautifulDnd.Droppable,
+	                    { droppableId: 'droppable2', direction: type == 'betweenVertical' ? 'vertical' : 'horizontal' },
+	                    function (provided, snapshot) {
+	                        return _react2['default'].createElement(
+	                            'div',
+	                            {
+	                                ref: provided.innerRef,
+	                                className: (0, _classnames2['default'])(_extends({}, (0, _util.getClass)(_this2.props, snapshot.isDraggingOver).drop)) },
+	                            _this2.state.selected.map(function (item, index) {
+	                                return _react2['default'].createElement(
+	                                    _reactBeautifulDnd.Draggable,
+	                                    {
+	                                        key: '2' + index,
+	                                        draggableId: '2' + index,
+	                                        index: index },
+	                                    function (provided, snapshot) {
+	                                        return _react2['default'].createElement(
+	                                            'div',
+	                                            _extends({
+	                                                ref: provided.innerRef
+	                                            }, provided.draggableProps, provided.dragHandleProps, {
+	                                                className: (0, _classnames2['default'])(_extends({}, (0, _util.getClass)(_this2.props, snapshot.isDragging).drag)),
+	                                                style: _extends({}, provided.draggableProps.style) }),
+	                                            showKey ? item[showKey] : item
+	                                        );
+	                                    }
+	                                );
+	                            }),
+	                            provided.placeholder
+	                        );
+	                    }
+	                )
+	            )
+	        );
+	    };
+	
+	    return Between;
+	}(_react.Component);
+	
+	exports['default'] = Between;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24716,7 +24468,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 309 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24792,7 +24544,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 310 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24901,7 +24653,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 311 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24976,7 +24728,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 312 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25051,7 +24803,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 313 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25130,7 +24882,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 314 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25159,7 +24911,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 数据集合拖拽列表排序
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 增加list 可以为 [1,2,3]数组，
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *              也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *              也可以为 [{},{}...]，需要配置 showKey 。
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *              也可以为 dom集合，见后边示例
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
@@ -25180,12 +24932,29 @@
 	            console.log('开始');
 	        }, _this.onDragEnd = function (result, list) {
 	            console.log('结束');
+	        }, _this.onDragUpdate = function (result) {
+	            console.log('update');
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 	
 	    Demo8.prototype.render = function render() {
-	        var list1 = ['第一', '第二', '第三', '第四', '第五'];
-	        return _react2['default'].createElement(_index2['default'], { list: list1, onStart: this.onDragStart, onStop: this.onDragEnd });
+	        var list = [{
+	            name: '第一',
+	            code: 'a'
+	        }, {
+	            name: '第二',
+	            code: 'b'
+	        }, {
+	            name: '第三',
+	            code: 'c'
+	        }, {
+	            name: '第四',
+	            code: 'd'
+	        }, {
+	            name: '第五',
+	            code: 'e'
+	        }];
+	        return _react2['default'].createElement(_index2['default'], { showKey: 'name', list: list, onDragUpdate: this.onDragUpdate, onStart: this.onDragStart, onStop: this.onDragEnd });
 	    };
 	
 	    return Demo8;
@@ -25195,7 +24964,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 315 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25276,6 +25045,181 @@
 	}(_react.Component);
 	
 	exports['default'] = Demo9;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Dnd = __webpack_require__(81);
+	
+	var _Dnd2 = _interopRequireDefault(_Dnd);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	/**
+	 *
+	 * @title 横向拖拽列表排序
+	 * @description type='horizontal'
+	 *
+	 */
+	
+	var Demo90 = function (_Component) {
+	    _inherits(Demo90, _Component);
+	
+	    function Demo90() {
+	        _classCallCheck(this, Demo90);
+	
+	        return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+	    }
+	
+	    Demo90.prototype.render = function render() {
+	        var list = ['第一', '第二', '第三', '第四', '第五'];
+	        return _react2['default'].createElement(_Dnd2['default'], { list: list, type: 'horizontal' });
+	    };
+	
+	    return Demo90;
+	}(_react.Component);
+	
+	exports['default'] = Demo90;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Dnd = __webpack_require__(81);
+	
+	var _Dnd2 = _interopRequireDefault(_Dnd);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	/**
+	 *
+	 * @title 两列纵向拖拽
+	 * @description 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开
+	 *
+	 */
+	
+	var Demo90 = function (_Component) {
+	    _inherits(Demo90, _Component);
+	
+	    function Demo90() {
+	        _classCallCheck(this, Demo90);
+	
+	        return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+	    }
+	
+	    Demo90.prototype.render = function render() {
+	        var list1 = ['第一', '第二', '第三', '第四', '第五'];
+	        var list2 = ['1', '2', '3', '4', '5'];
+	        return _react2['default'].createElement(_Dnd2['default'], { className: 'demo91', list: list1, otherList: list2, type: 'betweenVertical' });
+	    };
+	
+	    return Demo90;
+	}(_react.Component);
+	
+	exports['default'] = Demo90;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Dnd = __webpack_require__(81);
+	
+	var _Dnd2 = _interopRequireDefault(_Dnd);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	/**
+	 *
+	 * @title 两列横向拖拽
+	 * @description 设置 type='betweenVertical'
+	 *
+	 */
+	
+	var Demo90 = function (_Component) {
+	    _inherits(Demo90, _Component);
+	
+	    function Demo90() {
+	        var _temp, _this, _ret;
+	
+	        _classCallCheck(this, Demo90);
+	
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.onDragStart = function (result, list) {
+	            console.log('开始');
+	        }, _this.onDragEnd = function (result, listObj) {
+	            console.log('结束');
+	            console.log(listObj);
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+	
+	    Demo90.prototype.render = function render() {
+	        var list1 = ['第一', '第二', '第三', '第四', '第五'];
+	        var list2 = ['1', '2', '3', '4', '5'];
+	        return _react2['default'].createElement(_Dnd2['default'], { list: list1, otherList: list2, type: 'betweenHorizontal', onStart: this.onDragStart, onStop: this.onDragEnd });
+	    };
+	
+	    return Demo90;
+	}(_react.Component);
+	
+	exports['default'] = Demo90;
 	module.exports = exports['default'];
 
 /***/ })

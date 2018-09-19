@@ -2,7 +2,7 @@
  *
  * @title 数据集合拖拽列表排序
  * @description 增加list 可以为 [1,2,3]数组，
- *              也可以为 [{name:1},{name:2}]，后者需要有name属性，便于显示。
+ *              也可以为 [{},{}...]，需要配置 showKey 。
  *              也可以为 dom集合，见后边示例
  *
  */
@@ -15,13 +15,37 @@ class Demo8 extends Component {
     onDragStart=(result,list)=>{
         console.log('开始');
     }
-    onDragEnd=(result,list)=>{
+    onDragEnd=(result,list)=>{   
         console.log('结束');
     }
+    onDragUpdate=(result)=>{
+        console.log('update')
+    }
     render() {
-        let list1=['第一','第二','第三','第四','第五'];
+        let list=[
+            {
+                name:'第一',
+                code:'a'
+            },
+            {
+                name:'第二',
+                code:'b'
+            },
+            {
+                name:'第三',
+                code:'c'
+            },
+            {
+                name:'第四',
+                code:'d'
+            },
+            {
+                name:'第五',
+                code:'e'
+            },
+        ];
         return (
-            <Dnd  list={list1} onStart={this.onDragStart} onStop={this.onDragEnd}/>
+            <Dnd showKey='name' list={list} onDragUpdate={this.onDragUpdate} onStart={this.onDragStart} onStop={this.onDragEnd}/>
         );
     }
 }

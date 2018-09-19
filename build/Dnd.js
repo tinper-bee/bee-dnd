@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -26,6 +24,14 @@ var _lodash = require('lodash.isequal');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _SortList = require('./SortList');
+
+var _SortList2 = _interopRequireDefault(_SortList);
+
+var _Between = require('./Between');
+
+var _Between2 = _interopRequireDefault(_Between);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -38,24 +44,35 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
     onStart: _propTypes2["default"].func,
+    onDrag: _propTypes2["default"].func,
     onStop: _propTypes2["default"].func,
-    DragListClass: _propTypes2["default"].string,
-    DragItemClass: _propTypes2["default"].string,
+    onDragUpdate: _propTypes2["default"].func,
+    dropClass: _propTypes2["default"].string,
+    dropOverClass: _propTypes2["default"].string,
+    dragClass: _propTypes2["default"].string,
+    dragingClass: _propTypes2["default"].string,
+    draggedClass: _propTypes2["default"].string,
+    className: _propTypes2["default"].string,
+    style: _propTypes2["default"].object,
     list: _propTypes2["default"].array,
-    defaultList: _propTypes2["default"].array
+    otherList: _propTypes2["default"].array,
+    type: _propTypes2["default"].oneOf(['vertical', 'horizontal', 'betweenVertical', 'betweenHorizontal']),
+    showKey: _propTypes2["default"].string
+
 };
 var defaultProps = {
     onStart: function onStart() {},
     onDrag: function onDrag() {},
     onStop: function onStop() {},
-    defaultList: [],
+    onDragUpdate: function onDragUpdate() {},
     list: false,
-    clsPrefix: 'u-drag',
-    listClass: 'u-drag-list',
-    listDraggingClass: 'u-list-dragging',
-    draggingClass: 'u-dragging',
-    listItemClass: 'u-drag-item',
-    draggedClass: 'u-dragged'
+    otherList: [],
+    dropClass: '',
+    dropOverClass: '',
+    dragClass: '',
+    dragingClass: '',
+    draggedClass: '',
+    type: 'vertical'
 };
 
 var Dnd = function (_Component) {
@@ -65,37 +82,6 @@ var Dnd = function (_Component) {
         _classCallCheck(this, Dnd);
 
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
-        _this.getListStyle = function (isDraggingOver) {
-            return isDraggingOver ? _this.props.listClass + ' ' + _this.props.listDraggingClass : _this.props.listClass;
-        };
-
-        _this.getItemStyle = function (isDragging) {
-            return isDragging ? _this.props.listItemClass + ' ' + _this.props.draggingClass : _this.props.listItemClass;
-        };
-
-        _this.reorder = function (list, startIndex, endIndex) {
-            var result = Array.from(list);
-
-            var _result$splice = result.splice(startIndex, 1),
-                _result$splice2 = _slicedToArray(_result$splice, 1),
-                removed = _result$splice2[0];
-
-            result.splice(endIndex, 0, removed);
-            return result;
-        };
-
-        _this.onStop = function (result) {
-            if (!result.destination) {
-                _this.props.onStop(result);
-                return;
-            }
-            var items = _this.reorder(_this.state.items, result.source.index, result.destination.index);
-            _this.setState({
-                items: items
-            });
-            _this.props.onStop(result, items);
-        };
 
         _this.state = {
             items: _this.props.list || []
@@ -115,51 +101,32 @@ var Dnd = function (_Component) {
         var _this2 = this;
 
         var self = this;
+        var DndType = function DndType() {
+            switch (_this2.props.type) {
+                case 'vertical':
+                    return _react2["default"].createElement(_SortList2["default"], _this2.props);
+                    break;
+                case 'horizontal':
+                    return _react2["default"].createElement(_SortList2["default"], _this2.props);
+                    break;
+                case 'betweenVertical':
+                    return _react2["default"].createElement(_Between2["default"], _this2.props);
+                    break;
+                case 'betweenHorizontal':
+                    return _react2["default"].createElement(_Between2["default"], _this2.props);
+                    break;
+                default:
+                    return _react2["default"].createElement(_SortList2["default"], _this2.props);
+                    break;
+            }
+        };
         return _react2["default"].createElement(
             'div',
             null,
-            self.state.items.length ? _react2["default"].createElement(
-                _reactBeautifulDnd.DragDropContext,
-                { onDragEnd: this.onStop, onDragStart: this.props.onStart },
-                _react2["default"].createElement(
-                    _reactBeautifulDnd.Droppable,
-                    { droppableId: 'droppable' },
-                    function (provided, snapshot) {
-                        return _react2["default"].createElement(
-                            'div',
-                            { ref: provided.innerRef, className: self.getListStyle(snapshot.isDraggingOver) },
-                            self.state.items.map(function (item, index) {
-                                return _react2["default"].createElement(
-                                    _reactBeautifulDnd.Draggable,
-                                    {
-                                        key: index,
-                                        draggableId: index
-                                    },
-                                    function (provided, snapshot) {
-                                        return _react2["default"].createElement(
-                                            'div',
-                                            { className: _this2.props.clsPrefix },
-                                            _react2["default"].createElement(
-                                                'div',
-                                                _extends({
-                                                    ref: provided.innerRef,
-                                                    className: self.getItemStyle(snapshot.isDragging),
-                                                    style: provided.draggableStyle
-                                                }, provided.dragHandleProps),
-                                                item.name || item
-                                            ),
-                                            provided.placeholder
-                                        );
-                                    }
-                                );
-                            })
-                        );
-                    }
-                )
-            ) : _react2["default"].createElement(
+            self.state.items.length ? DndType() : _react2["default"].createElement(
                 _reactDraggable2["default"],
-                _extends({ defaultClassName: this.props.clsPrefix,
-                    defaultClassNameDragging: this.props.draggingClass,
+                _extends({ defaultClassName: this.props.dragClass,
+                    defaultClassNameDragging: this.props.dragingClass,
                     defaultClassNameDragged: this.props.draggedClass
                 }, this.props),
                 self.props.children
@@ -173,5 +140,8 @@ var Dnd = function (_Component) {
 Dnd.propTypes = propTypes;
 Dnd.defaultProps = defaultProps;
 Dnd.Drag = _reactDraggable2["default"];
+Dnd.DragDropContext = _reactBeautifulDnd.DragDropContext;
+Dnd.Droppable = _reactBeautifulDnd.Droppable;
+Dnd.Draggable = _reactBeautifulDnd.Draggable;
 exports["default"] = Dnd;
 module.exports = exports['default'];

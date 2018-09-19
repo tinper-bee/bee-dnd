@@ -5205,14 +5205,19 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu,
 
 /* FormGroup */
 /*  Navlayout  */
-.u-drag-list {
+.u-drop {
   background: rgb(189,189,189);
   padding: 8px; }
 
-.u-list-dragging {
+.u-droping {
   background: rgb(64,196,255); }
 
-.u-drag-item {
+.u-drop.u-drop-horizontal {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%; }
+
+.u-drag {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -5220,10 +5225,22 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu,
   padding: 16px;
   color: rgb(0,0,0);
   margin: 4px;
-  background: rgb(158,158,158); }
+  background: rgb(158,158,158);
+  min-width: 100px; }
 
-.u-dragging {
+.u-draging {
   background: rgb(100,181,246); }
+
+.u-drag.u-drag-horizontal {
+  display: inline-block; }
+
+.u-drag-between {
+  display: -ms-flexbox;
+  display: flex; }
+
+.u-drag-between-horizontal {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
 
 /* FormGroup */
 /*  Navlayout  */
@@ -6202,6 +6219,12 @@ input.u-button[type="submit"] {
 .collapse.in {
   display: block; }
 
+.u-drop {
+  width: 300px; }
+
+.u-drag {
+  text-align: center; }
+
 .demo {
   width: 250px;
   height: 50px;
@@ -6285,5 +6308,18 @@ input.u-button[type="submit"] {
   height: 200px;
   background: lightgrey;
   position: relative; }
+
+
+.u-drop {
+  overflow: scroll; }
+
+.u-drag-between {
+  height: 300px; }
+
+.u-drop {
+  overflow: scroll; }
+
+.u-drag-between-horizontal {
+  height: 200px; }
 
 /*# sourceMappingURL=demo.css.map */

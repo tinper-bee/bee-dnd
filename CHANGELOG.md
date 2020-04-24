@@ -1,3 +1,7 @@
+# [3.0.0](https://github.com/tinper-bee/bee-dnd/compare/v2.0.1...v3.0.0) (2020-04-24)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/tinper-bee/bee-dnd/compare/v1.1.5...v2.0.0) (2019-08-22)
 

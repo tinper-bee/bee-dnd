@@ -1,3 +1,13 @@
+## [2.0.2](https://github.com/tinper-bee/bee-dnd/compare/v2.0.1...v2.0.2) (2021-02-01)
+
+
+### Bug Fixes
+
+* 自动化 ([b70684d](https://github.com/tinper-bee/bee-dnd/commit/b70684d8f263e58afefed99838893baf1cd0df52))
+* 还原2.0.1 ([daa6b36](https://github.com/tinper-bee/bee-dnd/commit/daa6b36b317ee2ceed0cb5ad84439452963d3162))
+
+
+
 ## [2.0.1](https://github.com/tinper-bee/bee-dnd/compare/v3.0.1...v2.0.1) (2020-04-24)
 
 

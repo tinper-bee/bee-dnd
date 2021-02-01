@@ -80,7 +80,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
-	var Demo1 = __webpack_require__(278);var Demo2 = __webpack_require__(279);var Demo3 = __webpack_require__(280);var Demo4 = __webpack_require__(281);var Demo5 = __webpack_require__(282);var Demo6 = __webpack_require__(283);var Demo7 = __webpack_require__(284);var Demo8 = __webpack_require__(285);var Demo9 = __webpack_require__(286);var Demo90 = __webpack_require__(287);var Demo91 = __webpack_require__(288);var Demo92 = __webpack_require__(289);var Demo93 = __webpack_require__(290);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础拖拽", "code": "\n/**\n *\n * @title 基础拖拽\n * @description 将某个元素设置为可拖拽\n *\n */\n\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo1 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我可随意拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\nexport default Demo1;", "desc": " 将某个元素设置为可拖拽", "scss_code": ".demo {\n    width:167px;\n    height:32px;\n    background:rgba(247,249,251,1);\n    border-radius:3px;\n    border:1px solid rgba(165,173,186,1);\n    line-height: 32px;\n    font-size: 12px;\n    color: #212121;\n    text-align: center;\n    cursor: grab;\n    &:hover{\n      background:rgba(235,236,240,1);\n      border-radius:3px;\n    }\n}\n/*拖动状态*/\n.react-draggable-transparent-selection{\n    .demo{\n        box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\n        opacity:0.8;\n        cursor: grabbing;\n    }\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 单个元素沿x轴y轴拖拽", "code": "\n/**\n *\n * @title 单个元素沿x轴y轴拖拽\n * @description 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽\n *\n */\n\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo2 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd axis=\"x\" onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只可延X轴拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\nexport default Demo2;", "desc": " 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽", "scss_code": ".demo {\n  width:167px;\n  height:32px;\n  background:rgba(247,249,251,1);\n  border-radius:3px;\n  border:1px solid rgba(165,173,186,1);\n  line-height: 32px;\n  font-size: 12px;\n  color: #212121;\n  text-align: center;\n  cursor: grab;\n  &:hover{\n    background:rgba(235,236,240,1);\n    border-radius:3px;\n  }\n}\n/*拖动状态*/\n.react-draggable-transparent-selection{\n  .demo{\n      box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\n      opacity:0.8;\n      cursor: grabbing;\n  }\n}" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 设置元素不可拖拽", "code": "\n/**\n *\n * @title 设置元素不可拖拽\n * @description 设置 onStart 的返回值为false，则不可以拖拽\n *\n */\n\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo3 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n        return false;\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div className=\"demo-3\">\n                <Dnd onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo3 demo\">我不可以拖拽</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\nexport default Demo3;", "desc": " 设置 onStart 的返回值为false，则不可以拖拽", "scss_code": ".demo-3{\n  .demo3:hover{\n    background:rgba(247,249,251,1);\n    cursor: not-allowed;\n  }\n}" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 单个元素拖拽把手", "code": "/**\n *\n * @title 单个元素拖拽把手\n * @description 设置 handle，值为选择器，例如 '.handle'\n *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'\n */\n\nimport React, { Component } from 'react';\nimport { Icon } from 'tinper-bee';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo4 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n\n    render() {\n        return (\n            <div className=\"demo-4\">\n                <div>\n                    <Dnd handle=\".handle\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo4 demo\">\n                            需要拖拽把手\n                            <div className=\"handle\"><Icon type=\"uf-move\"></Icon></div>\n                        </div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}\n\nexport default Demo4;", "desc": " 设置 handle，值为选择器，例如 '.handle'", "scss_code": "\n.demo-4 .demo4 {\n  position: relative;\n  cursor: default;\n  &:hover{\n    background:rgba(247,249,251,1);\n    cursor: default;\n  }\n}\n\n.demo4 .handle {\n  position: absolute;\n  right: -1px;\n  top: -1px;\n  height: 32px;\n  line-height: 30px;\n  background:rgba(223,225,230,1);\n  border-radius:0px 3px 3px 0px;\n  border:1px solid rgba(165,173,186,1);\n  cursor: grab;\n  &:hover{\n    background:rgba(179,186,197,1);\n  }\n}\n/*拖动状态*/\n.react-draggable-transparent-selection{\n  .demo4 .handle{\n    background:rgba(179,186,197,1);\n    cursor: grabbing;\n  }\n}" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 每次拖拽移动距离", "code": "\n/**\n *\n * @title 每次拖拽移动距离\n * @description 设置 grid={[x,y]}\n *\n */\n\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo5 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>\n                    <div className=\"demo\">我每次拖拽可移动25px</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\nexport default Demo5;", "desc": " 设置 grid={[x,y]}", "scss_code": ".demo {\n  width:167px;\n  height:32px;\n  background:rgba(247,249,251,1);\n  border-radius:3px;\n  border:1px solid rgba(165,173,186,1);\n  line-height: 32px;\n  font-size: 12px;\n  color: #212121;\n  text-align: center;\n  cursor: grab;\n  &:hover{\n    background:rgba(235,236,240,1);\n    border-radius:3px;\n  }\n}\n/*拖动状态*/\n.react-draggable-transparent-selection{\n  .demo{\n      box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\n      opacity:0.8;\n      cursor: grabbing;\n  }\n}" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 元素拖拽范围", "code": "\n/**\n *\n * @title 元素拖拽范围\n * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo6 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div className=\"demo6\">\n                <Dnd bounds={{top: -50, left: -50, right: 50, bottom: 50}} onStart={this.onStart} onStop={this.onStop}>\n                    <div className=\"demo\">我只能再上下左右50px内移动</div>\n                </Dnd>\n            </div>\n\n        );\n    }\n}\n\nexport default Demo6;", "desc": " 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}", "scss_code": ".demo {\n  width:167px;\n  height:32px;\n  background:rgba(247,249,251,1);\n  border-radius:3px;\n  border:1px solid rgba(165,173,186,1);\n  line-height: 32px;\n  font-size: 12px;\n  color: #212121;\n  text-align: center;\n  cursor: grab;\n  &:hover{\n    background:rgba(235,236,240,1);\n    border-radius:3px;\n  }\n}\n/*拖动状态*/\n.react-draggable-transparent-selection{\n  .demo{\n      box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\n      opacity:0.8;\n      cursor: grabbing;\n  }\n}\n.demo6{\n  height: 100px;\n}" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 在指定容器中拖拽", "code": "\n/**\n *\n * @title 在指定容器中拖拽\n * @description 设置只可以在指定容器中移动\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\n */\n\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo7 extends Component {\n\n    onStart=()=>{\n        console.log('start');\n    }\n    onStop=()=>{\n        console.log('stop');\n    }\n    render() {\n        return (\n            <div>\n                <div className=\"demo7-parent\">\n                    <Dnd bounds=\".demo7-parent\" onStart={this.onStart} onStop={this.onStop}>\n                        <div className=\"demo\">我只能在父级元素中移动</div>\n                    </Dnd>\n                </div>\n            </div>\n\n\n        );\n    }\n}\n\nexport default Demo7;", "desc": " 设置只可以在指定容器中移动", "scss_code": ".demo {\n  width:167px;\n  height:32px;\n  background:rgba(247,249,251,1);\n  border-radius:3px;\n  border:1px solid rgba(165,173,186,1);\n  line-height: 32px;\n  font-size: 12px;\n  color: #212121;\n  text-align: center;\n  cursor: grab;\n  &:hover{\n    background:rgba(235,236,240,1);\n    border-radius:3px;\n  }\n}\n/*拖动状态*/\n.react-draggable-transparent-selection{\n  .demo{\n    box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\n    opacity:0.8;\n    cursor: grabbing;\n  }\n}\n\n.demo7-parent {\n  width: 300px;\n  height: 200px;\n  background: rgba(247,249,251,1);\n  border: 1px solid rgba(235,236,240,1);\n  position: relative;\n}" }, { "example": _react2['default'].createElement(Demo8, null), "title": " 数据集合拖拽列表排序", "code": "/**\n *\n * @title 数据集合拖拽列表排序\n * @description 增加list 可以为 [1,2,3]数组，\n *              也可以为 [{},{}...]，需要配置 showKey 。\n *              也可以为 dom集合，见后边示例\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo8 extends Component {\n    \n    onDragStart=(result,list)=>{\n        console.log('开始');\n    }\n    onDragEnd=(result,list)=>{   \n        console.log('结束');\n    }\n    onDragUpdate=(result)=>{\n        console.log('update')\n    }\n    render() {\n        let list=[\n            {\n                name:'第一',\n                code:'a'\n            },\n            {\n                name:'第二',\n                code:'b'\n            },\n            {\n                name:'第三',\n                code:'c'\n            },\n            {\n                name:'第四',\n                code:'d'\n            },\n            {\n                name:'第五',\n                code:'e'\n            },\n        ];\n        return (\n            <Dnd showKey='name' list={list} onDragUpdate={this.onDragUpdate} onStart={this.onDragStart} onStop={this.onDragEnd}/>\n        );\n    }\n}\n\nexport default Demo8;", "desc": " 增加list 可以为 [1,2,3]数组，", "scss_code": "" }, { "example": _react2['default'].createElement(Demo9, null), "title": " DOM集合拖拽列表排序", "code": "\n/**\n *\n * @title DOM集合拖拽列表排序\n * @description list传dom集合\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from 'bee-dnd/index';\n\nclass Demo9 extends Component {\n\n    onDragStart=(result,list)=>{\n        console.log('开始');\n    }\n    onDragEnd=(result,list)=>{\n        console.log('结束');\n    }\n    render() {\n        let list=[<div>DOM第一</div>,<div>DOM第二</div>,<div>DOM第三</div>,<div>DOM第四</div>,<div>DOM第五</div>];\n        return (\n           <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd} />\n        );\n    }\n}\n\nexport default Demo9", "desc": " list传dom集合" }, { "example": _react2['default'].createElement(Demo90, null), "title": " 横向拖拽列表排序", "code": "\n/**\n *\n * @title 横向拖拽列表排序\n * @description type='horizontal'\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from 'bee-dnd/Dnd';\n\nclass Demo90 extends Component {\n\n    render() {\n        let list=['第一','第二','第三','第四','第五'];\n        return (\n           <Dnd list={list} type='horizontal'  />\n        );\n    }\n}\n\nexport default Demo90", "desc": " type='horizontal'" }, { "example": _react2['default'].createElement(Demo91, null), "title": " 两列纵向拖拽", "code": "\n/**\n *\n * @title 两列纵向拖拽\n * @description 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from 'bee-dnd/Dnd';\n\nclass Demo90 extends Component {\n\n    render() {\n        let list1=['第一','第二','第三','第四','第五'];\n        let list2=['1','2','3','4','5'];\n        return (\n           <Dnd className='demo91' list={list1} otherList={list2} type='betweenVertical'  />\n        );\n    }\n}\n\nexport default Demo90", "desc": " 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开", "scss_code": ".u-drop{\n    overflow: scroll;\n}\n.u-drag-between{\n    height: 300px;\n}" }, { "example": _react2['default'].createElement(Demo92, null), "title": " 两列横向拖拽", "code": "\n/**\n *\n * @title 两列横向拖拽\n * @description 设置 type='betweenVertical'\n *\n */\n\nimport React, { Component } from 'react';\nimport Dnd from 'bee-dnd/Dnd';\n\nclass Demo90 extends Component {\n    onDragStart=(result,list)=>{\n        console.log('开始');\n    }\n    onDragEnd=(result,listObj)=>{\n        console.log('结束');\n        console.log(listObj)\n    }\n    render() {\n        let list1=['第一','第二','第三','第四','第五'];\n        let list2=['1','2','3','4','5'];\n        return (\n           <Dnd list={list1} otherList={list2} type='betweenHorizontal' onStart={this.onDragStart} onStop={this.onDragEnd} />\n        );\n    }\n}\n\nexport default Demo90", "desc": " 设置 type='betweenVertical'", "scss_code": ".u-drop{\n    overflow: scroll;\n}\n.u-drag-between-horizontal{\n    height: 200px;\n}" }, { "example": _react2['default'].createElement(Demo93, null), "title": " 网格排序", "code": "\r\n/**\r\n *\r\n * @title 网格排序\r\n * @description \r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/Dnd';\r\n\r\nconst GridLayout = Dnd.GridLayout;\r\n\r\nclass Demo93 extends Component {\r\n    render() {\r\n        let layout = [\r\n            {i: 'a', x: 0, y: 0, w: 1, h: 2},\r\n            {i: 'b', x: 1, y: 0, w: 3, h: 2},\r\n            {i: 'c', x: 4, y: 0, w: 1, h: 2, static: true},\r\n            {i: 'd', x: 0, y: 1, w: 1, h: 1},\r\n            {i: 'e', x: 2, y: 2, w: 1, h: 2},\r\n            {i: 'f', x: 3, y: 3, w: 1, h: 2}\r\n        ];\r\n        return (\r\n            <GridLayout className=\"layout\" layout={layout} cols={6} rowHeight={30} width={500}>\r\n                <div key=\"a\">a</div>\r\n                <div key=\"b\">b</div>\r\n                <div key=\"c\">static</div>\r\n                <div key=\"d\">d</div>\r\n                <div key=\"e\">e</div>\r\n                <div key=\"f\">f</div>\r\n            </GridLayout>\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo93;", "desc": " ", "scss_code": ".layout{\r\n    background: #f7f9fb;\r\n    border: 1px solid #ebecf0;\r\n    padding: 12px;\r\n    color: #212121;\r\n    div{\r\n        margin: 4px;\r\n        background: white;\r\n        border-radius: 3px;\r\n        border: 1px solid #a5adba;\r\n        padding: 6px 0;\r\n        font-size: 12px;\r\n        text-align: center;\r\n    }\r\n}" }];
+	var Demo1 = __webpack_require__(216);var Demo2 = __webpack_require__(217);var Demo3 = __webpack_require__(218);var Demo4 = __webpack_require__(219);var Demo5 = __webpack_require__(220);var Demo6 = __webpack_require__(221);var Demo7 = __webpack_require__(222);var Demo8 = __webpack_require__(223);var Demo9 = __webpack_require__(224);var Demo90 = __webpack_require__(225);var Demo91 = __webpack_require__(226);var Demo92 = __webpack_require__(227);var Demo93 = __webpack_require__(228);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础拖拽", "code": "\r\n/**\r\n *\r\n * @title 基础拖拽\r\n * @description 将某个元素设置为可拖拽\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\r\n\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo1 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd onStart={this.onStart} onStop={this.onStop}>\r\n                    <div className=\"demo\">我可随意拖拽</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo1;", "desc": " 将某个元素设置为可拖拽", "scss_code": ".demo {\r\n    width:167px;\r\n    height:32px;\r\n    background:rgba(247,249,251,1);\r\n    border-radius:3px;\r\n    border:1px solid rgba(165,173,186,1);\r\n    line-height: 32px;\r\n    font-size: 12px;\r\n    color: #212121;\r\n    text-align: center;\r\n    cursor: grab;\r\n    &:hover{\r\n      background:rgba(235,236,240,1);\r\n      border-radius:3px;\r\n    }\r\n}\r\n/*拖动状态*/\r\n.react-draggable-transparent-selection{\r\n    .demo{\r\n        box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\r\n        opacity:0.8;\r\n        cursor: grabbing;\r\n    }\r\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 单个元素沿x轴y轴拖拽", "code": "\r\n/**\r\n *\r\n * @title 单个元素沿x轴y轴拖拽\r\n * @description 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\r\n\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo2 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd axis=\"x\" onStart={this.onStart} onStop={this.onStop}>\r\n                    <div className=\"demo\">我只可延X轴拖拽</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo2;", "desc": " 设置axis=\"x\"只可以沿着x轴拖拽，同理axis=\"y\"只可以沿着y轴拖拽", "scss_code": ".demo {\r\n  width:167px;\r\n  height:32px;\r\n  background:rgba(247,249,251,1);\r\n  border-radius:3px;\r\n  border:1px solid rgba(165,173,186,1);\r\n  line-height: 32px;\r\n  font-size: 12px;\r\n  color: #212121;\r\n  text-align: center;\r\n  cursor: grab;\r\n  &:hover{\r\n    background:rgba(235,236,240,1);\r\n    border-radius:3px;\r\n  }\r\n}\r\n/*拖动状态*/\r\n.react-draggable-transparent-selection{\r\n  .demo{\r\n      box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\r\n      opacity:0.8;\r\n      cursor: grabbing;\r\n  }\r\n}" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 设置元素不可拖拽", "code": "\r\n/**\r\n *\r\n * @title 设置元素不可拖拽\r\n * @description 设置 onStart 的返回值为false，则不可以拖拽\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\r\n\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo3 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n        return false;\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div className=\"demo-3\">\r\n                <Dnd onStart={this.onStart}  onStop={this.onStop}>\r\n                    <div className=\"demo3 demo\">我不可以拖拽</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\nexport default Demo3;", "desc": " 设置 onStart 的返回值为false，则不可以拖拽", "scss_code": ".demo-3{\r\n  .demo3:hover{\r\n    background:rgba(247,249,251,1);\r\n    cursor: not-allowed;\r\n  }\r\n}" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 单个元素拖拽把手", "code": "/**\r\n *\r\n * @title 单个元素拖拽把手\r\n * @description 设置 handle，值为选择器，例如 '.handle'\r\n *              设置不可拖拽区域 cancel，值为选择器，例如 '.handle'\r\n */\r\n\r\nimport React, { Component } from 'react';\nimport { Icon } from 'tinper-bee';\r\n\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo4 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div className=\"demo-4\">\r\n                <div>\r\n                    <Dnd handle=\".handle\" onStart={this.onStart} onStop={this.onStop}>\r\n                        <div className=\"demo4 demo\">\r\n                            需要拖拽把手\r\n                            <div className=\"handle\"><Icon type=\"uf-move\"></Icon></div>\r\n                        </div>\r\n                    </Dnd>\r\n                </div>\r\n            </div>\r\n\r\n\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo4;", "desc": " 设置 handle，值为选择器，例如 '.handle'", "scss_code": "\r\n.demo-4 .demo4 {\r\n  position: relative;\r\n  cursor: default;\r\n  &:hover{\r\n    background:rgba(247,249,251,1);\r\n    cursor: default;\r\n  }\r\n}\r\n\r\n.demo4 .handle {\r\n  position: absolute;\r\n  right: -1px;\r\n  top: -1px;\r\n  height: 32px;\r\n  line-height: 30px;\r\n  background:rgba(223,225,230,1);\r\n  border-radius:0px 3px 3px 0px;\r\n  border:1px solid rgba(165,173,186,1);\r\n  cursor: grab;\r\n  &:hover{\r\n    background:rgba(179,186,197,1);\r\n  }\r\n}\r\n/*拖动状态*/\r\n.react-draggable-transparent-selection{\r\n  .demo4 .handle{\r\n    background:rgba(179,186,197,1);\r\n    cursor: grabbing;\r\n  }\r\n}" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 每次拖拽移动距离", "code": "\r\n/**\r\n *\r\n * @title 每次拖拽移动距离\r\n * @description 设置 grid={[x,y]}\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\r\n\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo5 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Dnd grid={[25, 25]} onStart={this.onStart}  onStop={this.onStop}>\r\n                    <div className=\"demo\">我每次拖拽可移动25px</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo5;", "desc": " 设置 grid={[x,y]}", "scss_code": ".demo {\r\n  width:167px;\r\n  height:32px;\r\n  background:rgba(247,249,251,1);\r\n  border-radius:3px;\r\n  border:1px solid rgba(165,173,186,1);\r\n  line-height: 32px;\r\n  font-size: 12px;\r\n  color: #212121;\r\n  text-align: center;\r\n  cursor: grab;\r\n  &:hover{\r\n    background:rgba(235,236,240,1);\r\n    border-radius:3px;\r\n  }\r\n}\r\n/*拖动状态*/\r\n.react-draggable-transparent-selection{\r\n  .demo{\r\n      box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\r\n      opacity:0.8;\r\n      cursor: grabbing;\r\n  }\r\n}" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 元素拖拽范围", "code": "\r\n/**\r\n *\r\n * @title 元素拖拽范围\r\n * @description 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo6 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div className=\"demo6\">\r\n                <Dnd bounds={{top: -50, left: -50, right: 50, bottom: 50}} onStart={this.onStart} onStop={this.onStop}>\r\n                    <div className=\"demo\">我只能再上下左右50px内移动</div>\r\n                </Dnd>\r\n            </div>\r\n\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo6;", "desc": " 设置上下左右可拖拽范围 bounds={{top: -xxx, left: -xxx, right: xxx, bottom: xx}}", "scss_code": ".demo {\r\n  width:167px;\r\n  height:32px;\r\n  background:rgba(247,249,251,1);\r\n  border-radius:3px;\r\n  border:1px solid rgba(165,173,186,1);\r\n  line-height: 32px;\r\n  font-size: 12px;\r\n  color: #212121;\r\n  text-align: center;\r\n  cursor: grab;\r\n  &:hover{\r\n    background:rgba(235,236,240,1);\r\n    border-radius:3px;\r\n  }\r\n}\r\n/*拖动状态*/\r\n.react-draggable-transparent-selection{\r\n  .demo{\r\n      box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\r\n      opacity:0.8;\r\n      cursor: grabbing;\r\n  }\r\n}\r\n.demo6{\r\n  height: 100px;\r\n}" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 在指定容器中拖拽", "code": "\r\n/**\r\n *\r\n * @title 在指定容器中拖拽\r\n * @description 设置只可以在指定容器中移动\r\n * bounds的也可以设置为选择器,bounds=\".demo8-parent\"意为在class=demo8-parent的容器中移动\r\n */\r\n\r\nimport React, { Component } from 'react';\nimport { Button } from 'tinper-bee';\r\n\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo7 extends Component {\r\n\r\n    onStart=()=>{\r\n        console.log('start');\r\n    }\r\n    onStop=()=>{\r\n        console.log('stop');\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <div className=\"demo7-parent\">\r\n                    <Dnd bounds=\".demo7-parent\" onStart={this.onStart} onStop={this.onStop}>\r\n                        <div className=\"demo\">我只能在父级元素中移动</div>\r\n                    </Dnd>\r\n                </div>\r\n            </div>\r\n\r\n\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo7;", "desc": " 设置只可以在指定容器中移动", "scss_code": ".demo {\r\n  width:167px;\r\n  height:32px;\r\n  background:rgba(247,249,251,1);\r\n  border-radius:3px;\r\n  border:1px solid rgba(165,173,186,1);\r\n  line-height: 32px;\r\n  font-size: 12px;\r\n  color: #212121;\r\n  text-align: center;\r\n  cursor: grab;\r\n  &:hover{\r\n    background:rgba(235,236,240,1);\r\n    border-radius:3px;\r\n  }\r\n}\r\n/*拖动状态*/\r\n.react-draggable-transparent-selection{\r\n  .demo{\r\n    box-shadow:0px 2px 4px 0px rgba(31,37,52,0.3);\r\n    opacity:0.8;\r\n    cursor: grabbing;\r\n  }\r\n}\r\n\r\n.demo7-parent {\r\n  width: 300px;\r\n  height: 200px;\r\n  background: rgba(247,249,251,1);\r\n  border: 1px solid rgba(235,236,240,1);\r\n  position: relative;\r\n}" }, { "example": _react2['default'].createElement(Demo8, null), "title": " 数据集合拖拽列表排序", "code": "/**\r\n *\r\n * @title 数据集合拖拽列表排序\r\n * @description 增加list 可以为 [1,2,3]数组，\r\n *              也可以为 [{},{}...]，需要配置 showKey 。\r\n *              也可以为 dom集合，见后边示例\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo8 extends Component {\r\n    \r\n    onDragStart=(result,list)=>{\r\n        console.log('开始');\r\n    }\r\n    onDragEnd=(result,list)=>{   \r\n        console.log('结束');\r\n    }\r\n    onDragUpdate=(result)=>{\r\n        console.log('update')\r\n    }\r\n    render() {\r\n        let list=[\r\n            {\r\n                name:'第一',\r\n                code:'a'\r\n            },\r\n            {\r\n                name:'第二',\r\n                code:'b'\r\n            },\r\n            {\r\n                name:'第三',\r\n                code:'c'\r\n            },\r\n            {\r\n                name:'第四',\r\n                code:'d'\r\n            },\r\n            {\r\n                name:'第五',\r\n                code:'e'\r\n            },\r\n        ];\r\n        return (\r\n            <Dnd showKey='name' list={list} onDragUpdate={this.onDragUpdate} onStart={this.onDragStart} onStop={this.onDragEnd}/>\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo8;", "desc": " 增加list 可以为 [1,2,3]数组，", "scss_code": "" }, { "example": _react2['default'].createElement(Demo9, null), "title": " DOM集合拖拽列表排序", "code": "\r\n/**\r\n *\r\n * @title DOM集合拖拽列表排序\r\n * @description list传dom集合\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/index';\r\n\r\nclass Demo9 extends Component {\r\n\r\n    onDragStart=(result,list)=>{\r\n        console.log('开始');\r\n    }\r\n    onDragEnd=(result,list)=>{\r\n        console.log('结束');\r\n    }\r\n    render() {\r\n        let list=[<div>DOM第一</div>,<div>DOM第二</div>,<div>DOM第三</div>,<div>DOM第四</div>,<div>DOM第五</div>];\r\n        return (\r\n           <Dnd list={list} onStart={this.onDragStart} onStop={this.onDragEnd} />\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo9", "desc": " list传dom集合" }, { "example": _react2['default'].createElement(Demo90, null), "title": " 横向拖拽列表排序", "code": "\r\n/**\r\n *\r\n * @title 横向拖拽列表排序\r\n * @description type='horizontal'\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/Dnd';\r\n\r\nclass Demo90 extends Component {\r\n\r\n    render() {\r\n        let list=['第一','第二','第三','第四','第五'];\r\n        return (\r\n           <Dnd list={list} type='horizontal'  />\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo90", "desc": " type='horizontal'" }, { "example": _react2['default'].createElement(Demo91, null), "title": " 两列纵向拖拽", "code": "\r\n/**\r\n *\r\n * @title 两列纵向拖拽\r\n * @description 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/Dnd';\r\n\r\nclass Demo90 extends Component {\r\n\r\n    render() {\r\n        let list1=['第一','第二','第三','第四','第五'];\r\n        let list2=['1','2','3','4','5'];\r\n        return (\r\n           <Dnd className='demo91' list={list1} otherList={list2} type='betweenVertical'  />\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo90", "desc": " 设置 type='betweenVertical'。 如果不设置高度以及 overflow: scroll; 则高度会自动撑开", "scss_code": ".u-drop{\r\n    overflow: scroll;\r\n}\r\n.u-drag-between{\r\n    height: 300px;\r\n}" }, { "example": _react2['default'].createElement(Demo92, null), "title": " 两列横向拖拽", "code": "\r\n/**\r\n *\r\n * @title 两列横向拖拽\r\n * @description 设置 type='betweenVertical'\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/Dnd';\r\n\r\nclass Demo90 extends Component {\r\n    onDragStart=(result,list)=>{\r\n        console.log('开始');\r\n    }\r\n    onDragEnd=(result,listObj)=>{\r\n        console.log('结束');\r\n        console.log(listObj)\r\n    }\r\n    render() {\r\n        let list1=['第一','第二','第三','第四','第五'];\r\n        let list2=['1','2','3','4','5'];\r\n        return (\r\n           <Dnd list={list1} otherList={list2} type='betweenHorizontal' onStart={this.onDragStart} onStop={this.onDragEnd} />\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo90", "desc": " 设置 type='betweenVertical'", "scss_code": ".u-drop{\r\n    overflow: scroll;\r\n}\r\n.u-drag-between-horizontal{\r\n    height: 200px;\r\n}" }, { "example": _react2['default'].createElement(Demo93, null), "title": " 网格排序", "code": "\r\n/**\r\n *\r\n * @title 网格排序\r\n * @description \r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Dnd from 'bee-dnd/Dnd';\r\n\r\nconst GridLayout = Dnd.GridLayout;\r\n\r\nclass Demo93 extends Component {\r\n    render() {\r\n        let layout = [\r\n            {i: 'a', x: 0, y: 0, w: 1, h: 2},\r\n            {i: 'b', x: 1, y: 0, w: 3, h: 2},\r\n            {i: 'c', x: 4, y: 0, w: 1, h: 2, static: true},\r\n            {i: 'd', x: 0, y: 1, w: 1, h: 1},\r\n            {i: 'e', x: 2, y: 2, w: 1, h: 2},\r\n            {i: 'f', x: 3, y: 3, w: 1, h: 2}\r\n        ];\r\n        return (\r\n            <GridLayout className=\"layout\" layout={layout} cols={6} rowHeight={30} width={500}>\r\n                <div key=\"a\">a</div>\r\n                <div key=\"b\">b</div>\r\n                <div key=\"c\">static</div>\r\n                <div key=\"d\">d</div>\r\n                <div key=\"e\">e</div>\r\n                <div key=\"f\">f</div>\r\n            </GridLayout>\r\n        );\r\n    }\r\n}\r\n\r\nexport default Demo93;", "desc": " ", "scss_code": ".layout{\r\n    background: #f7f9fb;\r\n    border: 1px solid #ebecf0;\r\n    padding: 12px;\r\n    color: #212121;\r\n    div{\r\n        margin: 4px;\r\n        background: white;\r\n        border-radius: 3px;\r\n        border: 1px solid #a5adba;\r\n        padding: 6px 0;\r\n        font-size: 12px;\r\n        text-align: center;\r\n    }\r\n}" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -16314,7 +16314,7 @@
 	
 	var _reactBeautifulDnd = __webpack_require__(159);
 	
-	var _reactDraggable = __webpack_require__(261);
+	var _reactDraggable = __webpack_require__(199);
 	
 	var _reactDraggable2 = _interopRequireDefault(_reactDraggable);
 	
@@ -16322,19 +16322,19 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _lodash = __webpack_require__(262);
+	var _lodash = __webpack_require__(200);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _SortList = __webpack_require__(263);
+	var _SortList = __webpack_require__(201);
 	
 	var _SortList2 = _interopRequireDefault(_SortList);
 	
-	var _Between = __webpack_require__(265);
+	var _Between = __webpack_require__(203);
 	
 	var _Between2 = _interopRequireDefault(_Between);
 	
-	var _GridLayout = __webpack_require__(266);
+	var _GridLayout = __webpack_require__(204);
 	
 	var _GridLayout2 = _interopRequireDefault(_GridLayout);
 	
@@ -16463,22 +16463,17 @@
 	
 	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 	
-	var _extends = _interopDefault(__webpack_require__(160));
 	var React = __webpack_require__(1);
 	var React__default = _interopDefault(React);
-	var useMemoOne = __webpack_require__(199);
-	var _inheritsLoose = _interopDefault(__webpack_require__(200));
-	var invariant = _interopDefault(__webpack_require__(207));
-	var redux = __webpack_require__(208);
-	var reactRedux = __webpack_require__(212);
-	var cssBoxModel = __webpack_require__(243);
-	var memoizeOne = _interopDefault(__webpack_require__(244));
-	var _Object$values = _interopDefault(__webpack_require__(245));
-	var _Object$keys = _interopDefault(__webpack_require__(249));
-	var _Date$now = _interopDefault(__webpack_require__(253));
-	var rafSchd = _interopDefault(__webpack_require__(256));
-	var _Object$assign = _interopDefault(__webpack_require__(161));
-	var _Number$isInteger = _interopDefault(__webpack_require__(257));
+	var _inheritsLoose = _interopDefault(__webpack_require__(160));
+	var _extends = _interopDefault(__webpack_require__(120));
+	var redux = __webpack_require__(161);
+	var reactRedux = __webpack_require__(165);
+	var useMemoOne = __webpack_require__(194);
+	var cssBoxModel = __webpack_require__(195);
+	var memoizeOne = _interopDefault(__webpack_require__(197));
+	var rafSchd = _interopDefault(__webpack_require__(198));
+	var ReactDOM = _interopDefault(__webpack_require__(2));
 	
 	var isProduction = process.env.NODE_ENV === 'production';
 	var spacesAndTabs = /[ \t]{2,}/g;
@@ -16496,7 +16491,7 @@
 	  return [getDevMessage(message), 'color: #00C584; font-size: 1.2em; font-weight: bold;', 'line-height: 1.5', 'color: #723874;'];
 	};
 	var isDisabledFlag = '__react-beautiful-dnd-disable-dev-warnings';
-	var warning = function warning(message) {
+	function log(type, message) {
 	  var _console;
 	
 	  if (isProduction) {
@@ -16507,23 +16502,52 @@
 	    return;
 	  }
 	
-	  (_console = console).warn.apply(_console, getFormattedMessage(message));
+	  (_console = console)[type].apply(_console, getFormattedMessage(message));
+	}
+	var warning = log.bind(null, 'warn');
+	var error = log.bind(null, 'error');
+	
+	function noop() {}
+	
+	function getOptions(shared, fromBinding) {
+	  return _extends({}, shared, {}, fromBinding);
+	}
+	
+	function bindEvents(el, bindings, sharedOptions) {
+	  var unbindings = bindings.map(function (binding) {
+	    var options = getOptions(sharedOptions, binding.options);
+	    el.addEventListener(binding.eventName, binding.fn, options);
+	    return function unbind() {
+	      el.removeEventListener(binding.eventName, binding.fn, options);
+	    };
+	  });
+	  return function unbindAll() {
+	    unbindings.forEach(function (unbind) {
+	      unbind();
+	    });
+	  };
+	}
+	
+	var isProduction$1 = process.env.NODE_ENV === 'production';
+	var prefix = 'Invariant failed';
+	function RbdInvariant(message) {
+	  this.message = message;
+	}
+	
+	RbdInvariant.prototype.toString = function toString() {
+	  return this.message;
 	};
 	
-	function printFatalError(error) {
-	  var _console;
-	
-	  if (process.env.NODE_ENV === 'production') {
+	function invariant(condition, message) {
+	  if (condition) {
 	    return;
 	  }
 	
-	  (_console = console).error.apply(_console, getFormattedMessage("\n        An error has occurred while a drag is occurring.\n        Any existing drag will be cancelled.\n\n        > " + error.message + "\n        "));
-	
-	  console.error('raw', error);
-	}
-	
-	function shouldRecover(error) {
-	  return error.message.indexOf('Invariant failed') !== -1;
+	  if (isProduction$1) {
+	    throw new RbdInvariant(prefix);
+	  } else {
+	    throw new RbdInvariant(prefix + ": " + (message || ''));
+	  }
 	}
 	
 	var ErrorBoundary = function (_React$Component) {
@@ -16537,24 +16561,38 @@
 	    }
 	
 	    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-	    _this.onError = void 0;
+	    _this.callbacks = null;
+	    _this.unbind = noop;
 	
-	    _this.setOnError = function (fn) {
-	      _this.onError = fn;
+	    _this.onWindowError = function (event) {
+	      var callbacks = _this.getCallbacks();
+	
+	      if (callbacks.isDragging()) {
+	        callbacks.tryAbort();
+	        process.env.NODE_ENV !== "production" ? warning("\n        An error was caught by our window 'error' event listener while a drag was occurring.\n        The active drag has been aborted.\n      ") : void 0;
+	      }
+	
+	      var err = event.error;
+	
+	      if (err instanceof RbdInvariant) {
+	        event.preventDefault();
+	
+	        if (process.env.NODE_ENV !== 'production') {
+	          error(err.message);
+	        }
+	      }
 	    };
 	
-	    _this.onFatalError = function (error) {
-	      printFatalError(error);
-	
-	      if (_this.onError) {
-	        _this.onError();
-	      } else {
-	        process.env.NODE_ENV !== "production" ? warning('Could not find recovering function') : void 0;
+	    _this.getCallbacks = function () {
+	      if (!_this.callbacks) {
+	        throw new Error('Unable to find AppCallbacks in <ErrorBoundary/>');
 	      }
 	
-	      if (shouldRecover(error)) {
-	        _this.setState({});
-	      }
+	      return _this.callbacks;
+	    };
+	
+	    _this.setCallbacks = function (callbacks) {
+	      _this.callbacks = callbacks;
 	    };
 	
 	    return _this;
@@ -16563,27 +16601,113 @@
 	  var _proto = ErrorBoundary.prototype;
 	
 	  _proto.componentDidMount = function componentDidMount() {
-	    window.addEventListener('error', this.onFatalError);
+	    this.unbind = bindEvents(window, [{
+	      eventName: 'error',
+	      fn: this.onWindowError
+	    }]);
 	  };
 	
 	  _proto.componentWillUnmount = function componentWillUnmount() {
-	    window.removeEventListener('error', this.onFatalError);
+	    this.unbind();
 	  };
 	
-	  _proto.componentDidCatch = function componentDidCatch(error) {
-	    this.onFatalError(error);
+	  _proto.componentDidCatch = function componentDidCatch(err) {
+	    if (err instanceof RbdInvariant) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        error(err.message);
+	      }
 	
-	    if (!shouldRecover(error)) {
-	      throw error;
+	      this.setState({});
+	      return;
 	    }
+	
+	    throw err;
 	  };
 	
 	  _proto.render = function render() {
-	    return this.props.children(this.setOnError);
+	    return this.props.children(this.setCallbacks);
 	  };
 	
 	  return ErrorBoundary;
 	}(React__default.Component);
+	
+	var dragHandleUsageInstructions = "\n  Press space bar to start a drag.\n  When dragging you can use the arrow keys to move the item around and escape to cancel.\n  Some screen readers may require you to be in focus mode or to use your pass through key\n";
+	
+	var position = function position(index) {
+	  return index + 1;
+	};
+	
+	var onDragStart = function onDragStart(start) {
+	  return "\n  You have lifted an item in position " + position(start.source.index) + "\n";
+	};
+	
+	var withLocation = function withLocation(source, destination) {
+	  var isInHomeList = source.droppableId === destination.droppableId;
+	  var startPosition = position(source.index);
+	  var endPosition = position(destination.index);
+	
+	  if (isInHomeList) {
+	    return "\n      You have moved the item from position " + startPosition + "\n      to position " + endPosition + "\n    ";
+	  }
+	
+	  return "\n    You have moved the item from position " + startPosition + "\n    in list " + source.droppableId + "\n    to list " + destination.droppableId + "\n    in position " + endPosition + "\n  ";
+	};
+	
+	var withCombine = function withCombine(id, source, combine) {
+	  var inHomeList = source.droppableId === combine.droppableId;
+	
+	  if (inHomeList) {
+	    return "\n      The item " + id + "\n      has been combined with " + combine.draggableId;
+	  }
+	
+	  return "\n      The item " + id + "\n      in list " + source.droppableId + "\n      has been combined with " + combine.draggableId + "\n      in list " + combine.droppableId + "\n    ";
+	};
+	
+	var onDragUpdate = function onDragUpdate(update) {
+	  var location = update.destination;
+	
+	  if (location) {
+	    return withLocation(update.source, location);
+	  }
+	
+	  var combine = update.combine;
+	
+	  if (combine) {
+	    return withCombine(update.draggableId, update.source, combine);
+	  }
+	
+	  return 'You are over an area that cannot be dropped on';
+	};
+	
+	var returnedToStart = function returnedToStart(source) {
+	  return "\n  The item has returned to its starting position\n  of " + position(source.index) + "\n";
+	};
+	
+	var onDragEnd = function onDragEnd(result) {
+	  if (result.reason === 'CANCEL') {
+	    return "\n      Movement cancelled.\n      " + returnedToStart(result.source) + "\n    ";
+	  }
+	
+	  var location = result.destination;
+	  var combine = result.combine;
+	
+	  if (location) {
+	    return "\n      You have dropped the item.\n      " + withLocation(result.source, location) + "\n    ";
+	  }
+	
+	  if (combine) {
+	    return "\n      You have dropped the item.\n      " + withCombine(result.draggableId, result.source, combine) + "\n    ";
+	  }
+	
+	  return "\n    The item has been dropped while not over a drop area.\n    " + returnedToStart(result.source) + "\n  ";
+	};
+	
+	var preset = {
+	  dragHandleUsageInstructions: dragHandleUsageInstructions,
+	  onDragStart: onDragStart,
+	  onDragUpdate: onDragUpdate,
+	  onDragEnd: onDragEnd
+	};
 	
 	var origin = {
 	  x: 0,
@@ -16651,9 +16775,6 @@
 	  return result;
 	});
 	
-	var isEqual$1 = function isEqual(first, second) {
-	  return first.top === second.top && first.right === second.right && first.bottom === second.bottom && first.left === second.left;
-	};
 	var offsetByPosition = function offsetByPosition(spacing, point) {
 	  return {
 	    top: spacing.top + point.y,
@@ -16758,81 +16879,21 @@
 	  return result;
 	});
 	
-	var records = {};
-	var isEnabled = false;
-	
-	var isTimingsEnabled = function isTimingsEnabled() {
-	  return isEnabled;
-	};
-	var start = function start(key) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (!isTimingsEnabled()) {
-	      return;
-	    }
-	
-	    var now = performance.now();
-	    records[key] = now;
-	  }
-	};
-	var finish = function finish(key) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (!isTimingsEnabled()) {
-	      return;
-	    }
-	
-	    var now = performance.now();
-	    var previous = records[key];
-	
-	    if (!previous) {
-	      console.warn('cannot finish timing as no previous time found', key);
-	      return;
-	    }
-	
-	    var result = now - previous;
-	    var rounded = result.toFixed(2);
-	
-	    var style = function () {
-	      if (result < 12) {
-	        return {
-	          textColor: 'green',
-	          symbol: '✅'
-	        };
-	      }
-	
-	      if (result < 40) {
-	        return {
-	          textColor: 'orange',
-	          symbol: '⚠️'
-	        };
-	      }
-	
-	      return {
-	        textColor: 'red',
-	        symbol: '❌'
-	      };
-	    }();
-	
-	    console.log(style.symbol + " %cTiming %c" + rounded + " %cms %c" + key, 'color: blue; font-weight: bold;', "color: " + style.textColor + "; font-size: 1.1em;", 'color: grey;', 'color: purple; font-weight: bold;');
-	  }
-	};
-	
-	var whatIsDraggedOver = (function (impact) {
-	  var merge = impact.merge,
-	      destination = impact.destination;
-	
-	  if (destination) {
-	    return destination.droppableId;
+	function isInteger(value) {
+	  if (Number.isInteger) {
+	    return Number.isInteger(value);
 	  }
 	
-	  if (merge) {
-	    return merge.combine.droppableId;
-	  }
-	
-	  return null;
-	});
-	
+	  return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
+	}
 	function values(map) {
-	  return _Object$values(map);
+	  if (Object.values) {
+	    return Object.values(map);
+	  }
+	
+	  return Object.keys(map).map(function (key) {
+	    return map[key];
+	  });
 	}
 	function findIndex(list, predicate) {
 	  if (list.findIndex) {
@@ -16860,6 +16921,9 @@
 	
 	  return undefined;
 	}
+	function toArray(list) {
+	  return Array.prototype.slice.call(list);
+	}
 	
 	var toDroppableMap = memoizeOne(function (droppables) {
 	  return droppables.reduce(function (previous, current) {
@@ -16880,39 +16944,6 @@
 	  return values(draggables);
 	});
 	
-	var isWithin = (function (lowerBound, upperBound) {
-	  return function (value) {
-	    return lowerBound <= value && value <= upperBound;
-	  };
-	});
-	
-	var isPositionInFrame = (function (frame) {
-	  var isWithinVertical = isWithin(frame.top, frame.bottom);
-	  var isWithinHorizontal = isWithin(frame.left, frame.right);
-	  return function (point) {
-	    return isWithinVertical(point.y) && isWithinVertical(point.y) && isWithinHorizontal(point.x) && isWithinHorizontal(point.x);
-	  };
-	});
-	
-	var getDroppableOver = (function (_ref) {
-	  var target = _ref.target,
-	      droppables = _ref.droppables;
-	  var maybe = find(toDroppableList(droppables), function (droppable) {
-	    if (!droppable.isEnabled) {
-	      return false;
-	    }
-	
-	    var active = droppable.subject.active;
-	
-	    if (!active) {
-	      return false;
-	    }
-	
-	    return isPositionInFrame(active)(target);
-	  });
-	  return maybe ? maybe.descriptor.id : null;
-	});
-	
 	var getDraggablesInsideDroppable = memoizeOne(function (droppableId, draggables) {
 	  var result = toDraggableList(draggables).filter(function (draggable) {
 	    return droppableId === draggable.descriptor.droppableId;
@@ -16922,149 +16953,112 @@
 	  return result;
 	});
 	
-	var withDroppableScroll = (function (droppable, point) {
-	  var frame = droppable.frame;
-	
-	  if (!frame) {
-	    return point;
+	function tryGetDestination(impact) {
+	  if (impact.at && impact.at.type === 'REORDER') {
+	    return impact.at.destination;
 	  }
 	
-	  return add(point, frame.scroll.diff.value);
+	  return null;
+	}
+	function tryGetCombine(impact) {
+	  if (impact.at && impact.at.type === 'COMBINE') {
+	    return impact.at.combine;
+	  }
+	
+	  return null;
+	}
+	
+	var removeDraggableFromList = memoizeOne(function (remove, list) {
+	  return list.filter(function (item) {
+	    return item.descriptor.id !== remove.descriptor.id;
+	  });
 	});
 	
-	var vertical = {
-	  direction: 'vertical',
-	  line: 'y',
-	  crossAxisLine: 'x',
-	  start: 'top',
-	  end: 'bottom',
-	  size: 'height',
-	  crossAxisStart: 'left',
-	  crossAxisEnd: 'right',
-	  crossAxisSize: 'width'
-	};
-	var horizontal = {
-	  direction: 'horizontal',
-	  line: 'x',
-	  crossAxisLine: 'y',
-	  start: 'left',
-	  end: 'right',
-	  size: 'width',
-	  crossAxisStart: 'top',
-	  crossAxisEnd: 'bottom',
-	  crossAxisSize: 'height'
-	};
-	
-	var isUserMovingForward = (function (axis, direction) {
-	  return axis === vertical ? direction.vertical === 'down' : direction.horizontal === 'right';
-	});
-	
-	var didStartDisplaced = (function (draggableId, onLift) {
-	  return Boolean(onLift.wasDisplaced[draggableId]);
-	});
-	
-	var getCombinedItemDisplacement = (function (_ref) {
-	  var displaced = _ref.displaced,
-	      onLift = _ref.onLift,
-	      combineWith = _ref.combineWith,
-	      displacedBy = _ref.displacedBy;
-	  var isDisplaced = Boolean(displaced[combineWith]);
-	
-	  if (didStartDisplaced(combineWith, onLift)) {
-	    return isDisplaced ? origin : negate(displacedBy.point);
-	  }
-	
-	  return isDisplaced ? displacedBy.point : origin;
-	});
-	
-	var getWhenEntered = function getWhenEntered(id, current, oldMerge) {
-	  if (!oldMerge) {
-	    return current;
-	  }
-	
-	  if (id !== oldMerge.combine.draggableId) {
-	    return current;
-	  }
-	
-	  return oldMerge.whenEntered;
-	};
-	
-	var isCombiningWith = function isCombiningWith(_ref) {
-	  var id = _ref.id,
-	      currentCenter = _ref.currentCenter,
-	      axis = _ref.axis,
-	      borderBox = _ref.borderBox,
-	      displaceBy = _ref.displaceBy,
-	      currentUserDirection = _ref.currentUserDirection,
-	      oldMerge = _ref.oldMerge;
-	  var start = borderBox[axis.start] + displaceBy[axis.line];
-	  var end = borderBox[axis.end] + displaceBy[axis.line];
-	  var size = borderBox[axis.size];
-	  var twoThirdsOfSize = size * 0.666;
-	  var whenEntered = getWhenEntered(id, currentUserDirection, oldMerge);
-	  var isMovingForward = isUserMovingForward(axis, whenEntered);
-	  var targetCenter = currentCenter[axis.line];
-	
-	  if (isMovingForward) {
-	    return isWithin(start, start + twoThirdsOfSize)(targetCenter);
-	  }
-	
-	  return isWithin(end - twoThirdsOfSize, end)(targetCenter);
-	};
-	
-	var getCombineImpact = (function (_ref2) {
-	  var currentCenter = _ref2.pageBorderBoxCenterWithDroppableScrollChange,
-	      previousImpact = _ref2.previousImpact,
-	      destination = _ref2.destination,
-	      insideDestinationWithoutDraggable = _ref2.insideDestinationWithoutDraggable,
-	      userDirection = _ref2.userDirection,
-	      onLift = _ref2.onLift;
+	var moveToNextCombine = (function (_ref) {
+	  var isMovingForward = _ref.isMovingForward,
+	      draggable = _ref.draggable,
+	      destination = _ref.destination,
+	      insideDestination = _ref.insideDestination,
+	      previousImpact = _ref.previousImpact;
 	
 	  if (!destination.isCombineEnabled) {
 	    return null;
 	  }
 	
-	  var axis = destination.axis;
-	  var map = previousImpact.movement.map;
-	  var canBeDisplacedBy = previousImpact.movement.displacedBy;
-	  var oldMerge = previousImpact.merge;
-	  var target = find(insideDestinationWithoutDraggable, function (child) {
-	    var id = child.descriptor.id;
-	    var displaceBy = getCombinedItemDisplacement({
-	      displaced: map,
-	      onLift: onLift,
-	      combineWith: id,
-	      displacedBy: canBeDisplacedBy
-	    });
-	    return isCombiningWith({
-	      id: id,
-	      currentCenter: currentCenter,
-	      axis: axis,
-	      borderBox: child.page.borderBox,
-	      displaceBy: displaceBy,
-	      currentUserDirection: userDirection,
-	      oldMerge: oldMerge
-	    });
-	  });
+	  var location = tryGetDestination(previousImpact);
 	
-	  if (!target) {
+	  if (!location) {
 	    return null;
 	  }
 	
-	  var merge = {
-	    whenEntered: getWhenEntered(target.descriptor.id, userDirection, oldMerge),
-	    combine: {
-	      draggableId: target.descriptor.id,
-	      droppableId: destination.descriptor.id
+	  function getImpact(target) {
+	    var at = {
+	      type: 'COMBINE',
+	      combine: {
+	        draggableId: target,
+	        droppableId: destination.descriptor.id
+	      }
+	    };
+	    return _extends({}, previousImpact, {
+	      at: at
+	    });
+	  }
+	
+	  var all = previousImpact.displaced.all;
+	  var closestId = all.length ? all[0] : null;
+	
+	  if (isMovingForward) {
+	    return closestId ? getImpact(closestId) : null;
+	  }
+	
+	  var withoutDraggable = removeDraggableFromList(draggable, insideDestination);
+	
+	  if (!closestId) {
+	    if (!withoutDraggable.length) {
+	      return null;
 	    }
-	  };
 	
-	  var withMerge = _extends({}, previousImpact, {
-	    destination: null,
-	    merge: merge
+	    var last = withoutDraggable[withoutDraggable.length - 1];
+	    return getImpact(last.descriptor.id);
+	  }
+	
+	  var indexOfClosest = findIndex(withoutDraggable, function (d) {
+	    return d.descriptor.id === closestId;
 	  });
+	  !(indexOfClosest !== -1) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not find displaced item in set') : invariant(false) : void 0;
+	  var proposedIndex = indexOfClosest - 1;
 	
-	  return withMerge;
+	  if (proposedIndex < 0) {
+	    return null;
+	  }
+	
+	  var before = withoutDraggable[proposedIndex];
+	  return getImpact(before.descriptor.id);
+	});
+	
+	var isHomeOf = (function (draggable, destination) {
+	  return draggable.descriptor.droppableId === destination.descriptor.id;
+	});
+	
+	var noDisplacedBy = {
+	  point: origin,
+	  value: 0
+	};
+	var emptyGroups = {
+	  invisible: {},
+	  visible: {},
+	  all: []
+	};
+	var noImpact = {
+	  displaced: emptyGroups,
+	  displacedBy: noDisplacedBy,
+	  at: null
+	};
+	
+	var isWithin = (function (lowerBound, upperBound) {
+	  return function (value) {
+	    return lowerBound <= value && value <= upperBound;
+	  };
 	});
 	
 	var isPartiallyVisibleThroughFrame = (function (frame) {
@@ -17106,6 +17100,29 @@
 	    return isContained;
 	  };
 	});
+	
+	var vertical = {
+	  direction: 'vertical',
+	  line: 'y',
+	  crossAxisLine: 'x',
+	  start: 'top',
+	  end: 'bottom',
+	  size: 'height',
+	  crossAxisStart: 'left',
+	  crossAxisEnd: 'right',
+	  crossAxisSize: 'width'
+	};
+	var horizontal = {
+	  direction: 'horizontal',
+	  line: 'x',
+	  crossAxisLine: 'y',
+	  start: 'left',
+	  end: 'right',
+	  size: 'width',
+	  crossAxisStart: 'top',
+	  crossAxisEnd: 'bottom',
+	  crossAxisSize: 'height'
+	};
 	
 	var isTotallyVisibleThroughFrameOnAxis = (function (axis) {
 	  return function (frame) {
@@ -17164,1142 +17181,221 @@
 	  }));
 	};
 	
-	var getShouldAnimate = function getShouldAnimate(forceShouldAnimate, isVisible, previous) {
+	var getShouldAnimate = function getShouldAnimate(id, last, forceShouldAnimate) {
 	  if (typeof forceShouldAnimate === 'boolean') {
 	    return forceShouldAnimate;
 	  }
 	
-	  if (!isVisible) {
-	    return false;
-	  }
-	
-	  if (!previous) {
+	  if (!last) {
 	    return true;
 	  }
 	
-	  return previous.shouldAnimate;
-	};
+	  var invisible = last.invisible,
+	      visible = last.visible;
 	
-	var getTarget = function getTarget(draggable, onLift) {
-	  var marginBox = draggable.page.marginBox;
-	
-	  if (!didStartDisplaced(draggable.descriptor.id, onLift)) {
-	    return marginBox;
+	  if (invisible[id]) {
+	    return false;
 	  }
 	
+	  var previous = visible[id];
+	  return previous ? previous.shouldAnimate : true;
+	};
+	
+	function getTarget(draggable, displacedBy) {
+	  var marginBox = draggable.page.marginBox;
 	  var expandBy = {
-	    top: onLift.displacedBy.point.y,
+	    top: displacedBy.point.y,
 	    right: 0,
 	    bottom: 0,
-	    left: onLift.displacedBy.point.x
+	    left: displacedBy.point.x
 	  };
 	  return cssBoxModel.getRect(cssBoxModel.expand(marginBox, expandBy));
-	};
+	}
 	
-	var getDisplacement = (function (_ref) {
-	  var draggable = _ref.draggable,
+	function getDisplacementGroups(_ref) {
+	  var afterDragging = _ref.afterDragging,
 	      destination = _ref.destination,
-	      previousImpact = _ref.previousImpact,
+	      displacedBy = _ref.displacedBy,
 	      viewport = _ref.viewport,
-	      onLift = _ref.onLift,
-	      forceShouldAnimate = _ref.forceShouldAnimate;
-	  var id = draggable.descriptor.id;
-	  var map = previousImpact.movement.map;
-	  var target = getTarget(draggable, onLift);
-	  var isVisible = isPartiallyVisible({
-	    target: target,
-	    destination: destination,
-	    viewport: viewport,
-	    withDroppableDisplacement: true
-	  });
-	  var shouldAnimate = getShouldAnimate(forceShouldAnimate, isVisible, map[id]);
-	  var displacement = {
-	    draggableId: id,
-	    isVisible: isVisible,
-	    shouldAnimate: shouldAnimate
-	  };
-	  return displacement;
-	});
-	
-	var getDisplacementMap = memoizeOne(function (displaced) {
-	  return displaced.reduce(function (map, displacement) {
-	    map[displacement.draggableId] = displacement;
-	    return map;
-	  }, {});
-	});
-	
-	var getDisplacedBy = memoizeOne(function (axis, displaceBy) {
-	  var displacement = displaceBy[axis.line];
-	  return {
-	    value: displacement,
-	    point: patch(axis.line, displacement)
-	  };
-	});
-	
-	var getReorderImpact = (function (_ref) {
-	  var currentCenter = _ref.pageBorderBoxCenterWithDroppableScrollChange,
-	      draggable = _ref.draggable,
-	      destination = _ref.destination,
-	      insideDestinationWithoutDraggable = _ref.insideDestinationWithoutDraggable,
-	      previousImpact = _ref.previousImpact,
-	      viewport = _ref.viewport,
-	      userDirection = _ref.userDirection,
-	      onLift = _ref.onLift;
-	  var axis = destination.axis;
-	  var isMovingForward = isUserMovingForward(destination.axis, userDirection);
-	  var displacedBy = getDisplacedBy(destination.axis, draggable.displaceBy);
-	  var targetCenter = currentCenter[axis.line];
-	  var displacement = displacedBy.value;
-	  var displaced = insideDestinationWithoutDraggable.filter(function (child) {
-	    var borderBox = child.page.borderBox;
-	    var start = borderBox[axis.start];
-	    var end = borderBox[axis.end];
-	    var didStartDisplaced$1 = didStartDisplaced(child.descriptor.id, onLift);
-	
-	    if (isMovingForward) {
-	      if (didStartDisplaced$1) {
-	        return targetCenter < start;
-	      }
-	
-	      return targetCenter < start + displacement;
-	    }
-	
-	    if (didStartDisplaced$1) {
-	      return targetCenter <= end - displacement;
-	    }
-	
-	    return targetCenter <= end;
-	  }).map(function (dimension) {
-	    return getDisplacement({
-	      draggable: dimension,
+	      forceShouldAnimate = _ref.forceShouldAnimate,
+	      last = _ref.last;
+	  return afterDragging.reduce(function process(groups, draggable) {
+	    var target = getTarget(draggable, displacedBy);
+	    var id = draggable.descriptor.id;
+	    groups.all.push(id);
+	    var isVisible = isPartiallyVisible({
+	      target: target,
 	      destination: destination,
-	      previousImpact: previousImpact,
-	      viewport: viewport.frame,
-	      onLift: onLift
+	      viewport: viewport,
+	      withDroppableDisplacement: true
 	    });
-	  });
-	  var newIndex = insideDestinationWithoutDraggable.length - displaced.length;
-	  var movement = {
-	    displacedBy: displacedBy,
-	    displaced: displaced,
-	    map: getDisplacementMap(displaced)
-	  };
-	  var impact = {
-	    movement: movement,
-	    destination: {
-	      droppableId: destination.descriptor.id,
-	      index: newIndex
-	    },
-	    merge: null
-	  };
-	  return impact;
-	});
 	
-	var noDisplacedBy = {
-	  point: origin,
-	  value: 0
-	};
-	var noMovement = {
-	  displaced: [],
-	  map: {},
-	  displacedBy: noDisplacedBy
-	};
-	var noImpact = {
-	  movement: noMovement,
-	  destination: null,
-	  merge: null
-	};
-	
-	var removeDraggableFromList = memoizeOne(function (remove, list) {
-	  return list.filter(function (item) {
-	    return item.descriptor.id !== remove.descriptor.id;
-	  });
-	});
-	
-	var getDragImpact = (function (_ref) {
-	  var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
-	      draggable = _ref.draggable,
-	      draggables = _ref.draggables,
-	      droppables = _ref.droppables,
-	      previousImpact = _ref.previousImpact,
-	      viewport = _ref.viewport,
-	      userDirection = _ref.userDirection,
-	      onLift = _ref.onLift;
-	  var destinationId = getDroppableOver({
-	    target: pageBorderBoxCenter,
-	    droppables: droppables
-	  });
-	
-	  if (!destinationId) {
-	    return noImpact;
-	  }
-	
-	  var destination = droppables[destinationId];
-	  var insideDestination = getDraggablesInsideDroppable(destination.descriptor.id, draggables);
-	  var insideDestinationWithoutDraggable = removeDraggableFromList(draggable, insideDestination);
-	  var pageBorderBoxCenterWithDroppableScrollChange = withDroppableScroll(destination, pageBorderBoxCenter);
-	  var withMerge = getCombineImpact({
-	    pageBorderBoxCenterWithDroppableScrollChange: pageBorderBoxCenterWithDroppableScrollChange,
-	    previousImpact: previousImpact,
-	    destination: destination,
-	    insideDestinationWithoutDraggable: insideDestinationWithoutDraggable,
-	    userDirection: userDirection,
-	    onLift: onLift
-	  });
-	
-	  if (withMerge) {
-	    return withMerge;
-	  }
-	
-	  return getReorderImpact({
-	    pageBorderBoxCenterWithDroppableScrollChange: pageBorderBoxCenterWithDroppableScrollChange,
-	    destination: destination,
-	    draggable: draggable,
-	    insideDestinationWithoutDraggable: insideDestinationWithoutDraggable,
-	    previousImpact: previousImpact,
-	    viewport: viewport,
-	    userDirection: userDirection,
-	    onLift: onLift
-	  });
-	});
-	
-	var getHomeLocation = (function (descriptor) {
-	  return {
-	    index: descriptor.index,
-	    droppableId: descriptor.droppableId
-	  };
-	});
-	
-	var getHomeOnLift = (function (_ref) {
-	  var draggable = _ref.draggable,
-	      home = _ref.home,
-	      draggables = _ref.draggables,
-	      viewport = _ref.viewport;
-	  var displacedBy = getDisplacedBy(home.axis, draggable.displaceBy);
-	  var insideHome = getDraggablesInsideDroppable(home.descriptor.id, draggables);
-	  var originallyDisplaced = insideHome.slice(draggable.descriptor.index + 1);
-	  var wasDisplaced = originallyDisplaced.reduce(function (previous, item) {
-	    previous[item.descriptor.id] = true;
-	    return previous;
-	  }, {});
-	  var onLift = {
-	    displacedBy: displacedBy,
-	    wasDisplaced: wasDisplaced
-	  };
-	  var displaced = originallyDisplaced.map(function (dimension) {
-	    return getDisplacement({
-	      draggable: dimension,
-	      destination: home,
-	      previousImpact: noImpact,
-	      viewport: viewport.frame,
-	      forceShouldAnimate: false,
-	      onLift: onLift
-	    });
-	  });
-	  var movement = {
-	    displaced: displaced,
-	    map: getDisplacementMap(displaced),
-	    displacedBy: displacedBy
-	  };
-	  var impact = {
-	    movement: movement,
-	    destination: getHomeLocation(draggable.descriptor),
-	    merge: null
-	  };
-	  return {
-	    impact: impact,
-	    onLift: onLift
-	  };
-	});
-	
-	var getDragPositions = (function (_ref) {
-	  var oldInitial = _ref.initial,
-	      oldCurrent = _ref.current,
-	      oldClientBorderBoxCenter = _ref.oldClientBorderBoxCenter,
-	      newClientBorderBoxCenter = _ref.newClientBorderBoxCenter,
-	      viewport = _ref.viewport;
-	  var shift = subtract(newClientBorderBoxCenter, oldClientBorderBoxCenter);
-	
-	  var initial = function () {
-	    var client = {
-	      selection: add(oldInitial.client.selection, shift),
-	      borderBoxCenter: newClientBorderBoxCenter,
-	      offset: origin
-	    };
-	    var page = {
-	      selection: add(client.selection, viewport.scroll.initial),
-	      borderBoxCenter: add(client.selection, viewport.scroll.initial)
-	    };
-	    return {
-	      client: client,
-	      page: page
-	    };
-	  }();
-	
-	  var current = function () {
-	    var reverse = negate(shift);
-	    var offset = add(oldCurrent.client.offset, reverse);
-	    var client = {
-	      selection: add(initial.client.selection, offset),
-	      borderBoxCenter: add(initial.client.borderBoxCenter, offset),
-	      offset: offset
-	    };
-	    var page = {
-	      selection: add(client.selection, viewport.scroll.current),
-	      borderBoxCenter: add(client.borderBoxCenter, viewport.scroll.current)
-	    };
-	    !isEqual(oldCurrent.client.borderBoxCenter, client.borderBoxCenter) ? process.env.NODE_ENV !== "production" ? invariant(false, "\n        Incorrect new client center position.\n        Expected (" + oldCurrent.client.borderBoxCenter.x + ", " + oldCurrent.client.borderBoxCenter.y + ")\n        to equal (" + client.borderBoxCenter.x + ", " + client.borderBoxCenter.y + ")\n      ") : invariant(false) : void 0;
-	    return {
-	      client: client,
-	      page: page
-	    };
-	  }();
-	
-	  return {
-	    current: current,
-	    initial: initial
-	  };
-	});
-	
-	var offsetDraggable = (function (_ref) {
-	  var draggable = _ref.draggable,
-	      offset = _ref.offset,
-	      initialWindowScroll = _ref.initialWindowScroll;
-	  var client = cssBoxModel.offset(draggable.client, offset);
-	  var page = cssBoxModel.withScroll(client, initialWindowScroll);
-	
-	  var moved = _extends({}, draggable, {
-	    placeholder: _extends({}, draggable.placeholder, {
-	      client: client
-	    }),
-	    client: client,
-	    page: page
-	  });
-	
-	  return moved;
-	});
-	
-	var adjustExistingForAdditionsAndRemovals = (function (_ref) {
-	  var existing = _ref.existing,
-	      droppables = _ref.droppables,
-	      addedDraggables = _ref.additions,
-	      removedDraggables = _ref.removals,
-	      viewport = _ref.viewport;
-	  var shifted = {};
-	  toDroppableList(droppables).forEach(function (droppable) {
-	    var axis = droppable.axis;
-	    var original = getDraggablesInsideDroppable(droppable.descriptor.id, existing);
-	    var toShift = {};
-	
-	    var addShift = function addShift(id, shift) {
-	      var previous = toShift[id];
-	
-	      if (!previous) {
-	        toShift[id] = shift;
-	        return;
-	      }
-	
-	      toShift[id] = {
-	        indexChange: previous.indexChange + shift.indexChange,
-	        offset: add(previous.offset, shift.offset)
-	      };
-	    };
-	
-	    var removals = toDraggableMap(removedDraggables.map(function (id) {
-	      var item = existing[id];
-	      !item ? process.env.NODE_ENV !== "production" ? invariant(false, "Could not find removed draggable \"" + id + "\"") : invariant(false) : void 0;
-	      return item;
-	    }).filter(function (draggable) {
-	      return draggable.descriptor.droppableId === droppable.descriptor.id;
-	    }));
-	    var withRemovals = original.filter(function (item, index) {
-	      var isBeingRemoved = Boolean(removals[item.descriptor.id]);
-	
-	      if (!isBeingRemoved) {
-	        return true;
-	      }
-	
-	      var offset = negate(patch(axis.line, item.displaceBy[axis.line]));
-	      original.slice(index).forEach(function (sibling) {
-	        if (removals[sibling.descriptor.id]) {
-	          return;
-	        }
-	
-	        addShift(sibling.descriptor.id, {
-	          indexChange: -1,
-	          offset: offset
-	        });
-	      });
-	      return false;
-	    });
-	    var additions = addedDraggables.filter(function (draggable) {
-	      return draggable.descriptor.droppableId === droppable.descriptor.id;
-	    });
-	    var withAdditions = withRemovals.slice(0);
-	    additions.forEach(function (item) {
-	      withAdditions.splice(item.descriptor.index, 0, item);
-	    });
-	    var additionMap = toDraggableMap(additions);
-	    withAdditions.forEach(function (item, index) {
-	      var wasAdded = Boolean(additionMap[item.descriptor.id]);
-	
-	      if (!wasAdded) {
-	        return;
-	      }
-	
-	      var offset = patch(axis.line, item.client.marginBox[axis.size]);
-	      withAdditions.slice(index).forEach(function (sibling) {
-	        if (additionMap[sibling.descriptor.id]) {
-	          return;
-	        }
-	
-	        addShift(sibling.descriptor.id, {
-	          indexChange: 1,
-	          offset: offset
-	        });
-	      });
-	    });
-	    withAdditions.forEach(function (item) {
-	      if (additionMap[item.descriptor.id]) {
-	        return;
-	      }
-	
-	      var shift = toShift[item.descriptor.id];
-	
-	      if (!shift) {
-	        return;
-	      }
-	
-	      var moved = offsetDraggable({
-	        draggable: item,
-	        offset: shift.offset,
-	        initialWindowScroll: viewport.scroll.initial
-	      });
-	      var index = item.descriptor.index + shift.indexChange;
-	
-	      var updated = _extends({}, moved, {
-	        descriptor: _extends({}, item.descriptor, {
-	          index: index
-	        })
-	      });
-	
-	      shifted[moved.descriptor.id] = updated;
-	    });
-	  });
-	
-	  var map = _extends({}, existing, shifted);
-	
-	  return map;
-	});
-	
-	var adjustAdditionsForScrollChanges = (function (_ref) {
-	  var additions = _ref.additions,
-	      updatedDroppables = _ref.updatedDroppables,
-	      viewport = _ref.viewport;
-	  var windowScrollChange = viewport.scroll.diff.value;
-	  return additions.map(function (draggable) {
-	    var droppableId = draggable.descriptor.droppableId;
-	    var modified = updatedDroppables[droppableId];
-	    var frame = modified.frame;
-	    !frame ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
-	    var droppableScrollChange = frame.scroll.diff.value;
-	    var totalChange = add(windowScrollChange, droppableScrollChange);
-	    var moved = offsetDraggable({
-	      draggable: draggable,
-	      offset: totalChange,
-	      initialWindowScroll: viewport.scroll.initial
-	    });
-	    return moved;
-	  });
-	});
-	
-	var adjustAdditionsForCollapsedHome = (function (_ref) {
-	  var additions = _ref.additions,
-	      dragging = _ref.dragging,
-	      home = _ref.home,
-	      viewport = _ref.viewport;
-	  var displacedBy = getDisplacedBy(home.axis, dragging.displaceBy);
-	  return additions.map(function (draggable) {
-	    if (draggable.descriptor.droppableId !== home.descriptor.id) {
-	      return draggable;
+	    if (!isVisible) {
+	      groups.invisible[draggable.descriptor.id] = true;
+	      return groups;
 	    }
 	
-	    if (draggable.descriptor.index < dragging.descriptor.index) {
-	      return draggable;
-	    }
-	
-	    return offsetDraggable({
-	      draggable: draggable,
-	      offset: displacedBy.point,
-	      initialWindowScroll: viewport.scroll.initial
-	    });
-	  });
-	});
-	
-	var updateDraggables = (function (_ref) {
-	  var updatedDroppables = _ref.updatedDroppables,
-	      criticalId = _ref.criticalId,
-	      unmodifiedExisting = _ref.existing,
-	      unmodifiedAdditions = _ref.additions,
-	      removals = _ref.removals,
-	      viewport = _ref.viewport;
-	  var existing = adjustExistingForAdditionsAndRemovals({
-	    droppables: updatedDroppables,
-	    existing: unmodifiedExisting,
-	    additions: unmodifiedAdditions,
-	    removals: removals,
-	    viewport: viewport
-	  });
-	  var dragging = existing[criticalId];
-	  var home = updatedDroppables[dragging.descriptor.droppableId];
-	  var scrolledAdditions = adjustAdditionsForScrollChanges({
-	    additions: unmodifiedAdditions,
-	    updatedDroppables: updatedDroppables,
-	    viewport: viewport
-	  });
-	  var additions = adjustAdditionsForCollapsedHome({
-	    additions: scrolledAdditions,
-	    dragging: dragging,
-	    home: home,
-	    viewport: viewport
-	  });
-	
-	  var map = _extends({}, existing, toDraggableMap(additions));
-	
-	  removals.forEach(function (id) {
-	    delete map[id];
-	  });
-	  return map;
-	});
-	
-	var getMaxScroll = (function (_ref) {
-	  var scrollHeight = _ref.scrollHeight,
-	      scrollWidth = _ref.scrollWidth,
-	      height = _ref.height,
-	      width = _ref.width;
-	  var maxScroll = subtract({
-	    x: scrollWidth,
-	    y: scrollHeight
+	    var shouldAnimate = getShouldAnimate(id, last, forceShouldAnimate);
+	    var displacement = {
+	      draggableId: id,
+	      shouldAnimate: shouldAnimate
+	    };
+	    groups.visible[id] = displacement;
+	    return groups;
 	  }, {
-	    x: width,
-	    y: height
+	    all: [],
+	    visible: {},
+	    invisible: {}
 	  });
-	  var adjustedMaxScroll = {
-	    x: Math.max(0, maxScroll.x),
-	    y: Math.max(0, maxScroll.y)
-	  };
-	  return adjustedMaxScroll;
-	});
+	}
 	
-	var getDroppableDimension = (function (_ref) {
-	  var descriptor = _ref.descriptor,
-	      isEnabled = _ref.isEnabled,
-	      isCombineEnabled = _ref.isCombineEnabled,
-	      isFixedOnPage = _ref.isFixedOnPage,
-	      direction = _ref.direction,
-	      client = _ref.client,
-	      page = _ref.page,
-	      closest = _ref.closest;
+	function getIndexOfLastItem(draggables, options) {
+	  if (!draggables.length) {
+	    return 0;
+	  }
 	
-	  var frame = function () {
-	    if (!closest) {
-	      return null;
-	    }
+	  var indexOfLastItem = draggables[draggables.length - 1].descriptor.index;
+	  return options.inHomeList ? indexOfLastItem : indexOfLastItem + 1;
+	}
 	
-	    var scrollSize = closest.scrollSize,
-	        frameClient = closest.client;
-	    var maxScroll = getMaxScroll({
-	      scrollHeight: scrollSize.scrollHeight,
-	      scrollWidth: scrollSize.scrollWidth,
-	      height: frameClient.paddingBox.height,
-	      width: frameClient.paddingBox.width
-	    });
-	    return {
-	      pageMarginBox: closest.page.marginBox,
-	      frameClient: frameClient,
-	      scrollSize: scrollSize,
-	      shouldClipSubject: closest.shouldClipSubject,
-	      scroll: {
-	        initial: closest.scroll,
-	        current: closest.scroll,
-	        max: maxScroll,
-	        diff: {
-	          value: origin,
-	          displacement: origin
-	        }
+	function goAtEnd(_ref) {
+	  var insideDestination = _ref.insideDestination,
+	      inHomeList = _ref.inHomeList,
+	      displacedBy = _ref.displacedBy,
+	      destination = _ref.destination;
+	  var newIndex = getIndexOfLastItem(insideDestination, {
+	    inHomeList: inHomeList
+	  });
+	  return {
+	    displaced: emptyGroups,
+	    displacedBy: displacedBy,
+	    at: {
+	      type: 'REORDER',
+	      destination: {
+	        droppableId: destination.descriptor.id,
+	        index: newIndex
 	      }
-	    };
-	  }();
-	
-	  var axis = direction === 'vertical' ? vertical : horizontal;
-	  var subject = getSubject({
-	    page: page,
-	    withPlaceholder: null,
-	    axis: axis,
-	    frame: frame
-	  });
-	  var dimension = {
-	    descriptor: descriptor,
-	    isCombineEnabled: isCombineEnabled,
-	    isFixedOnPage: isFixedOnPage,
-	    axis: axis,
-	    isEnabled: isEnabled,
-	    client: client,
-	    page: page,
-	    frame: frame,
-	    subject: subject
-	  };
-	  return dimension;
-	});
-	
-	var isHomeOf = (function (draggable, destination) {
-	  return draggable.descriptor.droppableId === destination.descriptor.id;
-	});
-	
-	var getRequiredGrowthForPlaceholder = function getRequiredGrowthForPlaceholder(droppable, placeholderSize, draggables) {
-	  var axis = droppable.axis;
-	  var availableSpace = droppable.subject.page.contentBox[axis.size];
-	  var insideDroppable = getDraggablesInsideDroppable(droppable.descriptor.id, draggables);
-	  var spaceUsed = insideDroppable.reduce(function (sum, dimension) {
-	    return sum + dimension.client.marginBox[axis.size];
-	  }, 0);
-	  var requiredSpace = spaceUsed + placeholderSize[axis.line];
-	  var needsToGrowBy = requiredSpace - availableSpace;
-	
-	  if (needsToGrowBy <= 0) {
-	    return null;
-	  }
-	
-	  return patch(axis.line, needsToGrowBy);
-	};
-	
-	var withMaxScroll = function withMaxScroll(frame, max) {
-	  return _extends({}, frame, {
-	    scroll: _extends({}, frame.scroll, {
-	      max: max
-	    })
-	  });
-	};
-	
-	var addPlaceholder = function addPlaceholder(droppable, draggable, draggables) {
-	  var frame = droppable.frame;
-	  !!isHomeOf(draggable, droppable) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not add placeholder space to home list') : invariant(false) : void 0;
-	  !!droppable.subject.withPlaceholder ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot add placeholder size to a subject when it already has one') : invariant(false) : void 0;
-	  var placeholderSize = getDisplacedBy(droppable.axis, draggable.displaceBy).point;
-	  var requiredGrowth = getRequiredGrowthForPlaceholder(droppable, placeholderSize, draggables);
-	  var added = {
-	    placeholderSize: placeholderSize,
-	    increasedBy: requiredGrowth,
-	    oldFrameMaxScroll: droppable.frame ? droppable.frame.scroll.max : null
-	  };
-	
-	  if (!frame) {
-	    var _subject = getSubject({
-	      page: droppable.subject.page,
-	      withPlaceholder: added,
-	      axis: droppable.axis,
-	      frame: droppable.frame
-	    });
-	
-	    return _extends({}, droppable, {
-	      subject: _subject
-	    });
-	  }
-	
-	  var maxScroll = requiredGrowth ? add(frame.scroll.max, requiredGrowth) : frame.scroll.max;
-	  var newFrame = withMaxScroll(frame, maxScroll);
-	  var subject = getSubject({
-	    page: droppable.subject.page,
-	    withPlaceholder: added,
-	    axis: droppable.axis,
-	    frame: newFrame
-	  });
-	  return _extends({}, droppable, {
-	    subject: subject,
-	    frame: newFrame
-	  });
-	};
-	var removePlaceholder = function removePlaceholder(droppable) {
-	  var added = droppable.subject.withPlaceholder;
-	  !added ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot remove placeholder form subject when there was none') : invariant(false) : void 0;
-	  var frame = droppable.frame;
-	
-	  if (!frame) {
-	    var _subject2 = getSubject({
-	      page: droppable.subject.page,
-	      axis: droppable.axis,
-	      frame: null,
-	      withPlaceholder: null
-	    });
-	
-	    return _extends({}, droppable, {
-	      subject: _subject2
-	    });
-	  }
-	
-	  var oldMaxScroll = added.oldFrameMaxScroll;
-	  !oldMaxScroll ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected droppable with frame to have old max frame scroll when removing placeholder') : invariant(false) : void 0;
-	  var newFrame = withMaxScroll(frame, oldMaxScroll);
-	  var subject = getSubject({
-	    page: droppable.subject.page,
-	    axis: droppable.axis,
-	    frame: newFrame,
-	    withPlaceholder: null
-	  });
-	  return _extends({}, droppable, {
-	    subject: subject,
-	    frame: newFrame
-	  });
-	};
-	
-	var getFrame = (function (droppable) {
-	  var frame = droppable.frame;
-	  !frame ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected Droppable to have a frame') : invariant(false) : void 0;
-	  return frame;
-	});
-	
-	var throwIfSpacingChange = function throwIfSpacingChange(old, fresh) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    var getMessage = function getMessage(spacingType) {
-	      return "Cannot change the " + spacingType + " of a Droppable during a drag";
-	    };
-	
-	    !isEqual$1(old.margin, fresh.margin) ? process.env.NODE_ENV !== "production" ? invariant(false, getMessage('margin')) : invariant(false) : void 0;
-	    !isEqual$1(old.border, fresh.border) ? process.env.NODE_ENV !== "production" ? invariant(false, getMessage('border')) : invariant(false) : void 0;
-	    !isEqual$1(old.padding, fresh.padding) ? process.env.NODE_ENV !== "production" ? invariant(false, getMessage('padding')) : invariant(false) : void 0;
-	  }
-	};
-	
-	var adjustBorderBoxSize = function adjustBorderBoxSize(axis, old, fresh) {
-	  return {
-	    top: old.top,
-	    left: old.left,
-	    right: old.left + fresh.width,
-	    bottom: old.top + fresh.height
-	  };
-	};
-	
-	var updateDroppables = (function (_ref) {
-	  var modified = _ref.modified,
-	      existing = _ref.existing,
-	      viewport = _ref.viewport;
-	
-	  if (!modified.length) {
-	    return existing;
-	  }
-	
-	  var adjusted = modified.map(function (provided) {
-	    var raw = existing[provided.descriptor.id];
-	    !raw ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not locate droppable in existing droppables') : invariant(false) : void 0;
-	    var hasPlaceholder = Boolean(raw.subject.withPlaceholder);
-	    var dimension = hasPlaceholder ? removePlaceholder(raw) : raw;
-	    var oldClient = dimension.client;
-	    var newClient = provided.client;
-	    var oldScrollable = getFrame(dimension);
-	    var newScrollable = getFrame(provided);
-	
-	    if (process.env.NODE_ENV !== 'production') {
-	      throwIfSpacingChange(dimension.client, provided.client);
-	      throwIfSpacingChange(oldScrollable.frameClient, newScrollable.frameClient);
-	      var isFrameEqual = oldScrollable.frameClient.borderBox.height === newScrollable.frameClient.borderBox.height && oldScrollable.frameClient.borderBox.width === newScrollable.frameClient.borderBox.width;
-	      !isFrameEqual ? process.env.NODE_ENV !== "production" ? invariant(false, 'The width and height of your Droppable scroll container cannot change when adding or removing Draggables during a drag') : invariant(false) : void 0;
 	    }
+	  };
+	}
 	
-	    var client = cssBoxModel.createBox({
-	      borderBox: adjustBorderBoxSize(dimension.axis, oldClient.borderBox, newClient.borderBox),
-	      margin: oldClient.margin,
-	      border: oldClient.border,
-	      padding: oldClient.padding
-	    });
-	    var closest = {
-	      client: oldScrollable.frameClient,
-	      page: cssBoxModel.withScroll(oldScrollable.frameClient, viewport.scroll.initial),
-	      shouldClipSubject: oldScrollable.shouldClipSubject,
-	      scrollSize: newScrollable.scrollSize,
-	      scroll: oldScrollable.scroll.initial
-	    };
-	    var withSizeChanged = getDroppableDimension({
-	      descriptor: provided.descriptor,
-	      isEnabled: provided.isEnabled,
-	      isCombineEnabled: provided.isCombineEnabled,
-	      isFixedOnPage: provided.isFixedOnPage,
-	      direction: provided.axis.direction,
-	      client: client,
-	      page: cssBoxModel.withScroll(client, viewport.scroll.initial),
-	      closest: closest
-	    });
-	    var scrolled = scrollDroppable(withSizeChanged, newScrollable.scroll.current);
-	    return scrolled;
-	  });
-	
-	  var result = _extends({}, existing, toDroppableMap(adjusted));
-	
-	  return result;
-	});
-	
-	var withNoAnimatedDisplacement = (function (impact) {
-	  var displaced = impact.movement.displaced;
-	
-	  if (!displaced.length) {
-	    return impact;
-	  }
-	
-	  var withoutAnimation = displaced.map(function (displacement) {
-	    if (!displacement.isVisible) {
-	      return displacement;
-	    }
-	
-	    if (!displacement.shouldAnimate) {
-	      return displacement;
-	    }
-	
-	    return _extends({}, displacement, {
-	      shouldAnimate: false
-	    });
-	  });
-	
-	  var result = _extends({}, impact, {
-	    movement: _extends({}, impact.movement, {
-	      displaced: withoutAnimation,
-	      map: getDisplacementMap(withoutAnimation)
-	    })
-	  });
-	
-	  return result;
-	});
-	
-	var patchDroppableMap = (function (droppables, updated) {
-	  var _extends2;
-	
-	  return _extends({}, droppables, (_extends2 = {}, _extends2[updated.descriptor.id] = updated, _extends2));
-	});
-	
-	var clearUnusedPlaceholder = function clearUnusedPlaceholder(_ref) {
-	  var previousImpact = _ref.previousImpact,
-	      impact = _ref.impact,
-	      droppables = _ref.droppables;
-	  var last = whatIsDraggedOver(previousImpact);
-	  var now = whatIsDraggedOver(impact);
-	
-	  if (!last) {
-	    return droppables;
-	  }
-	
-	  if (last === now) {
-	    return droppables;
-	  }
-	
-	  var lastDroppable = droppables[last];
-	
-	  if (!lastDroppable.subject.withPlaceholder) {
-	    return droppables;
-	  }
-	
-	  var updated = removePlaceholder(lastDroppable);
-	  return patchDroppableMap(droppables, updated);
-	};
-	
-	var recomputePlaceholders = (function (_ref2) {
+	function calculateReorderImpact(_ref2) {
 	  var draggable = _ref2.draggable,
-	      draggables = _ref2.draggables,
-	      droppables = _ref2.droppables,
-	      previousImpact = _ref2.previousImpact,
-	      impact = _ref2.impact;
-	  var cleaned = clearUnusedPlaceholder({
-	    previousImpact: previousImpact,
-	    impact: impact,
-	    droppables: droppables
+	      insideDestination = _ref2.insideDestination,
+	      destination = _ref2.destination,
+	      viewport = _ref2.viewport,
+	      displacedBy = _ref2.displacedBy,
+	      last = _ref2.last,
+	      index = _ref2.index,
+	      forceShouldAnimate = _ref2.forceShouldAnimate;
+	  var inHomeList = isHomeOf(draggable, destination);
+	
+	  if (index == null) {
+	    return goAtEnd({
+	      insideDestination: insideDestination,
+	      inHomeList: inHomeList,
+	      displacedBy: displacedBy,
+	      destination: destination
+	    });
+	  }
+	
+	  var match = find(insideDestination, function (item) {
+	    return item.descriptor.index === index;
 	  });
-	  var isOver = whatIsDraggedOver(impact);
 	
-	  if (!isOver) {
-	    return cleaned;
+	  if (!match) {
+	    return goAtEnd({
+	      insideDestination: insideDestination,
+	      inHomeList: inHomeList,
+	      displacedBy: displacedBy,
+	      destination: destination
+	    });
 	  }
 	
-	  var droppable = droppables[isOver];
-	
-	  if (isHomeOf(draggable, droppable)) {
-	    return cleaned;
-	  }
-	
-	  if (droppable.subject.withPlaceholder) {
-	    return cleaned;
-	  }
-	
-	  var patched = addPlaceholder(droppable, draggable, draggables);
-	  return patchDroppableMap(cleaned, patched);
-	});
-	
-	var timingsKey = 'Processing dynamic changes';
-	var publishWhileDragging = (function (_ref) {
-	  var _extends2, _extends3;
-	
-	  var state = _ref.state,
-	      published = _ref.published;
-	  start(timingsKey);
-	  var updatedDroppables = updateDroppables({
-	    modified: published.modified,
-	    existing: state.dimensions.droppables,
-	    viewport: state.viewport
+	  var withoutDragging = removeDraggableFromList(draggable, insideDestination);
+	  var sliceFrom = insideDestination.indexOf(match);
+	  var impacted = withoutDragging.slice(sliceFrom);
+	  var displaced = getDisplacementGroups({
+	    afterDragging: impacted,
+	    destination: destination,
+	    displacedBy: displacedBy,
+	    last: last,
+	    viewport: viewport.frame,
+	    forceShouldAnimate: forceShouldAnimate
 	  });
-	  var draggables = updateDraggables({
-	    updatedDroppables: updatedDroppables,
-	    criticalId: state.critical.draggable.id,
-	    existing: state.dimensions.draggables,
-	    additions: published.additions,
-	    removals: published.removals,
-	    viewport: state.viewport
-	  });
-	  var critical = {
-	    draggable: draggables[state.critical.draggable.id].descriptor,
-	    droppable: updatedDroppables[state.critical.droppable.id].descriptor
-	  };
-	  var original = state.dimensions.draggables[critical.draggable.id];
-	  var updated = draggables[critical.draggable.id];
-	  var droppables = recomputePlaceholders({
-	    draggable: updated,
-	    draggables: draggables,
-	    droppables: updatedDroppables,
-	    previousImpact: state.impact,
-	    impact: state.impact
-	  });
-	  var dimensions = {
-	    draggables: draggables,
-	    droppables: droppables
-	  };
-	
-	  var _getDragPositions = getDragPositions({
-	    initial: state.initial,
-	    current: state.current,
-	    oldClientBorderBoxCenter: original.client.borderBox.center,
-	    newClientBorderBoxCenter: updated.client.borderBox.center,
-	    viewport: state.viewport
-	  }),
-	      initial = _getDragPositions.initial,
-	      current = _getDragPositions.current;
-	
-	  var _getHomeOnLift = getHomeOnLift({
-	    draggable: updated,
-	    home: dimensions.droppables[critical.droppable.id],
-	    draggables: dimensions.draggables,
-	    viewport: state.viewport
-	  }),
-	      homeImpact = _getHomeOnLift.impact,
-	      onLift = _getHomeOnLift.onLift;
-	
-	  var impact = withNoAnimatedDisplacement(getDragImpact({
-	    pageBorderBoxCenter: current.page.borderBoxCenter,
-	    draggable: updated,
-	    draggables: dimensions.draggables,
-	    droppables: dimensions.droppables,
-	    previousImpact: homeImpact,
-	    viewport: state.viewport,
-	    userDirection: state.userDirection,
-	    onLift: onLift
-	  }));
-	  var isOrphaned = Boolean(state.movementMode === 'SNAP' && !whatIsDraggedOver(impact));
-	  !!isOrphaned ? process.env.NODE_ENV !== "production" ? invariant(false, 'Dragging item no longer has a valid merge/destination after a dynamic update. This is not supported') : invariant(false) : void 0;
-	  finish(timingsKey);
-	
-	  var draggingState = _extends({
-	    phase: 'DRAGGING'
-	  }, state, (_extends2 = {}, _extends2["phase"] = 'DRAGGING', _extends2.critical = critical, _extends2.current = current, _extends2.initial = initial, _extends2.impact = impact, _extends2.dimensions = dimensions, _extends2.onLift = onLift, _extends2.onLiftImpact = homeImpact, _extends2.forceShouldAnimate = false, _extends2));
-	
-	  if (state.phase === 'COLLECTING') {
-	    return draggingState;
-	  }
-	
-	  var dropPending = _extends({
-	    phase: 'DROP_PENDING'
-	  }, draggingState, (_extends3 = {}, _extends3["phase"] = 'DROP_PENDING', _extends3.reason = state.reason, _extends3.isWaiting = false, _extends3));
-	
-	  return dropPending;
-	});
-	
-	var forward = {
-	  vertical: 'down',
-	  horizontal: 'right'
-	};
-	var backward = {
-	  vertical: 'up',
-	  horizontal: 'left'
-	};
-	
-	var moveToNextCombine = (function (_ref) {
-	  var isMovingForward = _ref.isMovingForward,
-	      isInHomeList = _ref.isInHomeList,
-	      draggable = _ref.draggable,
-	      destination = _ref.destination,
-	      originalInsideDestination = _ref.insideDestination,
-	      previousImpact = _ref.previousImpact;
-	
-	  if (!destination.isCombineEnabled) {
-	    return null;
-	  }
-	
-	  if (previousImpact.merge) {
-	    return null;
-	  }
-	
-	  var location = previousImpact.destination;
-	  !location ? process.env.NODE_ENV !== "production" ? invariant(false, 'Need a previous location to move from into a combine') : invariant(false) : void 0;
-	  var currentIndex = location.index;
-	
-	  var currentInsideDestination = function () {
-	    var shallow = originalInsideDestination.slice();
-	
-	    if (isInHomeList) {
-	      shallow.splice(draggable.descriptor.index, 1);
-	    }
-	
-	    shallow.splice(location.index, 0, draggable);
-	    return shallow;
-	  }();
-	
-	  var targetIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
-	
-	  if (targetIndex < 0) {
-	    return null;
-	  }
-	
-	  if (targetIndex > currentInsideDestination.length - 1) {
-	    return null;
-	  }
-	
-	  var target = currentInsideDestination[targetIndex];
-	  !(target !== draggable) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot combine with self') : invariant(false) : void 0;
-	  var merge = {
-	    whenEntered: isMovingForward ? forward : backward,
-	    combine: {
-	      draggableId: target.descriptor.id,
-	      droppableId: destination.descriptor.id
-	    }
-	  };
-	  var impact = {
-	    movement: previousImpact.movement,
-	    destination: null,
-	    merge: merge
-	  };
-	  return impact;
-	});
-	
-	var addClosest = function addClosest(add, displaced) {
-	  var added = {
-	    draggableId: add.descriptor.id,
-	    isVisible: true,
-	    shouldAnimate: true
-	  };
-	  return [added].concat(displaced);
-	};
-	var removeClosest = function removeClosest(displaced) {
-	  return displaced.slice(1);
-	};
-	
-	var fromReorder = (function (_ref) {
-	  var isMovingForward = _ref.isMovingForward,
-	      isInHomeList = _ref.isInHomeList,
-	      draggable = _ref.draggable,
-	      initialInside = _ref.insideDestination,
-	      location = _ref.location;
-	  var insideDestination = initialInside.slice();
-	  var currentIndex = location.index;
-	  var isInForeignList = !isInHomeList;
-	
-	  if (isInForeignList) {
-	    insideDestination.splice(location.index, 0, draggable);
-	  }
-	
-	  var proposedIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
-	
-	  if (proposedIndex < 0) {
-	    return null;
-	  }
-	
-	  if (proposedIndex > insideDestination.length - 1) {
-	    return null;
-	  }
-	
 	  return {
-	    proposedIndex: proposedIndex,
-	    modifyDisplacement: true
+	    displaced: displaced,
+	    displacedBy: displacedBy,
+	    at: {
+	      type: 'REORDER',
+	      destination: {
+	        droppableId: destination.descriptor.id,
+	        index: index
+	      }
+	    }
 	  };
-	});
+	}
+	
+	function didStartAfterCritical(draggableId, afterCritical) {
+	  return Boolean(afterCritical.effected[draggableId]);
+	}
 	
 	var fromCombine = (function (_ref) {
 	  var isMovingForward = _ref.isMovingForward,
 	      destination = _ref.destination,
-	      previousImpact = _ref.previousImpact,
 	      draggables = _ref.draggables,
-	      merge = _ref.merge,
-	      onLift = _ref.onLift;
+	      combine = _ref.combine,
+	      afterCritical = _ref.afterCritical;
 	
 	  if (!destination.isCombineEnabled) {
 	    return null;
 	  }
 	
-	  var movement = previousImpact.movement;
-	  var combineId = merge.combine.draggableId;
-	  var combine = draggables[combineId];
-	  var combineIndex = combine.descriptor.index;
-	  var wasDisplacedAtStart = didStartDisplaced(combineId, onLift);
+	  var combineId = combine.draggableId;
+	  var combineWith = draggables[combineId];
+	  var combineWithIndex = combineWith.descriptor.index;
+	  var didCombineWithStartAfterCritical = didStartAfterCritical(combineId, afterCritical);
 	
-	  if (wasDisplacedAtStart) {
-	    var hasDisplacedFromStart = !movement.map[combineId];
-	
-	    if (hasDisplacedFromStart) {
-	      if (isMovingForward) {
-	        return {
-	          proposedIndex: combineIndex,
-	          modifyDisplacement: false
-	        };
-	      }
-	
-	      return {
-	        proposedIndex: combineIndex - 1,
-	        modifyDisplacement: true
-	      };
-	    }
-	
+	  if (didCombineWithStartAfterCritical) {
 	    if (isMovingForward) {
-	      return {
-	        proposedIndex: combineIndex,
-	        modifyDisplacement: true
-	      };
+	      return combineWithIndex;
 	    }
 	
-	    return {
-	      proposedIndex: combineIndex - 1,
-	      modifyDisplacement: false
-	    };
-	  }
-	
-	  var isDisplaced = Boolean(movement.map[combineId]);
-	
-	  if (isDisplaced) {
-	    if (isMovingForward) {
-	      return {
-	        proposedIndex: combineIndex + 1,
-	        modifyDisplacement: true
-	      };
-	    }
-	
-	    return {
-	      proposedIndex: combineIndex,
-	      modifyDisplacement: false
-	    };
+	    return combineWithIndex - 1;
 	  }
 	
 	  if (isMovingForward) {
-	    return {
-	      proposedIndex: combineIndex + 1,
-	      modifyDisplacement: false
-	    };
+	    return combineWithIndex + 1;
 	  }
 	
-	  return {
-	    proposedIndex: combineIndex,
-	    modifyDisplacement: true
-	  };
+	  return combineWithIndex;
+	});
+	
+	var fromReorder = (function (_ref) {
+	  var isMovingForward = _ref.isMovingForward,
+	      isInHomeList = _ref.isInHomeList,
+	      insideDestination = _ref.insideDestination,
+	      location = _ref.location;
+	
+	  if (!insideDestination.length) {
+	    return null;
+	  }
+	
+	  var currentIndex = location.index;
+	  var proposedIndex = isMovingForward ? currentIndex + 1 : currentIndex - 1;
+	  var firstIndex = insideDestination[0].descriptor.index;
+	  var lastIndex = insideDestination[insideDestination.length - 1].descriptor.index;
+	  var upperBound = isInHomeList ? lastIndex : lastIndex + 1;
+	
+	  if (proposedIndex < firstIndex) {
+	    return null;
+	  }
+	
+	  if (proposedIndex > upperBound) {
+	    return null;
+	  }
+	
+	  return proposedIndex;
 	});
 	
 	var moveToNextIndex = (function (_ref) {
@@ -18310,82 +17406,85 @@
 	      destination = _ref.destination,
 	      insideDestination = _ref.insideDestination,
 	      previousImpact = _ref.previousImpact,
-	      onLift = _ref.onLift;
+	      viewport = _ref.viewport,
+	      afterCritical = _ref.afterCritical;
+	  var wasAt = previousImpact.at;
+	  !wasAt ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot move in direction without previous impact location') : invariant(false) : void 0;
 	
-	  var instruction = function () {
-	    if (previousImpact.destination) {
-	      return fromReorder({
-	        isMovingForward: isMovingForward,
-	        isInHomeList: isInHomeList,
-	        draggable: draggable,
-	        location: previousImpact.destination,
-	        insideDestination: insideDestination
-	      });
+	  if (wasAt.type === 'REORDER') {
+	    var _newIndex = fromReorder({
+	      isMovingForward: isMovingForward,
+	      isInHomeList: isInHomeList,
+	      location: wasAt.destination,
+	      insideDestination: insideDestination
+	    });
+	
+	    if (_newIndex == null) {
+	      return null;
 	    }
 	
-	    if (previousImpact.merge) {
-	      return fromCombine({
-	        isMovingForward: isMovingForward,
-	        destination: destination,
-	        previousImpact: previousImpact,
-	        draggables: draggables,
-	        merge: previousImpact.merge,
-	        onLift: onLift
-	      });
-	    }
-	    return null;
-	  }();
+	    return calculateReorderImpact({
+	      draggable: draggable,
+	      insideDestination: insideDestination,
+	      destination: destination,
+	      viewport: viewport,
+	      last: previousImpact.displaced,
+	      displacedBy: previousImpact.displacedBy,
+	      index: _newIndex
+	    });
+	  }
 	
-	  if (instruction == null) {
+	  var newIndex = fromCombine({
+	    isMovingForward: isMovingForward,
+	    destination: destination,
+	    displaced: previousImpact.displaced,
+	    draggables: draggables,
+	    combine: wasAt.combine,
+	    afterCritical: afterCritical
+	  });
+	
+	  if (newIndex == null) {
 	    return null;
 	  }
 	
-	  var proposedIndex = instruction.proposedIndex,
-	      modifyDisplacement = instruction.modifyDisplacement;
-	  var displacedBy = getDisplacedBy(destination.axis, draggable.displaceBy);
+	  return calculateReorderImpact({
+	    draggable: draggable,
+	    insideDestination: insideDestination,
+	    destination: destination,
+	    viewport: viewport,
+	    last: previousImpact.displaced,
+	    displacedBy: previousImpact.displacedBy,
+	    index: newIndex
+	  });
+	});
 	
-	  var displaced = function () {
-	    var lastDisplaced = previousImpact.movement.displaced;
+	var getCombinedItemDisplacement = (function (_ref) {
+	  var displaced = _ref.displaced,
+	      afterCritical = _ref.afterCritical,
+	      combineWith = _ref.combineWith,
+	      displacedBy = _ref.displacedBy;
+	  var isDisplaced = Boolean(displaced.visible[combineWith] || displaced.invisible[combineWith]);
 	
-	    if (!modifyDisplacement) {
-	      return lastDisplaced;
-	    }
+	  if (didStartAfterCritical(combineWith, afterCritical)) {
+	    return isDisplaced ? origin : negate(displacedBy.point);
+	  }
 	
-	    if (isMovingForward) {
-	      return removeClosest(lastDisplaced);
-	    }
-	
-	    var withoutDraggable = removeDraggableFromList(draggable, insideDestination);
-	    var atProposedIndex = withoutDraggable[proposedIndex];
-	    return addClosest(atProposedIndex, lastDisplaced);
-	  }();
-	
-	  return {
-	    movement: {
-	      displacedBy: displacedBy,
-	      displaced: displaced,
-	      map: getDisplacementMap(displaced)
-	    },
-	    destination: {
-	      droppableId: destination.descriptor.id,
-	      index: proposedIndex
-	    },
-	    merge: null
-	  };
+	  return isDisplaced ? displacedBy.point : origin;
 	});
 	
 	var whenCombining = (function (_ref) {
-	  var combine = _ref.combine,
-	      onLift = _ref.onLift,
-	      movement = _ref.movement,
+	  var afterCritical = _ref.afterCritical,
+	      impact = _ref.impact,
 	      draggables = _ref.draggables;
+	  var combine = tryGetCombine(impact);
+	  !combine ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
 	  var combineWith = combine.draggableId;
 	  var center = draggables[combineWith].page.borderBox.center;
 	  var displaceBy = getCombinedItemDisplacement({
-	    displaced: movement.map,
-	    onLift: onLift,
+	    displaced: impact.displaced,
+	    afterCritical: afterCritical,
 	    combineWith: combineWith,
-	    displacedBy: movement.displacedBy
+	    displacedBy: impact.displacedBy
 	  });
 	  return add(center, displaceBy);
 	});
@@ -18422,11 +17521,11 @@
 	};
 	
 	var whenReordering = (function (_ref) {
-	  var movement = _ref.movement,
+	  var impact = _ref.impact,
 	      draggable = _ref.draggable,
 	      draggables = _ref.draggables,
 	      droppable = _ref.droppable,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	  var insideDestination = getDraggablesInsideDroppable(droppable.descriptor.id, draggables);
 	  var draggablePage = draggable.page;
 	  var axis = droppable.axis;
@@ -18439,21 +17538,22 @@
 	    });
 	  }
 	
-	  var displaced = movement.displaced,
-	      displacedBy = movement.displacedBy;
+	  var displaced = impact.displaced,
+	      displacedBy = impact.displacedBy;
+	  var closestAfter = displaced.all[0];
 	
-	  if (displaced.length) {
-	    var closestAfter = draggables[displaced[0].draggableId];
+	  if (closestAfter) {
+	    var closest = draggables[closestAfter];
 	
-	    if (didStartDisplaced(closestAfter.descriptor.id, onLift)) {
+	    if (didStartAfterCritical(closestAfter, afterCritical)) {
 	      return goBefore({
 	        axis: axis,
-	        moveRelativeTo: closestAfter.page,
+	        moveRelativeTo: closest.page,
 	        isMoving: draggablePage
 	      });
 	    }
 	
-	    var withDisplacement = cssBoxModel.offset(closestAfter.page, displacedBy.point);
+	    var withDisplacement = cssBoxModel.offset(closest.page, displacedBy.point);
 	    return goBefore({
 	      axis: axis,
 	      moveRelativeTo: withDisplacement,
@@ -18467,8 +17567,8 @@
 	    return draggablePage.borderBox.center;
 	  }
 	
-	  if (didStartDisplaced(last.descriptor.id, onLift)) {
-	    var page = cssBoxModel.offset(last.page, negate(onLift.displacedBy.point));
+	  if (didStartAfterCritical(last.descriptor.id, afterCritical)) {
+	    var page = cssBoxModel.offset(last.page, negate(afterCritical.displacedBy.point));
 	    return goAfter({
 	      axis: axis,
 	      moveRelativeTo: page,
@@ -18498,35 +17598,33 @@
 	      draggable = _ref.draggable,
 	      droppable = _ref.droppable,
 	      draggables = _ref.draggables,
-	      onLift = _ref.onLift;
-	  var merge = impact.merge;
-	  var destination = impact.destination;
+	      afterCritical = _ref.afterCritical;
 	  var original = draggable.page.borderBox.center;
+	  var at = impact.at;
 	
 	  if (!droppable) {
 	    return original;
 	  }
 	
-	  if (destination) {
+	  if (!at) {
+	    return original;
+	  }
+	
+	  if (at.type === 'REORDER') {
 	    return whenReordering({
-	      movement: impact.movement,
+	      impact: impact,
 	      draggable: draggable,
 	      draggables: draggables,
 	      droppable: droppable,
-	      onLift: onLift
+	      afterCritical: afterCritical
 	    });
 	  }
 	
-	  if (merge) {
-	    return whenCombining({
-	      movement: impact.movement,
-	      combine: merge.combine,
-	      draggables: draggables,
-	      onLift: onLift
-	    });
-	  }
-	
-	  return original;
+	  return whenCombining({
+	    impact: impact,
+	    draggables: draggables,
+	    afterCritical: afterCritical
+	  });
 	};
 	
 	var getPageBorderBoxCenterFromImpact = (function (args) {
@@ -18560,60 +17658,72 @@
 	  return updated;
 	});
 	
-	var withNewDisplacement = (function (impact, displaced) {
-	  return _extends({}, impact, {
-	    movement: _extends({}, impact.movement, {
-	      displaced: displaced,
-	      map: getDisplacementMap(displaced)
-	    })
+	function getDraggables(ids, draggables) {
+	  return ids.map(function (id) {
+	    return draggables[id];
 	  });
-	});
+	}
+	
+	function tryGetVisible(id, groups) {
+	  for (var i = 0; i < groups.length; i++) {
+	    var displacement = groups[i].visible[id];
+	
+	    if (displacement) {
+	      return displacement;
+	    }
+	  }
+	
+	  return null;
+	}
 	
 	var speculativelyIncrease = (function (_ref) {
 	  var impact = _ref.impact,
 	      viewport = _ref.viewport,
 	      destination = _ref.destination,
 	      draggables = _ref.draggables,
-	      maxScrollChange = _ref.maxScrollChange,
-	      onLift = _ref.onLift;
-	  var displaced = impact.movement.displaced;
+	      maxScrollChange = _ref.maxScrollChange;
 	  var scrolledViewport = scrollViewport(viewport, add(viewport.scroll.current, maxScrollChange));
 	  var scrolledDroppable = destination.frame ? scrollDroppable(destination, add(destination.frame.scroll.current, maxScrollChange)) : destination;
-	  var updated = displaced.map(function (entry) {
-	    if (entry.isVisible) {
-	      return entry;
-	    }
-	
-	    var draggable = draggables[entry.draggableId];
-	    var withScrolledViewport = getDisplacement({
-	      draggable: draggable,
-	      destination: destination,
-	      previousImpact: impact,
-	      viewport: scrolledViewport.frame,
-	      onLift: onLift,
-	      forceShouldAnimate: false
-	    });
-	
-	    if (withScrolledViewport.isVisible) {
-	      return withScrolledViewport;
-	    }
-	
-	    var withScrolledDroppable = getDisplacement({
-	      draggable: draggable,
-	      destination: scrolledDroppable,
-	      previousImpact: impact,
-	      viewport: viewport.frame,
-	      onLift: onLift,
-	      forceShouldAnimate: false
-	    });
-	
-	    if (withScrolledDroppable.isVisible) {
-	      return withScrolledDroppable;
-	    }
-	
-	    return entry;
+	  var last = impact.displaced;
+	  var withViewportScroll = getDisplacementGroups({
+	    afterDragging: getDraggables(last.all, draggables),
+	    destination: destination,
+	    displacedBy: impact.displacedBy,
+	    viewport: scrolledViewport.frame,
+	    last: last,
+	    forceShouldAnimate: false
 	  });
-	  return withNewDisplacement(impact, updated);
+	  var withDroppableScroll = getDisplacementGroups({
+	    afterDragging: getDraggables(last.all, draggables),
+	    destination: scrolledDroppable,
+	    displacedBy: impact.displacedBy,
+	    viewport: viewport.frame,
+	    last: last,
+	    forceShouldAnimate: false
+	  });
+	  var invisible = {};
+	  var visible = {};
+	  var groups = [last, withViewportScroll, withDroppableScroll];
+	  last.all.forEach(function (id) {
+	    var displacement = tryGetVisible(id, groups);
+	
+	    if (displacement) {
+	      visible[id] = displacement;
+	      return;
+	    }
+	
+	    invisible[id] = true;
+	  });
+	
+	  var newImpact = _extends({}, impact, {
+	    displaced: {
+	      all: last.all,
+	      invisible: invisible,
+	      visible: visible
+	    }
+	  });
+	
+	  return newImpact;
 	});
 	
 	var withViewportDisplacement = (function (viewport, point) {
@@ -18657,7 +17767,7 @@
 	      viewport = _ref.viewport,
 	      previousPageBorderBoxCenter = _ref.previousPageBorderBoxCenter,
 	      previousClientSelection = _ref.previousClientSelection,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	
 	  if (!destination.isEnabled) {
 	    return null;
@@ -18666,7 +17776,6 @@
 	  var insideDestination = getDraggablesInsideDroppable(destination.descriptor.id, draggables);
 	  var isInHomeList = isHomeOf(draggable, destination);
 	  var impact = moveToNextCombine({
-	    isInHomeList: isInHomeList,
 	    isMovingForward: isMovingForward,
 	    draggable: draggable,
 	    destination: destination,
@@ -18680,7 +17789,8 @@
 	    destination: destination,
 	    insideDestination: insideDestination,
 	    previousImpact: previousImpact,
-	    onLift: onLift
+	    viewport: viewport,
+	    afterCritical: afterCritical
 	  });
 	
 	  if (!impact) {
@@ -18692,7 +17802,7 @@
 	    draggable: draggable,
 	    droppable: destination,
 	    draggables: draggables,
-	    onLift: onLift
+	    afterCritical: afterCritical
 	  });
 	  var isVisibleInNewLocation = isTotallyVisibleInNewLocation({
 	    draggable: draggable,
@@ -18722,8 +17832,7 @@
 	    viewport: viewport,
 	    destination: destination,
 	    draggables: draggables,
-	    maxScrollChange: distance,
-	    onLift: onLift
+	    maxScrollChange: distance
 	  });
 	  return {
 	    clientSelection: previousClientSelection,
@@ -18820,13 +17929,13 @@
 	  })[0];
 	});
 	
-	var getCurrentPageBorderBoxCenter = function getCurrentPageBorderBoxCenter(draggable, onLift) {
+	var getCurrentPageBorderBoxCenter = function getCurrentPageBorderBoxCenter(draggable, afterCritical) {
 	  var original = draggable.page.borderBox.center;
-	  return didStartDisplaced(draggable.descriptor.id, onLift) ? subtract(original, onLift.displacedBy.point) : original;
+	  return didStartAfterCritical(draggable.descriptor.id, afterCritical) ? subtract(original, afterCritical.displacedBy.point) : original;
 	};
-	var getCurrentPageBorderBox = function getCurrentPageBorderBox(draggable, onLift) {
+	var getCurrentPageBorderBox = function getCurrentPageBorderBox(draggable, afterCritical) {
 	  var original = draggable.page.borderBox;
-	  return didStartDisplaced(draggable.descriptor.id, onLift) ? offsetByPosition(original, negate(onLift.displacedBy.point)) : original;
+	  return didStartAfterCritical(draggable.descriptor.id, afterCritical) ? offsetByPosition(original, negate(afterCritical.displacedBy.point)) : original;
 	};
 	
 	var getClosestDraggable = (function (_ref) {
@@ -18834,17 +17943,17 @@
 	      viewport = _ref.viewport,
 	      destination = _ref.destination,
 	      insideDestination = _ref.insideDestination,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	  var sorted = insideDestination.filter(function (draggable) {
 	    return isTotallyVisible({
-	      target: getCurrentPageBorderBox(draggable, onLift),
+	      target: getCurrentPageBorderBox(draggable, afterCritical),
 	      destination: destination,
 	      viewport: viewport.frame,
 	      withDroppableDisplacement: true
 	    });
 	  }).sort(function (a, b) {
-	    var distanceToA = distance(pageBorderBoxCenter, withDroppableDisplacement(destination, getCurrentPageBorderBoxCenter(a, onLift)));
-	    var distanceToB = distance(pageBorderBoxCenter, withDroppableDisplacement(destination, getCurrentPageBorderBoxCenter(b, onLift)));
+	    var distanceToA = distance(pageBorderBoxCenter, withDroppableDisplacement(destination, getCurrentPageBorderBoxCenter(a, afterCritical)));
+	    var distanceToB = distance(pageBorderBoxCenter, withDroppableDisplacement(destination, getCurrentPageBorderBoxCenter(b, afterCritical)));
 	
 	    if (distanceToA < distanceToB) {
 	      return -1;
@@ -18859,6 +17968,115 @@
 	  return sorted[0] || null;
 	});
 	
+	var getDisplacedBy = memoizeOne(function getDisplacedBy(axis, displaceBy) {
+	  var displacement = displaceBy[axis.line];
+	  return {
+	    value: displacement,
+	    point: patch(axis.line, displacement)
+	  };
+	});
+	
+	var getRequiredGrowthForPlaceholder = function getRequiredGrowthForPlaceholder(droppable, placeholderSize, draggables) {
+	  var axis = droppable.axis;
+	
+	  if (droppable.descriptor.mode === 'virtual') {
+	    return patch(axis.line, placeholderSize[axis.line]);
+	  }
+	
+	  var availableSpace = droppable.subject.page.contentBox[axis.size];
+	  var insideDroppable = getDraggablesInsideDroppable(droppable.descriptor.id, draggables);
+	  var spaceUsed = insideDroppable.reduce(function (sum, dimension) {
+	    return sum + dimension.client.marginBox[axis.size];
+	  }, 0);
+	  var requiredSpace = spaceUsed + placeholderSize[axis.line];
+	  var needsToGrowBy = requiredSpace - availableSpace;
+	
+	  if (needsToGrowBy <= 0) {
+	    return null;
+	  }
+	
+	  return patch(axis.line, needsToGrowBy);
+	};
+	
+	var withMaxScroll = function withMaxScroll(frame, max) {
+	  return _extends({}, frame, {
+	    scroll: _extends({}, frame.scroll, {
+	      max: max
+	    })
+	  });
+	};
+	
+	var addPlaceholder = function addPlaceholder(droppable, draggable, draggables) {
+	  var frame = droppable.frame;
+	  !!isHomeOf(draggable, droppable) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not add placeholder space to home list') : invariant(false) : void 0;
+	  !!droppable.subject.withPlaceholder ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot add placeholder size to a subject when it already has one') : invariant(false) : void 0;
+	  var placeholderSize = getDisplacedBy(droppable.axis, draggable.displaceBy).point;
+	  var requiredGrowth = getRequiredGrowthForPlaceholder(droppable, placeholderSize, draggables);
+	  var added = {
+	    placeholderSize: placeholderSize,
+	    increasedBy: requiredGrowth,
+	    oldFrameMaxScroll: droppable.frame ? droppable.frame.scroll.max : null
+	  };
+	
+	  if (!frame) {
+	    var _subject = getSubject({
+	      page: droppable.subject.page,
+	      withPlaceholder: added,
+	      axis: droppable.axis,
+	      frame: droppable.frame
+	    });
+	
+	    return _extends({}, droppable, {
+	      subject: _subject
+	    });
+	  }
+	
+	  var maxScroll = requiredGrowth ? add(frame.scroll.max, requiredGrowth) : frame.scroll.max;
+	  var newFrame = withMaxScroll(frame, maxScroll);
+	  var subject = getSubject({
+	    page: droppable.subject.page,
+	    withPlaceholder: added,
+	    axis: droppable.axis,
+	    frame: newFrame
+	  });
+	  return _extends({}, droppable, {
+	    subject: subject,
+	    frame: newFrame
+	  });
+	};
+	var removePlaceholder = function removePlaceholder(droppable) {
+	  var added = droppable.subject.withPlaceholder;
+	  !added ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot remove placeholder form subject when there was none') : invariant(false) : void 0;
+	  var frame = droppable.frame;
+	
+	  if (!frame) {
+	    var _subject2 = getSubject({
+	      page: droppable.subject.page,
+	      axis: droppable.axis,
+	      frame: null,
+	      withPlaceholder: null
+	    });
+	
+	    return _extends({}, droppable, {
+	      subject: _subject2
+	    });
+	  }
+	
+	  var oldMaxScroll = added.oldFrameMaxScroll;
+	  !oldMaxScroll ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected droppable with frame to have old max frame scroll when removing placeholder') : invariant(false) : void 0;
+	  var newFrame = withMaxScroll(frame, oldMaxScroll);
+	  var subject = getSubject({
+	    page: droppable.subject.page,
+	    axis: droppable.axis,
+	    frame: newFrame,
+	    withPlaceholder: null
+	  });
+	  return _extends({}, droppable, {
+	    subject: subject,
+	    frame: newFrame
+	  });
+	};
+	
 	var moveToNewDroppable = (function (_ref) {
 	  var previousPageBorderBoxCenter = _ref.previousPageBorderBoxCenter,
 	      moveRelativeTo = _ref.moveRelativeTo,
@@ -18866,9 +18084,8 @@
 	      draggable = _ref.draggable,
 	      draggables = _ref.draggables,
 	      destination = _ref.destination,
-	      previousImpact = _ref.previousImpact,
 	      viewport = _ref.viewport,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	
 	  if (!moveRelativeTo) {
 	    if (insideDestination.length) {
@@ -18876,19 +18093,22 @@
 	    }
 	
 	    var proposed = {
-	      movement: noMovement,
-	      destination: {
-	        droppableId: destination.descriptor.id,
-	        index: 0
-	      },
-	      merge: null
+	      displaced: emptyGroups,
+	      displacedBy: noDisplacedBy,
+	      at: {
+	        type: 'REORDER',
+	        destination: {
+	          droppableId: destination.descriptor.id,
+	          index: 0
+	        }
+	      }
 	    };
 	    var proposedPageBorderBoxCenter = getPageBorderBoxCenterFromImpact({
 	      impact: proposed,
 	      draggable: draggable,
 	      droppable: destination,
 	      draggables: draggables,
-	      onLift: onLift
+	      afterCritical: afterCritical
 	    });
 	    var withPlaceholder = isHomeOf(draggable, destination) ? destination : addPlaceholder(destination, draggable, draggables);
 	    var isVisibleInNewLocation = isTotallyVisibleInNewLocation({
@@ -18902,45 +18122,32 @@
 	    return isVisibleInNewLocation ? proposed : null;
 	  }
 	
-	  var isGoingBeforeTarget = Boolean(previousPageBorderBoxCenter[destination.axis.line] < moveRelativeTo.page.borderBox.center[destination.axis.line]);
-	  var targetIndex = insideDestination.indexOf(moveRelativeTo);
-	  !(targetIndex !== -1) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find target in list') : invariant(false) : void 0;
+	  var isGoingBeforeTarget = Boolean(previousPageBorderBoxCenter[destination.axis.line] <= moveRelativeTo.page.borderBox.center[destination.axis.line]);
 	
 	  var proposedIndex = function () {
+	    var relativeTo = moveRelativeTo.descriptor.index;
+	
 	    if (moveRelativeTo.descriptor.id === draggable.descriptor.id) {
-	      return targetIndex;
+	      return relativeTo;
 	    }
 	
 	    if (isGoingBeforeTarget) {
-	      return targetIndex;
+	      return relativeTo;
 	    }
 	
-	    return targetIndex + 1;
+	    return relativeTo + 1;
 	  }();
 	
-	  var displaced = removeDraggableFromList(draggable, insideDestination).slice(proposedIndex).map(function (dimension) {
-	    return getDisplacement({
-	      draggable: dimension,
-	      destination: destination,
-	      viewport: viewport.frame,
-	      previousImpact: previousImpact,
-	      onLift: onLift
-	    });
-	  });
 	  var displacedBy = getDisplacedBy(destination.axis, draggable.displaceBy);
-	  var impact = {
-	    movement: {
-	      displacedBy: displacedBy,
-	      displaced: displaced,
-	      map: getDisplacementMap(displaced)
-	    },
-	    destination: {
-	      droppableId: destination.descriptor.id,
-	      index: proposedIndex
-	    },
-	    merge: null
-	  };
-	  return impact;
+	  return calculateReorderImpact({
+	    draggable: draggable,
+	    insideDestination: insideDestination,
+	    destination: destination,
+	    viewport: viewport,
+	    displacedBy: displacedBy,
+	    last: emptyGroups,
+	    index: proposedIndex
+	  });
 	});
 	
 	var moveCrossAxis = (function (_ref) {
@@ -18950,9 +18157,8 @@
 	      isOver = _ref.isOver,
 	      draggables = _ref.draggables,
 	      droppables = _ref.droppables,
-	      previousImpact = _ref.previousImpact,
 	      viewport = _ref.viewport,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	  var destination = getBestCrossAxisDroppable({
 	    isMovingForward: isMovingForward,
 	    pageBorderBoxCenter: previousPageBorderBoxCenter,
@@ -18971,7 +18177,7 @@
 	    viewport: viewport,
 	    destination: destination,
 	    insideDestination: insideDestination,
-	    onLift: onLift
+	    afterCritical: afterCritical
 	  });
 	  var impact = moveToNewDroppable({
 	    previousPageBorderBoxCenter: previousPageBorderBoxCenter,
@@ -18980,9 +18186,8 @@
 	    draggables: draggables,
 	    moveRelativeTo: moveRelativeTo,
 	    insideDestination: insideDestination,
-	    previousImpact: previousImpact,
 	    viewport: viewport,
-	    onLift: onLift
+	    afterCritical: afterCritical
 	  });
 	
 	  if (!impact) {
@@ -18994,7 +18199,7 @@
 	    draggable: draggable,
 	    droppable: destination,
 	    draggables: draggables,
-	    onLift: onLift
+	    afterCritical: afterCritical
 	  });
 	  var clientSelection = getClientFromPageBorderBoxCenter({
 	    pageBorderBoxCenter: pageBorderBoxCenter,
@@ -19008,7 +18213,21 @@
 	  };
 	});
 	
-	var getDroppableOver$1 = function getDroppableOver(impact, droppables) {
+	var whatIsDraggedOver = (function (impact) {
+	  var at = impact.at;
+	
+	  if (!at) {
+	    return null;
+	  }
+	
+	  if (at.type === 'REORDER') {
+	    return at.destination.droppableId;
+	  }
+	
+	  return at.combine.droppableId;
+	});
+	
+	var getDroppableOver = function getDroppableOver(impact, droppables) {
 	  var id = whatIsDraggedOver(impact);
 	  return id ? droppables[id] : null;
 	};
@@ -19016,7 +18235,7 @@
 	var moveInDirection = (function (_ref) {
 	  var state = _ref.state,
 	      type = _ref.type;
-	  var isActuallyOver = getDroppableOver$1(state.impact, state.dimensions.droppables);
+	  var isActuallyOver = getDroppableOver(state.impact, state.dimensions.droppables);
 	  var isMainAxisMovementAllowed = Boolean(isActuallyOver);
 	  var home = state.dimensions.droppables[state.critical.droppable.id];
 	  var isOver = isActuallyOver || home;
@@ -19042,7 +18261,7 @@
 	    viewport: state.viewport,
 	    previousClientSelection: state.current.client.selection,
 	    previousImpact: state.impact,
-	    onLift: state.onLift
+	    afterCritical: state.afterCritical
 	  }) : moveCrossAxis({
 	    isMovingForward: isMovingForward,
 	    previousPageBorderBoxCenter: previousPageBorderBoxCenter,
@@ -19050,9 +18269,8 @@
 	    isOver: isOver,
 	    draggables: draggables,
 	    droppables: droppables,
-	    previousImpact: state.impact,
 	    viewport: state.viewport,
-	    onLift: state.onLift
+	    afterCritical: state.afterCritical
 	  });
 	});
 	
@@ -19060,28 +18278,349 @@
 	  return state.phase === 'DRAGGING' || state.phase === 'COLLECTING';
 	}
 	
-	var getVertical = function getVertical(previous, diff) {
-	  if (diff === 0) {
-	    return previous;
-	  }
-	
-	  return diff > 0 ? 'down' : 'up';
-	};
-	
-	var getHorizontal = function getHorizontal(previous, diff) {
-	  if (diff === 0) {
-	    return previous;
-	  }
-	
-	  return diff > 0 ? 'right' : 'left';
-	};
-	
-	var getUserDirection = (function (previous, oldPageBorderBoxCenter, newPageBorderBoxCenter) {
-	  var diff = subtract(newPageBorderBoxCenter, oldPageBorderBoxCenter);
-	  return {
-	    horizontal: getHorizontal(previous.horizontal, diff.x),
-	    vertical: getVertical(previous.vertical, diff.y)
+	function isPositionInFrame(frame) {
+	  var isWithinVertical = isWithin(frame.top, frame.bottom);
+	  var isWithinHorizontal = isWithin(frame.left, frame.right);
+	  return function run(point) {
+	    return isWithinVertical(point.y) && isWithinHorizontal(point.x);
 	  };
+	}
+	
+	function getHasOverlap(first, second) {
+	  return first.left < second.right && first.right > second.left && first.top < second.bottom && first.bottom > second.top;
+	}
+	
+	function getFurthestAway(_ref) {
+	  var pageBorderBox = _ref.pageBorderBox,
+	      draggable = _ref.draggable,
+	      candidates = _ref.candidates;
+	  var startCenter = draggable.page.borderBox.center;
+	  var sorted = candidates.map(function (candidate) {
+	    var axis = candidate.axis;
+	    var target = patch(candidate.axis.line, pageBorderBox.center[axis.line], candidate.page.borderBox.center[axis.crossAxisLine]);
+	    return {
+	      id: candidate.descriptor.id,
+	      distance: distance(startCenter, target)
+	    };
+	  }).sort(function (a, b) {
+	    return b.distance - a.distance;
+	  });
+	  return sorted[0] ? sorted[0].id : null;
+	}
+	
+	function getDroppableOver$1(_ref2) {
+	  var pageBorderBox = _ref2.pageBorderBox,
+	      draggable = _ref2.draggable,
+	      droppables = _ref2.droppables;
+	  var candidates = toDroppableList(droppables).filter(function (item) {
+	    if (!item.isEnabled) {
+	      return false;
+	    }
+	
+	    var active = item.subject.active;
+	
+	    if (!active) {
+	      return false;
+	    }
+	
+	    if (!getHasOverlap(pageBorderBox, active)) {
+	      return false;
+	    }
+	
+	    if (isPositionInFrame(active)(pageBorderBox.center)) {
+	      return true;
+	    }
+	
+	    var axis = item.axis;
+	    var childCenter = active.center[axis.crossAxisLine];
+	    var crossAxisStart = pageBorderBox[axis.crossAxisStart];
+	    var crossAxisEnd = pageBorderBox[axis.crossAxisEnd];
+	    var isContained = isWithin(active[axis.crossAxisStart], active[axis.crossAxisEnd]);
+	    var isStartContained = isContained(crossAxisStart);
+	    var isEndContained = isContained(crossAxisEnd);
+	
+	    if (!isStartContained && !isEndContained) {
+	      return true;
+	    }
+	
+	    if (isStartContained) {
+	      return crossAxisStart < childCenter;
+	    }
+	
+	    return crossAxisEnd > childCenter;
+	  });
+	
+	  if (!candidates.length) {
+	    return null;
+	  }
+	
+	  if (candidates.length === 1) {
+	    return candidates[0].descriptor.id;
+	  }
+	
+	  return getFurthestAway({
+	    pageBorderBox: pageBorderBox,
+	    draggable: draggable,
+	    candidates: candidates
+	  });
+	}
+	
+	var offsetRectByPosition = function offsetRectByPosition(rect, point) {
+	  return cssBoxModel.getRect(offsetByPosition(rect, point));
+	};
+	
+	var withDroppableScroll = (function (droppable, area) {
+	  var frame = droppable.frame;
+	
+	  if (!frame) {
+	    return area;
+	  }
+	
+	  return offsetRectByPosition(area, frame.scroll.diff.value);
+	});
+	
+	function getIsDisplaced(_ref) {
+	  var displaced = _ref.displaced,
+	      id = _ref.id;
+	  return Boolean(displaced.visible[id] || displaced.invisible[id]);
+	}
+	
+	function atIndex(_ref) {
+	  var draggable = _ref.draggable,
+	      closest = _ref.closest,
+	      inHomeList = _ref.inHomeList;
+	
+	  if (!closest) {
+	    return null;
+	  }
+	
+	  if (!inHomeList) {
+	    return closest.descriptor.index;
+	  }
+	
+	  if (closest.descriptor.index > draggable.descriptor.index) {
+	    return closest.descriptor.index - 1;
+	  }
+	
+	  return closest.descriptor.index;
+	}
+	
+	var getReorderImpact = (function (_ref2) {
+	  var targetRect = _ref2.pageBorderBoxWithDroppableScroll,
+	      draggable = _ref2.draggable,
+	      destination = _ref2.destination,
+	      insideDestination = _ref2.insideDestination,
+	      last = _ref2.last,
+	      viewport = _ref2.viewport,
+	      afterCritical = _ref2.afterCritical;
+	  var axis = destination.axis;
+	  var displacedBy = getDisplacedBy(destination.axis, draggable.displaceBy);
+	  var displacement = displacedBy.value;
+	  var targetStart = targetRect[axis.start];
+	  var targetEnd = targetRect[axis.end];
+	  var withoutDragging = removeDraggableFromList(draggable, insideDestination);
+	  var closest = find(withoutDragging, function (child) {
+	    var id = child.descriptor.id;
+	    var childCenter = child.page.borderBox.center[axis.line];
+	    var didStartAfterCritical$1 = didStartAfterCritical(id, afterCritical);
+	    var isDisplaced = getIsDisplaced({
+	      displaced: last,
+	      id: id
+	    });
+	
+	    if (didStartAfterCritical$1) {
+	      if (isDisplaced) {
+	        return targetEnd <= childCenter;
+	      }
+	
+	      return targetStart < childCenter - displacement;
+	    }
+	
+	    if (isDisplaced) {
+	      return targetEnd <= childCenter + displacement;
+	    }
+	
+	    return targetStart < childCenter;
+	  });
+	  var newIndex = atIndex({
+	    draggable: draggable,
+	    closest: closest,
+	    inHomeList: isHomeOf(draggable, destination)
+	  });
+	  return calculateReorderImpact({
+	    draggable: draggable,
+	    insideDestination: insideDestination,
+	    destination: destination,
+	    viewport: viewport,
+	    last: last,
+	    displacedBy: displacedBy,
+	    index: newIndex
+	  });
+	});
+	
+	var combineThresholdDivisor = 4;
+	var getCombineImpact = (function (_ref) {
+	  var draggable = _ref.draggable,
+	      targetRect = _ref.pageBorderBoxWithDroppableScroll,
+	      previousImpact = _ref.previousImpact,
+	      destination = _ref.destination,
+	      insideDestination = _ref.insideDestination,
+	      afterCritical = _ref.afterCritical;
+	
+	  if (!destination.isCombineEnabled) {
+	    return null;
+	  }
+	
+	  var axis = destination.axis;
+	  var displacedBy = getDisplacedBy(destination.axis, draggable.displaceBy);
+	  var displacement = displacedBy.value;
+	  var targetStart = targetRect[axis.start];
+	  var targetEnd = targetRect[axis.end];
+	  var withoutDragging = removeDraggableFromList(draggable, insideDestination);
+	  var combineWith = find(withoutDragging, function (child) {
+	    var id = child.descriptor.id;
+	    var childRect = child.page.borderBox;
+	    var childSize = childRect[axis.size];
+	    var threshold = childSize / combineThresholdDivisor;
+	    var didStartAfterCritical$1 = didStartAfterCritical(id, afterCritical);
+	    var isDisplaced = getIsDisplaced({
+	      displaced: previousImpact.displaced,
+	      id: id
+	    });
+	
+	    if (didStartAfterCritical$1) {
+	      if (isDisplaced) {
+	        return targetEnd > childRect[axis.start] + threshold && targetEnd < childRect[axis.end] - threshold;
+	      }
+	
+	      return targetStart > childRect[axis.start] - displacement + threshold && targetStart < childRect[axis.end] - displacement - threshold;
+	    }
+	
+	    if (isDisplaced) {
+	      return targetEnd > childRect[axis.start] + displacement + threshold && targetEnd < childRect[axis.end] + displacement - threshold;
+	    }
+	
+	    return targetStart > childRect[axis.start] + threshold && targetStart < childRect[axis.end] - threshold;
+	  });
+	
+	  if (!combineWith) {
+	    return null;
+	  }
+	
+	  var impact = {
+	    displacedBy: displacedBy,
+	    displaced: previousImpact.displaced,
+	    at: {
+	      type: 'COMBINE',
+	      combine: {
+	        draggableId: combineWith.descriptor.id,
+	        droppableId: destination.descriptor.id
+	      }
+	    }
+	  };
+	  return impact;
+	});
+	
+	var getDragImpact = (function (_ref) {
+	  var pageOffset = _ref.pageOffset,
+	      draggable = _ref.draggable,
+	      draggables = _ref.draggables,
+	      droppables = _ref.droppables,
+	      previousImpact = _ref.previousImpact,
+	      viewport = _ref.viewport,
+	      afterCritical = _ref.afterCritical;
+	  var pageBorderBox = offsetRectByPosition(draggable.page.borderBox, pageOffset);
+	  var destinationId = getDroppableOver$1({
+	    pageBorderBox: pageBorderBox,
+	    draggable: draggable,
+	    droppables: droppables
+	  });
+	
+	  if (!destinationId) {
+	    return noImpact;
+	  }
+	
+	  var destination = droppables[destinationId];
+	  var insideDestination = getDraggablesInsideDroppable(destination.descriptor.id, draggables);
+	  var pageBorderBoxWithDroppableScroll = withDroppableScroll(destination, pageBorderBox);
+	  return getCombineImpact({
+	    pageBorderBoxWithDroppableScroll: pageBorderBoxWithDroppableScroll,
+	    draggable: draggable,
+	    previousImpact: previousImpact,
+	    destination: destination,
+	    insideDestination: insideDestination,
+	    afterCritical: afterCritical
+	  }) || getReorderImpact({
+	    pageBorderBoxWithDroppableScroll: pageBorderBoxWithDroppableScroll,
+	    draggable: draggable,
+	    destination: destination,
+	    insideDestination: insideDestination,
+	    last: previousImpact.displaced,
+	    viewport: viewport,
+	    afterCritical: afterCritical
+	  });
+	});
+	
+	var patchDroppableMap = (function (droppables, updated) {
+	  var _extends2;
+	
+	  return _extends({}, droppables, (_extends2 = {}, _extends2[updated.descriptor.id] = updated, _extends2));
+	});
+	
+	var clearUnusedPlaceholder = function clearUnusedPlaceholder(_ref) {
+	  var previousImpact = _ref.previousImpact,
+	      impact = _ref.impact,
+	      droppables = _ref.droppables;
+	  var last = whatIsDraggedOver(previousImpact);
+	  var now = whatIsDraggedOver(impact);
+	
+	  if (!last) {
+	    return droppables;
+	  }
+	
+	  if (last === now) {
+	    return droppables;
+	  }
+	
+	  var lastDroppable = droppables[last];
+	
+	  if (!lastDroppable.subject.withPlaceholder) {
+	    return droppables;
+	  }
+	
+	  var updated = removePlaceholder(lastDroppable);
+	  return patchDroppableMap(droppables, updated);
+	};
+	
+	var recomputePlaceholders = (function (_ref2) {
+	  var draggable = _ref2.draggable,
+	      draggables = _ref2.draggables,
+	      droppables = _ref2.droppables,
+	      previousImpact = _ref2.previousImpact,
+	      impact = _ref2.impact;
+	  var cleaned = clearUnusedPlaceholder({
+	    previousImpact: previousImpact,
+	    impact: impact,
+	    droppables: droppables
+	  });
+	  var isOver = whatIsDraggedOver(impact);
+	
+	  if (!isOver) {
+	    return cleaned;
+	  }
+	
+	  var droppable = droppables[isOver];
+	
+	  if (isHomeOf(draggable, droppable)) {
+	    return cleaned;
+	  }
+	
+	  if (droppable.subject.withPlaceholder) {
+	    return cleaned;
+	  }
+	
+	  var patched = addPlaceholder(droppable, draggable, draggables);
+	  return patchDroppableMap(cleaned, patched);
 	});
 	
 	var update = (function (_ref) {
@@ -19092,7 +18631,6 @@
 	      forcedImpact = _ref.impact,
 	      scrollJumpRequest = _ref.scrollJumpRequest;
 	  var viewport = forcedViewport || state.viewport;
-	  var currentWindowScroll = viewport.scroll.current;
 	  var dimensions = forcedDimensions || state.dimensions;
 	  var clientSelection = forcedClientSelection || state.current.client.selection;
 	  var offset = subtract(clientSelection, state.initial.client.selection);
@@ -19102,14 +18640,14 @@
 	    borderBoxCenter: add(state.initial.client.borderBoxCenter, offset)
 	  };
 	  var page = {
-	    selection: add(client.selection, currentWindowScroll),
-	    borderBoxCenter: add(client.borderBoxCenter, currentWindowScroll)
+	    selection: add(client.selection, viewport.scroll.current),
+	    borderBoxCenter: add(client.borderBoxCenter, viewport.scroll.current),
+	    offset: add(client.offset, viewport.scroll.diff.value)
 	  };
 	  var current = {
 	    client: client,
 	    page: page
 	  };
-	  var userDirection = getUserDirection(state.userDirection, state.current.page.borderBoxCenter, current.page.borderBoxCenter);
 	
 	  if (state.phase === 'COLLECTING') {
 	    return _extends({
@@ -19117,21 +18655,19 @@
 	    }, state, {
 	      dimensions: dimensions,
 	      viewport: viewport,
-	      current: current,
-	      userDirection: userDirection
+	      current: current
 	    });
 	  }
 	
 	  var draggable = dimensions.draggables[state.critical.draggable.id];
 	  var newImpact = forcedImpact || getDragImpact({
-	    pageBorderBoxCenter: page.borderBoxCenter,
+	    pageOffset: page.offset,
 	    draggable: draggable,
 	    draggables: dimensions.draggables,
 	    droppables: dimensions.droppables,
 	    previousImpact: state.impact,
 	    viewport: viewport,
-	    userDirection: userDirection,
-	    onLift: state.onLift
+	    afterCritical: state.afterCritical
 	  });
 	  var withUpdatedPlaceholders = recomputePlaceholders({
 	    draggable: draggable,
@@ -19143,7 +18679,6 @@
 	
 	  var result = _extends({}, state, {
 	    current: current,
-	    userDirection: userDirection,
 	    dimensions: {
 	      draggables: dimensions.draggables,
 	      droppables: withUpdatedPlaceholders
@@ -19157,24 +18692,31 @@
 	  return result;
 	});
 	
+	function getDraggables$1(ids, draggables) {
+	  return ids.map(function (id) {
+	    return draggables[id];
+	  });
+	}
+	
 	var recompute = (function (_ref) {
 	  var impact = _ref.impact,
 	      viewport = _ref.viewport,
-	      destination = _ref.destination,
 	      draggables = _ref.draggables,
-	      onLift = _ref.onLift,
+	      destination = _ref.destination,
 	      forceShouldAnimate = _ref.forceShouldAnimate;
-	  var updated = impact.movement.displaced.map(function (entry) {
-	    return getDisplacement({
-	      draggable: draggables[entry.draggableId],
-	      destination: destination,
-	      previousImpact: impact,
-	      viewport: viewport.frame,
-	      onLift: onLift,
-	      forceShouldAnimate: forceShouldAnimate
-	    });
+	  var last = impact.displaced;
+	  var afterDragging = getDraggables$1(last.all, draggables);
+	  var displaced = getDisplacementGroups({
+	    afterDragging: afterDragging,
+	    destination: destination,
+	    displacedBy: impact.displacedBy,
+	    viewport: viewport.frame,
+	    forceShouldAnimate: forceShouldAnimate,
+	    last: last
 	  });
-	  return withNewDisplacement(impact, updated);
+	  return _extends({}, impact, {
+	    displaced: displaced
+	  });
 	});
 	
 	var getClientBorderBoxCenter = (function (_ref) {
@@ -19183,13 +18725,13 @@
 	      droppable = _ref.droppable,
 	      draggables = _ref.draggables,
 	      viewport = _ref.viewport,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	  var pageBorderBoxCenter = getPageBorderBoxCenterFromImpact({
 	    impact: impact,
 	    draggable: draggable,
 	    draggables: draggables,
 	    droppable: droppable,
-	    onLift: onLift
+	    afterCritical: afterCritical
 	  });
 	  return getClientFromPageBorderBoxCenter({
 	    pageBorderBoxCenter: pageBorderBoxCenter,
@@ -19216,8 +18758,7 @@
 	    impact: needsVisibilityCheck,
 	    viewport: viewport,
 	    destination: destination,
-	    draggables: draggables,
-	    onLift: state.onLift
+	    draggables: draggables
 	  });
 	  var clientSelection = getClientBorderBoxCenter({
 	    impact: impact,
@@ -19225,7 +18766,7 @@
 	    droppable: destination,
 	    draggables: draggables,
 	    viewport: viewport,
-	    onLift: state.onLift
+	    afterCritical: state.afterCritical
 	  });
 	  return update({
 	    impact: impact,
@@ -19236,11 +18777,197 @@
 	  });
 	});
 	
+	var getHomeLocation = (function (descriptor) {
+	  return {
+	    index: descriptor.index,
+	    droppableId: descriptor.droppableId
+	  };
+	});
+	
+	var getLiftEffect = (function (_ref) {
+	  var draggable = _ref.draggable,
+	      home = _ref.home,
+	      draggables = _ref.draggables,
+	      viewport = _ref.viewport;
+	  var displacedBy = getDisplacedBy(home.axis, draggable.displaceBy);
+	  var insideHome = getDraggablesInsideDroppable(home.descriptor.id, draggables);
+	  var rawIndex = insideHome.indexOf(draggable);
+	  !(rawIndex !== -1) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected draggable to be inside home list') : invariant(false) : void 0;
+	  var afterDragging = insideHome.slice(rawIndex + 1);
+	  var effected = afterDragging.reduce(function (previous, item) {
+	    previous[item.descriptor.id] = true;
+	    return previous;
+	  }, {});
+	  var afterCritical = {
+	    inVirtualList: home.descriptor.mode === 'virtual',
+	    displacedBy: displacedBy,
+	    effected: effected
+	  };
+	  var displaced = getDisplacementGroups({
+	    afterDragging: afterDragging,
+	    destination: home,
+	    displacedBy: displacedBy,
+	    last: null,
+	    viewport: viewport.frame,
+	    forceShouldAnimate: false
+	  });
+	  var impact = {
+	    displaced: displaced,
+	    displacedBy: displacedBy,
+	    at: {
+	      type: 'REORDER',
+	      destination: getHomeLocation(draggable.descriptor)
+	    }
+	  };
+	  return {
+	    impact: impact,
+	    afterCritical: afterCritical
+	  };
+	});
+	
 	var patchDimensionMap = (function (dimensions, updated) {
 	  return {
 	    draggables: dimensions.draggables,
 	    droppables: patchDroppableMap(dimensions.droppables, updated)
 	  };
+	});
+	
+	var start = function start(key) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    {
+	      return;
+	    }
+	  }
+	};
+	var finish = function finish(key) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    {
+	      return;
+	    }
+	  }
+	};
+	
+	var offsetDraggable = (function (_ref) {
+	  var draggable = _ref.draggable,
+	      offset = _ref.offset,
+	      initialWindowScroll = _ref.initialWindowScroll;
+	  var client = cssBoxModel.offset(draggable.client, offset);
+	  var page = cssBoxModel.withScroll(client, initialWindowScroll);
+	
+	  var moved = _extends({}, draggable, {
+	    placeholder: _extends({}, draggable.placeholder, {
+	      client: client
+	    }),
+	    client: client,
+	    page: page
+	  });
+	
+	  return moved;
+	});
+	
+	var getFrame = (function (droppable) {
+	  var frame = droppable.frame;
+	  !frame ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected Droppable to have a frame') : invariant(false) : void 0;
+	  return frame;
+	});
+	
+	var adjustAdditionsForScrollChanges = (function (_ref) {
+	  var additions = _ref.additions,
+	      updatedDroppables = _ref.updatedDroppables,
+	      viewport = _ref.viewport;
+	  var windowScrollChange = viewport.scroll.diff.value;
+	  return additions.map(function (draggable) {
+	    var droppableId = draggable.descriptor.droppableId;
+	    var modified = updatedDroppables[droppableId];
+	    var frame = getFrame(modified);
+	    var droppableScrollChange = frame.scroll.diff.value;
+	    var totalChange = add(windowScrollChange, droppableScrollChange);
+	    var moved = offsetDraggable({
+	      draggable: draggable,
+	      offset: totalChange,
+	      initialWindowScroll: viewport.scroll.initial
+	    });
+	    return moved;
+	  });
+	});
+	
+	var publishWhileDraggingInVirtual = (function (_ref) {
+	  var state = _ref.state,
+	      published = _ref.published;
+	  start();
+	  var withScrollChange = published.modified.map(function (update) {
+	    var existing = state.dimensions.droppables[update.droppableId];
+	    var scrolled = scrollDroppable(existing, update.scroll);
+	    return scrolled;
+	  });
+	
+	  var droppables = _extends({}, state.dimensions.droppables, {}, toDroppableMap(withScrollChange));
+	
+	  var updatedAdditions = toDraggableMap(adjustAdditionsForScrollChanges({
+	    additions: published.additions,
+	    updatedDroppables: droppables,
+	    viewport: state.viewport
+	  }));
+	
+	  var draggables = _extends({}, state.dimensions.draggables, {}, updatedAdditions);
+	
+	  published.removals.forEach(function (id) {
+	    delete draggables[id];
+	  });
+	  var dimensions = {
+	    droppables: droppables,
+	    draggables: draggables
+	  };
+	  var wasOverId = whatIsDraggedOver(state.impact);
+	  var wasOver = wasOverId ? dimensions.droppables[wasOverId] : null;
+	  var draggable = dimensions.draggables[state.critical.draggable.id];
+	  var home = dimensions.droppables[state.critical.droppable.id];
+	
+	  var _getLiftEffect = getLiftEffect({
+	    draggable: draggable,
+	    home: home,
+	    draggables: draggables,
+	    viewport: state.viewport
+	  }),
+	      onLiftImpact = _getLiftEffect.impact,
+	      afterCritical = _getLiftEffect.afterCritical;
+	
+	  var previousImpact = wasOver && wasOver.isCombineEnabled ? state.impact : onLiftImpact;
+	  var impact = getDragImpact({
+	    pageOffset: state.current.page.offset,
+	    draggable: dimensions.draggables[state.critical.draggable.id],
+	    draggables: dimensions.draggables,
+	    droppables: dimensions.droppables,
+	    previousImpact: previousImpact,
+	    viewport: state.viewport,
+	    afterCritical: afterCritical
+	  });
+	  finish();
+	
+	  var draggingState = _extends({
+	    phase: 'DRAGGING'
+	  }, state, {
+	    phase: 'DRAGGING',
+	    impact: impact,
+	    onLiftImpact: onLiftImpact,
+	    dimensions: dimensions,
+	    afterCritical: afterCritical,
+	    forceShouldAnimate: false
+	  });
+	
+	  if (state.phase === 'COLLECTING') {
+	    return draggingState;
+	  }
+	
+	  var dropPending = _extends({
+	    phase: 'DROP_PENDING'
+	  }, draggingState, {
+	    phase: 'DROP_PENDING',
+	    reason: state.reason,
+	    isWaiting: false
+	  });
+	
+	  return dropPending;
 	});
 	
 	var isSnapping = function isSnapping(state) {
@@ -19263,6 +18990,18 @@
 	  });
 	};
 	
+	function removeScrollJumpRequest(state) {
+	  if (state.isDragging && state.movementMode === 'SNAP') {
+	    return _extends({
+	      phase: 'DRAGGING'
+	    }, state, {
+	      scrollJumpRequest: null
+	    });
+	  }
+	
+	  return state;
+	}
+	
 	var idle = {
 	  phase: 'IDLE',
 	  completed: null,
@@ -19273,9 +19012,9 @@
 	    state = idle;
 	  }
 	
-	  if (action.type === 'CLEAN') {
+	  if (action.type === 'FLUSH') {
 	    return _extends({}, idle, {
-	      shouldFlush: action.payload.shouldFlush
+	      shouldFlush: true
 	    });
 	  }
 	
@@ -19298,21 +19037,22 @@
 	      client: client,
 	      page: {
 	        selection: add(client.selection, viewport.scroll.initial),
-	        borderBoxCenter: add(client.selection, viewport.scroll.initial)
+	        borderBoxCenter: add(client.selection, viewport.scroll.initial),
+	        offset: add(client.selection, viewport.scroll.diff.value)
 	      }
 	    };
 	    var isWindowScrollAllowed = toDroppableList(dimensions.droppables).every(function (item) {
 	      return !item.isFixedOnPage;
 	    });
 	
-	    var _getHomeOnLift = getHomeOnLift({
+	    var _getLiftEffect = getLiftEffect({
 	      draggable: draggable,
 	      home: home,
 	      draggables: dimensions.draggables,
 	      viewport: viewport
 	    }),
-	        impact = _getHomeOnLift.impact,
-	        onLift = _getHomeOnLift.onLift;
+	        impact = _getLiftEffect.impact,
+	        afterCritical = _getLiftEffect.afterCritical;
 	
 	    var result = {
 	      phase: 'DRAGGING',
@@ -19324,10 +19064,9 @@
 	      current: initial,
 	      isWindowScrollAllowed: isWindowScrollAllowed,
 	      impact: impact,
-	      onLift: onLift,
+	      afterCritical: afterCritical,
 	      onLiftImpact: impact,
 	      viewport: viewport,
-	      userDirection: forward,
 	      scrollJumpRequest: null,
 	      forceShouldAnimate: null
 	    };
@@ -19335,8 +19074,6 @@
 	  }
 	
 	  if (action.type === 'COLLECTION_STARTING') {
-	    var _extends2;
-	
 	    if (state.phase === 'COLLECTING' || state.phase === 'DROP_PENDING') {
 	      return state;
 	    }
@@ -19345,14 +19082,16 @@
 	
 	    var _result = _extends({
 	      phase: 'COLLECTING'
-	    }, state, (_extends2 = {}, _extends2["phase"] = 'COLLECTING', _extends2));
+	    }, state, {
+	      phase: 'COLLECTING'
+	    });
 	
 	    return _result;
 	  }
 	
 	  if (action.type === 'PUBLISH_WHILE_DRAGGING') {
 	    !(state.phase === 'COLLECTING' || state.phase === 'DROP_PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Unexpected " + action.type + " received in phase " + state.phase) : invariant(false) : void 0;
-	    return publishWhileDragging({
+	    return publishWhileDraggingInVirtual({
 	      state: state,
 	      published: action.payload
 	    });
@@ -19379,24 +19118,24 @@
 	
 	  if (action.type === 'UPDATE_DROPPABLE_SCROLL') {
 	    if (state.phase === 'DROP_PENDING') {
-	      return state;
+	      return removeScrollJumpRequest(state);
 	    }
 	
 	    if (state.phase === 'COLLECTING') {
-	      return state;
+	      return removeScrollJumpRequest(state);
 	    }
 	
 	    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, action.type + " not permitted in phase " + state.phase) : invariant(false) : void 0;
 	    var _action$payload2 = action.payload,
 	        id = _action$payload2.id,
-	        offset = _action$payload2.offset;
+	        newScroll = _action$payload2.newScroll;
 	    var target = state.dimensions.droppables[id];
 	
 	    if (!target) {
 	      return state;
 	    }
 	
-	    var scrolled = scrollDroppable(target, offset);
+	    var scrolled = scrollDroppable(target, newScroll);
 	    return postDroppableChange(state, scrolled, false);
 	  }
 	
@@ -19446,14 +19185,14 @@
 	    }
 	
 	    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot move by window in phase " + state.phase) : invariant(false) : void 0;
-	    !state.isWindowScrollAllowed ? process.env.NODE_ENV !== "production" ? invariant(false, 'Window scrolling is currently not supported for fixed lists. Aborting drag') : invariant(false) : void 0;
-	    var newScroll = action.payload.newScroll;
+	    !state.isWindowScrollAllowed ? process.env.NODE_ENV !== "production" ? invariant(false, 'Window scrolling is currently not supported for fixed lists') : invariant(false) : void 0;
+	    var _newScroll = action.payload.newScroll;
 	
-	    if (isEqual(state.viewport.scroll.current, newScroll)) {
-	      return state;
+	    if (isEqual(state.viewport.scroll.current, _newScroll)) {
+	      return removeScrollJumpRequest(state);
 	    }
 	
-	    var _viewport = scrollViewport(state.viewport, newScroll);
+	    var _viewport = scrollViewport(state.viewport, _newScroll);
 	
 	    if (isSnapping(state)) {
 	      return refreshSnap({
@@ -19517,14 +19256,16 @@
 	  }
 	
 	  if (action.type === 'DROP_PENDING') {
-	    var _extends3;
-	
 	    var reason = action.payload.reason;
 	    !(state.phase === 'COLLECTING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Can only move into the DROP_PENDING phase from the COLLECTING phase') : invariant(false) : void 0;
 	
 	    var newState = _extends({
 	      phase: 'DROP_PENDING'
-	    }, state, (_extends3 = {}, _extends3["phase"] = 'DROP_PENDING', _extends3.isWaiting = true, _extends3.reason = reason, _extends3));
+	    }, state, {
+	      phase: 'DROP_PENDING',
+	      isWaiting: true,
+	      reason: reason
+	    });
 	
 	    return newState;
 	  }
@@ -19537,28 +19278,32 @@
 	    !(state.phase === 'DRAGGING' || state.phase === 'DROP_PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot animate drop from phase " + state.phase) : invariant(false) : void 0;
 	    var _result3 = {
 	      phase: 'DROP_ANIMATING',
-	      dimensions: state.dimensions,
 	      completed: completed,
 	      dropDuration: dropDuration,
-	      newHomeClientOffset: newHomeClientOffset
+	      newHomeClientOffset: newHomeClientOffset,
+	      dimensions: state.dimensions
 	    };
 	    return _result3;
 	  }
 	
 	  if (action.type === 'DROP_COMPLETE') {
-	    var _action$payload6 = action.payload,
-	        _completed = _action$payload6.completed,
-	        shouldFlush = _action$payload6.shouldFlush;
+	    var _completed = action.payload.completed;
 	    return {
 	      phase: 'IDLE',
 	      completed: _completed,
-	      shouldFlush: shouldFlush
+	      shouldFlush: false
 	    };
 	  }
 	
 	  return state;
 	});
 	
+	var beforeInitialCapture = function beforeInitialCapture(args) {
+	  return {
+	    type: 'BEFORE_INITIAL_CAPTURE',
+	    payload: args
+	  };
+	};
 	var lift = function lift(args) {
 	  return {
 	    type: 'LIFT',
@@ -19571,7 +19316,7 @@
 	    payload: args
 	  };
 	};
-	var publishWhileDragging$1 = function publishWhileDragging(args) {
+	var publishWhileDragging = function publishWhileDragging(args) {
 	  return {
 	    type: 'PUBLISH_WHILE_DRAGGING',
 	    payload: args
@@ -19643,16 +19388,10 @@
 	    payload: null
 	  };
 	};
-	var clean$1 = function clean(args) {
-	  if (args === void 0) {
-	    args = {
-	      shouldFlush: false
-	    };
-	  }
-	
+	var flush = function flush() {
 	  return {
-	    type: 'CLEAN',
-	    payload: args
+	    type: 'FLUSH',
+	    payload: null
 	  };
 	};
 	var animateDrop = function animateDrop(args) {
@@ -19686,6 +19425,43 @@
 	  };
 	};
 	
+	function checkIndexes(insideDestination) {
+	  if (insideDestination.length <= 1) {
+	    return;
+	  }
+	
+	  var indexes = insideDestination.map(function (d) {
+	    return d.descriptor.index;
+	  });
+	  var errors = {};
+	
+	  for (var i = 1; i < indexes.length; i++) {
+	    var current = indexes[i];
+	    var previous = indexes[i - 1];
+	
+	    if (current !== previous + 1) {
+	      errors[current] = true;
+	    }
+	  }
+	
+	  if (!Object.keys(errors).length) {
+	    return;
+	  }
+	
+	  var formatted = indexes.map(function (index) {
+	    var hasError = Boolean(errors[index]);
+	    return hasError ? "[\uD83D\uDD25" + index + "]" : "" + index;
+	  }).join(', ');
+	  process.env.NODE_ENV !== "production" ? warning("\n    Detected non-consecutive <Draggable /> indexes.\n\n    (This can cause unexpected bugs)\n\n    " + formatted + "\n  ") : void 0;
+	}
+	
+	function validateDimensions(critical, dimensions) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    var insideDestination = getDraggablesInsideDroppable(critical.droppable.id, dimensions.draggables);
+	    checkIndexes(insideDestination);
+	  }
+	}
+	
 	var lift$1 = (function (marshal) {
 	  return function (_ref) {
 	    var getState = _ref.getState,
@@ -19705,12 +19481,16 @@
 	
 	        if (initial.phase === 'DROP_ANIMATING') {
 	          dispatch(completeDrop({
-	            completed: initial.completed,
-	            shouldFlush: true
+	            completed: initial.completed
 	          }));
 	        }
 	
-	        !(getState().phase === 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Incorrect phase to start a drag') : invariant(false) : void 0;
+	        !(getState().phase === 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Unexpected phase to start a drag') : invariant(false) : void 0;
+	        dispatch(flush());
+	        dispatch(beforeInitialCapture({
+	          draggableId: id,
+	          movementMode: movementMode
+	        }));
 	        var scrollOptions = {
 	          shouldPublishImmediately: movementMode === 'SNAP'
 	        };
@@ -19724,6 +19504,7 @@
 	            dimensions = _marshal$startPublish.dimensions,
 	            viewport = _marshal$startPublish.viewport;
 	
+	        validateDimensions(critical, dimensions);
 	        dispatch(initialPublish({
 	          critical: critical,
 	          dimensions: dimensions,
@@ -19748,7 +19529,7 @@
 	          marshal.dropping(action.payload.completed.result.reason);
 	        }
 	
-	        if (action.type === 'CLEAN' || action.type === 'DROP_COMPLETE') {
+	        if (action.type === 'FLUSH' || action.type === 'DROP_COMPLETE') {
 	          marshal.resting();
 	        }
 	
@@ -19839,7 +19620,7 @@
 	      draggable = _ref.draggable,
 	      dimensions = _ref.dimensions,
 	      viewport = _ref.viewport,
-	      onLift = _ref.onLift;
+	      afterCritical = _ref.afterCritical;
 	  var draggables = dimensions.draggables,
 	      droppables = dimensions.droppables;
 	  var droppableId = whatIsDraggedOver(impact);
@@ -19849,59 +19630,50 @@
 	    impact: impact,
 	    draggable: draggable,
 	    draggables: draggables,
-	    onLift: onLift,
+	    afterCritical: afterCritical,
 	    droppable: destination || home,
 	    viewport: viewport
 	  });
 	  var offset = subtract(newClientCenter, draggable.client.borderBox.center);
-	  var merge = impact.merge;
-	
-	  if (merge && didStartDisplaced(merge.combine.draggableId, onLift)) {
-	    return subtract(offset, onLift.displacedBy.point);
-	  }
-	
 	  return offset;
 	});
 	
 	var getDropImpact = (function (_ref) {
-	  var reason = _ref.reason,
+	  var draggables = _ref.draggables,
+	      reason = _ref.reason,
 	      lastImpact = _ref.lastImpact,
 	      home = _ref.home,
 	      viewport = _ref.viewport,
-	      draggables = _ref.draggables,
-	      onLiftImpact = _ref.onLiftImpact,
-	      onLift = _ref.onLift;
-	  var didDropInsideDroppable = reason === 'DROP' && Boolean(whatIsDraggedOver(lastImpact));
+	      onLiftImpact = _ref.onLiftImpact;
 	
-	  if (!didDropInsideDroppable) {
-	    var impact = recompute({
+	  if (!lastImpact.at || reason !== 'DROP') {
+	    var recomputedHomeImpact = recompute({
+	      draggables: draggables,
 	      impact: onLiftImpact,
 	      destination: home,
 	      viewport: viewport,
-	      draggables: draggables,
-	      onLift: onLift,
 	      forceShouldAnimate: true
 	    });
 	    return {
-	      impact: impact,
-	      didDropInsideDroppable: didDropInsideDroppable
+	      impact: recomputedHomeImpact,
+	      didDropInsideDroppable: false
 	    };
 	  }
 	
-	  if (lastImpact.destination) {
+	  if (lastImpact.at.type === 'REORDER') {
 	    return {
 	      impact: lastImpact,
-	      didDropInsideDroppable: didDropInsideDroppable
+	      didDropInsideDroppable: true
 	    };
 	  }
 	
 	  var withoutMovement = _extends({}, lastImpact, {
-	    movement: noMovement
+	    displaced: emptyGroups
 	  });
 	
 	  return {
 	    impact: withoutMovement,
-	    didDropInsideDroppable: didDropInsideDroppable
+	    didDropInsideDroppable: true
 	  };
 	});
 	
@@ -19934,11 +19706,12 @@
 	      !(state.phase === 'DRAGGING' || state.phase === 'DROP_PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot drop in phase: " + state.phase) : invariant(false) : void 0;
 	      var critical = state.critical;
 	      var dimensions = state.dimensions;
+	      var draggable = dimensions.draggables[state.critical.draggable.id];
 	
 	      var _getDropImpact = getDropImpact({
 	        reason: reason,
 	        lastImpact: state.impact,
-	        onLift: state.onLift,
+	        afterCritical: state.afterCritical,
 	        onLiftImpact: state.onLiftImpact,
 	        home: state.dimensions.droppables[state.critical.droppable.id],
 	        viewport: state.viewport,
@@ -19947,9 +19720,8 @@
 	          impact = _getDropImpact.impact,
 	          didDropInsideDroppable = _getDropImpact.didDropInsideDroppable;
 	
-	      var draggable = dimensions.draggables[state.critical.draggable.id];
-	      var destination = didDropInsideDroppable ? impact.destination : null;
-	      var combine = didDropInsideDroppable && impact.merge ? impact.merge.combine : null;
+	      var destination = didDropInsideDroppable ? tryGetDestination(impact) : null;
+	      var combine = didDropInsideDroppable ? tryGetCombine(impact) : null;
 	      var source = {
 	        index: critical.draggable.index,
 	        droppableId: critical.droppable.id
@@ -19968,10 +19740,11 @@
 	        draggable: draggable,
 	        dimensions: dimensions,
 	        viewport: state.viewport,
-	        onLift: state.onLift
+	        afterCritical: state.afterCritical
 	      });
 	      var completed = {
 	        critical: state.critical,
+	        afterCritical: state.afterCritical,
 	        result: result,
 	        impact: impact
 	      };
@@ -19979,8 +19752,7 @@
 	
 	      if (!isAnimationRequired) {
 	        dispatch(completeDrop({
-	          completed: completed,
-	          shouldFlush: false
+	          completed: completed
 	        }));
 	        return;
 	      }
@@ -20000,80 +19772,90 @@
 	  };
 	});
 	
-	var position = function position(index) {
-	  return index + 1;
-	};
+	var getWindowScroll = (function () {
+	  return {
+	    x: window.pageXOffset,
+	    y: window.pageYOffset
+	  };
+	});
 	
-	var onDragStart = function onDragStart(start) {
-	  return "\n  You have lifted an item in position " + position(start.source.index) + ".\n  Use the arrow keys to move, space bar to drop, and escape to cancel.\n";
-	};
+	function getWindowScrollBinding(update) {
+	  return {
+	    eventName: 'scroll',
+	    options: {
+	      passive: true,
+	      capture: false
+	    },
+	    fn: function fn(event) {
+	      if (event.target !== window && event.target !== window.document) {
+	        return;
+	      }
 	
-	var withLocation = function withLocation(source, destination) {
-	  var isInHomeList = source.droppableId === destination.droppableId;
-	  var startPosition = position(source.index);
-	  var endPosition = position(destination.index);
+	      update();
+	    }
+	  };
+	}
 	
-	  if (isInHomeList) {
-	    return "\n      You have moved the item from position " + startPosition + "\n      to position " + endPosition + "\n    ";
+	function getScrollListener(_ref) {
+	  var onWindowScroll = _ref.onWindowScroll;
+	
+	  function updateScroll() {
+	    onWindowScroll(getWindowScroll());
 	  }
 	
-	  return "\n    You have moved the item from position " + startPosition + "\n    in list " + source.droppableId + "\n    to list " + destination.droppableId + "\n    in position " + endPosition + "\n  ";
-	};
+	  var scheduled = rafSchd(updateScroll);
+	  var binding = getWindowScrollBinding(scheduled);
+	  var unbind = noop;
 	
-	var withCombine = function withCombine(id, source, combine) {
-	  var inHomeList = source.droppableId === combine.droppableId;
-	
-	  if (inHomeList) {
-	    return "\n      The item " + id + "\n      has been combined with " + combine.draggableId;
+	  function isActive() {
+	    return unbind !== noop;
 	  }
 	
-	  return "\n      The item " + id + "\n      in list " + source.droppableId + "\n      has been combined with " + combine.draggableId + "\n      in list " + combine.droppableId + "\n    ";
-	};
-	
-	var onDragUpdate = function onDragUpdate(update) {
-	  var location = update.destination;
-	
-	  if (location) {
-	    return withLocation(update.source, location);
+	  function start() {
+	    !!isActive() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start scroll listener when already active') : invariant(false) : void 0;
+	    unbind = bindEvents(window, [binding]);
 	  }
 	
-	  var combine = update.combine;
-	
-	  if (combine) {
-	    return withCombine(update.draggableId, update.source, combine);
+	  function stop() {
+	    !isActive() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot stop scroll listener when not active') : invariant(false) : void 0;
+	    scheduled.cancel();
+	    unbind();
+	    unbind = noop;
 	  }
 	
-	  return 'You are over an area that cannot be dropped on';
+	  return {
+	    start: start,
+	    stop: stop,
+	    isActive: isActive
+	  };
+	}
+	
+	var shouldEnd = function shouldEnd(action) {
+	  return action.type === 'DROP_COMPLETE' || action.type === 'DROP_ANIMATE' || action.type === 'FLUSH';
 	};
 	
-	var returnedToStart = function returnedToStart(source) {
-	  return "\n  The item has returned to its starting position\n  of " + position(source.index) + "\n";
-	};
+	var scrollListener = (function (store) {
+	  var listener = getScrollListener({
+	    onWindowScroll: function onWindowScroll(newScroll) {
+	      store.dispatch(moveByWindowScroll({
+	        newScroll: newScroll
+	      }));
+	    }
+	  });
+	  return function (next) {
+	    return function (action) {
+	      if (!listener.isActive() && action.type === 'INITIAL_PUBLISH') {
+	        listener.start();
+	      }
 	
-	var onDragEnd = function onDragEnd(result) {
-	  if (result.reason === 'CANCEL') {
-	    return "\n      Movement cancelled.\n      " + returnedToStart(result.source) + "\n    ";
-	  }
+	      if (listener.isActive() && shouldEnd(action)) {
+	        listener.stop();
+	      }
 	
-	  var location = result.destination;
-	  var combine = result.combine;
-	
-	  if (location) {
-	    return "\n      You have dropped the item.\n      " + withLocation(result.source, location) + "\n    ";
-	  }
-	
-	  if (combine) {
-	    return "\n      You have dropped the item.\n      " + withCombine(result.draggableId, result.source, combine) + "\n    ";
-	  }
-	
-	  return "\n    The item has been dropped while not over a drop area.\n    " + returnedToStart(result.source) + "\n  ";
-	};
-	
-	var preset = {
-	  onDragStart: onDragStart,
-	  onDragUpdate: onDragUpdate,
-	  onDragEnd: onDragEnd
-	};
+	      next(action);
+	    };
+	  };
+	});
 	
 	var getExpiringAnnounce = (function (announce) {
 	  var wasCalled = false;
@@ -20183,9 +19965,9 @@
 	};
 	
 	var withTimings = function withTimings(key, fn) {
-	  start(key);
+	  start();
 	  fn();
-	  finish(key);
+	  finish();
 	};
 	
 	var getDragStart = function getDragStart(critical, mode) {
@@ -20221,6 +20003,21 @@
 	  var asyncMarshal = getAsyncMarshal();
 	  var dragging = null;
 	
+	  var beforeCapture = function beforeCapture(draggableId, mode) {
+	    !!dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onBeforeCapture as a drag start has already been published') : invariant(false) : void 0;
+	    withTimings('onBeforeCapture', function () {
+	      var fn = getResponders().onBeforeCapture;
+	
+	      if (fn) {
+	        var before = {
+	          draggableId: draggableId,
+	          mode: mode
+	        };
+	        fn(before);
+	      }
+	    });
+	  };
+	
 	  var beforeStart = function beforeStart(critical, mode) {
 	    !!dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onBeforeDragStart as a drag start has already been published') : invariant(false) : void 0;
 	    withTimings('onBeforeDragStart', function () {
@@ -20249,8 +20046,8 @@
 	  };
 	
 	  var update = function update(critical, impact) {
-	    var location = impact.destination;
-	    var combine = impact.merge ? impact.merge.combine : null;
+	    var location = tryGetDestination(impact);
+	    var combine = tryGetCombine(impact);
 	    !dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot fire onDragMove when onDragStart has not been called') : invariant(false) : void 0;
 	    var hasCriticalChanged = !isCriticalEqual(critical, dragging.lastCritical);
 	
@@ -20314,6 +20111,7 @@
 	  };
 	
 	  return {
+	    beforeCapture: beforeCapture,
 	    beforeStart: beforeStart,
 	    start: start,
 	    update: update,
@@ -20328,6 +20126,11 @@
 	  return function (store) {
 	    return function (next) {
 	      return function (action) {
+	        if (action.type === 'BEFORE_INITIAL_CAPTURE') {
+	          publisher.beforeCapture(action.payload.draggableId, action.payload.movementMode);
+	          return;
+	        }
+	
 	        if (action.type === 'INITIAL_PUBLISH') {
 	          var critical = action.payload.critical;
 	          publisher.beforeStart(critical, action.payload.movementMode);
@@ -20346,7 +20149,7 @@
 	
 	        next(action);
 	
-	        if (action.type === 'CLEAN') {
+	        if (action.type === 'FLUSH') {
 	          publisher.abort();
 	          return;
 	        }
@@ -20372,9 +20175,59 @@
 	      var state = store.getState();
 	      !(state.phase === 'DROP_ANIMATING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot finish a drop animating when no drop is occurring') : invariant(false) : void 0;
 	      store.dispatch(completeDrop({
-	        completed: state.completed,
-	        shouldFlush: false
+	        completed: state.completed
 	      }));
+	    };
+	  };
+	});
+	
+	var dropAnimationFlushOnScroll = (function (store) {
+	  var unbind = null;
+	  var frameId = null;
+	
+	  function clear() {
+	    if (frameId) {
+	      cancelAnimationFrame(frameId);
+	      frameId = null;
+	    }
+	
+	    if (unbind) {
+	      unbind();
+	      unbind = null;
+	    }
+	  }
+	
+	  return function (next) {
+	    return function (action) {
+	      if (action.type === 'FLUSH' || action.type === 'DROP_COMPLETE' || action.type === 'DROP_ANIMATION_FINISHED') {
+	        clear();
+	      }
+	
+	      next(action);
+	
+	      if (action.type !== 'DROP_ANIMATE') {
+	        return;
+	      }
+	
+	      var binding = {
+	        eventName: 'scroll',
+	        options: {
+	          capture: true,
+	          passive: false,
+	          once: true
+	        },
+	        fn: function flushDropAnimation() {
+	          var state = store.getState();
+	
+	          if (state.phase === 'DROP_ANIMATING') {
+	            store.dispatch(dropAnimationFinished());
+	          }
+	        }
+	      };
+	      frameId = requestAnimationFrame(function () {
+	        frameId = null;
+	        unbind = bindEvents(window, [binding]);
+	      });
 	    };
 	  };
 	});
@@ -20383,7 +20236,7 @@
 	  return function () {
 	    return function (next) {
 	      return function (action) {
-	        if (action.type === 'DROP_COMPLETE' || action.type === 'CLEAN' || action.type === 'DROP_ANIMATE') {
+	        if (action.type === 'DROP_COMPLETE' || action.type === 'FLUSH' || action.type === 'DROP_ANIMATE') {
 	          marshal.stopPublishing();
 	        }
 	
@@ -20393,26 +20246,56 @@
 	  };
 	});
 	
-	var shouldEnd = function shouldEnd(action) {
-	  return action.type === 'DROP_COMPLETE' || action.type === 'DROP_ANIMATE' || action.type === 'CLEAN';
-	};
+	var focus = (function (marshal) {
+	  var isWatching = false;
+	  return function () {
+	    return function (next) {
+	      return function (action) {
+	        if (action.type === 'INITIAL_PUBLISH') {
+	          isWatching = true;
+	          marshal.tryRecordFocus(action.payload.critical.draggable.id);
+	          next(action);
+	          marshal.tryRestoreFocusRecorded();
+	          return;
+	        }
 	
-	var shouldCancelPending = function shouldCancelPending(action) {
-	  return action.type === 'COLLECTION_STARTING';
+	        next(action);
+	
+	        if (!isWatching) {
+	          return;
+	        }
+	
+	        if (action.type === 'FLUSH') {
+	          isWatching = false;
+	          marshal.tryRestoreFocusRecorded();
+	          return;
+	        }
+	
+	        if (action.type === 'DROP_COMPLETE') {
+	          isWatching = false;
+	          var result = action.payload.completed.result;
+	
+	          if (result.combine) {
+	            marshal.tryShiftRecord(result.draggableId, result.combine.draggableId);
+	          }
+	
+	          marshal.tryRestoreFocusRecorded();
+	        }
+	      };
+	    };
+	  };
+	});
+	
+	var shouldStop = function shouldStop(action) {
+	  return action.type === 'DROP_COMPLETE' || action.type === 'DROP_ANIMATE' || action.type === 'FLUSH';
 	};
 	
 	var autoScroll = (function (autoScroller) {
 	  return function (store) {
 	    return function (next) {
 	      return function (action) {
-	        if (shouldEnd(action)) {
+	        if (shouldStop(action)) {
 	          autoScroller.stop();
-	          next(action);
-	          return;
-	        }
-	
-	        if (shouldCancelPending(action)) {
-	          autoScroller.cancelPending();
 	          next(action);
 	          return;
 	        }
@@ -20461,103 +20344,79 @@
 	var composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : redux.compose;
 	var createStore = (function (_ref) {
 	  var dimensionMarshal = _ref.dimensionMarshal,
+	      focusMarshal = _ref.focusMarshal,
 	      styleMarshal = _ref.styleMarshal,
 	      getResponders = _ref.getResponders,
 	      announce = _ref.announce,
 	      autoScroller = _ref.autoScroller;
-	  return redux.createStore(reducer, composeEnhancers(redux.applyMiddleware(style(styleMarshal), dimensionMarshalStopper(dimensionMarshal), lift$1(dimensionMarshal), drop$1, dropAnimationFinish, pendingDrop, autoScroll(autoScroller), responders(getResponders, announce))));
+	  return redux.createStore(reducer, composeEnhancers(redux.applyMiddleware(style(styleMarshal), dimensionMarshalStopper(dimensionMarshal), lift$1(dimensionMarshal), drop$1, dropAnimationFinish, dropAnimationFlushOnScroll, pendingDrop, autoScroll(autoScroller), scrollListener, focus(focusMarshal), responders(getResponders, announce))));
 	});
 	
-	var clean$2 = function clean() {
+	var clean$1 = function clean() {
 	  return {
 	    additions: {},
 	    removals: {},
 	    modified: {}
 	  };
 	};
-	
-	var timingKey = 'Publish collection from DOM';
-	var createPublisher = (function (_ref) {
-	  var getEntries = _ref.getEntries,
+	function createPublisher(_ref) {
+	  var registry = _ref.registry,
 	      callbacks = _ref.callbacks;
-	
-	  var advancedUsageWarning = function () {
-	    if (process.env.NODE_ENV === 'production') {
-	      return function () {};
-	    }
-	
-	    var hasAnnounced = false;
-	    return function () {
-	      if (hasAnnounced) {
-	        return;
-	      }
-	
-	      hasAnnounced = true;
-	      process.env.NODE_ENV !== "production" ? warning("\n        Advanced usage warning: you are adding or removing a dimension during a drag\n        This an advanced feature.\n\n        More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/changes-while-dragging.md\n      ") : void 0;
-	    };
-	  }();
-	
-	  var staging = clean$2();
+	  var staging = clean$1();
 	  var frameId = null;
 	
 	  var collect = function collect() {
-	    advancedUsageWarning();
-	
 	    if (frameId) {
 	      return;
 	    }
 	
+	    callbacks.collectionStarting();
 	    frameId = requestAnimationFrame(function () {
 	      frameId = null;
-	      callbacks.collectionStarting();
-	      var critical = callbacks.getCritical();
-	      start(timingKey);
-	      var entries = getEntries();
+	      start();
 	      var _staging = staging,
 	          additions = _staging.additions,
 	          removals = _staging.removals,
 	          modified = _staging.modified;
-	
-	      var added = _Object$keys(additions).map(function (id) {
-	        return entries.draggables[id].getDimension(origin);
+	      var added = Object.keys(additions).map(function (id) {
+	        return registry.draggable.getById(id).getDimension(origin);
 	      }).sort(function (a, b) {
 	        return a.descriptor.index - b.descriptor.index;
 	      });
-	
-	      var updated = _Object$keys(modified).map(function (id) {
-	        var entry = entries.droppables[id];
-	        !entry ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find dynamically added droppable in cache') : invariant(false) : void 0;
-	        var isHome = entry.descriptor.id === critical.droppable.id;
-	        var options = {
-	          withoutPlaceholder: !isHome
+	      var updated = Object.keys(modified).map(function (id) {
+	        var entry = registry.droppable.getById(id);
+	        var scroll = entry.callbacks.getScrollWhileDragging();
+	        return {
+	          droppableId: id,
+	          scroll: scroll
 	        };
-	        return entry.callbacks.recollect(options);
 	      });
-	
 	      var result = {
 	        additions: added,
-	        removals: _Object$keys(removals),
+	        removals: Object.keys(removals),
 	        modified: updated
 	      };
-	      staging = clean$2();
-	      finish(timingKey);
+	      staging = clean$1();
+	      finish();
 	      callbacks.publish(result);
 	    });
 	  };
 	
-	  var add = function add(descriptor) {
-	    staging.additions[descriptor.id] = descriptor;
-	    staging.modified[descriptor.droppableId] = true;
+	  var add = function add(entry) {
+	    var id = entry.descriptor.id;
+	    staging.additions[id] = entry;
+	    staging.modified[entry.descriptor.droppableId] = true;
 	
-	    if (staging.removals[descriptor.id]) {
-	      delete staging.removals[descriptor.id];
+	    if (staging.removals[id]) {
+	      delete staging.removals[id];
 	    }
 	
 	    collect();
 	  };
 	
-	  var remove = function remove(descriptor) {
-	    staging.removals[descriptor.id] = descriptor;
+	  var remove = function remove(entry) {
+	    var descriptor = entry.descriptor;
+	    staging.removals[descriptor.id] = true;
 	    staging.modified[descriptor.droppableId] = true;
 	
 	    if (staging.additions[descriptor.id]) {
@@ -20574,7 +20433,7 @@
 	
 	    cancelAnimationFrame(frameId);
 	    frameId = null;
-	    staging = clean$2();
+	    staging = clean$1();
 	  };
 	
 	  return {
@@ -20582,13 +20441,25 @@
 	    remove: remove,
 	    stop: stop
 	  };
-	});
+	}
 	
-	var getWindowScroll = (function () {
-	  return {
-	    x: window.pageXOffset,
-	    y: window.pageYOffset
+	var getMaxScroll = (function (_ref) {
+	  var scrollHeight = _ref.scrollHeight,
+	      scrollWidth = _ref.scrollWidth,
+	      height = _ref.height,
+	      width = _ref.width;
+	  var maxScroll = subtract({
+	    x: scrollWidth,
+	    y: scrollHeight
+	  }, {
+	    x: width,
+	    y: height
+	  });
+	  var adjustedMaxScroll = {
+	    x: Math.max(0, maxScroll.x),
+	    y: Math.max(0, maxScroll.y)
 	  };
+	  return adjustedMaxScroll;
 	});
 	
 	var getDocumentElement = (function () {
@@ -20642,27 +20513,22 @@
 	var getInitialPublish = (function (_ref) {
 	  var critical = _ref.critical,
 	      scrollOptions = _ref.scrollOptions,
-	      entries = _ref.entries;
-	  var timingKey = 'Initial collection from DOM';
-	  start(timingKey);
+	      registry = _ref.registry;
+	  start();
 	  var viewport = getViewport();
 	  var windowScroll = viewport.scroll.current;
 	  var home = critical.droppable;
-	  var droppables = values(entries.droppables).filter(function (entry) {
-	    return entry.descriptor.type === home.type;
-	  }).map(function (entry) {
+	  var droppables = registry.droppable.getAllByType(home.type).map(function (entry) {
 	    return entry.callbacks.getDimensionAndWatchScroll(windowScroll, scrollOptions);
 	  });
-	  var draggables = values(entries.draggables).filter(function (entry) {
-	    return entry.descriptor.type === critical.draggable.type;
-	  }).map(function (entry) {
+	  var draggables = registry.draggable.getAllByType(critical.draggable.type).map(function (entry) {
 	    return entry.getDimension(windowScroll);
 	  });
 	  var dimensions = {
 	    draggables: toDraggableMap(draggables),
 	    droppables: toDroppableMap(droppables)
 	  };
-	  finish(timingKey);
+	  finish();
 	  var result = {
 	    dimensions: dimensions,
 	    critical: critical,
@@ -20671,104 +20537,37 @@
 	  return result;
 	});
 	
-	var throwIfAddOrRemoveOfWrongType = function throwIfAddOrRemoveOfWrongType(collection, descriptor) {
-	  !(collection.critical.draggable.type === descriptor.type) ? process.env.NODE_ENV !== "production" ? invariant(false, "We have detected that you have added a Draggable during a drag.\n      This is not of the same type as the dragging item\n\n      Dragging type: " + collection.critical.draggable.type + ".\n      Added type: " + descriptor.type + "\n\n      We are not allowing this as you can run into problems if your change\n      has shifted the positioning of other Droppables, or has changed the size of the page") : invariant(false) : void 0;
-	};
+	function shouldPublishUpdate(registry, dragging, entry) {
+	  if (entry.descriptor.id === dragging.id) {
+	    return false;
+	  }
 	
-	var createDimensionMarshal = (function (callbacks) {
-	  var entries = {
-	    droppables: {},
-	    draggables: {}
-	  };
+	  if (entry.descriptor.type !== dragging.type) {
+	    return false;
+	  }
+	
+	  var home = registry.droppable.getById(entry.descriptor.droppableId);
+	
+	  if (home.descriptor.mode !== 'virtual') {
+	    process.env.NODE_ENV !== "production" ? warning("\n      You are attempting to add or remove a Draggable [id: " + entry.descriptor.id + "]\n      while a drag is occurring. This is only supported for virtual lists.\n\n      See https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/patterns/virtual-lists.md\n    ") : void 0;
+	    return false;
+	  }
+	
+	  return true;
+	}
+	
+	var createDimensionMarshal = (function (registry, callbacks) {
 	  var collection = null;
 	  var publisher = createPublisher({
 	    callbacks: {
 	      publish: callbacks.publishWhileDragging,
-	      collectionStarting: callbacks.collectionStarting,
-	      getCritical: function getCritical() {
-	        !collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get critical when there is no collection') : invariant(false) : void 0;
-	        return collection.critical;
-	      }
+	      collectionStarting: callbacks.collectionStarting
 	    },
-	    getEntries: function getEntries() {
-	      return entries;
-	    }
+	    registry: registry
 	  });
 	
-	  var registerDraggable = function registerDraggable(descriptor, getDimension) {
-	    var entry = {
-	      descriptor: descriptor,
-	      getDimension: getDimension
-	    };
-	    entries.draggables[descriptor.id] = entry;
-	
-	    if (!collection) {
-	      return;
-	    }
-	
-	    throwIfAddOrRemoveOfWrongType(collection, descriptor);
-	    publisher.add(descriptor);
-	  };
-	
-	  var updateDraggable = function updateDraggable(published, descriptor, getDimension) {
-	    var existing = entries.draggables[published.id];
-	    !existing ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot update draggable registration as no published registration was found') : invariant(false) : void 0;
-	
-	    if (existing.descriptor === published) {
-	      delete entries.draggables[published.id];
-	    } else {
-	      process.env.NODE_ENV !== "production" ? warning("\n        Detected incorrect usage of 'key' on '<Draggable draggableId=\"" + published.id + "\"$ />\n\n        Your 'key' should be:\n        - Unique for each Draggable in a list\n        - Not be based on the index of the Draggable\n\n        Usually you want your 'key' to just be the 'draggableId'\n\n        More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/draggable.md#keys-for-a-list-of-draggable-\n      ") : void 0;
-	    }
-	
-	    var entry = {
-	      descriptor: descriptor,
-	      getDimension: getDimension
-	    };
-	    entries.draggables[descriptor.id] = entry;
-	  };
-	
-	  var unregisterDraggable = function unregisterDraggable(descriptor) {
-	    var entry = entries.draggables[descriptor.id];
-	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot unregister Draggable with id:\n      " + descriptor.id + " as it is not registered") : invariant(false) : void 0;
-	
-	    if (entry.descriptor !== descriptor) {
-	      return;
-	    }
-	
-	    delete entries.draggables[descriptor.id];
-	
-	    if (!collection) {
-	      return;
-	    }
-	
-	    !(collection.critical.draggable.id !== descriptor.id) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot remove the dragging item during a drag') : invariant(false) : void 0;
-	    throwIfAddOrRemoveOfWrongType(collection, descriptor);
-	    publisher.remove(descriptor);
-	  };
-	
-	  var registerDroppable = function registerDroppable(descriptor, droppableCallbacks) {
-	    var id = descriptor.id;
-	    entries.droppables[id] = {
-	      descriptor: descriptor,
-	      callbacks: droppableCallbacks
-	    };
-	    !!collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot add a Droppable during a drag') : invariant(false) : void 0;
-	  };
-	
-	  var unregisterDroppable = function unregisterDroppable(descriptor) {
-	    var entry = entries.droppables[descriptor.id];
-	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot unregister Droppable with id " + descriptor.id + " as as it is not registered") : invariant(false) : void 0;
-	
-	    if (entry.descriptor !== descriptor) {
-	      return;
-	    }
-	
-	    delete entries.droppables[descriptor.id];
-	    !!collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot add a Droppable during a drag') : invariant(false) : void 0;
-	  };
-	
 	  var updateDroppableIsEnabled = function updateDroppableIsEnabled(id, isEnabled) {
-	    !entries.droppables[id] ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update is enabled flag of Droppable " + id + " as it is not registered") : invariant(false) : void 0;
+	    !registry.droppable.exists(id) ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update is enabled flag of Droppable " + id + " as it is not registered") : invariant(false) : void 0;
 	
 	    if (!collection) {
 	      return;
@@ -20781,12 +20580,11 @@
 	  };
 	
 	  var updateDroppableIsCombineEnabled = function updateDroppableIsCombineEnabled(id, isCombineEnabled) {
-	    !entries.droppables[id] ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update isCombineEnabled flag of Droppable " + id + " as it is not registered") : invariant(false) : void 0;
-	
 	    if (!collection) {
 	      return;
 	    }
 	
+	    !registry.droppable.exists(id) ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update isCombineEnabled flag of Droppable " + id + " as it is not registered") : invariant(false) : void 0;
 	    callbacks.updateDroppableIsCombineEnabled({
 	      id: id,
 	      isCombineEnabled: isCombineEnabled
@@ -20794,27 +20592,23 @@
 	  };
 	
 	  var updateDroppableScroll = function updateDroppableScroll(id, newScroll) {
-	    !entries.droppables[id] ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update the scroll on Droppable " + id + " as it is not registered") : invariant(false) : void 0;
-	
 	    if (!collection) {
 	      return;
 	    }
 	
+	    !registry.droppable.exists(id) ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot update the scroll on Droppable " + id + " as it is not registered") : invariant(false) : void 0;
 	    callbacks.updateDroppableScroll({
 	      id: id,
-	      offset: newScroll
+	      newScroll: newScroll
 	    });
 	  };
 	
 	  var scrollDroppable = function scrollDroppable(id, change) {
-	    var entry = entries.droppables[id];
-	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot scroll Droppable " + id + " as it is not registered") : invariant(false) : void 0;
-	
 	    if (!collection) {
 	      return;
 	    }
 	
-	    entry.callbacks.scroll(change);
+	    registry.droppable.getById(id).callbacks.scroll(change);
 	  };
 	
 	  var stopPublishing = function stopPublishing() {
@@ -20824,40 +20618,51 @@
 	
 	    publisher.stop();
 	    var home = collection.critical.droppable;
-	    values(entries.droppables).filter(function (entry) {
-	      return entry.descriptor.type === home.type;
-	    }).forEach(function (entry) {
+	    registry.droppable.getAllByType(home.type).forEach(function (entry) {
 	      return entry.callbacks.dragStopped();
 	    });
+	    collection.unsubscribe();
 	    collection = null;
+	  };
+	
+	  var subscriber = function subscriber(event) {
+	    !collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should only be subscribed when a collection is occurring') : invariant(false) : void 0;
+	    var dragging = collection.critical.draggable;
+	
+	    if (event.type === 'ADDITION') {
+	      if (shouldPublishUpdate(registry, dragging, event.value)) {
+	        publisher.add(event.value);
+	      }
+	    }
+	
+	    if (event.type === 'REMOVAL') {
+	      if (shouldPublishUpdate(registry, dragging, event.value)) {
+	        publisher.remove(event.value);
+	      }
+	    }
 	  };
 	
 	  var startPublishing = function startPublishing(request) {
 	    !!collection ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start capturing critical dimensions as there is already a collection') : invariant(false) : void 0;
-	    var entry = entries.draggables[request.draggableId];
-	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find critical draggable entry') : invariant(false) : void 0;
-	    var home = entries.droppables[entry.descriptor.droppableId];
-	    !home ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot find critical droppable entry') : invariant(false) : void 0;
+	    var entry = registry.draggable.getById(request.draggableId);
+	    var home = registry.droppable.getById(entry.descriptor.droppableId);
 	    var critical = {
 	      draggable: entry.descriptor,
 	      droppable: home.descriptor
 	    };
+	    var unsubscribe = registry.subscribe(subscriber);
 	    collection = {
-	      critical: critical
+	      critical: critical,
+	      unsubscribe: unsubscribe
 	    };
 	    return getInitialPublish({
 	      critical: critical,
-	      entries: entries,
+	      registry: registry,
 	      scrollOptions: request.scrollOptions
 	    });
 	  };
 	
 	  var marshal = {
-	    registerDraggable: registerDraggable,
-	    updateDraggable: updateDraggable,
-	    unregisterDraggable: unregisterDraggable,
-	    registerDroppable: registerDroppable,
-	    unregisterDroppable: unregisterDroppable,
 	    updateDroppableIsEnabled: updateDroppableIsEnabled,
 	    updateDroppableIsCombineEnabled: updateDroppableIsCombineEnabled,
 	    scrollDroppable: scrollDroppable,
@@ -20998,9 +20803,7 @@
 	var dampenValueByTime = (function (proposedScroll, dragStartTime) {
 	  var startOfRange = dragStartTime;
 	  var endOfRange = stopAt;
-	
-	  var now = _Date$now();
-	
+	  var now = Date.now();
 	  var runTime = now - startOfRange;
 	
 	  if (runTime >= stopAt) {
@@ -21085,7 +20888,7 @@
 	  };
 	});
 	
-	var clean$3 = apply(function (value) {
+	var clean$2 = apply(function (value) {
 	  return value === 0 ? 0 : value;
 	});
 	var getScroll = (function (_ref) {
@@ -21114,7 +20917,7 @@
 	    axis: horizontal,
 	    shouldUseTimeDampening: shouldUseTimeDampening
 	  });
-	  var required = clean$3({
+	  var required = clean$2({
 	    x: x,
 	    y: y
 	  });
@@ -21362,18 +21165,10 @@
 	    });
 	  };
 	
-	  var cancelPending = function cancelPending() {
-	    !dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot cancel pending fluid scroll when not started') : invariant(false) : void 0;
-	    scheduleWindowScroll.cancel();
-	    scheduleDroppableScroll.cancel();
-	  };
-	
 	  var start$1 = function start$1(state) {
-	    start('starting fluid scroller');
+	    start();
 	    !!dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start auto scrolling when already started') : invariant(false) : void 0;
-	
-	    var dragStartTime = _Date$now();
-	
+	    var dragStartTime = Date.now();
 	    var wasScrollNeeded = false;
 	
 	    var fakeScrollCallback = function fakeScrollCallback() {
@@ -21391,7 +21186,7 @@
 	      dragStartTime: dragStartTime,
 	      shouldUseTimeDampening: wasScrollNeeded
 	    };
-	    finish('starting fluid scroller');
+	    finish();
 	
 	    if (wasScrollNeeded) {
 	      tryScroll(state);
@@ -21403,14 +21198,14 @@
 	      return;
 	    }
 	
-	    cancelPending();
+	    scheduleWindowScroll.cancel();
+	    scheduleDroppableScroll.cancel();
 	    dragging = null;
 	  };
 	
 	  return {
 	    start: start$1,
 	    stop: stop,
-	    cancelPending: cancelPending,
 	    scroll: tryScroll
 	  };
 	});
@@ -21528,17 +21323,40 @@
 	
 	  var scroller = {
 	    scroll: scroll,
-	    cancelPending: fluidScroller.cancelPending,
 	    start: fluidScroller.start,
 	    stop: fluidScroller.stop
 	  };
 	  return scroller;
 	});
 	
-	var prefix = 'data-react-beautiful-dnd';
-	var dragHandle = prefix + "-drag-handle";
-	var draggable = prefix + "-draggable";
-	var droppable = prefix + "-droppable";
+	var prefix$1 = 'data-rbd';
+	var dragHandle = function () {
+	  var base = prefix$1 + "-drag-handle";
+	  return {
+	    base: base,
+	    draggableId: base + "-draggable-id",
+	    contextId: base + "-context-id"
+	  };
+	}();
+	var draggable = function () {
+	  var base = prefix$1 + "-draggable";
+	  return {
+	    base: base,
+	    contextId: base + "-context-id",
+	    id: base + "-id"
+	  };
+	}();
+	var droppable = function () {
+	  var base = prefix$1 + "-droppable";
+	  return {
+	    base: base,
+	    contextId: base + "-context-id",
+	    id: base + "-id"
+	  };
+	}();
+	var scrollContainer = {
+	  contextId: prefix$1 + "-scroll-container-context-id"
+	};
 	
 	var makeGetSelector = function makeGetSelector(context) {
 	  return function (attribute) {
@@ -21559,13 +21377,13 @@
 	};
 	
 	var noPointerEvents = 'pointer-events: none;';
-	var getStyles$1 = (function (uniqueContext) {
-	  var getSelector = makeGetSelector(uniqueContext);
+	var getStyles$1 = (function (contextId) {
+	  var getSelector = makeGetSelector(contextId);
 	
 	  var dragHandle$1 = function () {
 	    var grabCursor = "\n      cursor: -webkit-grab;\n      cursor: grab;\n    ";
 	    return {
-	      selector: getSelector(dragHandle),
+	      selector: getSelector(dragHandle.contextId),
 	      styles: {
 	        always: "\n          -webkit-touch-callout: none;\n          -webkit-tap-highlight-color: rgba(0,0,0,0);\n          touch-action: manipulation;\n        ",
 	        resting: grabCursor,
@@ -21578,7 +21396,7 @@
 	  var draggable$1 = function () {
 	    var transition = "\n      transition: " + transitions.outOfTheWay + ";\n    ";
 	    return {
-	      selector: getSelector(draggable),
+	      selector: getSelector(draggable.contextId),
 	      styles: {
 	        dragging: transition,
 	        dropAnimating: transition,
@@ -21588,7 +21406,7 @@
 	  }();
 	
 	  var droppable$1 = {
-	    selector: getSelector(droppable),
+	    selector: getSelector(droppable.contextId),
 	    styles: {
 	      always: "overflow-anchor: none;"
 	    }
@@ -21609,7 +21427,7 @@
 	  };
 	});
 	
-	var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+	var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 	
 	var getHead = function getHead() {
 	  var head = document.querySelector('head');
@@ -21617,19 +21435,21 @@
 	  return head;
 	};
 	
-	var createStyleEl = function createStyleEl() {
+	var createStyleEl = function createStyleEl(nonce) {
 	  var el = document.createElement('style');
+	
+	  if (nonce) {
+	    el.setAttribute('nonce', nonce);
+	  }
+	
 	  el.type = 'text/css';
 	  return el;
 	};
 	
-	function useStyleMarshal(uniqueId) {
-	  var uniqueContext = useMemoOne.useMemo(function () {
-	    return "" + uniqueId;
-	  }, [uniqueId]);
+	function useStyleMarshal(contextId, nonce) {
 	  var styles = useMemoOne.useMemo(function () {
-	    return getStyles$1(uniqueContext);
-	  }, [uniqueContext]);
+	    return getStyles$1(contextId);
+	  }, [contextId]);
 	  var alwaysRef = React.useRef(null);
 	  var dynamicRef = React.useRef(null);
 	  var setDynamicStyle = useMemoOne.useCallback(memoizeOne(function (proposed) {
@@ -21644,12 +21464,12 @@
 	  }, []);
 	  useIsomorphicLayoutEffect(function () {
 	    !(!alwaysRef.current && !dynamicRef.current) ? process.env.NODE_ENV !== "production" ? invariant(false, 'style elements already mounted') : invariant(false) : void 0;
-	    var always = createStyleEl();
-	    var dynamic = createStyleEl();
+	    var always = createStyleEl(nonce);
+	    var dynamic = createStyleEl(nonce);
 	    alwaysRef.current = always;
 	    dynamicRef.current = dynamic;
-	    always.setAttribute(prefix + "-always", uniqueContext);
-	    dynamic.setAttribute(prefix + "-dynamic", uniqueContext);
+	    always.setAttribute(prefix$1 + "-always", contextId);
+	    dynamic.setAttribute(prefix$1 + "-dynamic", contextId);
 	    getHead().appendChild(always);
 	    getHead().appendChild(dynamic);
 	    setAlwaysStyle(styles.always);
@@ -21665,7 +21485,7 @@
 	      remove(alwaysRef);
 	      remove(dynamicRef);
 	    };
-	  }, [setAlwaysStyle, setDynamicStyle, styles.always, styles.resting, uniqueContext]);
+	  }, [nonce, setAlwaysStyle, setDynamicStyle, styles.always, styles.resting, contextId]);
 	  var dragging = useMemoOne.useCallback(function () {
 	    return setDynamicStyle(styles.dragging);
 	  }, [setDynamicStyle, styles.dragging]);
@@ -21688,11 +21508,283 @@
 	    return {
 	      dragging: dragging,
 	      dropping: dropping,
-	      resting: resting,
-	      styleContext: uniqueContext
+	      resting: resting
 	    };
-	  }, [dragging, dropping, resting, uniqueContext]);
+	  }, [dragging, dropping, resting]);
 	  return marshal;
+	}
+	
+	var getWindowFromEl = (function (el) {
+	  return el && el.ownerDocument ? el.ownerDocument.defaultView : window;
+	});
+	
+	function isHtmlElement(el) {
+	  return el instanceof getWindowFromEl(el).HTMLElement;
+	}
+	
+	function findDragHandle(contextId, draggableId) {
+	  var selector = "[" + dragHandle.contextId + "=\"" + contextId + "\"]";
+	  var possible = toArray(document.querySelectorAll(selector));
+	
+	  if (!possible.length) {
+	    process.env.NODE_ENV !== "production" ? warning("Unable to find any drag handles in the context \"" + contextId + "\"") : void 0;
+	    return null;
+	  }
+	
+	  var handle = find(possible, function (el) {
+	    return el.getAttribute(dragHandle.draggableId) === draggableId;
+	  });
+	
+	  if (!handle) {
+	    process.env.NODE_ENV !== "production" ? warning("Unable to find drag handle with id \"" + draggableId + "\" as no handle with a matching id was found") : void 0;
+	    return null;
+	  }
+	
+	  if (!isHtmlElement(handle)) {
+	    process.env.NODE_ENV !== "production" ? warning('drag handle needs to be a HTMLElement') : void 0;
+	    return null;
+	  }
+	
+	  return handle;
+	}
+	
+	function useFocusMarshal(contextId) {
+	  var entriesRef = React.useRef({});
+	  var recordRef = React.useRef(null);
+	  var restoreFocusFrameRef = React.useRef(null);
+	  var isMountedRef = React.useRef(false);
+	  var register = useMemoOne.useCallback(function register(id, focus) {
+	    var entry = {
+	      id: id,
+	      focus: focus
+	    };
+	    entriesRef.current[id] = entry;
+	    return function unregister() {
+	      var entries = entriesRef.current;
+	      var current = entries[id];
+	
+	      if (current !== entry) {
+	        delete entries[id];
+	      }
+	    };
+	  }, []);
+	  var tryGiveFocus = useMemoOne.useCallback(function tryGiveFocus(tryGiveFocusTo) {
+	    var handle = findDragHandle(contextId, tryGiveFocusTo);
+	
+	    if (handle && handle !== document.activeElement) {
+	      handle.focus();
+	    }
+	  }, [contextId]);
+	  var tryShiftRecord = useMemoOne.useCallback(function tryShiftRecord(previous, redirectTo) {
+	    if (recordRef.current === previous) {
+	      recordRef.current = redirectTo;
+	    }
+	  }, []);
+	  var tryRestoreFocusRecorded = useMemoOne.useCallback(function tryRestoreFocusRecorded() {
+	    if (restoreFocusFrameRef.current) {
+	      return;
+	    }
+	
+	    if (!isMountedRef.current) {
+	      return;
+	    }
+	
+	    restoreFocusFrameRef.current = requestAnimationFrame(function () {
+	      restoreFocusFrameRef.current = null;
+	      var record = recordRef.current;
+	
+	      if (record) {
+	        tryGiveFocus(record);
+	      }
+	    });
+	  }, [tryGiveFocus]);
+	  var tryRecordFocus = useMemoOne.useCallback(function tryRecordFocus(id) {
+	    recordRef.current = null;
+	    var focused = document.activeElement;
+	
+	    if (!focused) {
+	      return;
+	    }
+	
+	    if (focused.getAttribute(dragHandle.draggableId) !== id) {
+	      return;
+	    }
+	
+	    recordRef.current = id;
+	  }, []);
+	  useIsomorphicLayoutEffect(function () {
+	    isMountedRef.current = true;
+	    return function clearFrameOnUnmount() {
+	      isMountedRef.current = false;
+	      var frameId = restoreFocusFrameRef.current;
+	
+	      if (frameId) {
+	        cancelAnimationFrame(frameId);
+	      }
+	    };
+	  }, []);
+	  var marshal = useMemoOne.useMemo(function () {
+	    return {
+	      register: register,
+	      tryRecordFocus: tryRecordFocus,
+	      tryRestoreFocusRecorded: tryRestoreFocusRecorded,
+	      tryShiftRecord: tryShiftRecord
+	    };
+	  }, [register, tryRecordFocus, tryRestoreFocusRecorded, tryShiftRecord]);
+	  return marshal;
+	}
+	
+	function createRegistry() {
+	  var entries = {
+	    draggables: {},
+	    droppables: {}
+	  };
+	  var subscribers = [];
+	
+	  function subscribe(cb) {
+	    subscribers.push(cb);
+	    return function unsubscribe() {
+	      var index = subscribers.indexOf(cb);
+	
+	      if (index === -1) {
+	        return;
+	      }
+	
+	      subscribers.splice(index, 1);
+	    };
+	  }
+	
+	  function notify(event) {
+	    if (subscribers.length) {
+	      subscribers.forEach(function (cb) {
+	        return cb(event);
+	      });
+	    }
+	  }
+	
+	  function findDraggableById(id) {
+	    return entries.draggables[id] || null;
+	  }
+	
+	  function getDraggableById(id) {
+	    var entry = findDraggableById(id);
+	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot find draggable entry with id [" + id + "]") : invariant(false) : void 0;
+	    return entry;
+	  }
+	
+	  var draggableAPI = {
+	    register: function register(entry) {
+	      entries.draggables[entry.descriptor.id] = entry;
+	      notify({
+	        type: 'ADDITION',
+	        value: entry
+	      });
+	    },
+	    update: function update(entry, last) {
+	      var current = entries.draggables[last.descriptor.id];
+	
+	      if (!current) {
+	        return;
+	      }
+	
+	      if (current.uniqueId !== entry.uniqueId) {
+	        return;
+	      }
+	
+	      delete entries.draggables[last.descriptor.id];
+	      entries.draggables[entry.descriptor.id] = entry;
+	    },
+	    unregister: function unregister(entry) {
+	      var draggableId = entry.descriptor.id;
+	      var current = findDraggableById(draggableId);
+	
+	      if (!current) {
+	        return;
+	      }
+	
+	      if (entry.uniqueId !== current.uniqueId) {
+	        return;
+	      }
+	
+	      delete entries.draggables[draggableId];
+	      notify({
+	        type: 'REMOVAL',
+	        value: entry
+	      });
+	    },
+	    getById: getDraggableById,
+	    findById: findDraggableById,
+	    exists: function exists(id) {
+	      return Boolean(findDraggableById(id));
+	    },
+	    getAllByType: function getAllByType(type) {
+	      return values(entries.draggables).filter(function (entry) {
+	        return entry.descriptor.type === type;
+	      });
+	    }
+	  };
+	
+	  function findDroppableById(id) {
+	    return entries.droppables[id] || null;
+	  }
+	
+	  function getDroppableById(id) {
+	    var entry = findDroppableById(id);
+	    !entry ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot find droppable entry with id [" + id + "]") : invariant(false) : void 0;
+	    return entry;
+	  }
+	
+	  var droppableAPI = {
+	    register: function register(entry) {
+	      entries.droppables[entry.descriptor.id] = entry;
+	    },
+	    unregister: function unregister(entry) {
+	      var current = findDroppableById(entry.descriptor.id);
+	
+	      if (!current) {
+	        return;
+	      }
+	
+	      if (entry.uniqueId !== current.uniqueId) {
+	        return;
+	      }
+	
+	      delete entries.droppables[entry.descriptor.id];
+	    },
+	    getById: getDroppableById,
+	    findById: findDroppableById,
+	    exists: function exists(id) {
+	      return Boolean(findDroppableById(id));
+	    },
+	    getAllByType: function getAllByType(type) {
+	      return values(entries.droppables).filter(function (entry) {
+	        return entry.descriptor.type === type;
+	      });
+	    }
+	  };
+	
+	  function clean() {
+	    entries.draggables = {};
+	    entries.droppables = {};
+	    subscribers.length = 0;
+	  }
+	
+	  return {
+	    draggable: draggableAPI,
+	    droppable: droppableAPI,
+	    subscribe: subscribe,
+	    clean: clean
+	  };
+	}
+	
+	function useRegistry() {
+	  var registry = useMemoOne.useMemo(createRegistry, []);
+	  React.useEffect(function () {
+	    return function unmount() {
+	      requestAnimationFrame(registry.clean);
+	    };
+	  }, [registry]);
+	  return registry;
 	}
 	
 	var StoreContext = React__default.createContext(null);
@@ -21714,31 +21806,37 @@
 	  clip: 'rect(0 0 0 0)',
 	  'clip-path': 'inset(100%)'
 	};
-	var getId = function getId(uniqueId) {
-	  return "react-beautiful-dnd-announcement-" + uniqueId;
+	
+	var getId = function getId(contextId) {
+	  return "rbd-announcement-" + contextId;
 	};
-	function useAnnouncer(uniqueId) {
+	function useAnnouncer(contextId) {
 	  var id = useMemoOne.useMemo(function () {
-	    return getId(uniqueId);
-	  }, [uniqueId]);
+	    return getId(contextId);
+	  }, [contextId]);
 	  var ref = React.useRef(null);
-	  React.useEffect(function () {
-	    !!ref.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Announcement node already mounted') : invariant(false) : void 0;
+	  React.useEffect(function setup() {
 	    var el = document.createElement('div');
 	    ref.current = el;
 	    el.id = id;
 	    el.setAttribute('aria-live', 'assertive');
-	    el.setAttribute('role', 'log');
 	    el.setAttribute('aria-atomic', 'true');
 	
-	    _Object$assign(el.style, visuallyHidden);
+	    _extends(el.style, visuallyHidden);
 	
 	    getBodyElement().appendChild(el);
-	    return function () {
-	      var toBeRemoved = ref.current;
-	      !toBeRemoved ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot unmount announcement node') : invariant(false) : void 0;
-	      getBodyElement().removeChild(toBeRemoved);
-	      ref.current = null;
+	    return function cleanup() {
+	      setTimeout(function remove() {
+	        var body = getBodyElement();
+	
+	        if (body.contains(el)) {
+	          body.removeChild(el);
+	        }
+	
+	        if (el === ref.current) {
+	          ref.current = null;
+	        }
+	      });
 	    };
 	  }, [id]);
 	  var announce = useMemoOne.useCallback(function (message) {
@@ -21754,10 +21852,62 @@
 	  return announce;
 	}
 	
+	var count = 0;
+	var defaults = {
+	  separator: '::'
+	};
+	function reset() {
+	  count = 0;
+	}
+	function useUniqueId(prefix, options) {
+	  if (options === void 0) {
+	    options = defaults;
+	  }
+	
+	  return useMemoOne.useMemo(function () {
+	    return "" + prefix + options.separator + count++;
+	  }, [options.separator, prefix]);
+	}
+	
+	function getElementId(_ref) {
+	  var contextId = _ref.contextId,
+	      uniqueId = _ref.uniqueId;
+	  return "rbd-hidden-text-" + contextId + "-" + uniqueId;
+	}
+	function useHiddenTextElement(_ref2) {
+	  var contextId = _ref2.contextId,
+	      text = _ref2.text;
+	  var uniqueId = useUniqueId('hidden-text', {
+	    separator: '-'
+	  });
+	  var id = useMemoOne.useMemo(function () {
+	    return getElementId({
+	      contextId: contextId,
+	      uniqueId: uniqueId
+	    });
+	  }, [uniqueId, contextId]);
+	  React.useEffect(function mount() {
+	    var el = document.createElement('div');
+	    el.id = id;
+	    el.textContent = text;
+	    el.style.display = 'none';
+	    getBodyElement().appendChild(el);
+	    return function unmount() {
+	      var body = getBodyElement();
+	
+	      if (body.contains(el)) {
+	        body.removeChild(el);
+	      }
+	    };
+	  }, [id, text]);
+	  return id;
+	}
+	
 	var AppContext = React__default.createContext(null);
 	
 	var peerDependencies = {
-		react: "^16.8.5"
+		react: "^16.8.5",
+		"react-dom": "^16.8.5"
 	};
 	
 	var semver = /(\d+)\.(\d+)\.(\d+)/;
@@ -21825,12 +21975,26 @@
 	  }
 	});
 	
-	function useStartupValidation() {
-	  React.useEffect(function () {
-	    if (process.env.NODE_ENV === 'production') {
-	      return;
-	    }
+	function useDev(useHook) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    useHook();
+	  }
+	}
 	
+	function useDevSetupWarning(fn, inputs) {
+	  useDev(function () {
+	    React.useEffect(function () {
+	      try {
+	        fn();
+	      } catch (e) {
+	        error("\n          A setup problem was encountered.\n\n          > " + e.message + "\n        ");
+	      }
+	    }, inputs);
+	  });
+	}
+	
+	function useStartupValidation() {
+	  useDevSetupWarning(function () {
 	    checkReactVersion(peerDependencies.react, React__default.version);
 	    checkDoctype(document);
 	  }, []);
@@ -21844,8 +22008,1280 @@
 	  return ref;
 	}
 	
+	function create() {
+	  var lock = null;
+	
+	  function isClaimed() {
+	    return Boolean(lock);
+	  }
+	
+	  function isActive(value) {
+	    return value === lock;
+	  }
+	
+	  function claim(abandon) {
+	    !!lock ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot claim lock as it is already claimed') : invariant(false) : void 0;
+	    var newLock = {
+	      abandon: abandon
+	    };
+	    lock = newLock;
+	    return newLock;
+	  }
+	
+	  function release() {
+	    !lock ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot release lock when there is no lock') : invariant(false) : void 0;
+	    lock = null;
+	  }
+	
+	  function tryAbandon() {
+	    if (lock) {
+	      lock.abandon();
+	      release();
+	    }
+	  }
+	
+	  return {
+	    isClaimed: isClaimed,
+	    isActive: isActive,
+	    claim: claim,
+	    release: release,
+	    tryAbandon: tryAbandon
+	  };
+	}
+	
+	var tab = 9;
+	var enter = 13;
+	var escape = 27;
+	var space = 32;
+	var pageUp = 33;
+	var pageDown = 34;
+	var end = 35;
+	var home = 36;
+	var arrowLeft = 37;
+	var arrowUp = 38;
+	var arrowRight = 39;
+	var arrowDown = 40;
+	
+	var _preventedKeys;
+	var preventedKeys = (_preventedKeys = {}, _preventedKeys[enter] = true, _preventedKeys[tab] = true, _preventedKeys);
+	var preventStandardKeyEvents = (function (event) {
+	  if (preventedKeys[event.keyCode]) {
+	    event.preventDefault();
+	  }
+	});
+	
+	var supportedEventName = function () {
+	  var base = 'visibilitychange';
+	
+	  if (typeof document === 'undefined') {
+	    return base;
+	  }
+	
+	  var candidates = [base, "ms" + base, "webkit" + base, "moz" + base, "o" + base];
+	  var supported = find(candidates, function (eventName) {
+	    return "on" + eventName in document;
+	  });
+	  return supported || base;
+	}();
+	
+	var primaryButton = 0;
+	var sloppyClickThreshold = 5;
+	
+	function isSloppyClickThresholdExceeded(original, current) {
+	  return Math.abs(current.x - original.x) >= sloppyClickThreshold || Math.abs(current.y - original.y) >= sloppyClickThreshold;
+	}
+	
+	var idle$1 = {
+	  type: 'IDLE'
+	};
+	
+	function getCaptureBindings(_ref) {
+	  var cancel = _ref.cancel,
+	      completed = _ref.completed,
+	      getPhase = _ref.getPhase,
+	      setPhase = _ref.setPhase;
+	  return [{
+	    eventName: 'mousemove',
+	    fn: function fn(event) {
+	      var button = event.button,
+	          clientX = event.clientX,
+	          clientY = event.clientY;
+	
+	      if (button !== primaryButton) {
+	        return;
+	      }
+	
+	      var point = {
+	        x: clientX,
+	        y: clientY
+	      };
+	      var phase = getPhase();
+	
+	      if (phase.type === 'DRAGGING') {
+	        event.preventDefault();
+	        phase.actions.move(point);
+	        return;
+	      }
+	
+	      !(phase.type === 'PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot be IDLE') : invariant(false) : void 0;
+	      var pending = phase.point;
+	
+	      if (!isSloppyClickThresholdExceeded(pending, point)) {
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      var actions = phase.actions.fluidLift(point);
+	      setPhase({
+	        type: 'DRAGGING',
+	        actions: actions
+	      });
+	    }
+	  }, {
+	    eventName: 'mouseup',
+	    fn: function fn(event) {
+	      var phase = getPhase();
+	
+	      if (phase.type !== 'DRAGGING') {
+	        cancel();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      phase.actions.drop({
+	        shouldBlockNextClick: true
+	      });
+	      completed();
+	    }
+	  }, {
+	    eventName: 'mousedown',
+	    fn: function fn(event) {
+	      if (getPhase().type === 'DRAGGING') {
+	        event.preventDefault();
+	      }
+	
+	      cancel();
+	    }
+	  }, {
+	    eventName: 'keydown',
+	    fn: function fn(event) {
+	      var phase = getPhase();
+	
+	      if (phase.type === 'PENDING') {
+	        cancel();
+	        return;
+	      }
+	
+	      if (event.keyCode === escape) {
+	        event.preventDefault();
+	        cancel();
+	        return;
+	      }
+	
+	      preventStandardKeyEvents(event);
+	    }
+	  }, {
+	    eventName: 'resize',
+	    fn: cancel
+	  }, {
+	    eventName: 'scroll',
+	    options: {
+	      passive: true,
+	      capture: false
+	    },
+	    fn: function fn() {
+	      if (getPhase().type === 'PENDING') {
+	        cancel();
+	      }
+	    }
+	  }, {
+	    eventName: 'webkitmouseforcedown',
+	    fn: function fn(event) {
+	      var phase = getPhase();
+	      !(phase.type !== 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Unexpected phase') : invariant(false) : void 0;
+	
+	      if (phase.actions.shouldRespectForcePress()) {
+	        cancel();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	    }
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	}
+	
+	function useMouseSensor(api) {
+	  var phaseRef = React.useRef(idle$1);
+	  var unbindEventsRef = React.useRef(noop);
+	  var startCaptureBinding = useMemoOne.useMemo(function () {
+	    return {
+	      eventName: 'mousedown',
+	      fn: function onMouseDown(event) {
+	        if (event.defaultPrevented) {
+	          return;
+	        }
+	
+	        if (event.button !== primaryButton) {
+	          return;
+	        }
+	
+	        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+	          return;
+	        }
+	
+	        var draggableId = api.findClosestDraggableId(event);
+	
+	        if (!draggableId) {
+	          return;
+	        }
+	
+	        var actions = api.tryGetLock(draggableId, stop, {
+	          sourceEvent: event
+	        });
+	
+	        if (!actions) {
+	          return;
+	        }
+	
+	        event.preventDefault();
+	        var point = {
+	          x: event.clientX,
+	          y: event.clientY
+	        };
+	        unbindEventsRef.current();
+	        startPendingDrag(actions, point);
+	      }
+	    };
+	  }, [api]);
+	  var preventForcePressBinding = useMemoOne.useMemo(function () {
+	    return {
+	      eventName: 'webkitmouseforcewillbegin',
+	      fn: function fn(event) {
+	        if (event.defaultPrevented) {
+	          return;
+	        }
+	
+	        var id = api.findClosestDraggableId(event);
+	
+	        if (!id) {
+	          return;
+	        }
+	
+	        var options = api.findOptionsForDraggable(id);
+	
+	        if (!options) {
+	          return;
+	        }
+	
+	        if (options.shouldRespectForcePress) {
+	          return;
+	        }
+	
+	        if (!api.canGetLock(id)) {
+	          return;
+	        }
+	
+	        event.preventDefault();
+	      }
+	    };
+	  }, [api]);
+	  var listenForCapture = useMemoOne.useCallback(function listenForCapture() {
+	    var options = {
+	      passive: false,
+	      capture: true
+	    };
+	    unbindEventsRef.current = bindEvents(window, [preventForcePressBinding, startCaptureBinding], options);
+	  }, [preventForcePressBinding, startCaptureBinding]);
+	  var stop = useMemoOne.useCallback(function () {
+	    var current = phaseRef.current;
+	
+	    if (current.type === 'IDLE') {
+	      return;
+	    }
+	
+	    phaseRef.current = idle$1;
+	    unbindEventsRef.current();
+	    listenForCapture();
+	  }, [listenForCapture]);
+	  var cancel = useMemoOne.useCallback(function () {
+	    var phase = phaseRef.current;
+	    stop();
+	
+	    if (phase.type === 'DRAGGING') {
+	      phase.actions.cancel({
+	        shouldBlockNextClick: true
+	      });
+	    }
+	
+	    if (phase.type === 'PENDING') {
+	      phase.actions.abort();
+	    }
+	  }, [stop]);
+	  var bindCapturingEvents = useMemoOne.useCallback(function bindCapturingEvents() {
+	    var options = {
+	      capture: true,
+	      passive: false
+	    };
+	    var bindings = getCaptureBindings({
+	      cancel: cancel,
+	      completed: stop,
+	      getPhase: function getPhase() {
+	        return phaseRef.current;
+	      },
+	      setPhase: function setPhase(phase) {
+	        phaseRef.current = phase;
+	      }
+	    });
+	    unbindEventsRef.current = bindEvents(window, bindings, options);
+	  }, [cancel, stop]);
+	  var startPendingDrag = useMemoOne.useCallback(function startPendingDrag(actions, point) {
+	    !(phaseRef.current.type === 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected to move from IDLE to PENDING drag') : invariant(false) : void 0;
+	    phaseRef.current = {
+	      type: 'PENDING',
+	      point: point,
+	      actions: actions
+	    };
+	    bindCapturingEvents();
+	  }, [bindCapturingEvents]);
+	  useIsomorphicLayoutEffect(function mount() {
+	    listenForCapture();
+	    return function unmount() {
+	      unbindEventsRef.current();
+	    };
+	  }, [listenForCapture]);
+	}
+	
+	var _scrollJumpKeys;
+	
+	function noop$1() {}
+	
+	var scrollJumpKeys = (_scrollJumpKeys = {}, _scrollJumpKeys[pageDown] = true, _scrollJumpKeys[pageUp] = true, _scrollJumpKeys[home] = true, _scrollJumpKeys[end] = true, _scrollJumpKeys);
+	
+	function getDraggingBindings(actions, stop) {
+	  function cancel() {
+	    stop();
+	    actions.cancel();
+	  }
+	
+	  function drop() {
+	    stop();
+	    actions.drop();
+	  }
+	
+	  return [{
+	    eventName: 'keydown',
+	    fn: function fn(event) {
+	      if (event.keyCode === escape) {
+	        event.preventDefault();
+	        cancel();
+	        return;
+	      }
+	
+	      if (event.keyCode === space) {
+	        event.preventDefault();
+	        drop();
+	        return;
+	      }
+	
+	      if (event.keyCode === arrowDown) {
+	        event.preventDefault();
+	        actions.moveDown();
+	        return;
+	      }
+	
+	      if (event.keyCode === arrowUp) {
+	        event.preventDefault();
+	        actions.moveUp();
+	        return;
+	      }
+	
+	      if (event.keyCode === arrowRight) {
+	        event.preventDefault();
+	        actions.moveRight();
+	        return;
+	      }
+	
+	      if (event.keyCode === arrowLeft) {
+	        event.preventDefault();
+	        actions.moveLeft();
+	        return;
+	      }
+	
+	      if (scrollJumpKeys[event.keyCode]) {
+	        event.preventDefault();
+	        return;
+	      }
+	
+	      preventStandardKeyEvents(event);
+	    }
+	  }, {
+	    eventName: 'mousedown',
+	    fn: cancel
+	  }, {
+	    eventName: 'mouseup',
+	    fn: cancel
+	  }, {
+	    eventName: 'click',
+	    fn: cancel
+	  }, {
+	    eventName: 'touchstart',
+	    fn: cancel
+	  }, {
+	    eventName: 'resize',
+	    fn: cancel
+	  }, {
+	    eventName: 'wheel',
+	    fn: cancel,
+	    options: {
+	      passive: true
+	    }
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	}
+	
+	function useKeyboardSensor(api) {
+	  var unbindEventsRef = React.useRef(noop$1);
+	  var startCaptureBinding = useMemoOne.useMemo(function () {
+	    return {
+	      eventName: 'keydown',
+	      fn: function onKeyDown(event) {
+	        if (event.defaultPrevented) {
+	          return;
+	        }
+	
+	        if (event.keyCode !== space) {
+	          return;
+	        }
+	
+	        var draggableId = api.findClosestDraggableId(event);
+	
+	        if (!draggableId) {
+	          return;
+	        }
+	
+	        var preDrag = api.tryGetLock(draggableId, stop, {
+	          sourceEvent: event
+	        });
+	
+	        if (!preDrag) {
+	          return;
+	        }
+	
+	        event.preventDefault();
+	        var isCapturing = true;
+	        var actions = preDrag.snapLift();
+	        unbindEventsRef.current();
+	
+	        function stop() {
+	          !isCapturing ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot stop capturing a keyboard drag when not capturing') : invariant(false) : void 0;
+	          isCapturing = false;
+	          unbindEventsRef.current();
+	          listenForCapture();
+	        }
+	
+	        unbindEventsRef.current = bindEvents(window, getDraggingBindings(actions, stop), {
+	          capture: true,
+	          passive: false
+	        });
+	      }
+	    };
+	  }, [api]);
+	  var listenForCapture = useMemoOne.useCallback(function tryStartCapture() {
+	    var options = {
+	      passive: false,
+	      capture: true
+	    };
+	    unbindEventsRef.current = bindEvents(window, [startCaptureBinding], options);
+	  }, [startCaptureBinding]);
+	  useIsomorphicLayoutEffect(function mount() {
+	    listenForCapture();
+	    return function unmount() {
+	      unbindEventsRef.current();
+	    };
+	  }, [listenForCapture]);
+	}
+	
+	var idle$2 = {
+	  type: 'IDLE'
+	};
+	var timeForLongPress = 120;
+	var forcePressThreshold = 0.15;
+	
+	function getWindowBindings(_ref) {
+	  var cancel = _ref.cancel,
+	      getPhase = _ref.getPhase;
+	  return [{
+	    eventName: 'orientationchange',
+	    fn: cancel
+	  }, {
+	    eventName: 'resize',
+	    fn: cancel
+	  }, {
+	    eventName: 'contextmenu',
+	    fn: function fn(event) {
+	      event.preventDefault();
+	    }
+	  }, {
+	    eventName: 'keydown',
+	    fn: function fn(event) {
+	      if (getPhase().type !== 'DRAGGING') {
+	        cancel();
+	        return;
+	      }
+	
+	      if (event.keyCode === escape) {
+	        event.preventDefault();
+	      }
+	
+	      cancel();
+	    }
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	}
+	
+	function getHandleBindings(_ref2) {
+	  var cancel = _ref2.cancel,
+	      completed = _ref2.completed,
+	      getPhase = _ref2.getPhase;
+	  return [{
+	    eventName: 'touchmove',
+	    options: {
+	      capture: false
+	    },
+	    fn: function fn(event) {
+	      var phase = getPhase();
+	
+	      if (phase.type !== 'DRAGGING') {
+	        cancel();
+	        return;
+	      }
+	
+	      phase.hasMoved = true;
+	      var _event$touches$ = event.touches[0],
+	          clientX = _event$touches$.clientX,
+	          clientY = _event$touches$.clientY;
+	      var point = {
+	        x: clientX,
+	        y: clientY
+	      };
+	      event.preventDefault();
+	      phase.actions.move(point);
+	    }
+	  }, {
+	    eventName: 'touchend',
+	    fn: function fn(event) {
+	      var phase = getPhase();
+	
+	      if (phase.type !== 'DRAGGING') {
+	        cancel();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      phase.actions.drop({
+	        shouldBlockNextClick: true
+	      });
+	      completed();
+	    }
+	  }, {
+	    eventName: 'touchcancel',
+	    fn: function fn(event) {
+	      if (getPhase().type !== 'DRAGGING') {
+	        cancel();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	      cancel();
+	    }
+	  }, {
+	    eventName: 'touchforcechange',
+	    fn: function fn(event) {
+	      var phase = getPhase();
+	      !(phase.type !== 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
+	      var touch = event.touches[0];
+	
+	      if (!touch) {
+	        return;
+	      }
+	
+	      var isForcePress = touch.force >= forcePressThreshold;
+	
+	      if (!isForcePress) {
+	        return;
+	      }
+	
+	      var shouldRespect = phase.actions.shouldRespectForcePress();
+	
+	      if (phase.type === 'PENDING') {
+	        if (shouldRespect) {
+	          cancel();
+	        }
+	
+	        return;
+	      }
+	
+	      if (shouldRespect) {
+	        if (phase.hasMoved) {
+	          event.preventDefault();
+	          return;
+	        }
+	
+	        cancel();
+	        return;
+	      }
+	
+	      event.preventDefault();
+	    }
+	  }, {
+	    eventName: supportedEventName,
+	    fn: cancel
+	  }];
+	}
+	
+	function useMouseSensor$1(api) {
+	  var phaseRef = React.useRef(idle$2);
+	  var unbindEventsRef = React.useRef(noop);
+	  var getPhase = useMemoOne.useCallback(function getPhase() {
+	    return phaseRef.current;
+	  }, []);
+	  var setPhase = useMemoOne.useCallback(function setPhase(phase) {
+	    phaseRef.current = phase;
+	  }, []);
+	  var startCaptureBinding = useMemoOne.useMemo(function () {
+	    return {
+	      eventName: 'touchstart',
+	      fn: function onTouchStart(event) {
+	        if (event.defaultPrevented) {
+	          return;
+	        }
+	
+	        var draggableId = api.findClosestDraggableId(event);
+	
+	        if (!draggableId) {
+	          return;
+	        }
+	
+	        var actions = api.tryGetLock(draggableId, stop, {
+	          sourceEvent: event
+	        });
+	
+	        if (!actions) {
+	          return;
+	        }
+	
+	        var touch = event.touches[0];
+	        var clientX = touch.clientX,
+	            clientY = touch.clientY;
+	        var point = {
+	          x: clientX,
+	          y: clientY
+	        };
+	        unbindEventsRef.current();
+	        startPendingDrag(actions, point);
+	      }
+	    };
+	  }, [api]);
+	  var listenForCapture = useMemoOne.useCallback(function listenForCapture() {
+	    var options = {
+	      capture: true,
+	      passive: false
+	    };
+	    unbindEventsRef.current = bindEvents(window, [startCaptureBinding], options);
+	  }, [startCaptureBinding]);
+	  var stop = useMemoOne.useCallback(function () {
+	    var current = phaseRef.current;
+	
+	    if (current.type === 'IDLE') {
+	      return;
+	    }
+	
+	    if (current.type === 'PENDING') {
+	      clearTimeout(current.longPressTimerId);
+	    }
+	
+	    setPhase(idle$2);
+	    unbindEventsRef.current();
+	    listenForCapture();
+	  }, [listenForCapture, setPhase]);
+	  var cancel = useMemoOne.useCallback(function () {
+	    var phase = phaseRef.current;
+	    stop();
+	
+	    if (phase.type === 'DRAGGING') {
+	      phase.actions.cancel({
+	        shouldBlockNextClick: true
+	      });
+	    }
+	
+	    if (phase.type === 'PENDING') {
+	      phase.actions.abort();
+	    }
+	  }, [stop]);
+	  var bindCapturingEvents = useMemoOne.useCallback(function bindCapturingEvents() {
+	    var options = {
+	      capture: true,
+	      passive: false
+	    };
+	    var args = {
+	      cancel: cancel,
+	      completed: stop,
+	      getPhase: getPhase
+	    };
+	    var unbindTarget = bindEvents(window, getHandleBindings(args), options);
+	    var unbindWindow = bindEvents(window, getWindowBindings(args), options);
+	
+	    unbindEventsRef.current = function unbindAll() {
+	      unbindTarget();
+	      unbindWindow();
+	    };
+	  }, [cancel, getPhase, stop]);
+	  var startDragging = useMemoOne.useCallback(function startDragging() {
+	    var phase = getPhase();
+	    !(phase.type === 'PENDING') ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot start dragging from phase " + phase.type) : invariant(false) : void 0;
+	    var actions = phase.actions.fluidLift(phase.point);
+	    setPhase({
+	      type: 'DRAGGING',
+	      actions: actions,
+	      hasMoved: false
+	    });
+	  }, [getPhase, setPhase]);
+	  var startPendingDrag = useMemoOne.useCallback(function startPendingDrag(actions, point) {
+	    !(getPhase().type === 'IDLE') ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected to move from IDLE to PENDING drag') : invariant(false) : void 0;
+	    var longPressTimerId = setTimeout(startDragging, timeForLongPress);
+	    setPhase({
+	      type: 'PENDING',
+	      point: point,
+	      actions: actions,
+	      longPressTimerId: longPressTimerId
+	    });
+	    bindCapturingEvents();
+	  }, [bindCapturingEvents, getPhase, setPhase, startDragging]);
+	  useIsomorphicLayoutEffect(function mount() {
+	    listenForCapture();
+	    return function unmount() {
+	      unbindEventsRef.current();
+	      var phase = getPhase();
+	
+	      if (phase.type === 'PENDING') {
+	        clearTimeout(phase.longPressTimerId);
+	        setPhase(idle$2);
+	      }
+	    };
+	  }, [getPhase, listenForCapture, setPhase]);
+	  useIsomorphicLayoutEffect(function webkitHack() {
+	    var unbind = bindEvents(window, [{
+	      eventName: 'touchmove',
+	      fn: function fn() {},
+	      options: {
+	        capture: false,
+	        passive: false
+	      }
+	    }]);
+	    return unbind;
+	  }, []);
+	}
+	
+	function useValidateSensorHooks(sensorHooks) {
+	  useDev(function () {
+	    var previousRef = usePrevious(sensorHooks);
+	    useDevSetupWarning(function () {
+	      !(previousRef.current.length === sensorHooks.length) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot change the amount of sensor hooks after mounting') : invariant(false) : void 0;
+	    });
+	  });
+	}
+	
+	var interactiveTagNames = {
+	  input: true,
+	  button: true,
+	  textarea: true,
+	  select: true,
+	  option: true,
+	  optgroup: true,
+	  video: true,
+	  audio: true
+	};
+	
+	function isAnInteractiveElement(parent, current) {
+	  if (current == null) {
+	    return false;
+	  }
+	
+	  var hasAnInteractiveTag = Boolean(interactiveTagNames[current.tagName.toLowerCase()]);
+	
+	  if (hasAnInteractiveTag) {
+	    return true;
+	  }
+	
+	  var attribute = current.getAttribute('contenteditable');
+	
+	  if (attribute === 'true' || attribute === '') {
+	    return true;
+	  }
+	
+	  if (current === parent) {
+	    return false;
+	  }
+	
+	  return isAnInteractiveElement(parent, current.parentElement);
+	}
+	
+	function isEventInInteractiveElement(draggable, event) {
+	  var target = event.target;
+	
+	  if (!isHtmlElement(target)) {
+	    return false;
+	  }
+	
+	  return isAnInteractiveElement(draggable, target);
+	}
+	
+	var getBorderBoxCenterPosition = (function (el) {
+	  return cssBoxModel.getRect(el.getBoundingClientRect()).center;
+	});
+	
+	function isElement(el) {
+	  return el instanceof getWindowFromEl(el).Element;
+	}
+	
+	var supportedMatchesName = function () {
+	  var base = 'matches';
+	
+	  if (typeof document === 'undefined') {
+	    return base;
+	  }
+	
+	  var candidates = [base, 'msMatchesSelector', 'webkitMatchesSelector'];
+	  var value = find(candidates, function (name) {
+	    return name in Element.prototype;
+	  });
+	  return value || base;
+	}();
+	
+	function closestPonyfill(el, selector) {
+	  if (el == null) {
+	    return null;
+	  }
+	
+	  if (el[supportedMatchesName](selector)) {
+	    return el;
+	  }
+	
+	  return closestPonyfill(el.parentElement, selector);
+	}
+	
+	function closest$1(el, selector) {
+	  if (el.closest) {
+	    return el.closest(selector);
+	  }
+	
+	  return closestPonyfill(el, selector);
+	}
+	
+	function getSelector(contextId) {
+	  return "[" + dragHandle.contextId + "=\"" + contextId + "\"]";
+	}
+	
+	function findClosestDragHandleFromEvent(contextId, event) {
+	  var target = event.target;
+	
+	  if (!isElement(target)) {
+	    process.env.NODE_ENV !== "production" ? warning('event.target must be a Element') : void 0;
+	    return null;
+	  }
+	
+	  var selector = getSelector(contextId);
+	  var handle = closest$1(target, selector);
+	
+	  if (!handle) {
+	    return null;
+	  }
+	
+	  if (!isHtmlElement(handle)) {
+	    process.env.NODE_ENV !== "production" ? warning('drag handle must be a HTMLElement') : void 0;
+	    return null;
+	  }
+	
+	  return handle;
+	}
+	
+	function tryGetClosestDraggableIdFromEvent(contextId, event) {
+	  var handle = findClosestDragHandleFromEvent(contextId, event);
+	
+	  if (!handle) {
+	    return null;
+	  }
+	
+	  return handle.getAttribute(dragHandle.draggableId);
+	}
+	
+	function findDraggable(contextId, draggableId) {
+	  var selector = "[" + draggable.contextId + "=\"" + contextId + "\"]";
+	  var possible = toArray(document.querySelectorAll(selector));
+	  var draggable$1 = find(possible, function (el) {
+	    return el.getAttribute(draggable.id) === draggableId;
+	  });
+	
+	  if (!draggable$1) {
+	    return null;
+	  }
+	
+	  if (!isHtmlElement(draggable$1)) {
+	    process.env.NODE_ENV !== "production" ? warning('Draggable element is not a HTMLElement') : void 0;
+	    return null;
+	  }
+	
+	  return draggable$1;
+	}
+	
+	function preventDefault(event) {
+	  event.preventDefault();
+	}
+	
+	function _isActive(_ref) {
+	  var expected = _ref.expected,
+	      phase = _ref.phase,
+	      isLockActive = _ref.isLockActive,
+	      shouldWarn = _ref.shouldWarn;
+	
+	  if (!isLockActive()) {
+	    if (shouldWarn) {
+	      process.env.NODE_ENV !== "production" ? warning("\n        Cannot perform action.\n        The sensor no longer has an action lock.\n\n        Tips:\n\n        - Throw away your action handlers when forceStop() is called\n        - Check actions.isActive() if you really need to\n      ") : void 0;
+	    }
+	
+	    return false;
+	  }
+	
+	  if (expected !== phase) {
+	    if (shouldWarn) {
+	      process.env.NODE_ENV !== "production" ? warning("\n        Cannot perform action.\n        The actions you used belong to an outdated phase\n\n        Current phase: " + expected + "\n        You called an action from outdated phase: " + phase + "\n\n        Tips:\n\n        - Do not use preDragActions actions after calling preDragActions.lift()\n      ") : void 0;
+	    }
+	
+	    return false;
+	  }
+	
+	  return true;
+	}
+	
+	function canStart(_ref2) {
+	  var lockAPI = _ref2.lockAPI,
+	      store = _ref2.store,
+	      registry = _ref2.registry,
+	      draggableId = _ref2.draggableId;
+	
+	  if (lockAPI.isClaimed()) {
+	    return false;
+	  }
+	
+	  var entry = registry.draggable.findById(draggableId);
+	
+	  if (!entry) {
+	    process.env.NODE_ENV !== "production" ? warning("Unable to find draggable with id: " + draggableId) : void 0;
+	    return false;
+	  }
+	
+	  if (!entry.options.isEnabled) {
+	    return false;
+	  }
+	
+	  if (!canStartDrag(store.getState(), draggableId)) {
+	    return false;
+	  }
+	
+	  return true;
+	}
+	
+	function tryStart(_ref3) {
+	  var lockAPI = _ref3.lockAPI,
+	      contextId = _ref3.contextId,
+	      store = _ref3.store,
+	      registry = _ref3.registry,
+	      draggableId = _ref3.draggableId,
+	      forceSensorStop = _ref3.forceSensorStop,
+	      sourceEvent = _ref3.sourceEvent;
+	  var shouldStart = canStart({
+	    lockAPI: lockAPI,
+	    store: store,
+	    registry: registry,
+	    draggableId: draggableId
+	  });
+	
+	  if (!shouldStart) {
+	    return null;
+	  }
+	
+	  var entry = registry.draggable.getById(draggableId);
+	  var el = findDraggable(contextId, entry.descriptor.id);
+	
+	  if (!el) {
+	    process.env.NODE_ENV !== "production" ? warning("Unable to find draggable element with id: " + draggableId) : void 0;
+	    return null;
+	  }
+	
+	  if (sourceEvent && !entry.options.canDragInteractiveElements && isEventInInteractiveElement(el, sourceEvent)) {
+	    return null;
+	  }
+	
+	  var lock = lockAPI.claim(forceSensorStop || noop);
+	  var phase = 'PRE_DRAG';
+	
+	  function getShouldRespectForcePress() {
+	    return entry.options.shouldRespectForcePress;
+	  }
+	
+	  function isLockActive() {
+	    return lockAPI.isActive(lock);
+	  }
+	
+	  function tryDispatch(expected, getAction) {
+	    if (_isActive({
+	      expected: expected,
+	      phase: phase,
+	      isLockActive: isLockActive,
+	      shouldWarn: true
+	    })) {
+	      store.dispatch(getAction());
+	    }
+	  }
+	
+	  var tryDispatchWhenDragging = tryDispatch.bind(null, 'DRAGGING');
+	
+	  function lift$1(args) {
+	    function completed() {
+	      lockAPI.release();
+	      phase = 'COMPLETED';
+	    }
+	
+	    if (phase !== 'PRE_DRAG') {
+	      completed();
+	      !(phase === 'PRE_DRAG') ? process.env.NODE_ENV !== "production" ? invariant(false, "Cannot lift in phase " + phase) : invariant(false) : void 0;
+	    }
+	
+	    store.dispatch(lift(args.liftActionArgs));
+	    phase = 'DRAGGING';
+	
+	    function finish(reason, options) {
+	      if (options === void 0) {
+	        options = {
+	          shouldBlockNextClick: false
+	        };
+	      }
+	
+	      args.cleanup();
+	
+	      if (options.shouldBlockNextClick) {
+	        var unbind = bindEvents(window, [{
+	          eventName: 'click',
+	          fn: preventDefault,
+	          options: {
+	            once: true,
+	            passive: false,
+	            capture: true
+	          }
+	        }]);
+	        setTimeout(unbind);
+	      }
+	
+	      completed();
+	      store.dispatch(drop({
+	        reason: reason
+	      }));
+	    }
+	
+	    return _extends({
+	      isActive: function isActive() {
+	        return _isActive({
+	          expected: 'DRAGGING',
+	          phase: phase,
+	          isLockActive: isLockActive,
+	          shouldWarn: false
+	        });
+	      },
+	      shouldRespectForcePress: getShouldRespectForcePress,
+	      drop: function drop(options) {
+	        return finish('DROP', options);
+	      },
+	      cancel: function cancel(options) {
+	        return finish('CANCEL', options);
+	      }
+	    }, args.actions);
+	  }
+	
+	  function fluidLift(clientSelection) {
+	    var move$1 = rafSchd(function (client) {
+	      tryDispatchWhenDragging(function () {
+	        return move({
+	          client: client
+	        });
+	      });
+	    });
+	    var api = lift$1({
+	      liftActionArgs: {
+	        id: draggableId,
+	        clientSelection: clientSelection,
+	        movementMode: 'FLUID'
+	      },
+	      cleanup: function cleanup() {
+	        return move$1.cancel();
+	      },
+	      actions: {
+	        move: move$1
+	      }
+	    });
+	    return _extends({}, api, {
+	      move: move$1
+	    });
+	  }
+	
+	  function snapLift() {
+	    var actions = {
+	      moveUp: function moveUp$1() {
+	        return tryDispatchWhenDragging(moveUp);
+	      },
+	      moveRight: function moveRight$1() {
+	        return tryDispatchWhenDragging(moveRight);
+	      },
+	      moveDown: function moveDown$1() {
+	        return tryDispatchWhenDragging(moveDown);
+	      },
+	      moveLeft: function moveLeft$1() {
+	        return tryDispatchWhenDragging(moveLeft);
+	      }
+	    };
+	    return lift$1({
+	      liftActionArgs: {
+	        id: draggableId,
+	        clientSelection: getBorderBoxCenterPosition(el),
+	        movementMode: 'SNAP'
+	      },
+	      cleanup: noop,
+	      actions: actions
+	    });
+	  }
+	
+	  function abortPreDrag() {
+	    var shouldRelease = _isActive({
+	      expected: 'PRE_DRAG',
+	      phase: phase,
+	      isLockActive: isLockActive,
+	      shouldWarn: true
+	    });
+	
+	    if (shouldRelease) {
+	      lockAPI.release();
+	    }
+	  }
+	
+	  var preDrag = {
+	    isActive: function isActive() {
+	      return _isActive({
+	        expected: 'PRE_DRAG',
+	        phase: phase,
+	        isLockActive: isLockActive,
+	        shouldWarn: false
+	      });
+	    },
+	    shouldRespectForcePress: getShouldRespectForcePress,
+	    fluidLift: fluidLift,
+	    snapLift: snapLift,
+	    abort: abortPreDrag
+	  };
+	  return preDrag;
+	}
+	
+	var defaultSensors = [useMouseSensor, useKeyboardSensor, useMouseSensor$1];
+	function useSensorMarshal(_ref4) {
+	  var contextId = _ref4.contextId,
+	      store = _ref4.store,
+	      registry = _ref4.registry,
+	      customSensors = _ref4.customSensors,
+	      enableDefaultSensors = _ref4.enableDefaultSensors;
+	  var useSensors = [].concat(enableDefaultSensors ? defaultSensors : [], customSensors || []);
+	  var lockAPI = React.useState(function () {
+	    return create();
+	  })[0];
+	  var tryAbandonLock = useMemoOne.useCallback(function tryAbandonLock(previous, current) {
+	    if (previous.isDragging && !current.isDragging) {
+	      lockAPI.tryAbandon();
+	    }
+	  }, [lockAPI]);
+	  useIsomorphicLayoutEffect(function listenToStore() {
+	    var previous = store.getState();
+	    var unsubscribe = store.subscribe(function () {
+	      var current = store.getState();
+	      tryAbandonLock(previous, current);
+	      previous = current;
+	    });
+	    return unsubscribe;
+	  }, [lockAPI, store, tryAbandonLock]);
+	  useIsomorphicLayoutEffect(function () {
+	    return lockAPI.tryAbandon;
+	  }, [lockAPI.tryAbandon]);
+	  var canGetLock = useMemoOne.useCallback(function (draggableId) {
+	    return canStart({
+	      lockAPI: lockAPI,
+	      registry: registry,
+	      store: store,
+	      draggableId: draggableId
+	    });
+	  }, [lockAPI, registry, store]);
+	  var tryGetLock = useMemoOne.useCallback(function (draggableId, forceStop, options) {
+	    return tryStart({
+	      lockAPI: lockAPI,
+	      registry: registry,
+	      contextId: contextId,
+	      store: store,
+	      draggableId: draggableId,
+	      forceSensorStop: forceStop,
+	      sourceEvent: options && options.sourceEvent ? options.sourceEvent : null
+	    });
+	  }, [contextId, lockAPI, registry, store]);
+	  var findClosestDraggableId = useMemoOne.useCallback(function (event) {
+	    return tryGetClosestDraggableIdFromEvent(contextId, event);
+	  }, [contextId]);
+	  var findOptionsForDraggable = useMemoOne.useCallback(function (id) {
+	    var entry = registry.draggable.findById(id);
+	    return entry ? entry.options : null;
+	  }, [registry.draggable]);
+	  var tryReleaseLock = useMemoOne.useCallback(function tryReleaseLock() {
+	    if (!lockAPI.isClaimed()) {
+	      return;
+	    }
+	
+	    lockAPI.tryAbandon();
+	
+	    if (store.getState().phase !== 'IDLE') {
+	      store.dispatch(flush());
+	    }
+	  }, [lockAPI, store]);
+	  var isLockClaimed = useMemoOne.useCallback(lockAPI.isClaimed, [lockAPI]);
+	  var api = useMemoOne.useMemo(function () {
+	    return {
+	      canGetLock: canGetLock,
+	      tryGetLock: tryGetLock,
+	      findClosestDraggableId: findClosestDraggableId,
+	      findOptionsForDraggable: findOptionsForDraggable,
+	      tryReleaseLock: tryReleaseLock,
+	      isLockClaimed: isLockClaimed
+	    };
+	  }, [canGetLock, tryGetLock, findClosestDraggableId, findOptionsForDraggable, tryReleaseLock, isLockClaimed]);
+	  useValidateSensorHooks(useSensors);
+	
+	  for (var i = 0; i < useSensors.length; i++) {
+	    useSensors[i](api);
+	  }
+	}
+	
 	var createResponders = function createResponders(props) {
 	  return {
+	    onBeforeCapture: props.onBeforeCapture,
 	    onBeforeDragStart: props.onBeforeDragStart,
 	    onDragStart: props.onDragStart,
 	    onDragEnd: props.onDragEnd,
@@ -21859,31 +23295,39 @@
 	}
 	
 	function App(props) {
-	  var uniqueId = props.uniqueId,
-	      setOnError = props.setOnError;
+	  var contextId = props.contextId,
+	      setCallbacks = props.setCallbacks,
+	      sensors = props.sensors,
+	      nonce = props.nonce,
+	      dragHandleUsageInstructions = props.dragHandleUsageInstructions;
 	  var lazyStoreRef = React.useRef(null);
 	  useStartupValidation();
 	  var lastPropsRef = usePrevious(props);
 	  var getResponders = useMemoOne.useCallback(function () {
 	    return createResponders(lastPropsRef.current);
 	  }, [lastPropsRef]);
-	  var announce = useAnnouncer(uniqueId);
-	  var styleMarshal = useStyleMarshal(uniqueId);
+	  var announce = useAnnouncer(contextId);
+	  var dragHandleUsageInstructionsId = useHiddenTextElement({
+	    contextId: contextId,
+	    text: dragHandleUsageInstructions
+	  });
+	  var styleMarshal = useStyleMarshal(contextId, nonce);
 	  var lazyDispatch = useMemoOne.useCallback(function (action) {
 	    getStore(lazyStoreRef).dispatch(action);
 	  }, []);
-	  var callbacks = useMemoOne.useMemo(function () {
+	  var marshalCallbacks = useMemoOne.useMemo(function () {
 	    return redux.bindActionCreators({
-	      publishWhileDragging: publishWhileDragging$1,
+	      publishWhileDragging: publishWhileDragging,
 	      updateDroppableScroll: updateDroppableScroll,
 	      updateDroppableIsEnabled: updateDroppableIsEnabled,
 	      updateDroppableIsCombineEnabled: updateDroppableIsCombineEnabled,
 	      collectionStarting: collectionStarting
 	    }, lazyDispatch);
 	  }, [lazyDispatch]);
+	  var registry = useRegistry();
 	  var dimensionMarshal = useMemoOne.useMemo(function () {
-	    return createDimensionMarshal(callbacks);
-	  }, [callbacks]);
+	    return createDimensionMarshal(registry, marshalCallbacks);
+	  }, [registry, marshalCallbacks]);
 	  var autoScroller = useMemoOne.useMemo(function () {
 	    return createAutoScroller(_extends({
 	      scrollWindow: scrollWindow,
@@ -21892,15 +23336,17 @@
 	      move: move
 	    }, lazyDispatch)));
 	  }, [dimensionMarshal.scrollDroppable, lazyDispatch]);
+	  var focusMarshal = useFocusMarshal(contextId);
 	  var store = useMemoOne.useMemo(function () {
 	    return createStore({
-	      dimensionMarshal: dimensionMarshal,
-	      styleMarshal: styleMarshal,
 	      announce: announce,
 	      autoScroller: autoScroller,
-	      getResponders: getResponders
+	      dimensionMarshal: dimensionMarshal,
+	      focusMarshal: focusMarshal,
+	      getResponders: getResponders,
+	      styleMarshal: styleMarshal
 	    });
-	  }, [announce, autoScroller, dimensionMarshal, getResponders, styleMarshal]);
+	  }, [announce, autoScroller, dimensionMarshal, focusMarshal, getResponders, styleMarshal]);
 	
 	  if (process.env.NODE_ENV !== 'production') {
 	    if (lazyStoreRef.current && lazyStoreRef.current !== store) {
@@ -21914,12 +23360,20 @@
 	    var state = current.getState();
 	
 	    if (state.phase !== 'IDLE') {
-	      current.dispatch(clean$1({
-	        shouldFlush: true
-	      }));
+	      current.dispatch(flush());
 	    }
 	  }, []);
-	  setOnError(tryResetStore);
+	  var isDragging = useMemoOne.useCallback(function () {
+	    var state = getStore(lazyStoreRef).getState();
+	    return state.isDragging || state.phase === 'DROP_ANIMATING';
+	  }, []);
+	  var appCallbacks = useMemoOne.useMemo(function () {
+	    return {
+	      isDragging: isDragging,
+	      tryAbort: tryResetStore
+	    };
+	  }, [isDragging, tryResetStore]);
+	  setCallbacks(appCallbacks);
 	  var getCanLift = useMemoOne.useCallback(function (id) {
 	    return canStartDrag(getStore(lazyStoreRef).getState(), id);
 	  }, []);
@@ -21929,11 +23383,21 @@
 	  var appContext = useMemoOne.useMemo(function () {
 	    return {
 	      marshal: dimensionMarshal,
-	      style: styleMarshal.styleContext,
+	      focus: focusMarshal,
+	      contextId: contextId,
 	      canLift: getCanLift,
-	      isMovementAllowed: getIsMovementAllowed
+	      isMovementAllowed: getIsMovementAllowed,
+	      dragHandleUsageInstructionsId: dragHandleUsageInstructionsId,
+	      registry: registry
 	    };
-	  }, [dimensionMarshal, getCanLift, getIsMovementAllowed, styleMarshal.styleContext]);
+	  }, [contextId, dimensionMarshal, dragHandleUsageInstructionsId, focusMarshal, getCanLift, getIsMovementAllowed, registry]);
+	  useSensorMarshal({
+	    contextId: contextId,
+	    store: store,
+	    registry: registry,
+	    customSensors: sensors,
+	    enableDefaultSensors: props.enableDefaultSensors !== false
+	  });
 	  React.useEffect(function () {
 	    return tryResetStore;
 	  }, [tryResetStore]);
@@ -21945,31 +23409,49 @@
 	  }, props.children));
 	}
 	
-	var instanceCount = 0;
+	var count$1 = 0;
+	function reset$1() {
+	  count$1 = 0;
+	}
+	function useInstanceCount() {
+	  return useMemoOne.useMemo(function () {
+	    return "" + count$1++;
+	  }, []);
+	}
+	
 	function resetServerContext() {
-	  instanceCount = 0;
+	  reset$1();
+	  reset();
 	}
 	function DragDropContext(props) {
-	  var uniqueId = useMemoOne.useMemo(function () {
-	    return instanceCount++;
-	  }, []);
-	  return React__default.createElement(ErrorBoundary, null, function (setOnError) {
-	    return React__default.createElement(App, _extends({
-	      setOnError: setOnError,
-	      uniqueId: uniqueId
-	    }, props), props.children);
+	  var contextId = useInstanceCount();
+	  var dragHandleUsageInstructions = props.dragHandleUsageInstructions || preset.dragHandleUsageInstructions;
+	  return React__default.createElement(ErrorBoundary, null, function (setCallbacks) {
+	    return React__default.createElement(App, {
+	      nonce: props.nonce,
+	      contextId: contextId,
+	      setCallbacks: setCallbacks,
+	      dragHandleUsageInstructions: dragHandleUsageInstructions,
+	      enableDefaultSensors: props.enableDefaultSensors,
+	      sensors: props.sensors,
+	      onBeforeCapture: props.onBeforeCapture,
+	      onBeforeDragStart: props.onBeforeDragStart,
+	      onDragStart: props.onDragStart,
+	      onDragUpdate: props.onDragUpdate,
+	      onDragEnd: props.onDragEnd
+	    }, props.children);
 	  });
 	}
 	
-	var isEqual$2 = function isEqual(base) {
+	var isEqual$1 = function isEqual(base) {
 	  return function (value) {
 	    return base === value;
 	  };
 	};
 	
-	var isScroll = isEqual$2('scroll');
-	var isAuto = isEqual$2('auto');
-	var isVisible$1 = isEqual$2('visible');
+	var isScroll = isEqual$1('scroll');
+	var isAuto = isEqual$1('auto');
+	var isVisible$1 = isEqual$1('visible');
 	
 	var isEither = function isEither(overflow, fn) {
 	  return fn(overflow.overflowX) || fn(overflow.overflowY);
@@ -22079,6 +23561,67 @@
 	  };
 	});
 	
+	var getDroppableDimension = (function (_ref) {
+	  var descriptor = _ref.descriptor,
+	      isEnabled = _ref.isEnabled,
+	      isCombineEnabled = _ref.isCombineEnabled,
+	      isFixedOnPage = _ref.isFixedOnPage,
+	      direction = _ref.direction,
+	      client = _ref.client,
+	      page = _ref.page,
+	      closest = _ref.closest;
+	
+	  var frame = function () {
+	    if (!closest) {
+	      return null;
+	    }
+	
+	    var scrollSize = closest.scrollSize,
+	        frameClient = closest.client;
+	    var maxScroll = getMaxScroll({
+	      scrollHeight: scrollSize.scrollHeight,
+	      scrollWidth: scrollSize.scrollWidth,
+	      height: frameClient.paddingBox.height,
+	      width: frameClient.paddingBox.width
+	    });
+	    return {
+	      pageMarginBox: closest.page.marginBox,
+	      frameClient: frameClient,
+	      scrollSize: scrollSize,
+	      shouldClipSubject: closest.shouldClipSubject,
+	      scroll: {
+	        initial: closest.scroll,
+	        current: closest.scroll,
+	        max: maxScroll,
+	        diff: {
+	          value: origin,
+	          displacement: origin
+	        }
+	      }
+	    };
+	  }();
+	
+	  var axis = direction === 'vertical' ? vertical : horizontal;
+	  var subject = getSubject({
+	    page: page,
+	    withPlaceholder: null,
+	    axis: axis,
+	    frame: frame
+	  });
+	  var dimension = {
+	    descriptor: descriptor,
+	    isCombineEnabled: isCombineEnabled,
+	    isFixedOnPage: isFixedOnPage,
+	    axis: axis,
+	    isEnabled: isEnabled,
+	    client: client,
+	    page: page,
+	    frame: frame,
+	    subject: subject
+	  };
+	  return dimension;
+	});
+	
 	var getClient = function getClient(targetRef, closestScrollable) {
 	  var base = cssBoxModel.getBox(targetRef);
 	
@@ -22155,18 +23698,6 @@
 	  return dimension;
 	});
 	
-	function withoutPlaceholder(placeholder, fn) {
-	  if (!placeholder) {
-	    return fn();
-	  }
-	
-	  var last = placeholder.style.display;
-	  placeholder.style.display = 'none';
-	  var result = fn();
-	  placeholder.style.display = last;
-	  return result;
-	}
-	
 	var immediate = {
 	  passive: false
 	};
@@ -22187,17 +23718,20 @@
 	  return dragging && dragging.env.closestScrollable || null;
 	};
 	
-	function useDroppableDimensionPublisher(args) {
+	function useDroppablePublisher(args) {
 	  var whileDraggingRef = React.useRef(null);
 	  var appContext = useRequiredContext(AppContext);
-	  var marshal = appContext.marshal;
+	  var uniqueId = useUniqueId('droppable');
+	  var registry = appContext.registry,
+	      marshal = appContext.marshal;
 	  var previousRef = usePrevious(args);
 	  var descriptor = useMemoOne.useMemo(function () {
 	    return {
 	      id: args.droppableId,
-	      type: args.type
+	      type: args.type,
+	      mode: args.mode
 	    };
-	  }, [args.droppableId, args.type]);
+	  }, [args.droppableId, args.mode, args.type]);
 	  var publishedDescriptorRef = React.useRef(descriptor);
 	  var memoizedUpdateScroll = useMemoOne.useMemo(function () {
 	    return memoizeOne(function (x, y) {
@@ -22261,42 +23795,25 @@
 	      isCombineEnabled: previous.isCombineEnabled,
 	      shouldClipSubject: !previous.ignoreContainerClipping
 	    });
+	    var scrollable = env.closestScrollable;
 	
-	    if (env.closestScrollable) {
-	      env.closestScrollable.addEventListener('scroll', onClosestScroll, getListenerOptions(dragging.scrollOptions));
+	    if (scrollable) {
+	      scrollable.setAttribute(scrollContainer.contextId, appContext.contextId);
+	      scrollable.addEventListener('scroll', onClosestScroll, getListenerOptions(dragging.scrollOptions));
 	
 	      if (process.env.NODE_ENV !== 'production') {
-	        checkForNestedScrollContainers(env.closestScrollable);
+	        checkForNestedScrollContainers(scrollable);
 	      }
 	    }
 	
 	    return dimension;
-	  }, [descriptor, onClosestScroll, previousRef]);
-	  var recollect = useMemoOne.useCallback(function (options) {
+	  }, [appContext.contextId, descriptor, onClosestScroll, previousRef]);
+	  var getScrollWhileDragging = useMemoOne.useCallback(function () {
 	    var dragging = whileDraggingRef.current;
 	    var closest = getClosestScrollableFromDrag(dragging);
 	    !(dragging && closest) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Can only recollect Droppable client for Droppables that have a scroll container') : invariant(false) : void 0;
-	    var previous = previousRef.current;
-	
-	    var execute = function execute() {
-	      return getDimension({
-	        ref: dragging.ref,
-	        descriptor: dragging.descriptor,
-	        env: dragging.env,
-	        windowScroll: origin,
-	        direction: previous.direction,
-	        isDropDisabled: previous.isDropDisabled,
-	        isCombineEnabled: previous.isCombineEnabled,
-	        shouldClipSubject: !previous.ignoreContainerClipping
-	      });
-	    };
-	
-	    if (!options.withoutPlaceholder) {
-	      return execute();
-	    }
-	
-	    return withoutPlaceholder(previous.getPlaceholderRef(), execute);
-	  }, [previousRef]);
+	    return getScroll$1(closest);
+	  }, []);
 	  var dragStopped = useMemoOne.useCallback(function () {
 	    var dragging = whileDraggingRef.current;
 	    !dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot stop drag when no active drag') : invariant(false) : void 0;
@@ -22308,6 +23825,7 @@
 	    }
 	
 	    scheduleScrollUpdate.cancel();
+	    closest.removeAttribute(scrollContainer.contextId);
 	    closest.removeEventListener('scroll', onClosestScroll, getListenerOptions(dragging.scrollOptions));
 	  }, [onClosestScroll, scheduleScrollUpdate]);
 	  var scroll = useMemoOne.useCallback(function (change) {
@@ -22321,23 +23839,30 @@
 	  var callbacks = useMemoOne.useMemo(function () {
 	    return {
 	      getDimensionAndWatchScroll: getDimensionAndWatchScroll,
-	      recollect: recollect,
+	      getScrollWhileDragging: getScrollWhileDragging,
 	      dragStopped: dragStopped,
 	      scroll: scroll
 	    };
-	  }, [dragStopped, getDimensionAndWatchScroll, recollect, scroll]);
+	  }, [dragStopped, getDimensionAndWatchScroll, getScrollWhileDragging, scroll]);
+	  var entry = useMemoOne.useMemo(function () {
+	    return {
+	      uniqueId: uniqueId,
+	      descriptor: descriptor,
+	      callbacks: callbacks
+	    };
+	  }, [callbacks, descriptor, uniqueId]);
 	  useIsomorphicLayoutEffect(function () {
-	    publishedDescriptorRef.current = descriptor;
-	    marshal.registerDroppable(descriptor, callbacks);
+	    publishedDescriptorRef.current = entry.descriptor;
+	    registry.droppable.register(entry);
 	    return function () {
 	      if (whileDraggingRef.current) {
 	        process.env.NODE_ENV !== "production" ? warning('Unsupported: changing the droppableId or type of a Droppable during a drag') : void 0;
 	        dragStopped();
 	      }
 	
-	      marshal.unregisterDroppable(descriptor);
+	      registry.droppable.unregister(entry);
 	    };
-	  }, [callbacks, descriptor, dragStopped, marshal]);
+	  }, [callbacks, descriptor, dragStopped, entry, marshal, registry.droppable]);
 	  useIsomorphicLayoutEffect(function () {
 	    if (!whileDraggingRef.current) {
 	      return;
@@ -22354,7 +23879,7 @@
 	  }, [args.isCombineEnabled, marshal]);
 	}
 	
-	function noop() {}
+	function noop$2() {}
 	
 	var empty = {
 	  width: 0,
@@ -22403,7 +23928,7 @@
 	    flexShrink: '0',
 	    flexGrow: '0',
 	    pointerEvents: 'none',
-	    transition: transitions.placeholder
+	    transition: animate !== 'none' ? transitions.placeholder : null
 	  };
 	};
 	
@@ -22420,7 +23945,7 @@
 	  var animate = props.animate,
 	      onTransitionEnd = props.onTransitionEnd,
 	      onClose = props.onClose,
-	      styleContext = props.styleContext;
+	      contextId = props.contextId;
 	
 	  var _useState = React.useState(props.animate === 'open'),
 	      isAnimatingOpenOnMount = _useState[0],
@@ -22428,17 +23953,17 @@
 	
 	  React.useEffect(function () {
 	    if (!isAnimatingOpenOnMount) {
-	      return noop;
+	      return noop$2;
 	    }
 	
 	    if (animate !== 'open') {
 	      tryClearAnimateOpenTimer();
 	      setIsAnimatingOpenOnMount(false);
-	      return noop;
+	      return noop$2;
 	    }
 	
 	    if (animateOpenTimerRef.current) {
-	      return noop;
+	      return noop$2;
 	    }
 	
 	    animateOpenTimerRef.current = setTimeout(function () {
@@ -22465,7 +23990,7 @@
 	  });
 	  return React__default.createElement(props.placeholder.tagName, {
 	    style: style,
-	    'data-react-beautiful-dnd-placeholder': styleContext,
+	    'data-rbd-placeholder-context-id': contextId,
 	    onTransitionEnd: onSizeChangeEnd,
 	    ref: props.innerRef
 	  });
@@ -22475,46 +24000,66 @@
 	
 	var DroppableContext = React__default.createContext(null);
 	
-	var getWindowFromEl = (function (el) {
-	  return el && el.ownerDocument ? el.ownerDocument.defaultView : window;
-	});
-	
-	function isHtmlElement(el) {
-	  return el instanceof getWindowFromEl(el).HTMLElement;
-	}
-	
 	function checkIsValidInnerRef(el) {
 	  !(el && isHtmlElement(el)) ? process.env.NODE_ENV !== "production" ? invariant(false, "\n    provided.innerRef has not been provided with a HTMLElement.\n\n    You can find a guide on using the innerRef callback functions at:\n    https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/using-inner-ref.md\n  ") : invariant(false) : void 0;
 	}
 	
-	function checkOwnProps(props) {
-	  !props.droppableId ? process.env.NODE_ENV !== "production" ? invariant(false, 'A Droppable requires a droppableId prop') : invariant(false) : void 0;
-	  !(typeof props.isDropDisabled === 'boolean') ? process.env.NODE_ENV !== "production" ? invariant(false, 'isDropDisabled must be a boolean') : invariant(false) : void 0;
-	  !(typeof props.isCombineEnabled === 'boolean') ? process.env.NODE_ENV !== "production" ? invariant(false, 'isCombineEnabled must be a boolean') : invariant(false) : void 0;
-	  !(typeof props.ignoreContainerClipping === 'boolean') ? process.env.NODE_ENV !== "production" ? invariant(false, 'ignoreContainerClipping must be a boolean') : invariant(false) : void 0;
+	function isBoolean(value) {
+	  return typeof value === 'boolean';
 	}
 	
-	function checkPlaceholderRef(props, placeholderEl) {
+	function runChecks(args, checks) {
+	  checks.forEach(function (check) {
+	    return check(args);
+	  });
+	}
+	
+	var shared = [function required(_ref) {
+	  var props = _ref.props;
+	  !props.droppableId ? process.env.NODE_ENV !== "production" ? invariant(false, 'A Droppable requires a droppableId prop') : invariant(false) : void 0;
+	  !(typeof props.droppableId === 'string') ? process.env.NODE_ENV !== "production" ? invariant(false, "A Droppable requires a [string] droppableId. Provided: [" + typeof props.droppableId + "]") : invariant(false) : void 0;
+	}, function _boolean(_ref2) {
+	  var props = _ref2.props;
+	  !isBoolean(props.isDropDisabled) ? process.env.NODE_ENV !== "production" ? invariant(false, 'isDropDisabled must be a boolean') : invariant(false) : void 0;
+	  !isBoolean(props.isCombineEnabled) ? process.env.NODE_ENV !== "production" ? invariant(false, 'isCombineEnabled must be a boolean') : invariant(false) : void 0;
+	  !isBoolean(props.ignoreContainerClipping) ? process.env.NODE_ENV !== "production" ? invariant(false, 'ignoreContainerClipping must be a boolean') : invariant(false) : void 0;
+	}, function ref(_ref3) {
+	  var getDroppableRef = _ref3.getDroppableRef;
+	  checkIsValidInnerRef(getDroppableRef());
+	}];
+	var standard = [function placeholder(_ref4) {
+	  var props = _ref4.props,
+	      getPlaceholderRef = _ref4.getPlaceholderRef;
+	
 	  if (!props.placeholder) {
 	    return;
 	  }
 	
-	  if (placeholderEl) {
+	  var ref = getPlaceholderRef();
+	
+	  if (ref) {
 	    return;
 	  }
 	
-	  process.env.NODE_ENV !== "production" ? warning("\n    Droppable setup issue [droppableId: \"" + props.droppableId + "\"]:\n    DroppableProvided > placeholder could not be found.\n\n    Please be sure to add the {provided.placeholder} React Node as a child of your Droppable.\n    More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md\n  ") : void 0;
-	}
+	  process.env.NODE_ENV !== "production" ? warning("\n      Droppable setup issue [droppableId: \"" + props.droppableId + "\"]:\n      DroppableProvided > placeholder could not be found.\n\n      Please be sure to add the {provided.placeholder} React Node as a child of your Droppable.\n      More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/droppable.md\n    ") : void 0;
+	}];
+	var virtual = [function hasClone(_ref5) {
+	  var props = _ref5.props;
+	  !props.renderClone ? process.env.NODE_ENV !== "production" ? invariant(false, 'Must provide a clone render function (renderClone) for virtual lists') : invariant(false) : void 0;
+	}, function hasNoPlaceholder(_ref6) {
+	  var getPlaceholderRef = _ref6.getPlaceholderRef;
+	  !!getPlaceholderRef() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected virtual list to not have a placeholder') : invariant(false) : void 0;
+	}];
+	function useValidation(args) {
+	  useDevSetupWarning(function () {
+	    runChecks(args, shared);
 	
-	function useValidation(_ref) {
-	  var props = _ref.props,
-	      getDroppableRef = _ref.getDroppableRef,
-	      getPlaceholderRef = _ref.getPlaceholderRef;
-	  React.useEffect(function () {
-	    if (process.env.NODE_ENV !== 'production') {
-	      checkOwnProps(props);
-	      checkIsValidInnerRef(getDroppableRef());
-	      checkPlaceholderRef(props, getPlaceholderRef());
+	    if (args.props.mode === 'standard') {
+	      runChecks(args, standard);
+	    }
+	
+	    if (args.props.mode === 'virtual') {
+	      runChecks(args, virtual);
 	    }
 	  });
 	}
@@ -22599,249 +24144,6 @@
 	  return AnimateInOut;
 	}(React__default.PureComponent);
 	
-	function Droppable(props) {
-	  var appContext = React.useContext(AppContext);
-	  !appContext ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not find app context') : invariant(false) : void 0;
-	  var styleContext = appContext.style,
-	      isMovementAllowed = appContext.isMovementAllowed;
-	  var droppableRef = React.useRef(null);
-	  var placeholderRef = React.useRef(null);
-	  var children = props.children,
-	      droppableId = props.droppableId,
-	      type = props.type,
-	      direction = props.direction,
-	      ignoreContainerClipping = props.ignoreContainerClipping,
-	      isDropDisabled = props.isDropDisabled,
-	      isCombineEnabled = props.isCombineEnabled,
-	      snapshot = props.snapshot,
-	      updateViewportMaxScroll = props.updateViewportMaxScroll;
-	  var getDroppableRef = useMemoOne.useCallback(function () {
-	    return droppableRef.current;
-	  }, []);
-	  var getPlaceholderRef = useMemoOne.useCallback(function () {
-	    return placeholderRef.current;
-	  }, []);
-	  var setDroppableRef = useMemoOne.useCallback(function (value) {
-	    droppableRef.current = value;
-	  }, []);
-	  var setPlaceholderRef = useMemoOne.useCallback(function (value) {
-	    placeholderRef.current = value;
-	  }, []);
-	  var onPlaceholderTransitionEnd = useMemoOne.useCallback(function () {
-	    if (isMovementAllowed()) {
-	      updateViewportMaxScroll({
-	        maxScroll: getMaxWindowScroll()
-	      });
-	    }
-	  }, [isMovementAllowed, updateViewportMaxScroll]);
-	  useDroppableDimensionPublisher({
-	    droppableId: droppableId,
-	    type: type,
-	    direction: direction,
-	    isDropDisabled: isDropDisabled,
-	    isCombineEnabled: isCombineEnabled,
-	    ignoreContainerClipping: ignoreContainerClipping,
-	    getDroppableRef: getDroppableRef,
-	    getPlaceholderRef: getPlaceholderRef
-	  });
-	  var placeholder = React__default.createElement(AnimateInOut, {
-	    on: props.placeholder,
-	    shouldAnimate: props.shouldAnimatePlaceholder
-	  }, function (_ref) {
-	    var onClose = _ref.onClose,
-	        data = _ref.data,
-	        animate = _ref.animate;
-	    return React__default.createElement(Placeholder$1, {
-	      placeholder: data,
-	      onClose: onClose,
-	      innerRef: setPlaceholderRef,
-	      animate: animate,
-	      styleContext: styleContext,
-	      onTransitionEnd: onPlaceholderTransitionEnd
-	    });
-	  });
-	  var provided = useMemoOne.useMemo(function () {
-	    return {
-	      innerRef: setDroppableRef,
-	      placeholder: placeholder,
-	      droppableProps: {
-	        'data-react-beautiful-dnd-droppable': styleContext
-	      }
-	    };
-	  }, [placeholder, setDroppableRef, styleContext]);
-	  var droppableContext = useMemoOne.useMemo(function () {
-	    return {
-	      droppableId: droppableId,
-	      type: type
-	    };
-	  }, [droppableId, type]);
-	  useValidation({
-	    props: props,
-	    getDroppableRef: function getDroppableRef() {
-	      return droppableRef.current;
-	    },
-	    getPlaceholderRef: function getPlaceholderRef() {
-	      return placeholderRef.current;
-	    }
-	  });
-	  return React__default.createElement(DroppableContext.Provider, {
-	    value: droppableContext
-	  }, children(provided, snapshot));
-	}
-	
-	var isStrictEqual = (function (a, b) {
-	  return a === b;
-	});
-	
-	var whatIsDraggedOverFromResult = (function (result) {
-	  var combine = result.combine,
-	      destination = result.destination;
-	
-	  if (destination) {
-	    return destination.droppableId;
-	  }
-	
-	  if (combine) {
-	    return combine.droppableId;
-	  }
-	
-	  return null;
-	});
-	
-	var isMatchingType = function isMatchingType(type, critical) {
-	  return type === critical.droppable.type;
-	};
-	
-	var getDraggable = function getDraggable(critical, dimensions) {
-	  return dimensions.draggables[critical.draggable.id];
-	};
-	
-	var makeMapStateToProps = function makeMapStateToProps() {
-	  var idle = {
-	    placeholder: null,
-	    shouldAnimatePlaceholder: true,
-	    snapshot: {
-	      isDraggingOver: false,
-	      draggingOverWith: null,
-	      draggingFromThisWith: null
-	    }
-	  };
-	
-	  var idleWithoutAnimation = _extends({}, idle, {
-	    shouldAnimatePlaceholder: false
-	  });
-	
-	  var getMapProps = memoizeOne(function (id, isDraggingOver, dragging, snapshot) {
-	    var isHome = dragging.descriptor.droppableId === id;
-	
-	    if (isHome) {
-	      return {
-	        placeholder: dragging.placeholder,
-	        shouldAnimatePlaceholder: false,
-	        snapshot: snapshot
-	      };
-	    }
-	
-	    if (!isDraggingOver) {
-	      return idle;
-	    }
-	
-	    return {
-	      placeholder: dragging.placeholder,
-	      shouldAnimatePlaceholder: true,
-	      snapshot: snapshot
-	    };
-	  });
-	  var getSnapshot = memoizeOne(function (id, isDraggingOver, dragging) {
-	    var draggableId = dragging.descriptor.id;
-	    var isHome = dragging.descriptor.droppableId === id;
-	    var draggingOverWith = isDraggingOver ? draggableId : null;
-	    var draggingFromThisWith = isHome ? draggableId : null;
-	    return {
-	      isDraggingOver: isDraggingOver,
-	      draggingOverWith: draggingOverWith,
-	      draggingFromThisWith: draggingFromThisWith
-	    };
-	  });
-	
-	  var selector = function selector(state, ownProps) {
-	    var id = ownProps.droppableId;
-	    var type = ownProps.type;
-	
-	    if (state.isDragging) {
-	      var critical = state.critical;
-	
-	      if (!isMatchingType(type, critical)) {
-	        return idle;
-	      }
-	
-	      var dragging = getDraggable(critical, state.dimensions);
-	      var isDraggingOver = whatIsDraggedOver(state.impact) === id;
-	      var snapshot = getSnapshot(id, isDraggingOver, dragging);
-	      return getMapProps(id, isDraggingOver, dragging, snapshot);
-	    }
-	
-	    if (state.phase === 'DROP_ANIMATING') {
-	      var completed = state.completed;
-	
-	      if (!isMatchingType(type, completed.critical)) {
-	        return idle;
-	      }
-	
-	      var _dragging = getDraggable(completed.critical, state.dimensions);
-	
-	      var _snapshot = getSnapshot(id, whatIsDraggedOverFromResult(completed.result) === id, _dragging);
-	
-	      return getMapProps(id, whatIsDraggedOver(completed.impact) === id, _dragging, _snapshot);
-	    }
-	
-	    if (state.phase === 'IDLE' && !state.completed && state.shouldFlush) {
-	      return idleWithoutAnimation;
-	    }
-	
-	    if (state.phase === 'IDLE' && state.completed) {
-	      var _completed = state.completed;
-	
-	      if (!isMatchingType(type, _completed.critical)) {
-	        return idle;
-	      }
-	
-	      var wasOver = whatIsDraggedOver(_completed.impact) === id;
-	      var wasCombining = Boolean(_completed.impact.merge);
-	
-	      if (state.shouldFlush) {
-	        return idleWithoutAnimation;
-	      }
-	
-	      if (wasOver) {
-	        return wasCombining ? idle : idleWithoutAnimation;
-	      }
-	
-	      return idle;
-	    }
-	
-	    return idle;
-	  };
-	
-	  return selector;
-	};
-	var mapDispatchToProps = {
-	  updateViewportMaxScroll: updateViewportMaxScroll
-	};
-	var defaultProps = {
-	  type: 'DEFAULT',
-	  direction: 'vertical',
-	  isDropDisabled: false,
-	  isCombineEnabled: false,
-	  ignoreContainerClipping: false
-	};
-	var ConnectedDroppable = reactRedux.connect(makeMapStateToProps, mapDispatchToProps, null, {
-	  context: StoreContext,
-	  pure: true,
-	  areStatePropsEqual: isStrictEqual
-	})(Droppable);
-	ConnectedDroppable.defaultProps = defaultProps;
-	
 	var zIndexOptions = {
 	  dragging: 5000,
 	  dropAnimating: 4500
@@ -22912,1209 +24214,6 @@
 	  return mapped.type === 'DRAGGING' ? getDraggingStyle(mapped) : getSecondaryStyle(mapped);
 	}
 	
-	var createEventMarshal = (function () {
-	  var isMouseDownHandled = false;
-	
-	  var handle = function handle() {
-	    !!isMouseDownHandled ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot handle mouse down as it is already handled') : invariant(false) : void 0;
-	    isMouseDownHandled = true;
-	  };
-	
-	  var isHandled = function isHandled() {
-	    return isMouseDownHandled;
-	  };
-	
-	  var reset = function reset() {
-	    isMouseDownHandled = false;
-	  };
-	
-	  return {
-	    handle: handle,
-	    isHandled: isHandled,
-	    reset: reset
-	  };
-	});
-	
-	var getOptions = function getOptions(shared, fromBinding) {
-	  return _extends({}, shared, fromBinding);
-	};
-	
-	var bindEvents = function bindEvents(el, bindings, sharedOptions) {
-	  bindings.forEach(function (binding) {
-	    var options = getOptions(sharedOptions, binding.options);
-	    el.addEventListener(binding.eventName, binding.fn, options);
-	  });
-	};
-	var unbindEvents = function unbindEvents(el, bindings, sharedOptions) {
-	  bindings.forEach(function (binding) {
-	    var options = getOptions(sharedOptions, binding.options);
-	    el.removeEventListener(binding.eventName, binding.fn, options);
-	  });
-	};
-	
-	var createScheduler = (function (callbacks) {
-	  var memoizedMove = memoizeOne(function (x, y) {
-	    var point = {
-	      x: x,
-	      y: y
-	    };
-	    callbacks.onMove(point);
-	  });
-	  var move = rafSchd(function (point) {
-	    return memoizedMove(point.x, point.y);
-	  });
-	  var moveUp = rafSchd(callbacks.onMoveUp);
-	  var moveDown = rafSchd(callbacks.onMoveDown);
-	  var moveRight = rafSchd(callbacks.onMoveRight);
-	  var moveLeft = rafSchd(callbacks.onMoveLeft);
-	  var windowScrollMove = rafSchd(callbacks.onWindowScroll);
-	
-	  var cancel = function cancel() {
-	    move.cancel();
-	    moveUp.cancel();
-	    moveDown.cancel();
-	    moveRight.cancel();
-	    moveLeft.cancel();
-	    windowScrollMove.cancel();
-	  };
-	
-	  return {
-	    move: move,
-	    moveUp: moveUp,
-	    moveDown: moveDown,
-	    moveRight: moveRight,
-	    moveLeft: moveLeft,
-	    windowScrollMove: windowScrollMove,
-	    cancel: cancel
-	  };
-	});
-	
-	var tab = 9;
-	var enter = 13;
-	var escape = 27;
-	var space = 32;
-	var pageUp = 33;
-	var pageDown = 34;
-	var end = 35;
-	var home = 36;
-	var arrowLeft = 37;
-	var arrowUp = 38;
-	var arrowRight = 39;
-	var arrowDown = 40;
-	
-	var supportedEventName = function () {
-	  var base = 'visibilitychange';
-	
-	  if (typeof document === 'undefined') {
-	    return base;
-	  }
-	
-	  var candidates = [base, "ms" + base, "webkit" + base, "moz" + base, "o" + base];
-	  var supported = find(candidates, function (eventName) {
-	    return "on" + eventName in document;
-	  });
-	  return supported || base;
-	}();
-	
-	var sharedOptions = {
-	  capture: true
-	};
-	var createPostDragEventPreventer = (function (getWindow) {
-	  var isBound = false;
-	
-	  var bind = function bind() {
-	    if (isBound) {
-	      return;
-	    }
-	
-	    isBound = true;
-	    bindEvents(getWindow(), pointerEvents, sharedOptions);
-	  };
-	
-	  var unbind = function unbind() {
-	    if (!isBound) {
-	      return;
-	    }
-	
-	    isBound = false;
-	    unbindEvents(getWindow(), pointerEvents, sharedOptions);
-	  };
-	
-	  var pointerEvents = [{
-	    eventName: 'click',
-	    fn: function fn(event) {
-	      event.preventDefault();
-	      unbind();
-	    }
-	  }, {
-	    eventName: 'mousedown',
-	    fn: unbind
-	  }, {
-	    eventName: 'touchstart',
-	    fn: unbind
-	  }];
-	
-	  var preventNext = function preventNext() {
-	    if (isBound) {
-	      unbind();
-	    }
-	
-	    bind();
-	  };
-	
-	  var preventer = {
-	    preventNext: preventNext,
-	    abort: unbind
-	  };
-	  return preventer;
-	});
-	
-	var sloppyClickThreshold = 5;
-	var isSloppyClickThresholdExceeded = (function (original, current) {
-	  return Math.abs(current.x - original.x) >= sloppyClickThreshold || Math.abs(current.y - original.y) >= sloppyClickThreshold;
-	});
-	
-	var _preventedKeys;
-	var preventedKeys = (_preventedKeys = {}, _preventedKeys[enter] = true, _preventedKeys[tab] = true, _preventedKeys);
-	var preventStandardKeyEvents = (function (event) {
-	  if (preventedKeys[event.keyCode]) {
-	    event.preventDefault();
-	  }
-	});
-	
-	var primaryButton = 0;
-	
-	var noop$1 = function noop() {};
-	
-	var mouseDownMarshal = createEventMarshal();
-	function useMouseSensor(args) {
-	  var canStartCapturing = args.canStartCapturing,
-	      getWindow = args.getWindow,
-	      callbacks = args.callbacks,
-	      onCaptureStart = args.onCaptureStart,
-	      onCaptureEnd = args.onCaptureEnd;
-	  var pendingRef = React.useRef(null);
-	  var isDraggingRef = React.useRef(false);
-	  var unbindWindowEventsRef = React.useRef(noop$1);
-	  var getIsCapturing = useMemoOne.useCallback(function () {
-	    return Boolean(pendingRef.current || isDraggingRef.current);
-	  }, []);
-	  var schedule = useMemoOne.useMemo(function () {
-	    !!getIsCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not recreate scheduler while capturing') : invariant(false) : void 0;
-	    return createScheduler(callbacks);
-	  }, [callbacks, getIsCapturing]);
-	  var postDragEventPreventer = useMemoOne.useMemo(function () {
-	    return createPostDragEventPreventer(getWindow);
-	  }, [getWindow]);
-	  var stop = useMemoOne.useCallback(function () {
-	    if (!getIsCapturing()) {
-	      return;
-	    }
-	
-	    schedule.cancel();
-	    unbindWindowEventsRef.current();
-	    var shouldBlockClick = isDraggingRef.current;
-	    mouseDownMarshal.reset();
-	
-	    if (shouldBlockClick) {
-	      postDragEventPreventer.preventNext();
-	    }
-	
-	    pendingRef.current = null;
-	    isDraggingRef.current = false;
-	    onCaptureEnd();
-	  }, [getIsCapturing, onCaptureEnd, postDragEventPreventer, schedule]);
-	  var cancel = useMemoOne.useCallback(function () {
-	    var wasDragging = isDraggingRef.current;
-	    stop();
-	
-	    if (wasDragging) {
-	      callbacks.onCancel();
-	    }
-	  }, [callbacks, stop]);
-	  var startDragging = useMemoOne.useCallback(function () {
-	    !!isDraggingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start a drag while dragging') : invariant(false) : void 0;
-	    var pending = pendingRef.current;
-	    !pending ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start a drag without a pending drag') : invariant(false) : void 0;
-	    pendingRef.current = null;
-	    isDraggingRef.current = true;
-	    callbacks.onLift({
-	      clientSelection: pending,
-	      movementMode: 'FLUID'
-	    });
-	  }, [callbacks]);
-	  var windowBindings = useMemoOne.useMemo(function () {
-	    !!getIsCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not recreate window bindings while capturing') : invariant(false) : void 0;
-	    var bindings = [{
-	      eventName: 'mousemove',
-	      fn: function fn(event) {
-	        var button = event.button,
-	            clientX = event.clientX,
-	            clientY = event.clientY;
-	
-	        if (button !== primaryButton) {
-	          return;
-	        }
-	
-	        var point = {
-	          x: clientX,
-	          y: clientY
-	        };
-	
-	        if (isDraggingRef.current) {
-	          event.preventDefault();
-	          schedule.move(point);
-	          return;
-	        }
-	
-	        var pending = pendingRef.current;
-	
-	        if (!pending) {
-	          stop();
-	          process.env.NODE_ENV !== "production" ? invariant(false, 'Expected there to be an active or pending drag when window mousemove event is received') : invariant(false);
-	        }
-	
-	        if (!isSloppyClickThresholdExceeded(pending, point)) {
-	          return;
-	        }
-	
-	        event.preventDefault();
-	        startDragging();
-	      }
-	    }, {
-	      eventName: 'mouseup',
-	      fn: function fn(event) {
-	        var wasDragging = isDraggingRef.current;
-	        stop();
-	
-	        if (wasDragging) {
-	          event.preventDefault();
-	          callbacks.onDrop();
-	        }
-	      }
-	    }, {
-	      eventName: 'mousedown',
-	      fn: function fn(event) {
-	        if (isDraggingRef.current) {
-	          event.preventDefault();
-	        }
-	
-	        cancel();
-	      }
-	    }, {
-	      eventName: 'keydown',
-	      fn: function fn(event) {
-	        if (pendingRef.current) {
-	          stop();
-	          return;
-	        }
-	
-	        if (event.keyCode === escape) {
-	          event.preventDefault();
-	          cancel();
-	          return;
-	        }
-	
-	        preventStandardKeyEvents(event);
-	      }
-	    }, {
-	      eventName: 'resize',
-	      fn: cancel
-	    }, {
-	      eventName: 'scroll',
-	      options: {
-	        passive: true,
-	        capture: false
-	      },
-	      fn: function fn(event) {
-	        if (event.currentTarget !== getWindow()) {
-	          return;
-	        }
-	
-	        if (pendingRef.current) {
-	          stop();
-	          return;
-	        }
-	
-	        schedule.windowScrollMove();
-	      }
-	    }, {
-	      eventName: 'webkitmouseforcedown',
-	      fn: function fn() {
-	        cancel();
-	      }
-	    }, {
-	      eventName: supportedEventName,
-	      fn: cancel
-	    }];
-	    return bindings;
-	  }, [getIsCapturing, cancel, startDragging, schedule, stop, callbacks, getWindow]);
-	  var bindWindowEvents = useMemoOne.useCallback(function () {
-	    var win = getWindow();
-	    var options = {
-	      capture: true
-	    };
-	
-	    unbindWindowEventsRef.current = function () {
-	      return unbindEvents(win, windowBindings, options);
-	    };
-	
-	    bindEvents(win, windowBindings, options);
-	  }, [getWindow, windowBindings]);
-	  var startPendingDrag = useMemoOne.useCallback(function (point) {
-	    !!pendingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected there to be no pending drag') : invariant(false) : void 0;
-	    pendingRef.current = point;
-	    onCaptureStart(stop);
-	    bindWindowEvents();
-	  }, [bindWindowEvents, onCaptureStart, stop]);
-	  var onMouseDown = useMemoOne.useCallback(function (event) {
-	    if (mouseDownMarshal.isHandled()) {
-	      return;
-	    }
-	
-	    !!getIsCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not be able to perform a mouse down while a drag or pending drag is occurring') : invariant(false) : void 0;
-	
-	    if (!canStartCapturing(event)) {
-	      return;
-	    }
-	
-	    if (event.button !== primaryButton) {
-	      return;
-	    }
-	
-	    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
-	      return;
-	    }
-	
-	    mouseDownMarshal.handle();
-	    event.preventDefault();
-	    var point = {
-	      x: event.clientX,
-	      y: event.clientY
-	    };
-	    startPendingDrag(point);
-	  }, [canStartCapturing, getIsCapturing, startPendingDrag]);
-	  return onMouseDown;
-	}
-	
-	function isElement(el) {
-	  return el instanceof getWindowFromEl(el).Element;
-	}
-	
-	var interactiveTagNames = {
-	  input: true,
-	  button: true,
-	  textarea: true,
-	  select: true,
-	  option: true,
-	  optgroup: true,
-	  video: true,
-	  audio: true
-	};
-	
-	var isAnInteractiveElement = function isAnInteractiveElement(parent, current) {
-	  if (current == null) {
-	    return false;
-	  }
-	
-	  var hasAnInteractiveTag = Boolean(interactiveTagNames[current.tagName.toLowerCase()]);
-	
-	  if (hasAnInteractiveTag) {
-	    return true;
-	  }
-	
-	  var attribute = current.getAttribute('contenteditable');
-	
-	  if (attribute === 'true' || attribute === '') {
-	    return true;
-	  }
-	
-	  if (current === parent) {
-	    return false;
-	  }
-	
-	  return isAnInteractiveElement(parent, current.parentElement);
-	};
-	
-	var shouldAllowDraggingFromTarget = (function (event, canDragInteractiveElements) {
-	  if (canDragInteractiveElements) {
-	    return true;
-	  }
-	
-	  var target = event.target,
-	      currentTarget = event.currentTarget;
-	
-	  if (!isElement(target) || !isElement(currentTarget)) {
-	    return true;
-	  }
-	
-	  return !isAnInteractiveElement(currentTarget, target);
-	});
-	
-	var getBorderBoxCenterPosition = (function (el) {
-	  return cssBoxModel.getRect(el.getBoundingClientRect()).center;
-	});
-	
-	var _scrollJumpKeys;
-	var scrollJumpKeys = (_scrollJumpKeys = {}, _scrollJumpKeys[pageDown] = true, _scrollJumpKeys[pageUp] = true, _scrollJumpKeys[home] = true, _scrollJumpKeys[end] = true, _scrollJumpKeys);
-	
-	function noop$2() {}
-	
-	function useKeyboardSensor(args) {
-	  var canStartCapturing = args.canStartCapturing,
-	      getWindow = args.getWindow,
-	      callbacks = args.callbacks,
-	      onCaptureStart = args.onCaptureStart,
-	      onCaptureEnd = args.onCaptureEnd,
-	      getDraggableRef = args.getDraggableRef;
-	  var isDraggingRef = React.useRef(false);
-	  var unbindWindowEventsRef = React.useRef(noop$2);
-	  var getIsDragging = useMemoOne.useCallback(function () {
-	    return isDraggingRef.current;
-	  }, []);
-	  var schedule = useMemoOne.useMemo(function () {
-	    !!getIsDragging() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not recreate scheduler while capturing') : invariant(false) : void 0;
-	    return createScheduler(callbacks);
-	  }, [callbacks, getIsDragging]);
-	  var stop = useMemoOne.useCallback(function () {
-	    if (!getIsDragging()) {
-	      return;
-	    }
-	
-	    schedule.cancel();
-	    unbindWindowEventsRef.current();
-	    isDraggingRef.current = false;
-	    onCaptureEnd();
-	  }, [getIsDragging, onCaptureEnd, schedule]);
-	  var cancel = useMemoOne.useCallback(function () {
-	    var wasDragging = isDraggingRef.current;
-	    stop();
-	
-	    if (wasDragging) {
-	      callbacks.onCancel();
-	    }
-	  }, [callbacks, stop]);
-	  var windowBindings = useMemoOne.useMemo(function () {
-	    !!getIsDragging() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not recreate window bindings when dragging') : invariant(false) : void 0;
-	    return [{
-	      eventName: 'mousedown',
-	      fn: cancel
-	    }, {
-	      eventName: 'mouseup',
-	      fn: cancel
-	    }, {
-	      eventName: 'click',
-	      fn: cancel
-	    }, {
-	      eventName: 'touchstart',
-	      fn: cancel
-	    }, {
-	      eventName: 'resize',
-	      fn: cancel
-	    }, {
-	      eventName: 'wheel',
-	      fn: cancel,
-	      options: {
-	        passive: true
-	      }
-	    }, {
-	      eventName: 'scroll',
-	      options: {
-	        capture: false
-	      },
-	      fn: function fn(event) {
-	        if (event.currentTarget !== getWindow()) {
-	          return;
-	        }
-	
-	        callbacks.onWindowScroll();
-	      }
-	    }, {
-	      eventName: supportedEventName,
-	      fn: cancel
-	    }];
-	  }, [callbacks, cancel, getIsDragging, getWindow]);
-	  var bindWindowEvents = useMemoOne.useCallback(function () {
-	    var win = getWindow();
-	    var options = {
-	      capture: true
-	    };
-	
-	    unbindWindowEventsRef.current = function () {
-	      return unbindEvents(win, windowBindings, options);
-	    };
-	
-	    bindEvents(win, windowBindings, options);
-	  }, [getWindow, windowBindings]);
-	  var startDragging = useMemoOne.useCallback(function () {
-	    !!isDraggingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start a drag while dragging') : invariant(false) : void 0;
-	    var ref = getDraggableRef();
-	    !ref ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start a keyboard drag without a draggable ref') : invariant(false) : void 0;
-	    isDraggingRef.current = true;
-	    onCaptureStart(stop);
-	    bindWindowEvents();
-	    var center = getBorderBoxCenterPosition(ref);
-	    callbacks.onLift({
-	      clientSelection: center,
-	      movementMode: 'SNAP'
-	    });
-	  }, [bindWindowEvents, callbacks, getDraggableRef, onCaptureStart, stop]);
-	  var onKeyDown = useMemoOne.useCallback(function (event) {
-	    if (!getIsDragging()) {
-	      if (event.defaultPrevented) {
-	        return;
-	      }
-	
-	      if (!canStartCapturing(event)) {
-	        return;
-	      }
-	
-	      if (event.keyCode !== space) {
-	        return;
-	      }
-	
-	      event.preventDefault();
-	      startDragging();
-	      return;
-	    }
-	
-	    if (event.keyCode === escape) {
-	      event.preventDefault();
-	      cancel();
-	      return;
-	    }
-	
-	    if (event.keyCode === space) {
-	      event.preventDefault();
-	      stop();
-	      callbacks.onDrop();
-	      return;
-	    }
-	
-	    if (event.keyCode === arrowDown) {
-	      event.preventDefault();
-	      schedule.moveDown();
-	      return;
-	    }
-	
-	    if (event.keyCode === arrowUp) {
-	      event.preventDefault();
-	      schedule.moveUp();
-	      return;
-	    }
-	
-	    if (event.keyCode === arrowRight) {
-	      event.preventDefault();
-	      schedule.moveRight();
-	      return;
-	    }
-	
-	    if (event.keyCode === arrowLeft) {
-	      event.preventDefault();
-	      schedule.moveLeft();
-	      return;
-	    }
-	
-	    if (scrollJumpKeys[event.keyCode]) {
-	      event.preventDefault();
-	      return;
-	    }
-	
-	    preventStandardKeyEvents(event);
-	  }, [callbacks, canStartCapturing, cancel, getIsDragging, schedule, startDragging, stop]);
-	  return onKeyDown;
-	}
-	
-	var timeForLongPress = 120;
-	var forcePressThreshold = 0.15;
-	var touchStartMarshal = createEventMarshal();
-	
-	var noop$3 = function noop() {};
-	
-	function useTouchSensor(args) {
-	  var callbacks = args.callbacks,
-	      getWindow = args.getWindow,
-	      canStartCapturing = args.canStartCapturing,
-	      getShouldRespectForcePress = args.getShouldRespectForcePress,
-	      onCaptureStart = args.onCaptureStart,
-	      onCaptureEnd = args.onCaptureEnd;
-	  var pendingRef = React.useRef(null);
-	  var isDraggingRef = React.useRef(false);
-	  var hasMovedRef = React.useRef(false);
-	  var unbindWindowEventsRef = React.useRef(noop$3);
-	  var getIsCapturing = useMemoOne.useCallback(function () {
-	    return Boolean(pendingRef.current || isDraggingRef.current);
-	  }, []);
-	  var postDragClickPreventer = useMemoOne.useMemo(function () {
-	    return createPostDragEventPreventer(getWindow);
-	  }, [getWindow]);
-	  var schedule = useMemoOne.useMemo(function () {
-	    !!getIsCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not recreate scheduler while capturing') : invariant(false) : void 0;
-	    return createScheduler(callbacks);
-	  }, [callbacks, getIsCapturing]);
-	  var stop = useMemoOne.useCallback(function () {
-	    if (!getIsCapturing()) {
-	      return;
-	    }
-	
-	    schedule.cancel();
-	    unbindWindowEventsRef.current();
-	    touchStartMarshal.reset();
-	    hasMovedRef.current = false;
-	    onCaptureEnd();
-	
-	    if (isDraggingRef.current) {
-	      postDragClickPreventer.preventNext();
-	      isDraggingRef.current = false;
-	      return;
-	    }
-	
-	    var pending = pendingRef.current;
-	    !pending ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected a pending drag') : invariant(false) : void 0;
-	    clearTimeout(pending.longPressTimerId);
-	    pendingRef.current = null;
-	  }, [getIsCapturing, onCaptureEnd, postDragClickPreventer, schedule]);
-	  var cancel = useMemoOne.useCallback(function () {
-	    var wasDragging = isDraggingRef.current;
-	    stop();
-	
-	    if (wasDragging) {
-	      callbacks.onCancel();
-	    }
-	  }, [callbacks, stop]);
-	  var windowBindings = useMemoOne.useMemo(function () {
-	    !!getIsCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not recreate window bindings while capturing') : invariant(false) : void 0;
-	    var bindings = [{
-	      eventName: 'touchmove',
-	      options: {
-	        passive: false,
-	        capture: false
-	      },
-	      fn: function fn(event) {
-	        if (!isDraggingRef.current) {
-	          stop();
-	          return;
-	        }
-	
-	        if (!hasMovedRef.current) {
-	          hasMovedRef.current = true;
-	        }
-	
-	        var touch = event.touches[0];
-	
-	        if (!touch) {
-	          return;
-	        }
-	
-	        var point = {
-	          x: touch.clientX,
-	          y: touch.clientY
-	        };
-	        event.preventDefault();
-	        schedule.move(point);
-	      }
-	    }, {
-	      eventName: 'touchend',
-	      fn: function fn(event) {
-	        if (!isDraggingRef.current) {
-	          stop();
-	          return;
-	        }
-	
-	        event.preventDefault();
-	        stop();
-	        callbacks.onDrop();
-	      }
-	    }, {
-	      eventName: 'touchcancel',
-	      fn: function fn(event) {
-	        if (!isDraggingRef.current) {
-	          stop();
-	          return;
-	        }
-	
-	        event.preventDefault();
-	        cancel();
-	      }
-	    }, {
-	      eventName: 'touchstart',
-	      fn: cancel
-	    }, {
-	      eventName: 'orientationchange',
-	      fn: cancel
-	    }, {
-	      eventName: 'resize',
-	      fn: cancel
-	    }, {
-	      eventName: 'scroll',
-	      options: {
-	        passive: true,
-	        capture: false
-	      },
-	      fn: function fn() {
-	        if (pendingRef.current) {
-	          stop();
-	          return;
-	        }
-	
-	        schedule.windowScrollMove();
-	      }
-	    }, {
-	      eventName: 'contextmenu',
-	      fn: function fn(event) {
-	        event.preventDefault();
-	      }
-	    }, {
-	      eventName: 'keydown',
-	      fn: function fn(event) {
-	        if (!isDraggingRef.current) {
-	          cancel();
-	          return;
-	        }
-	
-	        if (event.keyCode === escape) {
-	          event.preventDefault();
-	        }
-	
-	        cancel();
-	      }
-	    }, {
-	      eventName: 'touchforcechange',
-	      fn: function fn(event) {
-	        var touch = event.touches[0];
-	        var isForcePress = touch.force >= forcePressThreshold;
-	
-	        if (!isForcePress) {
-	          return;
-	        }
-	
-	        var shouldRespect = getShouldRespectForcePress();
-	
-	        if (pendingRef.current) {
-	          if (shouldRespect) {
-	            cancel();
-	          }
-	
-	          return;
-	        }
-	
-	        if (shouldRespect) {
-	          if (hasMovedRef.current) {
-	            event.preventDefault();
-	            return;
-	          }
-	
-	          cancel();
-	          return;
-	        }
-	
-	        event.preventDefault();
-	      }
-	    }, {
-	      eventName: supportedEventName,
-	      fn: cancel
-	    }];
-	    return bindings;
-	  }, [callbacks, cancel, getIsCapturing, getShouldRespectForcePress, schedule, stop]);
-	  var bindWindowEvents = useMemoOne.useCallback(function () {
-	    var win = getWindow();
-	    var options = {
-	      capture: true
-	    };
-	
-	    unbindWindowEventsRef.current = function () {
-	      return unbindEvents(win, windowBindings, options);
-	    };
-	
-	    bindEvents(win, windowBindings, options);
-	  }, [getWindow, windowBindings]);
-	  var startDragging = useMemoOne.useCallback(function () {
-	    var pending = pendingRef.current;
-	    !pending ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start a drag without a pending drag') : invariant(false) : void 0;
-	    isDraggingRef.current = true;
-	    pendingRef.current = null;
-	    hasMovedRef.current = false;
-	    callbacks.onLift({
-	      clientSelection: pending.point,
-	      movementMode: 'FLUID'
-	    });
-	  }, [callbacks]);
-	  var startPendingDrag = useMemoOne.useCallback(function (event) {
-	    !!pendingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Expected there to be no pending drag') : invariant(false) : void 0;
-	    var touch = event.touches[0];
-	    var clientX = touch.clientX,
-	        clientY = touch.clientY;
-	    var point = {
-	      x: clientX,
-	      y: clientY
-	    };
-	    var longPressTimerId = setTimeout(startDragging, timeForLongPress);
-	    var pending = {
-	      point: point,
-	      longPressTimerId: longPressTimerId
-	    };
-	    pendingRef.current = pending;
-	    onCaptureStart(stop);
-	    bindWindowEvents();
-	  }, [bindWindowEvents, onCaptureStart, startDragging, stop]);
-	
-	  var onTouchStart = function onTouchStart(event) {
-	    if (touchStartMarshal.isHandled()) {
-	      return;
-	    }
-	
-	    !!getIsCapturing() ? process.env.NODE_ENV !== "production" ? invariant(false, 'Should not be able to perform a touch start while a drag or pending drag is occurring') : invariant(false) : void 0;
-	
-	    if (!canStartCapturing(event)) {
-	      return;
-	    }
-	
-	    touchStartMarshal.handle();
-	    startPendingDrag(event);
-	  };
-	
-	  useIsomorphicLayoutEffect(function webkitHack() {
-	    var unbind = bindEvents(window, [{
-	      eventName: 'touchmove',
-	      fn: noop$3,
-	      options: {
-	        capture: false,
-	        passive: false
-	      }
-	    }]);
-	    return unbind;
-	  }, []);
-	  return onTouchStart;
-	}
-	
-	function isSvgElement(el) {
-	  return Boolean(getWindowFromEl(el).SVGElement) && el instanceof getWindowFromEl(el).SVGElement;
-	}
-	
-	var selector = "[" + dragHandle + "]";
-	
-	var throwIfSVG = function throwIfSVG(el) {
-	  !!isSvgElement(el) ? process.env.NODE_ENV !== "production" ? invariant(false, "A drag handle cannot be an SVGElement: it has inconsistent focus support.\n\n    More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/dragging-svgs.md") : invariant(false) : void 0;
-	};
-	
-	var getDragHandleRef = function getDragHandleRef(draggableRef) {
-	  if (draggableRef.hasAttribute(dragHandle)) {
-	    throwIfSVG(draggableRef);
-	    return draggableRef;
-	  }
-	
-	  var el = draggableRef.querySelector(selector);
-	  throwIfSVG(draggableRef);
-	  !el ? process.env.NODE_ENV !== "production" ? invariant(false, "\n      Cannot find drag handle element inside of Draggable.\n      Please be sure to apply the {...provided.dragHandleProps} to your Draggable\n\n      More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/api/draggable.md\n    ") : invariant(false) : void 0;
-	  !isHtmlElement(el) ? process.env.NODE_ENV !== "production" ? invariant(false, 'A drag handle must be a HTMLElement') : invariant(false) : void 0;
-	  return el;
-	};
-	
-	function useValidation$1(_ref) {
-	  var isEnabled = _ref.isEnabled,
-	      getDraggableRef = _ref.getDraggableRef;
-	  React.useEffect(function () {
-	    if (process.env.NODE_ENV !== 'production') {
-	      if (!isEnabled) {
-	        return;
-	      }
-	
-	      var draggableRef = getDraggableRef();
-	      !draggableRef ? process.env.NODE_ENV !== "production" ? invariant(false, 'Drag handle was unable to find draggable ref') : invariant(false) : void 0;
-	      getDragHandleRef(draggableRef);
-	    }
-	  }, [getDraggableRef, isEnabled]);
-	}
-	
-	var retainingFocusFor = null;
-	var listenerOptions = {
-	  capture: true
-	};
-	
-	var clearRetentionOnFocusChange = function () {
-	  var isBound = false;
-	
-	  var bind = function bind() {
-	    if (isBound) {
-	      return;
-	    }
-	
-	    isBound = true;
-	    window.addEventListener('focus', onWindowFocusChange, listenerOptions);
-	  };
-	
-	  var unbind = function unbind() {
-	    if (!isBound) {
-	      return;
-	    }
-	
-	    isBound = false;
-	    window.removeEventListener('focus', onWindowFocusChange, listenerOptions);
-	  };
-	
-	  var onWindowFocusChange = function onWindowFocusChange() {
-	    unbind();
-	    retainingFocusFor = null;
-	  };
-	
-	  var result = function result() {
-	    return bind();
-	  };
-	
-	  result.cancel = function () {
-	    return unbind();
-	  };
-	
-	  return result;
-	}();
-	
-	var retain = function retain(id) {
-	  retainingFocusFor = id;
-	  clearRetentionOnFocusChange();
-	};
-	
-	var tryRestoreFocus = function tryRestoreFocus(id, draggableRef) {
-	  if (!retainingFocusFor) {
-	    return;
-	  }
-	
-	  if (id !== retainingFocusFor) {
-	    return;
-	  }
-	
-	  retainingFocusFor = null;
-	  clearRetentionOnFocusChange.cancel();
-	  var dragHandleRef = getDragHandleRef(draggableRef);
-	
-	  if (!dragHandleRef) {
-	    process.env.NODE_ENV !== "production" ? warning('Could not find drag handle in the DOM to focus on it') : void 0;
-	    return;
-	  }
-	
-	  dragHandleRef.focus();
-	};
-	
-	var retainer = {
-	  retain: retain,
-	  tryRestoreFocus: tryRestoreFocus
-	};
-	
-	function noop$4() {}
-	
-	function useFocusRetainer(args) {
-	  var isFocusedRef = React.useRef(false);
-	  var lastArgsRef = usePrevious(args);
-	  var getDraggableRef = args.getDraggableRef;
-	  var onFocus = useMemoOne.useCallback(function () {
-	    isFocusedRef.current = true;
-	  }, []);
-	  var onBlur = useMemoOne.useCallback(function () {
-	    isFocusedRef.current = false;
-	  }, []);
-	  useIsomorphicLayoutEffect(function () {
-	    var first = lastArgsRef.current;
-	
-	    if (!first.isEnabled) {
-	      return noop$4;
-	    }
-	
-	    var draggable = getDraggableRef();
-	    !draggable ? process.env.NODE_ENV !== "production" ? invariant(false, 'Drag handle could not obtain draggable ref') : invariant(false) : void 0;
-	    var dragHandle = getDragHandleRef(draggable);
-	    retainer.tryRestoreFocus(first.draggableId, dragHandle);
-	    return function () {
-	      var last = lastArgsRef.current;
-	
-	      var shouldRetainFocus = function () {
-	        if (!last.isEnabled) {
-	          return false;
-	        }
-	
-	        if (!isFocusedRef.current) {
-	          return false;
-	        }
-	
-	        return last.isDragging || last.isDropAnimating;
-	      }();
-	
-	      if (shouldRetainFocus) {
-	        retainer.retain(last.draggableId);
-	      }
-	    };
-	  }, [getDraggableRef, lastArgsRef]);
-	  var lastDraggableRef = React.useRef(null);
-	  useIsomorphicLayoutEffect(function () {
-	    if (!lastDraggableRef.current) {
-	      return;
-	    }
-	
-	    var draggableRef = getDraggableRef();
-	
-	    if (!draggableRef) {
-	      return;
-	    }
-	
-	    if (draggableRef === lastDraggableRef.current) {
-	      return;
-	    }
-	
-	    if (isFocusedRef.current && lastArgsRef.current.isEnabled) {
-	      getDragHandleRef(draggableRef).focus();
-	    }
-	  });
-	  useIsomorphicLayoutEffect(function () {
-	    lastDraggableRef.current = getDraggableRef();
-	  });
-	  return {
-	    onBlur: onBlur,
-	    onFocus: onFocus
-	  };
-	}
-	
-	function preventHtml5Dnd(event) {
-	  event.preventDefault();
-	}
-	
-	function useDragHandle(args) {
-	  var capturingRef = React.useRef(null);
-	  var onCaptureStart = useMemoOne.useCallback(function (abort) {
-	    !!capturingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot start capturing while something else is') : invariant(false) : void 0;
-	    capturingRef.current = {
-	      abort: abort
-	    };
-	  }, []);
-	  var onCaptureEnd = useMemoOne.useCallback(function () {
-	    !capturingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot stop capturing while nothing is capturing') : invariant(false) : void 0;
-	    capturingRef.current = null;
-	  }, []);
-	  var abortCapture = useMemoOne.useCallback(function () {
-	    !capturingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot abort capture when there is none') : invariant(false) : void 0;
-	    capturingRef.current.abort();
-	  }, []);
-	
-	  var _useRequiredContext = useRequiredContext(AppContext),
-	      canLift = _useRequiredContext.canLift,
-	      styleContext = _useRequiredContext.style;
-	
-	  var isDragging = args.isDragging,
-	      isEnabled = args.isEnabled,
-	      draggableId = args.draggableId,
-	      callbacks = args.callbacks,
-	      getDraggableRef = args.getDraggableRef,
-	      getShouldRespectForcePress = args.getShouldRespectForcePress,
-	      canDragInteractiveElements = args.canDragInteractiveElements;
-	  var lastArgsRef = usePrevious(args);
-	  useValidation$1({
-	    isEnabled: isEnabled,
-	    getDraggableRef: getDraggableRef
-	  });
-	  var getWindow = useMemoOne.useCallback(function () {
-	    return getWindowFromEl(getDraggableRef());
-	  }, [getDraggableRef]);
-	  var canStartCapturing = useMemoOne.useCallback(function (event) {
-	    if (!isEnabled) {
-	      return false;
-	    }
-	
-	    if (capturingRef.current) {
-	      return false;
-	    }
-	
-	    if (!canLift(draggableId)) {
-	      return false;
-	    }
-	
-	    return shouldAllowDraggingFromTarget(event, canDragInteractiveElements);
-	  }, [canDragInteractiveElements, canLift, draggableId, isEnabled]);
-	
-	  var _useFocusRetainer = useFocusRetainer(args),
-	      onBlur = _useFocusRetainer.onBlur,
-	      onFocus = _useFocusRetainer.onFocus;
-	
-	  var mouseArgs = useMemoOne.useMemo(function () {
-	    return {
-	      callbacks: callbacks,
-	      getDraggableRef: getDraggableRef,
-	      getWindow: getWindow,
-	      canStartCapturing: canStartCapturing,
-	      onCaptureStart: onCaptureStart,
-	      onCaptureEnd: onCaptureEnd,
-	      getShouldRespectForcePress: getShouldRespectForcePress
-	    };
-	  }, [callbacks, getDraggableRef, getWindow, canStartCapturing, onCaptureStart, onCaptureEnd, getShouldRespectForcePress]);
-	  var onMouseDown = useMouseSensor(mouseArgs);
-	  var keyboardArgs = useMemoOne.useMemo(function () {
-	    return {
-	      callbacks: callbacks,
-	      getDraggableRef: getDraggableRef,
-	      getWindow: getWindow,
-	      canStartCapturing: canStartCapturing,
-	      onCaptureStart: onCaptureStart,
-	      onCaptureEnd: onCaptureEnd
-	    };
-	  }, [callbacks, canStartCapturing, getDraggableRef, getWindow, onCaptureEnd, onCaptureStart]);
-	  var onKeyDown = useKeyboardSensor(keyboardArgs);
-	  var touchArgs = useMemoOne.useMemo(function () {
-	    return {
-	      callbacks: callbacks,
-	      getDraggableRef: getDraggableRef,
-	      getWindow: getWindow,
-	      canStartCapturing: canStartCapturing,
-	      getShouldRespectForcePress: getShouldRespectForcePress,
-	      onCaptureStart: onCaptureStart,
-	      onCaptureEnd: onCaptureEnd
-	    };
-	  }, [callbacks, getDraggableRef, getWindow, canStartCapturing, getShouldRespectForcePress, onCaptureStart, onCaptureEnd]);
-	  var onTouchStart = useTouchSensor(touchArgs);
-	  useIsomorphicLayoutEffect(function () {
-	    return function () {
-	      if (!capturingRef.current) {
-	        return;
-	      }
-	
-	      abortCapture();
-	
-	      if (lastArgsRef.current.isDragging) {
-	        lastArgsRef.current.callbacks.onCancel();
-	      }
-	    };
-	  }, []);
-	
-	  if (!isEnabled && capturingRef.current) {
-	    abortCapture();
-	
-	    if (lastArgsRef.current.isDragging) {
-	      process.env.NODE_ENV !== "production" ? warning('You have disabled dragging on a Draggable while it was dragging. The drag has been cancelled') : void 0;
-	      callbacks.onCancel();
-	    }
-	  }
-	
-	  useIsomorphicLayoutEffect(function () {
-	    if (!isDragging && capturingRef.current) {
-	      abortCapture();
-	    }
-	  }, [abortCapture, isDragging]);
-	  var props = useMemoOne.useMemo(function () {
-	    if (!isEnabled) {
-	      return null;
-	    }
-	
-	    return {
-	      onMouseDown: onMouseDown,
-	      onKeyDown: onKeyDown,
-	      onTouchStart: onTouchStart,
-	      onFocus: onFocus,
-	      onBlur: onBlur,
-	      tabIndex: 0,
-	      'data-react-beautiful-dnd-drag-handle': styleContext,
-	      'aria-roledescription': 'Draggable item. Press space bar to lift',
-	      draggable: false,
-	      onDragStart: preventHtml5Dnd
-	    };
-	  }, [isEnabled, onBlur, onFocus, onKeyDown, onMouseDown, onTouchStart, styleContext]);
-	  return props;
-	}
-	
 	function getDimension$1(descriptor, el, windowScroll) {
 	  if (windowScroll === void 0) {
 	    windowScroll = origin;
@@ -24143,68 +24242,87 @@
 	  return dimension;
 	}
 	
-	function useDraggableDimensionPublisher(args) {
-	  var draggableId = args.draggableId,
-	      index = args.index,
-	      getDraggableRef = args.getDraggableRef;
-	  var appContext = useRequiredContext(AppContext);
-	  var marshal = appContext.marshal;
-	  var droppableContext = useRequiredContext(DroppableContext);
-	  var droppableId = droppableContext.droppableId,
-	      type = droppableContext.type;
-	  var descriptor = useMemoOne.useMemo(function () {
-	    var result = {
-	      id: draggableId,
-	      droppableId: droppableId,
-	      type: type,
-	      index: index
+	function useDraggablePublisher(args) {
+	  var uniqueId = useUniqueId('draggable');
+	  var descriptor = args.descriptor,
+	      registry = args.registry,
+	      getDraggableRef = args.getDraggableRef,
+	      canDragInteractiveElements = args.canDragInteractiveElements,
+	      shouldRespectForcePress = args.shouldRespectForcePress,
+	      isEnabled = args.isEnabled;
+	  var options = useMemoOne.useMemo(function () {
+	    return {
+	      canDragInteractiveElements: canDragInteractiveElements,
+	      shouldRespectForcePress: shouldRespectForcePress,
+	      isEnabled: isEnabled
 	    };
-	    return result;
-	  }, [draggableId, droppableId, index, type]);
-	  var publishedDescriptorRef = React.useRef(descriptor);
-	  var makeDimension = useMemoOne.useCallback(function (windowScroll) {
-	    var latest = publishedDescriptorRef.current;
+	  }, [canDragInteractiveElements, isEnabled, shouldRespectForcePress]);
+	  var getDimension = useMemoOne.useCallback(function (windowScroll) {
 	    var el = getDraggableRef();
 	    !el ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot get dimension when no ref is set') : invariant(false) : void 0;
-	    return getDimension$1(latest, el, windowScroll);
-	  }, [getDraggableRef]);
-	  useIsomorphicLayoutEffect(function () {
-	    marshal.registerDraggable(publishedDescriptorRef.current, makeDimension);
-	    return function () {
-	      return marshal.unregisterDraggable(publishedDescriptorRef.current);
+	    return getDimension$1(descriptor, el, windowScroll);
+	  }, [descriptor, getDraggableRef]);
+	  var entry = useMemoOne.useMemo(function () {
+	    return {
+	      uniqueId: uniqueId,
+	      descriptor: descriptor,
+	      options: options,
+	      getDimension: getDimension
 	    };
-	  }, [makeDimension, marshal]);
+	  }, [descriptor, getDimension, options, uniqueId]);
+	  var publishedRef = React.useRef(entry);
+	  var isFirstPublishRef = React.useRef(true);
 	  useIsomorphicLayoutEffect(function () {
-	    if (publishedDescriptorRef.current === descriptor) {
+	    registry.draggable.register(publishedRef.current);
+	    return function () {
+	      return registry.draggable.unregister(publishedRef.current);
+	    };
+	  }, [registry.draggable]);
+	  useIsomorphicLayoutEffect(function () {
+	    if (isFirstPublishRef.current) {
+	      isFirstPublishRef.current = false;
 	      return;
 	    }
 	
-	    var previous = publishedDescriptorRef.current;
-	    publishedDescriptorRef.current = descriptor;
-	    marshal.updateDraggable(previous, descriptor, makeDimension);
-	  }, [descriptor, makeDimension, marshal]);
+	    var last = publishedRef.current;
+	    publishedRef.current = entry;
+	    registry.draggable.update(entry, last);
+	  }, [entry, registry.draggable]);
 	}
 	
-	function checkOwnProps$1(props) {
-	  !_Number$isInteger(props.index) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Draggable requires an integer index prop') : invariant(false) : void 0;
-	  !props.draggableId ? process.env.NODE_ENV !== "production" ? invariant(false, 'Draggable requires a draggableId') : invariant(false) : void 0;
-	  !(typeof props.isDragDisabled === 'boolean') ? process.env.NODE_ENV !== "production" ? invariant(false, 'isDragDisabled must be a boolean') : invariant(false) : void 0;
-	}
+	function useValidation$1(props, contextId, getRef) {
+	  useDevSetupWarning(function () {
+	    function prefix(id) {
+	      return "Draggable[id: " + id + "]: ";
+	    }
 	
-	function checkForOutdatedProps(props) {
-	  if (Object.prototype.hasOwnProperty.call(props, 'shouldRespectForceTouch')) {
-	    process.env.NODE_ENV !== "production" ? warning('shouldRespectForceTouch has been renamed to shouldRespectForcePress') : void 0;
-	  }
-	}
+	    var id = props.draggableId;
+	    !id ? process.env.NODE_ENV !== "production" ? invariant(false, 'Draggable requires a draggableId') : invariant(false) : void 0;
+	    !(typeof id === 'string') ? process.env.NODE_ENV !== "production" ? invariant(false, "Draggable requires a [string] draggableId.\n      Provided: [type: " + typeof id + "] (value: " + id + ")") : invariant(false) : void 0;
+	    !isInteger(props.index) ? process.env.NODE_ENV !== "production" ? invariant(false, prefix(id) + " requires an integer index prop") : invariant(false) : void 0;
 	
-	function useValidation$2(props, getRef) {
-	  React.useEffect(function () {
-	    if (process.env.NODE_ENV !== 'production') {
-	      checkOwnProps$1(props);
-	      checkForOutdatedProps(props);
-	      checkIsValidInnerRef(getRef());
+	    if (props.mapped.type === 'DRAGGING') {
+	      return;
+	    }
+	
+	    checkIsValidInnerRef(getRef());
+	
+	    if (props.isEnabled) {
+	      !findDragHandle(contextId, id) ? process.env.NODE_ENV !== "production" ? invariant(false, prefix(id) + " Unable to find drag handle") : invariant(false) : void 0;
 	    }
 	  });
+	}
+	function useClonePropValidation(isClone) {
+	  useDev(function () {
+	    var initialRef = React.useRef(isClone);
+	    useDevSetupWarning(function () {
+	      !(isClone === initialRef.current) ? process.env.NODE_ENV !== "production" ? invariant(false, 'Draggable isClone prop value changed during component life') : invariant(false) : void 0;
+	    }, [isClone]);
+	  });
+	}
+	
+	function preventHtml5Dnd(event) {
+	  event.preventDefault();
 	}
 	
 	function Draggable(props) {
@@ -24215,93 +24333,60 @@
 	  var getRef = useMemoOne.useCallback(function () {
 	    return ref.current;
 	  }, []);
-	  var appContext = useRequiredContext(AppContext);
-	  useValidation$2(props, getRef);
+	
+	  var _useRequiredContext = useRequiredContext(AppContext),
+	      contextId = _useRequiredContext.contextId,
+	      dragHandleUsageInstructionsId = _useRequiredContext.dragHandleUsageInstructionsId,
+	      registry = _useRequiredContext.registry;
+	
+	  var _useRequiredContext2 = useRequiredContext(DroppableContext),
+	      type = _useRequiredContext2.type,
+	      droppableId = _useRequiredContext2.droppableId;
+	
+	  var descriptor = useMemoOne.useMemo(function () {
+	    return {
+	      id: props.draggableId,
+	      index: props.index,
+	      type: type,
+	      droppableId: droppableId
+	    };
+	  }, [props.draggableId, props.index, type, droppableId]);
 	  var children = props.children,
 	      draggableId = props.draggableId,
-	      isDragDisabled = props.isDragDisabled,
+	      isEnabled = props.isEnabled,
 	      shouldRespectForcePress = props.shouldRespectForcePress,
-	      canDragInteractiveElements = props.disableInteractiveElementBlocking,
-	      index = props.index,
+	      canDragInteractiveElements = props.canDragInteractiveElements,
+	      isClone = props.isClone,
 	      mapped = props.mapped,
-	      moveUpAction = props.moveUp,
-	      moveAction = props.move,
-	      dropAction = props.drop,
-	      moveDownAction = props.moveDown,
-	      moveRightAction = props.moveRight,
-	      moveLeftAction = props.moveLeft,
-	      moveByWindowScrollAction = props.moveByWindowScroll,
-	      liftAction = props.lift,
 	      dropAnimationFinishedAction = props.dropAnimationFinished;
-	  var forPublisher = useMemoOne.useMemo(function () {
-	    return {
-	      draggableId: draggableId,
-	      index: index,
-	      getDraggableRef: getRef
-	    };
-	  }, [draggableId, getRef, index]);
-	  useDraggableDimensionPublisher(forPublisher);
-	  var onLift = useMemoOne.useCallback(function (options) {
-	    start('LIFT');
-	    var el = ref.current;
-	    !el ? process.env.NODE_ENV !== "production" ? invariant(false) : invariant(false) : void 0;
-	    !!isDragDisabled ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot lift a Draggable when it is disabled') : invariant(false) : void 0;
-	    var clientSelection = options.clientSelection,
-	        movementMode = options.movementMode;
-	    liftAction({
-	      id: draggableId,
-	      clientSelection: clientSelection,
-	      movementMode: movementMode
-	    });
-	    finish('LIFT');
-	  }, [draggableId, isDragDisabled, liftAction]);
-	  var getShouldRespectForcePress = useMemoOne.useCallback(function () {
-	    return shouldRespectForcePress;
-	  }, [shouldRespectForcePress]);
-	  var callbacks = useMemoOne.useMemo(function () {
-	    return {
-	      onLift: onLift,
-	      onMove: function onMove(clientSelection) {
-	        return moveAction({
-	          client: clientSelection
-	        });
-	      },
-	      onDrop: function onDrop() {
-	        return dropAction({
-	          reason: 'DROP'
-	        });
-	      },
-	      onCancel: function onCancel() {
-	        return dropAction({
-	          reason: 'CANCEL'
-	        });
-	      },
-	      onMoveUp: moveUpAction,
-	      onMoveDown: moveDownAction,
-	      onMoveRight: moveRightAction,
-	      onMoveLeft: moveLeftAction,
-	      onWindowScroll: function onWindowScroll() {
-	        return moveByWindowScrollAction({
-	          newScroll: getWindowScroll()
-	        });
-	      }
-	    };
-	  }, [dropAction, moveAction, moveByWindowScrollAction, moveDownAction, moveLeftAction, moveRightAction, moveUpAction, onLift]);
-	  var isDragging = mapped.type === 'DRAGGING';
-	  var isDropAnimating = mapped.type === 'DRAGGING' && Boolean(mapped.dropping);
-	  var dragHandleArgs = useMemoOne.useMemo(function () {
-	    return {
-	      draggableId: draggableId,
-	      isDragging: isDragging,
-	      isDropAnimating: isDropAnimating,
-	      isEnabled: !isDragDisabled,
-	      callbacks: callbacks,
-	      getDraggableRef: getRef,
-	      canDragInteractiveElements: canDragInteractiveElements,
-	      getShouldRespectForcePress: getShouldRespectForcePress
-	    };
-	  }, [callbacks, canDragInteractiveElements, draggableId, getRef, getShouldRespectForcePress, isDragDisabled, isDragging, isDropAnimating]);
-	  var dragHandleProps = useDragHandle(dragHandleArgs);
+	  useValidation$1(props, contextId, getRef);
+	  useClonePropValidation(isClone);
+	
+	  if (!isClone) {
+	    var forPublisher = useMemoOne.useMemo(function () {
+	      return {
+	        descriptor: descriptor,
+	        registry: registry,
+	        getDraggableRef: getRef,
+	        canDragInteractiveElements: canDragInteractiveElements,
+	        shouldRespectForcePress: shouldRespectForcePress,
+	        isEnabled: isEnabled
+	      };
+	    }, [descriptor, registry, getRef, canDragInteractiveElements, shouldRespectForcePress, isEnabled]);
+	    useDraggablePublisher(forPublisher);
+	  }
+	
+	  var dragHandleProps = useMemoOne.useMemo(function () {
+	    return isEnabled ? {
+	      tabIndex: 0,
+	      role: 'button',
+	      'aria-describedby': dragHandleUsageInstructionsId,
+	      'data-rbd-drag-handle-draggable-id': draggableId,
+	      'data-rbd-drag-handle-context-id': contextId,
+	      draggable: false,
+	      onDragStart: preventHtml5Dnd
+	    } : null;
+	  }, [contextId, dragHandleUsageInstructionsId, draggableId, isEnabled]);
 	  var onMoveEnd = useMemoOne.useCallback(function (event) {
 	    if (mapped.type !== 'DRAGGING') {
 	      return;
@@ -24323,29 +24408,66 @@
 	    var result = {
 	      innerRef: setRef,
 	      draggableProps: {
-	        'data-react-beautiful-dnd-draggable': appContext.style,
+	        'data-rbd-draggable-context-id': contextId,
+	        'data-rbd-draggable-id': draggableId,
 	        style: style,
 	        onTransitionEnd: onTransitionEnd
 	      },
 	      dragHandleProps: dragHandleProps
 	    };
 	    return result;
-	  }, [appContext.style, dragHandleProps, mapped, onMoveEnd, setRef]);
-	  return children(provided, mapped.snapshot);
+	  }, [contextId, dragHandleProps, draggableId, mapped, onMoveEnd, setRef]);
+	  var rubric = useMemoOne.useMemo(function () {
+	    return {
+	      draggableId: descriptor.id,
+	      type: descriptor.type,
+	      source: {
+	        index: descriptor.index,
+	        droppableId: descriptor.droppableId
+	      }
+	    };
+	  }, [descriptor.droppableId, descriptor.id, descriptor.index, descriptor.type]);
+	  return children(provided, mapped.snapshot, rubric);
 	}
+	
+	var isStrictEqual = (function (a, b) {
+	  return a === b;
+	});
+	
+	var whatIsDraggedOverFromResult = (function (result) {
+	  var combine = result.combine,
+	      destination = result.destination;
+	
+	  if (destination) {
+	    return destination.droppableId;
+	  }
+	
+	  if (combine) {
+	    return combine.droppableId;
+	  }
+	
+	  return null;
+	});
 	
 	var getCombineWithFromResult = function getCombineWithFromResult(result) {
 	  return result.combine ? result.combine.draggableId : null;
 	};
 	
 	var getCombineWithFromImpact = function getCombineWithFromImpact(impact) {
-	  return impact.merge ? impact.merge.combine.draggableId : null;
+	  return impact.at && impact.at.type === 'COMBINE' ? impact.at.combine.draggableId : null;
 	};
 	
-	var makeMapStateToProps$1 = function makeMapStateToProps() {
-	  var getDraggingSnapshot = memoizeOne(function (mode, draggingOver, combineWith, dropping) {
+	function getDraggableSelector() {
+	  var memoizedOffset = memoizeOne(function (x, y) {
+	    return {
+	      x: x,
+	      y: y
+	    };
+	  });
+	  var getMemoizedSnapshot = memoizeOne(function (mode, isClone, draggingOver, combineWith, dropping) {
 	    return {
 	      isDragging: true,
+	      isClone: isClone,
 	      isDropAnimating: Boolean(dropping),
 	      dropAnimation: dropping,
 	      mode: mode,
@@ -24354,33 +24476,7 @@
 	      combineTargetFor: null
 	    };
 	  });
-	  var getSecondarySnapshot = memoizeOne(function (combineTargetFor) {
-	    return {
-	      isDragging: false,
-	      isDropAnimating: false,
-	      dropAnimation: null,
-	      mode: null,
-	      draggingOver: null,
-	      combineTargetFor: combineTargetFor,
-	      combineWith: null
-	    };
-	  });
-	  var defaultMapProps = {
-	    mapped: {
-	      type: 'SECONDARY',
-	      offset: origin,
-	      combineTargetFor: null,
-	      shouldAnimateDisplacement: true,
-	      snapshot: getSecondarySnapshot(null)
-	    }
-	  };
-	  var memoizedOffset = memoizeOne(function (x, y) {
-	    return {
-	      x: x,
-	      y: y
-	    };
-	  });
-	  var getDraggingProps = memoizeOne(function (offset, mode, dimension, draggingOver, combineWith, forceShouldAnimate) {
+	  var getMemoizedProps = memoizeOne(function (offset, mode, dimension, isClone, draggingOver, combineWith, forceShouldAnimate) {
 	    return {
 	      mapped: {
 	        type: 'DRAGGING',
@@ -24391,51 +24487,12 @@
 	        offset: offset,
 	        dimension: dimension,
 	        forceShouldAnimate: forceShouldAnimate,
-	        snapshot: getDraggingSnapshot(mode, draggingOver, combineWith, null)
-	      }
-	    };
-	  });
-	  var getSecondaryProps = memoizeOne(function (offset, combineTargetFor, shouldAnimateDisplacement) {
-	    if (combineTargetFor === void 0) {
-	      combineTargetFor = null;
-	    }
-	
-	    return {
-	      mapped: {
-	        type: 'SECONDARY',
-	        offset: offset,
-	        combineTargetFor: combineTargetFor,
-	        shouldAnimateDisplacement: shouldAnimateDisplacement,
-	        snapshot: getSecondarySnapshot(combineTargetFor)
+	        snapshot: getMemoizedSnapshot(mode, isClone, draggingOver, combineWith, null)
 	      }
 	    };
 	  });
 	
-	  var getSecondaryMovement = function getSecondaryMovement(ownId, draggingId, impact) {
-	    var map = impact.movement.map;
-	    var displacement = map[ownId];
-	    var movement = impact.movement;
-	    var merge = impact.merge;
-	    var isCombinedWith = Boolean(merge && merge.combine.draggableId === ownId);
-	    var displacedBy = movement.displacedBy.point;
-	    var offset = memoizedOffset(displacedBy.x, displacedBy.y);
-	
-	    if (isCombinedWith) {
-	      return getSecondaryProps(displacement ? offset : origin, draggingId, displacement ? displacement.shouldAnimate : true);
-	    }
-	
-	    if (!displacement) {
-	      return null;
-	    }
-	
-	    if (!displacement.isVisible) {
-	      return null;
-	    }
-	
-	    return getSecondaryProps(offset, null, displacement.shouldAnimate);
-	  };
-	
-	  var draggingSelector = function draggingSelector(state, ownProps) {
+	  var selector = function selector(state, ownProps) {
 	    if (state.isDragging) {
 	      if (state.critical.draggable.id !== ownProps.draggableId) {
 	        return null;
@@ -24443,11 +24500,10 @@
 	
 	      var offset = state.current.client.offset;
 	      var dimension = state.dimensions.draggables[ownProps.draggableId];
-	      var mode = state.movementMode;
 	      var draggingOver = whatIsDraggedOver(state.impact);
 	      var combineWith = getCombineWithFromImpact(state.impact);
 	      var forceShouldAnimate = state.forceShouldAnimate;
-	      return getDraggingProps(memoizedOffset(offset.x, offset.y), mode, dimension, draggingOver, combineWith, forceShouldAnimate);
+	      return getMemoizedProps(memoizedOffset(offset.x, offset.y), state.movementMode, dimension, ownProps.isClone, draggingOver, combineWith, forceShouldAnimate);
 	    }
 	
 	    if (state.phase === 'DROP_ANIMATING') {
@@ -24457,9 +24513,10 @@
 	        return null;
 	      }
 	
+	      var isClone = ownProps.isClone;
 	      var _dimension = state.dimensions.draggables[ownProps.draggableId];
 	      var result = completed.result;
-	      var _mode = result.mode;
+	      var mode = result.mode;
 	
 	      var _draggingOver = whatIsDraggedOverFromResult(result);
 	
@@ -24481,9 +24538,9 @@
 	          dropping: dropping,
 	          draggingOver: _draggingOver,
 	          combineWith: _combineWith,
-	          mode: _mode,
+	          mode: mode,
 	          forceShouldAnimate: null,
-	          snapshot: getDraggingSnapshot(_mode, _draggingOver, _combineWith, dropping)
+	          snapshot: getMemoizedSnapshot(mode, isClone, _draggingOver, _combineWith, dropping)
 	        }
 	      };
 	    }
@@ -24491,13 +24548,98 @@
 	    return null;
 	  };
 	
-	  var secondarySelector = function secondarySelector(state, ownProps) {
+	  return selector;
+	}
+	
+	function getSecondarySnapshot(combineTargetFor) {
+	  return {
+	    isDragging: false,
+	    isDropAnimating: false,
+	    isClone: false,
+	    dropAnimation: null,
+	    mode: null,
+	    draggingOver: null,
+	    combineTargetFor: combineTargetFor,
+	    combineWith: null
+	  };
+	}
+	
+	var atRest = {
+	  mapped: {
+	    type: 'SECONDARY',
+	    offset: origin,
+	    combineTargetFor: null,
+	    shouldAnimateDisplacement: true,
+	    snapshot: getSecondarySnapshot(null)
+	  }
+	};
+	
+	function getSecondarySelector() {
+	  var memoizedOffset = memoizeOne(function (x, y) {
+	    return {
+	      x: x,
+	      y: y
+	    };
+	  });
+	  var getMemoizedSnapshot = memoizeOne(getSecondarySnapshot);
+	  var getMemoizedProps = memoizeOne(function (offset, combineTargetFor, shouldAnimateDisplacement) {
+	    if (combineTargetFor === void 0) {
+	      combineTargetFor = null;
+	    }
+	
+	    return {
+	      mapped: {
+	        type: 'SECONDARY',
+	        offset: offset,
+	        combineTargetFor: combineTargetFor,
+	        shouldAnimateDisplacement: shouldAnimateDisplacement,
+	        snapshot: getMemoizedSnapshot(combineTargetFor)
+	      }
+	    };
+	  });
+	
+	  var getFallback = function getFallback(combineTargetFor) {
+	    return combineTargetFor ? getMemoizedProps(origin, combineTargetFor, true) : null;
+	  };
+	
+	  var getProps = function getProps(ownId, draggingId, impact, afterCritical) {
+	    var visualDisplacement = impact.displaced.visible[ownId];
+	    var isAfterCriticalInVirtualList = Boolean(afterCritical.inVirtualList && afterCritical.effected[ownId]);
+	    var combine = tryGetCombine(impact);
+	    var combineTargetFor = combine && combine.draggableId === ownId ? draggingId : null;
+	
+	    if (!visualDisplacement) {
+	      if (!isAfterCriticalInVirtualList) {
+	        return getFallback(combineTargetFor);
+	      }
+	
+	      if (impact.displaced.invisible[ownId]) {
+	        return null;
+	      }
+	
+	      var change = negate(afterCritical.displacedBy.point);
+	
+	      var _offset = memoizedOffset(change.x, change.y);
+	
+	      return getMemoizedProps(_offset, combineTargetFor, true);
+	    }
+	
+	    if (isAfterCriticalInVirtualList) {
+	      return getFallback(combineTargetFor);
+	    }
+	
+	    var displaceBy = impact.displacedBy.point;
+	    var offset = memoizedOffset(displaceBy.x, displaceBy.y);
+	    return getMemoizedProps(offset, combineTargetFor, visualDisplacement.shouldAnimate);
+	  };
+	
+	  var selector = function selector(state, ownProps) {
 	    if (state.isDragging) {
 	      if (state.critical.draggable.id === ownProps.draggableId) {
 	        return null;
 	      }
 	
-	      return getSecondaryMovement(ownProps.draggableId, state.critical.draggable.id, state.impact);
+	      return getProps(ownProps.draggableId, state.critical.draggable.id, state.impact, state.afterCritical);
 	    }
 	
 	    if (state.phase === 'DROP_ANIMATING') {
@@ -24507,43 +24649,334 @@
 	        return null;
 	      }
 	
-	      return getSecondaryMovement(ownProps.draggableId, completed.result.draggableId, completed.impact);
+	      return getProps(ownProps.draggableId, completed.result.draggableId, completed.impact, completed.afterCritical);
 	    }
 	
 	    return null;
 	  };
 	
+	  return selector;
+	}
+	
+	var makeMapStateToProps = function makeMapStateToProps() {
+	  var draggingSelector = getDraggableSelector();
+	  var secondarySelector = getSecondarySelector();
+	
 	  var selector = function selector(state, ownProps) {
-	    return draggingSelector(state, ownProps) || secondarySelector(state, ownProps) || defaultMapProps;
+	    return draggingSelector(state, ownProps) || secondarySelector(state, ownProps) || atRest;
+	  };
+	
+	  return selector;
+	};
+	var mapDispatchToProps = {
+	  dropAnimationFinished: dropAnimationFinished
+	};
+	var ConnectedDraggable = reactRedux.connect(makeMapStateToProps, mapDispatchToProps, null, {
+	  context: StoreContext,
+	  pure: true,
+	  areStatePropsEqual: isStrictEqual
+	})(Draggable);
+	
+	function PrivateDraggable(props) {
+	  var droppableContext = useRequiredContext(DroppableContext);
+	  var isUsingCloneFor = droppableContext.isUsingCloneFor;
+	
+	  if (isUsingCloneFor === props.draggableId && !props.isClone) {
+	    return null;
+	  }
+	
+	  return React__default.createElement(ConnectedDraggable, props);
+	}
+	function PublicDraggable(props) {
+	  var isEnabled = typeof props.isDragDisabled === 'boolean' ? !props.isDragDisabled : true;
+	  var canDragInteractiveElements = Boolean(props.disableInteractiveElementBlocking);
+	  var shouldRespectForcePress = Boolean(props.shouldRespectForcePress);
+	  return React__default.createElement(PrivateDraggable, _extends({}, props, {
+	    isClone: false,
+	    isEnabled: isEnabled,
+	    canDragInteractiveElements: canDragInteractiveElements,
+	    shouldRespectForcePress: shouldRespectForcePress
+	  }));
+	}
+	
+	function Droppable(props) {
+	  var appContext = React.useContext(AppContext);
+	  !appContext ? process.env.NODE_ENV !== "production" ? invariant(false, 'Could not find app context') : invariant(false) : void 0;
+	  var contextId = appContext.contextId,
+	      isMovementAllowed = appContext.isMovementAllowed;
+	  var droppableRef = React.useRef(null);
+	  var placeholderRef = React.useRef(null);
+	  var children = props.children,
+	      droppableId = props.droppableId,
+	      type = props.type,
+	      mode = props.mode,
+	      direction = props.direction,
+	      ignoreContainerClipping = props.ignoreContainerClipping,
+	      isDropDisabled = props.isDropDisabled,
+	      isCombineEnabled = props.isCombineEnabled,
+	      snapshot = props.snapshot,
+	      useClone = props.useClone,
+	      updateViewportMaxScroll = props.updateViewportMaxScroll,
+	      getContainerForClone = props.getContainerForClone;
+	  var getDroppableRef = useMemoOne.useCallback(function () {
+	    return droppableRef.current;
+	  }, []);
+	  var setDroppableRef = useMemoOne.useCallback(function (value) {
+	    droppableRef.current = value;
+	  }, []);
+	  var getPlaceholderRef = useMemoOne.useCallback(function () {
+	    return placeholderRef.current;
+	  }, []);
+	  var setPlaceholderRef = useMemoOne.useCallback(function (value) {
+	    placeholderRef.current = value;
+	  }, []);
+	  useValidation({
+	    props: props,
+	    getDroppableRef: getDroppableRef,
+	    getPlaceholderRef: getPlaceholderRef
+	  });
+	  var onPlaceholderTransitionEnd = useMemoOne.useCallback(function () {
+	    if (isMovementAllowed()) {
+	      updateViewportMaxScroll({
+	        maxScroll: getMaxWindowScroll()
+	      });
+	    }
+	  }, [isMovementAllowed, updateViewportMaxScroll]);
+	  useDroppablePublisher({
+	    droppableId: droppableId,
+	    type: type,
+	    mode: mode,
+	    direction: direction,
+	    isDropDisabled: isDropDisabled,
+	    isCombineEnabled: isCombineEnabled,
+	    ignoreContainerClipping: ignoreContainerClipping,
+	    getDroppableRef: getDroppableRef
+	  });
+	  var placeholder = React__default.createElement(AnimateInOut, {
+	    on: props.placeholder,
+	    shouldAnimate: props.shouldAnimatePlaceholder
+	  }, function (_ref) {
+	    var onClose = _ref.onClose,
+	        data = _ref.data,
+	        animate = _ref.animate;
+	    return React__default.createElement(Placeholder$1, {
+	      placeholder: data,
+	      onClose: onClose,
+	      innerRef: setPlaceholderRef,
+	      animate: animate,
+	      contextId: contextId,
+	      onTransitionEnd: onPlaceholderTransitionEnd
+	    });
+	  });
+	  var provided = useMemoOne.useMemo(function () {
+	    return {
+	      innerRef: setDroppableRef,
+	      placeholder: placeholder,
+	      droppableProps: {
+	        'data-rbd-droppable-id': droppableId,
+	        'data-rbd-droppable-context-id': contextId
+	      }
+	    };
+	  }, [contextId, droppableId, placeholder, setDroppableRef]);
+	  var isUsingCloneFor = useClone ? useClone.dragging.draggableId : null;
+	  var droppableContext = useMemoOne.useMemo(function () {
+	    return {
+	      droppableId: droppableId,
+	      type: type,
+	      isUsingCloneFor: isUsingCloneFor
+	    };
+	  }, [droppableId, isUsingCloneFor, type]);
+	
+	  function getClone() {
+	    if (!useClone) {
+	      return null;
+	    }
+	
+	    var dragging = useClone.dragging,
+	        render = useClone.render;
+	    var node = React__default.createElement(PrivateDraggable, {
+	      draggableId: dragging.draggableId,
+	      index: dragging.source.index,
+	      isClone: true,
+	      isEnabled: true,
+	      shouldRespectForcePress: false,
+	      canDragInteractiveElements: true
+	    }, function (draggableProvided, draggableSnapshot) {
+	      return render(draggableProvided, draggableSnapshot, dragging);
+	    });
+	    return ReactDOM.createPortal(node, getContainerForClone());
+	  }
+	
+	  return React__default.createElement(DroppableContext.Provider, {
+	    value: droppableContext
+	  }, children(provided, snapshot), getClone());
+	}
+	
+	var isMatchingType = function isMatchingType(type, critical) {
+	  return type === critical.droppable.type;
+	};
+	
+	var getDraggable = function getDraggable(critical, dimensions) {
+	  return dimensions.draggables[critical.draggable.id];
+	};
+	
+	var makeMapStateToProps$1 = function makeMapStateToProps() {
+	  var idleWithAnimation = {
+	    placeholder: null,
+	    shouldAnimatePlaceholder: true,
+	    snapshot: {
+	      isDraggingOver: false,
+	      draggingOverWith: null,
+	      draggingFromThisWith: null,
+	      isUsingPlaceholder: false
+	    },
+	    useClone: null
+	  };
+	
+	  var idleWithoutAnimation = _extends({}, idleWithAnimation, {
+	    shouldAnimatePlaceholder: false
+	  });
+	
+	  var getDraggableRubric = memoizeOne(function (descriptor) {
+	    return {
+	      draggableId: descriptor.id,
+	      type: descriptor.type,
+	      source: {
+	        index: descriptor.index,
+	        droppableId: descriptor.droppableId
+	      }
+	    };
+	  });
+	  var getMapProps = memoizeOne(function (id, isEnabled, isDraggingOverForConsumer, isDraggingOverForImpact, dragging, renderClone) {
+	    var draggableId = dragging.descriptor.id;
+	    var isHome = dragging.descriptor.droppableId === id;
+	
+	    if (isHome) {
+	      var useClone = renderClone ? {
+	        render: renderClone,
+	        dragging: getDraggableRubric(dragging.descriptor)
+	      } : null;
+	      var _snapshot = {
+	        isDraggingOver: isDraggingOverForConsumer,
+	        draggingOverWith: isDraggingOverForConsumer ? draggableId : null,
+	        draggingFromThisWith: draggableId,
+	        isUsingPlaceholder: true
+	      };
+	      return {
+	        placeholder: dragging.placeholder,
+	        shouldAnimatePlaceholder: false,
+	        snapshot: _snapshot,
+	        useClone: useClone
+	      };
+	    }
+	
+	    if (!isEnabled) {
+	      return idleWithoutAnimation;
+	    }
+	
+	    if (!isDraggingOverForImpact) {
+	      return idleWithAnimation;
+	    }
+	
+	    var snapshot = {
+	      isDraggingOver: isDraggingOverForConsumer,
+	      draggingOverWith: draggableId,
+	      draggingFromThisWith: null,
+	      isUsingPlaceholder: true
+	    };
+	    return {
+	      placeholder: dragging.placeholder,
+	      shouldAnimatePlaceholder: true,
+	      snapshot: snapshot,
+	      useClone: null
+	    };
+	  });
+	
+	  var selector = function selector(state, ownProps) {
+	    var id = ownProps.droppableId;
+	    var type = ownProps.type;
+	    var isEnabled = !ownProps.isDropDisabled;
+	    var renderClone = ownProps.renderClone;
+	
+	    if (state.isDragging) {
+	      var critical = state.critical;
+	
+	      if (!isMatchingType(type, critical)) {
+	        return idleWithoutAnimation;
+	      }
+	
+	      var dragging = getDraggable(critical, state.dimensions);
+	      var isDraggingOver = whatIsDraggedOver(state.impact) === id;
+	      return getMapProps(id, isEnabled, isDraggingOver, isDraggingOver, dragging, renderClone);
+	    }
+	
+	    if (state.phase === 'DROP_ANIMATING') {
+	      var completed = state.completed;
+	
+	      if (!isMatchingType(type, completed.critical)) {
+	        return idleWithoutAnimation;
+	      }
+	
+	      var _dragging = getDraggable(completed.critical, state.dimensions);
+	
+	      return getMapProps(id, isEnabled, whatIsDraggedOverFromResult(completed.result) === id, whatIsDraggedOver(completed.impact) === id, _dragging, renderClone);
+	    }
+	
+	    if (state.phase === 'IDLE' && state.completed && !state.shouldFlush) {
+	      var _completed = state.completed;
+	
+	      if (!isMatchingType(type, _completed.critical)) {
+	        return idleWithoutAnimation;
+	      }
+	
+	      var wasOver = whatIsDraggedOver(_completed.impact) === id;
+	      var wasCombining = Boolean(_completed.impact.at && _completed.impact.at.type === 'COMBINE');
+	      var isHome = _completed.critical.droppable.id === id;
+	
+	      if (wasOver) {
+	        return wasCombining ? idleWithAnimation : idleWithoutAnimation;
+	      }
+	
+	      if (isHome) {
+	        return idleWithAnimation;
+	      }
+	
+	      return idleWithoutAnimation;
+	    }
+	
+	    return idleWithoutAnimation;
 	  };
 	
 	  return selector;
 	};
 	var mapDispatchToProps$1 = {
-	  lift: lift,
-	  move: move,
-	  moveUp: moveUp,
-	  moveDown: moveDown,
-	  moveLeft: moveLeft,
-	  moveRight: moveRight,
-	  moveByWindowScroll: moveByWindowScroll,
-	  drop: drop,
-	  dropAnimationFinished: dropAnimationFinished
+	  updateViewportMaxScroll: updateViewportMaxScroll
 	};
-	var defaultProps$1 = {
-	  isDragDisabled: false,
-	  disableInteractiveElementBlocking: false,
-	  shouldRespectForcePress: false
+	
+	function getBody() {
+	  !document.body ? process.env.NODE_ENV !== "production" ? invariant(false, 'document.body is not ready') : invariant(false) : void 0;
+	  return document.body;
+	}
+	
+	var defaultProps = {
+	  mode: 'standard',
+	  type: 'DEFAULT',
+	  direction: 'vertical',
+	  isDropDisabled: false,
+	  isCombineEnabled: false,
+	  ignoreContainerClipping: false,
+	  renderClone: null,
+	  getContainerForClone: getBody
 	};
-	var ConnectedDraggable = reactRedux.connect(makeMapStateToProps$1, mapDispatchToProps$1, null, {
+	var ConnectedDroppable = reactRedux.connect(makeMapStateToProps$1, mapDispatchToProps$1, null, {
 	  context: StoreContext,
 	  pure: true,
 	  areStatePropsEqual: isStrictEqual
-	})(Draggable);
-	ConnectedDraggable.defaultProps = defaultProps$1;
+	})(Droppable);
+	ConnectedDroppable.defaultProps = defaultProps;
 	
 	exports.DragDropContext = DragDropContext;
-	exports.Draggable = ConnectedDraggable;
+	exports.Draggable = PublicDraggable;
 	exports.Droppable = ConnectedDroppable;
 	exports.resetServerContext = resetServerContext;
 	
@@ -24551,655 +24984,10 @@
 
 /***/ }),
 /* 160 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var _Object$assign = __webpack_require__(161);
-	
-	function _extends() {
-	  module.exports = _extends = _Object$assign || function (target) {
-	    for (var i = 1; i < arguments.length; i++) {
-	      var source = arguments[i];
-	
-	      for (var key in source) {
-	        if (Object.prototype.hasOwnProperty.call(source, key)) {
-	          target[key] = source[key];
-	        }
-	      }
-	    }
-	
-	    return target;
-	  };
-	
-	  return _extends.apply(this, arguments);
-	}
-	
-	module.exports = _extends;
-
-/***/ }),
-/* 161 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(162);
-
-/***/ }),
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(163);
-	module.exports = __webpack_require__(166).Object.assign;
-
-
-/***/ }),
-/* 163 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.3.1 Object.assign(target, source)
-	var $export = __webpack_require__(164);
-	
-	$export($export.S + $export.F, 'Object', { assign: __webpack_require__(180) });
-
-
-/***/ }),
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(165);
-	var core = __webpack_require__(166);
-	var ctx = __webpack_require__(167);
-	var hide = __webpack_require__(169);
-	var has = __webpack_require__(179);
-	var PROTOTYPE = 'prototype';
-	
-	var $export = function (type, name, source) {
-	  var IS_FORCED = type & $export.F;
-	  var IS_GLOBAL = type & $export.G;
-	  var IS_STATIC = type & $export.S;
-	  var IS_PROTO = type & $export.P;
-	  var IS_BIND = type & $export.B;
-	  var IS_WRAP = type & $export.W;
-	  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
-	  var expProto = exports[PROTOTYPE];
-	  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
-	  var key, own, out;
-	  if (IS_GLOBAL) source = name;
-	  for (key in source) {
-	    // contains in native
-	    own = !IS_FORCED && target && target[key] !== undefined;
-	    if (own && has(exports, key)) continue;
-	    // export native or passed
-	    out = own ? target[key] : source[key];
-	    // prevent global pollution for namespaces
-	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-	    // bind timers to global for call from export context
-	    : IS_BIND && own ? ctx(out, global)
-	    // wrap global constructors for prevent change them in library
-	    : IS_WRAP && target[key] == out ? (function (C) {
-	      var F = function (a, b, c) {
-	        if (this instanceof C) {
-	          switch (arguments.length) {
-	            case 0: return new C();
-	            case 1: return new C(a);
-	            case 2: return new C(a, b);
-	          } return new C(a, b, c);
-	        } return C.apply(this, arguments);
-	      };
-	      F[PROTOTYPE] = C[PROTOTYPE];
-	      return F;
-	    // make static versions for prototype methods
-	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
-	    if (IS_PROTO) {
-	      (exports.virtual || (exports.virtual = {}))[key] = out;
-	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
-	      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
-	    }
-	  }
-	};
-	// type bitmap
-	$export.F = 1;   // forced
-	$export.G = 2;   // global
-	$export.S = 4;   // static
-	$export.P = 8;   // proto
-	$export.B = 16;  // bind
-	$export.W = 32;  // wrap
-	$export.U = 64;  // safe
-	$export.R = 128; // real proto method for `library`
-	module.exports = $export;
-
-
-/***/ }),
-/* 165 */
 /***/ (function(module, exports) {
 
-	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var global = module.exports = typeof window != 'undefined' && window.Math == Math
-	  ? window : typeof self != 'undefined' && self.Math == Math ? self
-	  // eslint-disable-next-line no-new-func
-	  : Function('return this')();
-	if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 166 */
-/***/ (function(module, exports) {
-
-	var core = module.exports = { version: '2.5.7' };
-	if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// optional / simple context binding
-	var aFunction = __webpack_require__(168);
-	module.exports = function (fn, that, length) {
-	  aFunction(fn);
-	  if (that === undefined) return fn;
-	  switch (length) {
-	    case 1: return function (a) {
-	      return fn.call(that, a);
-	    };
-	    case 2: return function (a, b) {
-	      return fn.call(that, a, b);
-	    };
-	    case 3: return function (a, b, c) {
-	      return fn.call(that, a, b, c);
-	    };
-	  }
-	  return function (/* ...args */) {
-	    return fn.apply(that, arguments);
-	  };
-	};
-
-
-/***/ }),
-/* 168 */
-/***/ (function(module, exports) {
-
-	module.exports = function (it) {
-	  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
-	  return it;
-	};
-
-
-/***/ }),
-/* 169 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var dP = __webpack_require__(170);
-	var createDesc = __webpack_require__(178);
-	module.exports = __webpack_require__(174) ? function (object, key, value) {
-	  return dP.f(object, key, createDesc(1, value));
-	} : function (object, key, value) {
-	  object[key] = value;
-	  return object;
-	};
-
-
-/***/ }),
-/* 170 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var anObject = __webpack_require__(171);
-	var IE8_DOM_DEFINE = __webpack_require__(173);
-	var toPrimitive = __webpack_require__(177);
-	var dP = Object.defineProperty;
-	
-	exports.f = __webpack_require__(174) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
-	  anObject(O);
-	  P = toPrimitive(P, true);
-	  anObject(Attributes);
-	  if (IE8_DOM_DEFINE) try {
-	    return dP(O, P, Attributes);
-	  } catch (e) { /* empty */ }
-	  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
-	  if ('value' in Attributes) O[P] = Attributes.value;
-	  return O;
-	};
-
-
-/***/ }),
-/* 171 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(172);
-	module.exports = function (it) {
-	  if (!isObject(it)) throw TypeError(it + ' is not an object!');
-	  return it;
-	};
-
-
-/***/ }),
-/* 172 */
-/***/ (function(module, exports) {
-
-	module.exports = function (it) {
-	  return typeof it === 'object' ? it !== null : typeof it === 'function';
-	};
-
-
-/***/ }),
-/* 173 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = !__webpack_require__(174) && !__webpack_require__(175)(function () {
-	  return Object.defineProperty(__webpack_require__(176)('div'), 'a', { get: function () { return 7; } }).a != 7;
-	});
-
-
-/***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(175)(function () {
-	  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
-	});
-
-
-/***/ }),
-/* 175 */
-/***/ (function(module, exports) {
-
-	module.exports = function (exec) {
-	  try {
-	    return !!exec();
-	  } catch (e) {
-	    return true;
-	  }
-	};
-
-
-/***/ }),
-/* 176 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(172);
-	var document = __webpack_require__(165).document;
-	// typeof document.createElement is 'object' in old IE
-	var is = isObject(document) && isObject(document.createElement);
-	module.exports = function (it) {
-	  return is ? document.createElement(it) : {};
-	};
-
-
-/***/ }),
-/* 177 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(172);
-	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
-	// and the second argument - flag - preferred type is a string
-	module.exports = function (it, S) {
-	  if (!isObject(it)) return it;
-	  var fn, val;
-	  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
-	  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
-	  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
-	  throw TypeError("Can't convert object to primitive value");
-	};
-
-
-/***/ }),
-/* 178 */
-/***/ (function(module, exports) {
-
-	module.exports = function (bitmap, value) {
-	  return {
-	    enumerable: !(bitmap & 1),
-	    configurable: !(bitmap & 2),
-	    writable: !(bitmap & 4),
-	    value: value
-	  };
-	};
-
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports) {
-
-	var hasOwnProperty = {}.hasOwnProperty;
-	module.exports = function (it, key) {
-	  return hasOwnProperty.call(it, key);
-	};
-
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	// 19.1.2.1 Object.assign(target, source, ...)
-	var getKeys = __webpack_require__(181);
-	var gOPS = __webpack_require__(196);
-	var pIE = __webpack_require__(197);
-	var toObject = __webpack_require__(198);
-	var IObject = __webpack_require__(184);
-	var $assign = Object.assign;
-	
-	// should work with symbols and should have deterministic property order (V8 bug)
-	module.exports = !$assign || __webpack_require__(175)(function () {
-	  var A = {};
-	  var B = {};
-	  // eslint-disable-next-line no-undef
-	  var S = Symbol();
-	  var K = 'abcdefghijklmnopqrst';
-	  A[S] = 7;
-	  K.split('').forEach(function (k) { B[k] = k; });
-	  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-	}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-	  var T = toObject(target);
-	  var aLen = arguments.length;
-	  var index = 1;
-	  var getSymbols = gOPS.f;
-	  var isEnum = pIE.f;
-	  while (aLen > index) {
-	    var S = IObject(arguments[index++]);
-	    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
-	    var length = keys.length;
-	    var j = 0;
-	    var key;
-	    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-	  } return T;
-	} : $assign;
-
-
-/***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-	var $keys = __webpack_require__(182);
-	var enumBugKeys = __webpack_require__(195);
-	
-	module.exports = Object.keys || function keys(O) {
-	  return $keys(O, enumBugKeys);
-	};
-
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var has = __webpack_require__(179);
-	var toIObject = __webpack_require__(183);
-	var arrayIndexOf = __webpack_require__(187)(false);
-	var IE_PROTO = __webpack_require__(191)('IE_PROTO');
-	
-	module.exports = function (object, names) {
-	  var O = toIObject(object);
-	  var i = 0;
-	  var result = [];
-	  var key;
-	  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
-	  // Don't enum bug & hidden keys
-	  while (names.length > i) if (has(O, key = names[i++])) {
-	    ~arrayIndexOf(result, key) || result.push(key);
-	  }
-	  return result;
-	};
-
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(184);
-	var defined = __webpack_require__(186);
-	module.exports = function (it) {
-	  return IObject(defined(it));
-	};
-
-
-/***/ }),
-/* 184 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(185);
-	// eslint-disable-next-line no-prototype-builtins
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-
-/***/ }),
-/* 185 */
-/***/ (function(module, exports) {
-
-	var toString = {}.toString;
-	
-	module.exports = function (it) {
-	  return toString.call(it).slice(8, -1);
-	};
-
-
-/***/ }),
-/* 186 */
-/***/ (function(module, exports) {
-
-	// 7.2.1 RequireObjectCoercible(argument)
-	module.exports = function (it) {
-	  if (it == undefined) throw TypeError("Can't call method on  " + it);
-	  return it;
-	};
-
-
-/***/ }),
-/* 187 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// false -> Array#indexOf
-	// true  -> Array#includes
-	var toIObject = __webpack_require__(183);
-	var toLength = __webpack_require__(188);
-	var toAbsoluteIndex = __webpack_require__(190);
-	module.exports = function (IS_INCLUDES) {
-	  return function ($this, el, fromIndex) {
-	    var O = toIObject($this);
-	    var length = toLength(O.length);
-	    var index = toAbsoluteIndex(fromIndex, length);
-	    var value;
-	    // Array#includes uses SameValueZero equality algorithm
-	    // eslint-disable-next-line no-self-compare
-	    if (IS_INCLUDES && el != el) while (length > index) {
-	      value = O[index++];
-	      // eslint-disable-next-line no-self-compare
-	      if (value != value) return true;
-	    // Array#indexOf ignores holes, Array#includes - not
-	    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
-	      if (O[index] === el) return IS_INCLUDES || index || 0;
-	    } return !IS_INCLUDES && -1;
-	  };
-	};
-
-
-/***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 7.1.15 ToLength
-	var toInteger = __webpack_require__(189);
-	var min = Math.min;
-	module.exports = function (it) {
-	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
-	};
-
-
-/***/ }),
-/* 189 */
-/***/ (function(module, exports) {
-
-	// 7.1.4 ToInteger
-	var ceil = Math.ceil;
-	var floor = Math.floor;
-	module.exports = function (it) {
-	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-	};
-
-
-/***/ }),
-/* 190 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var toInteger = __webpack_require__(189);
-	var max = Math.max;
-	var min = Math.min;
-	module.exports = function (index, length) {
-	  index = toInteger(index);
-	  return index < 0 ? max(index + length, 0) : min(index, length);
-	};
-
-
-/***/ }),
-/* 191 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var shared = __webpack_require__(192)('keys');
-	var uid = __webpack_require__(194);
-	module.exports = function (key) {
-	  return shared[key] || (shared[key] = uid(key));
-	};
-
-
-/***/ }),
-/* 192 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var core = __webpack_require__(166);
-	var global = __webpack_require__(165);
-	var SHARED = '__core-js_shared__';
-	var store = global[SHARED] || (global[SHARED] = {});
-	
-	(module.exports = function (key, value) {
-	  return store[key] || (store[key] = value !== undefined ? value : {});
-	})('versions', []).push({
-	  version: core.version,
-	  mode: __webpack_require__(193) ? 'pure' : 'global',
-	  copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
-	});
-
-
-/***/ }),
-/* 193 */
-/***/ (function(module, exports) {
-
-	module.exports = true;
-
-
-/***/ }),
-/* 194 */
-/***/ (function(module, exports) {
-
-	var id = 0;
-	var px = Math.random();
-	module.exports = function (key) {
-	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-	};
-
-
-/***/ }),
-/* 195 */
-/***/ (function(module, exports) {
-
-	// IE 8- don't enum bug keys
-	module.exports = (
-	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
-	).split(',');
-
-
-/***/ }),
-/* 196 */
-/***/ (function(module, exports) {
-
-	exports.f = Object.getOwnPropertySymbols;
-
-
-/***/ }),
-/* 197 */
-/***/ (function(module, exports) {
-
-	exports.f = {}.propertyIsEnumerable;
-
-
-/***/ }),
-/* 198 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(186);
-	module.exports = function (it) {
-	  return Object(defined(it));
-	};
-
-
-/***/ }),
-/* 199 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', { value: true });
-	
-	var react = __webpack_require__(1);
-	
-	function areInputsEqual(newInputs, lastInputs) {
-	  if (newInputs.length !== lastInputs.length) {
-	    return false;
-	  }
-	
-	  for (var i = 0; i < newInputs.length; i++) {
-	    if (newInputs[i] !== lastInputs[i]) {
-	      return false;
-	    }
-	  }
-	
-	  return true;
-	}
-	
-	function useMemoOne(getResult, inputs) {
-	  var initial = react.useState(function () {
-	    return {
-	      inputs: inputs,
-	      result: getResult()
-	    };
-	  })[0];
-	  var committed = react.useRef(initial);
-	  var isInputMatch = Boolean(inputs && committed.current.inputs && areInputsEqual(inputs, committed.current.inputs));
-	  var cache = isInputMatch ? committed.current : {
-	    inputs: inputs,
-	    result: getResult()
-	  };
-	  react.useEffect(function () {
-	    committed.current = cache;
-	  }, [cache]);
-	  return cache.result;
-	}
-	function useCallbackOne(callback, inputs) {
-	  return useMemoOne(function () {
-	    return callback;
-	  }, inputs);
-	}
-	var useMemo = useMemoOne;
-	var useCallback = useCallbackOne;
-	
-	exports.useCallback = useCallback;
-	exports.useCallbackOne = useCallbackOne;
-	exports.useMemo = useMemo;
-	exports.useMemoOne = useMemoOne;
-
-
-/***/ }),
-/* 200 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var _Object$create = __webpack_require__(201);
-	
 	function _inheritsLoose(subClass, superClass) {
-	  subClass.prototype = _Object$create(superClass.prototype);
+	  subClass.prototype = Object.create(superClass.prototype);
 	  subClass.prototype.constructor = subClass;
 	  subClass.__proto__ = superClass;
 	}
@@ -25207,131 +24995,7 @@
 	module.exports = _inheritsLoose;
 
 /***/ }),
-/* 201 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(202);
-
-/***/ }),
-/* 202 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(203);
-	var $Object = __webpack_require__(166).Object;
-	module.exports = function create(P, D) {
-	  return $Object.create(P, D);
-	};
-
-
-/***/ }),
-/* 203 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var $export = __webpack_require__(164);
-	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-	$export($export.S, 'Object', { create: __webpack_require__(204) });
-
-
-/***/ }),
-/* 204 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-	var anObject = __webpack_require__(171);
-	var dPs = __webpack_require__(205);
-	var enumBugKeys = __webpack_require__(195);
-	var IE_PROTO = __webpack_require__(191)('IE_PROTO');
-	var Empty = function () { /* empty */ };
-	var PROTOTYPE = 'prototype';
-	
-	// Create object with fake `null` prototype: use iframe Object with cleared prototype
-	var createDict = function () {
-	  // Thrash, waste and sodomy: IE GC bug
-	  var iframe = __webpack_require__(176)('iframe');
-	  var i = enumBugKeys.length;
-	  var lt = '<';
-	  var gt = '>';
-	  var iframeDocument;
-	  iframe.style.display = 'none';
-	  __webpack_require__(206).appendChild(iframe);
-	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-	  // createDict = iframe.contentWindow.Object;
-	  // html.removeChild(iframe);
-	  iframeDocument = iframe.contentWindow.document;
-	  iframeDocument.open();
-	  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
-	  iframeDocument.close();
-	  createDict = iframeDocument.F;
-	  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
-	  return createDict();
-	};
-	
-	module.exports = Object.create || function create(O, Properties) {
-	  var result;
-	  if (O !== null) {
-	    Empty[PROTOTYPE] = anObject(O);
-	    result = new Empty();
-	    Empty[PROTOTYPE] = null;
-	    // add "__proto__" for Object.getPrototypeOf polyfill
-	    result[IE_PROTO] = O;
-	  } else result = createDict();
-	  return Properties === undefined ? result : dPs(result, Properties);
-	};
-
-
-/***/ }),
-/* 205 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var dP = __webpack_require__(170);
-	var anObject = __webpack_require__(171);
-	var getKeys = __webpack_require__(181);
-	
-	module.exports = __webpack_require__(174) ? Object.defineProperties : function defineProperties(O, Properties) {
-	  anObject(O);
-	  var keys = getKeys(Properties);
-	  var length = keys.length;
-	  var i = 0;
-	  var P;
-	  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
-	  return O;
-	};
-
-
-/***/ }),
-/* 206 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var document = __webpack_require__(165).document;
-	module.exports = document && document.documentElement;
-
-
-/***/ }),
-/* 207 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	var isProduction = process.env.NODE_ENV === 'production';
-	var prefix = 'Invariant failed';
-	function invariant(condition, message) {
-	  if (condition) {
-	    return;
-	  }
-	
-	  if (isProduction) {
-	    throw new Error(prefix);
-	  } else {
-	    throw new Error(prefix + ": " + (message || ''));
-	  }
-	}
-	
-	module.exports = invariant;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
-
-/***/ }),
-/* 208 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -25340,7 +25004,7 @@
 	
 	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 	
-	var $$observable = _interopDefault(__webpack_require__(209));
+	var $$observable = _interopDefault(__webpack_require__(162));
 	
 	/**
 	 * These are private action types reserved by Redux.
@@ -26010,7 +25674,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 209 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -26019,7 +25683,7 @@
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(211);
+	var _ponyfill = __webpack_require__(164);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -26042,10 +25706,10 @@
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(210)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(163)(module)))
 
 /***/ }),
-/* 210 */
+/* 163 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -26061,7 +25725,7 @@
 
 
 /***/ }),
-/* 211 */
+/* 164 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -26089,7 +25753,7 @@
 	};
 
 /***/ }),
-/* 212 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26098,148 +25762,121 @@
 	
 	exports.__esModule = true;
 	
-	var _Provider = _interopRequireDefault(__webpack_require__(213));
+	var _Provider = _interopRequireDefault(__webpack_require__(166));
 	
 	exports.Provider = _Provider["default"];
 	
-	var _connectAdvanced = _interopRequireDefault(__webpack_require__(220));
+	var _connectAdvanced = _interopRequireDefault(__webpack_require__(171));
 	
 	exports.connectAdvanced = _connectAdvanced["default"];
 	
-	var _Context = __webpack_require__(217);
+	var _Context = __webpack_require__(168);
 	
 	exports.ReactReduxContext = _Context.ReactReduxContext;
 	
-	var _connect = _interopRequireDefault(__webpack_require__(227));
+	var _connect = _interopRequireDefault(__webpack_require__(178));
 	
 	exports.connect = _connect["default"];
 	
-	var _useDispatch = __webpack_require__(238);
+	var _useDispatch = __webpack_require__(189);
 	
 	exports.useDispatch = _useDispatch.useDispatch;
+	exports.createDispatchHook = _useDispatch.createDispatchHook;
 	
-	var _useSelector = __webpack_require__(241);
+	var _useSelector = __webpack_require__(192);
 	
 	exports.useSelector = _useSelector.useSelector;
+	exports.createSelectorHook = _useSelector.createSelectorHook;
 	
-	var _useStore = __webpack_require__(239);
+	var _useStore = __webpack_require__(190);
 	
 	exports.useStore = _useStore.useStore;
+	exports.createStoreHook = _useStore.createStoreHook;
 	
-	var _batch = __webpack_require__(219);
+	var _batch = __webpack_require__(170);
 	
-	var _reactBatchedUpdates = __webpack_require__(242);
+	var _reactBatchedUpdates = __webpack_require__(193);
 	
 	exports.batch = _reactBatchedUpdates.unstable_batchedUpdates;
 	
-	var _shallowEqual = _interopRequireDefault(__webpack_require__(228));
+	var _shallowEqual = _interopRequireDefault(__webpack_require__(179));
 	
 	exports.shallowEqual = _shallowEqual["default"];
 	(0, _batch.setBatch)(_reactBatchedUpdates.unstable_batchedUpdates);
 
 /***/ }),
-/* 213 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	var _interopRequireWildcard = __webpack_require__(214);
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	var _interopRequireDefault = __webpack_require__(14);
 	
+	var _interopRequireWildcard = __webpack_require__(167);
+	
 	exports.__esModule = true;
 	exports["default"] = void 0;
-	
-	var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(215));
-	
-	var _inheritsLoose2 = _interopRequireDefault(__webpack_require__(216));
 	
 	var _react = _interopRequireWildcard(__webpack_require__(1));
 	
 	var _propTypes = _interopRequireDefault(__webpack_require__(6));
 	
-	var _Context = __webpack_require__(217);
+	var _Context = __webpack_require__(168);
 	
-	var _Subscription = _interopRequireDefault(__webpack_require__(218));
+	var _Subscription = _interopRequireDefault(__webpack_require__(169));
 	
-	var Provider =
-	/*#__PURE__*/
-	function (_Component) {
-	  (0, _inheritsLoose2["default"])(Provider, _Component);
-	
-	  function Provider(props) {
-	    var _this;
-	
-	    _this = _Component.call(this, props) || this;
-	    var store = props.store;
-	    _this.notifySubscribers = _this.notifySubscribers.bind((0, _assertThisInitialized2["default"])(_this));
+	function Provider(_ref) {
+	  var store = _ref.store,
+	      context = _ref.context,
+	      children = _ref.children;
+	  var contextValue = (0, _react.useMemo)(function () {
 	    var subscription = new _Subscription["default"](store);
-	    subscription.onStateChange = _this.notifySubscribers;
-	    _this.state = {
+	    subscription.onStateChange = subscription.notifyNestedSubs;
+	    return {
 	      store: store,
 	      subscription: subscription
 	    };
-	    _this.previousState = store.getState();
-	    return _this;
-	  }
+	  }, [store]);
+	  var previousState = (0, _react.useMemo)(function () {
+	    return store.getState();
+	  }, [store]);
+	  (0, _react.useEffect)(function () {
+	    var subscription = contextValue.subscription;
+	    subscription.trySubscribe();
 	
-	  var _proto = Provider.prototype;
-	
-	  _proto.componentDidMount = function componentDidMount() {
-	    this._isMounted = true;
-	    this.state.subscription.trySubscribe();
-	
-	    if (this.previousState !== this.props.store.getState()) {
-	      this.state.subscription.notifyNestedSubs();
+	    if (previousState !== store.getState()) {
+	      subscription.notifyNestedSubs();
 	    }
+	
+	    return function () {
+	      subscription.tryUnsubscribe();
+	      subscription.onStateChange = null;
+	    };
+	  }, [contextValue, previousState]);
+	  var Context = context || _Context.ReactReduxContext;
+	  return /*#__PURE__*/_react["default"].createElement(Context.Provider, {
+	    value: contextValue
+	  }, children);
+	}
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  Provider.propTypes = {
+	    store: _propTypes["default"].shape({
+	      subscribe: _propTypes["default"].func.isRequired,
+	      dispatch: _propTypes["default"].func.isRequired,
+	      getState: _propTypes["default"].func.isRequired
+	    }),
+	    context: _propTypes["default"].object,
+	    children: _propTypes["default"].any
 	  };
+	}
 	
-	  _proto.componentWillUnmount = function componentWillUnmount() {
-	    if (this.unsubscribe) this.unsubscribe();
-	    this.state.subscription.tryUnsubscribe();
-	    this._isMounted = false;
-	  };
-	
-	  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-	    if (this.props.store !== prevProps.store) {
-	      this.state.subscription.tryUnsubscribe();
-	      var subscription = new _Subscription["default"](this.props.store);
-	      subscription.onStateChange = this.notifySubscribers;
-	      this.setState({
-	        store: this.props.store,
-	        subscription: subscription
-	      });
-	    }
-	  };
-	
-	  _proto.notifySubscribers = function notifySubscribers() {
-	    this.state.subscription.notifyNestedSubs();
-	  };
-	
-	  _proto.render = function render() {
-	    var Context = this.props.context || _Context.ReactReduxContext;
-	    return _react["default"].createElement(Context.Provider, {
-	      value: this.state
-	    }, this.props.children);
-	  };
-	
-	  return Provider;
-	}(_react.Component);
-	
-	Provider.propTypes = {
-	  store: _propTypes["default"].shape({
-	    subscribe: _propTypes["default"].func.isRequired,
-	    dispatch: _propTypes["default"].func.isRequired,
-	    getState: _propTypes["default"].func.isRequired
-	  }),
-	  context: _propTypes["default"].object,
-	  children: _propTypes["default"].any
-	};
 	var _default = Provider;
 	exports["default"] = _default;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 214 */
+/* 167 */
 /***/ (function(module, exports) {
 
 	function _interopRequireWildcard(obj) {
@@ -26270,36 +25907,10 @@
 	module.exports = _interopRequireWildcard;
 
 /***/ }),
-/* 215 */
-/***/ (function(module, exports) {
-
-	function _assertThisInitialized(self) {
-	  if (self === void 0) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }
-	
-	  return self;
-	}
-	
-	module.exports = _assertThisInitialized;
-
-/***/ }),
-/* 216 */
-/***/ (function(module, exports) {
-
-	function _inheritsLoose(subClass, superClass) {
-	  subClass.prototype = Object.create(superClass.prototype);
-	  subClass.prototype.constructor = subClass;
-	  subClass.__proto__ = superClass;
-	}
-	
-	module.exports = _inheritsLoose;
-
-/***/ }),
-/* 217 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	var _interopRequireDefault = __webpack_require__(14);
 	
@@ -26308,14 +25919,20 @@
 	
 	var _react = _interopRequireDefault(__webpack_require__(1));
 	
-	var ReactReduxContext = _react["default"].createContext(null);
+	var ReactReduxContext = /*#__PURE__*/_react["default"].createContext(null);
 	
 	exports.ReactReduxContext = ReactReduxContext;
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  ReactReduxContext.displayName = 'ReactRedux';
+	}
+	
 	var _default = ReactReduxContext;
 	exports["default"] = _default;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 218 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26323,55 +25940,80 @@
 	exports.__esModule = true;
 	exports["default"] = void 0;
 	
-	var _batch = __webpack_require__(219);
+	var _batch = __webpack_require__(170);
 	
 	// encapsulates the subscription logic for connecting a component to the redux store, as
 	// well as nesting subscriptions of descendant components, so that we can ensure the
 	// ancestor components re-render before descendants
-	var CLEARED = null;
 	var nullListeners = {
 	  notify: function notify() {}
 	};
 	
 	function createListenerCollection() {
-	  var batch = (0, _batch.getBatch)(); // the current/next pattern is copied from redux's createStore code.
-	  // TODO: refactor+expose that code to be reusable here?
-	
-	  var current = [];
-	  var next = [];
+	  var batch = (0, _batch.getBatch)();
+	  var first = null;
+	  var last = null;
 	  return {
 	    clear: function clear() {
-	      next = CLEARED;
-	      current = CLEARED;
+	      first = null;
+	      last = null;
 	    },
 	    notify: function notify() {
-	      var listeners = current = next;
 	      batch(function () {
-	        for (var i = 0; i < listeners.length; i++) {
-	          listeners[i]();
+	        var listener = first;
+	
+	        while (listener) {
+	          listener.callback();
+	          listener = listener.next;
 	        }
 	      });
 	    },
 	    get: function get() {
-	      return next;
+	      var listeners = [];
+	      var listener = first;
+	
+	      while (listener) {
+	        listeners.push(listener);
+	        listener = listener.next;
+	      }
+	
+	      return listeners;
 	    },
-	    subscribe: function subscribe(listener) {
+	    subscribe: function subscribe(callback) {
 	      var isSubscribed = true;
-	      if (next === current) next = current.slice();
-	      next.push(listener);
+	      var listener = last = {
+	        callback: callback,
+	        next: null,
+	        prev: last
+	      };
+	
+	      if (listener.prev) {
+	        listener.prev.next = listener;
+	      } else {
+	        first = listener;
+	      }
+	
 	      return function unsubscribe() {
-	        if (!isSubscribed || current === CLEARED) return;
+	        if (!isSubscribed || first === null) return;
 	        isSubscribed = false;
-	        if (next === current) next = current.slice();
-	        next.splice(next.indexOf(listener), 1);
+	
+	        if (listener.next) {
+	          listener.next.prev = listener.prev;
+	        } else {
+	          last = listener.prev;
+	        }
+	
+	        if (listener.prev) {
+	          listener.prev.next = listener.next;
+	        } else {
+	          first = listener.next;
+	        }
 	      };
 	    }
 	  };
 	}
 	
-	var Subscription =
-	/*#__PURE__*/
-	function () {
+	var Subscription = /*#__PURE__*/function () {
 	  function Subscription(store, parentSub) {
 	    this.store = store;
 	    this.parentSub = parentSub;
@@ -26423,7 +26065,7 @@
 	exports["default"] = Subscription;
 
 /***/ }),
-/* 219 */
+/* 170 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -26452,12 +26094,12 @@
 	exports.getBatch = getBatch;
 
 /***/ }),
-/* 220 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
-	var _interopRequireWildcard = __webpack_require__(214);
+	var _interopRequireWildcard = __webpack_require__(167);
 	
 	var _interopRequireDefault = __webpack_require__(14);
 	
@@ -26466,19 +26108,19 @@
 	
 	var _extends2 = _interopRequireDefault(__webpack_require__(120));
 	
-	var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(221));
+	var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(172));
 	
-	var _hoistNonReactStatics = _interopRequireDefault(__webpack_require__(222));
-	
-	var _invariant = _interopRequireDefault(__webpack_require__(226));
+	var _hoistNonReactStatics = _interopRequireDefault(__webpack_require__(173));
 	
 	var _react = _interopRequireWildcard(__webpack_require__(1));
 	
-	var _reactIs = __webpack_require__(223);
+	var _reactIs = __webpack_require__(174);
 	
-	var _Subscription = _interopRequireDefault(__webpack_require__(218));
+	var _Subscription = _interopRequireDefault(__webpack_require__(169));
 	
-	var _Context = __webpack_require__(217);
+	var _useIsomorphicLayoutEffect = __webpack_require__(177);
+	
+	var _Context = __webpack_require__(168);
 	
 	// Define some constant arrays just to avoid re-creating these
 	var EMPTY_ARRAY = [];
@@ -26497,16 +26139,105 @@
 	  return [action.payload, updateCount + 1];
 	}
 	
+	function useIsomorphicLayoutEffectWithArgs(effectFunc, effectArgs, dependencies) {
+	  (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(function () {
+	    return effectFunc.apply(void 0, effectArgs);
+	  }, dependencies);
+	}
+	
+	function captureWrapperProps(lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, actualChildProps, childPropsFromStoreUpdate, notifyNestedSubs) {
+	  // We want to capture the wrapper props and child props we used for later comparisons
+	  lastWrapperProps.current = wrapperProps;
+	  lastChildProps.current = actualChildProps;
+	  renderIsScheduled.current = false; // If the render was from a store update, clear out that reference and cascade the subscriber update
+	
+	  if (childPropsFromStoreUpdate.current) {
+	    childPropsFromStoreUpdate.current = null;
+	    notifyNestedSubs();
+	  }
+	}
+	
+	function subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, childPropsFromStoreUpdate, notifyNestedSubs, forceComponentUpdateDispatch) {
+	  // If we're not subscribed to the store, nothing to do here
+	  if (!shouldHandleStateChanges) return; // Capture values for checking if and when this component unmounts
+	
+	  var didUnsubscribe = false;
+	  var lastThrownError = null; // We'll run this callback every time a store subscription update propagates to this component
+	
+	  var checkForUpdates = function checkForUpdates() {
+	    if (didUnsubscribe) {
+	      // Don't run stale listeners.
+	      // Redux doesn't guarantee unsubscriptions happen until next dispatch.
+	      return;
+	    }
+	
+	    var latestStoreState = store.getState();
+	    var newChildProps, error;
+	
+	    try {
+	      // Actually run the selector with the most recent store state and wrapper props
+	      // to determine what the child props should be
+	      newChildProps = childPropsSelector(latestStoreState, lastWrapperProps.current);
+	    } catch (e) {
+	      error = e;
+	      lastThrownError = e;
+	    }
+	
+	    if (!error) {
+	      lastThrownError = null;
+	    } // If the child props haven't changed, nothing to do here - cascade the subscription update
+	
+	
+	    if (newChildProps === lastChildProps.current) {
+	      if (!renderIsScheduled.current) {
+	        notifyNestedSubs();
+	      }
+	    } else {
+	      // Save references to the new child props.  Note that we track the "child props from store update"
+	      // as a ref instead of a useState/useReducer because we need a way to determine if that value has
+	      // been processed.  If this went into useState/useReducer, we couldn't clear out the value without
+	      // forcing another re-render, which we don't want.
+	      lastChildProps.current = newChildProps;
+	      childPropsFromStoreUpdate.current = newChildProps;
+	      renderIsScheduled.current = true; // If the child props _did_ change (or we caught an error), this wrapper component needs to re-render
+	
+	      forceComponentUpdateDispatch({
+	        type: 'STORE_UPDATED',
+	        payload: {
+	          error: error
+	        }
+	      });
+	    }
+	  }; // Actually subscribe to the nearest connected ancestor (or store)
+	
+	
+	  subscription.onStateChange = checkForUpdates;
+	  subscription.trySubscribe(); // Pull data from the store after first render in case the store has
+	  // changed since we began.
+	
+	  checkForUpdates();
+	
+	  var unsubscribeWrapper = function unsubscribeWrapper() {
+	    didUnsubscribe = true;
+	    subscription.tryUnsubscribe();
+	    subscription.onStateChange = null;
+	
+	    if (lastThrownError) {
+	      // It's possible that we caught an error due to a bad mapState function, but the
+	      // parent re-rendered without this component and we're about to unmount.
+	      // This shouldn't happen as long as we do top-down subscriptions correctly, but
+	      // if we ever do those wrong, this throw will surface the error in our tests.
+	      // In that case, throw the error from here so it doesn't get lost.
+	      throw lastThrownError;
+	    }
+	  };
+	
+	  return unsubscribeWrapper;
+	}
+	
 	var initStateUpdates = function initStateUpdates() {
 	  return [null, 0];
-	}; // React currently throws a warning when using useLayoutEffect on the server.
-	// To get around it, we can conditionally useEffect on the server (no-op) and
-	// useLayoutEffect in the browser. We need useLayoutEffect because we want
-	// `connect` to perform sync updates to a ref to save the latest props after
-	// a render is actually committed to the DOM.
-	
-	
-	var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
+	};
 	
 	function connectAdvanced(
 	/*
@@ -26549,14 +26280,27 @@
 	      _ref2$context = _ref2.context,
 	      context = _ref2$context === void 0 ? _Context.ReactReduxContext : _ref2$context,
 	      connectOptions = (0, _objectWithoutPropertiesLoose2["default"])(_ref2, ["getDisplayName", "methodName", "renderCountProp", "shouldHandleStateChanges", "storeKey", "withRef", "forwardRef", "context"]);
-	  (0, _invariant["default"])(renderCountProp === undefined, "renderCountProp is removed. render counting is built into the latest React Dev Tools profiling extension");
-	  (0, _invariant["default"])(!withRef, 'withRef is removed. To access the wrapped instance, use a ref on the connected component');
-	  var customStoreWarningMessage = 'To use a custom Redux store for specific components, create a custom React context with ' + "React.createContext(), and pass the context object to React Redux's Provider and specific components" + ' like: <Provider context={MyContext}><ConnectedComponent context={MyContext} /></Provider>. ' + 'You may also pass a {context : MyContext} option to connect';
-	  (0, _invariant["default"])(storeKey === 'store', 'storeKey has been removed and does not do anything. ' + customStoreWarningMessage);
+	
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (renderCountProp !== undefined) {
+	      throw new Error("renderCountProp is removed. render counting is built into the latest React Dev Tools profiling extension");
+	    }
+	
+	    if (withRef) {
+	      throw new Error('withRef is removed. To access the wrapped instance, use a ref on the connected component');
+	    }
+	
+	    var customStoreWarningMessage = 'To use a custom Redux store for specific components, create a custom React context with ' + "React.createContext(), and pass the context object to React Redux's Provider and specific components" + ' like: <Provider context={MyContext}><ConnectedComponent context={MyContext} /></Provider>. ' + 'You may also pass a {context : MyContext} option to connect';
+	
+	    if (storeKey !== 'store') {
+	      throw new Error('storeKey has been removed and does not do anything. ' + customStoreWarningMessage);
+	    }
+	  }
+	
 	  var Context = context;
 	  return function wrapWithConnect(WrappedComponent) {
-	    if (process.env.NODE_ENV !== 'production') {
-	      (0, _invariant["default"])((0, _reactIs.isValidElementType)(WrappedComponent), "You must pass a component to the function returned by " + (methodName + ". Instead received " + stringifyComponent(WrappedComponent)));
+	    if (process.env.NODE_ENV !== 'production' && !(0, _reactIs.isValidElementType)(WrappedComponent)) {
+	      throw new Error("You must pass a component to the function returned by " + (methodName + ". Instead received " + stringifyComponent(WrappedComponent)));
 	    }
 	
 	    var wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -26589,26 +26333,33 @@
 	        // Distinguish between actual "data" props that were passed to the wrapper component,
 	        // and values needed to control behavior (forwarded refs, alternate context instances).
 	        // To maintain the wrapperProps object reference, memoize this destructuring.
-	        var forwardedRef = props.forwardedRef,
-	            wrapperProps = (0, _objectWithoutPropertiesLoose2["default"])(props, ["forwardedRef"]);
-	        return [props.context, forwardedRef, wrapperProps];
+	        var reactReduxForwardedRef = props.reactReduxForwardedRef,
+	            wrapperProps = (0, _objectWithoutPropertiesLoose2["default"])(props, ["reactReduxForwardedRef"]);
+	        return [props.context, reactReduxForwardedRef, wrapperProps];
 	      }, [props]),
 	          propsContext = _useMemo[0],
-	          forwardedRef = _useMemo[1],
+	          reactReduxForwardedRef = _useMemo[1],
 	          wrapperProps = _useMemo[2];
 	
 	      var ContextToUse = (0, _react.useMemo)(function () {
 	        // Users may optionally pass in a custom context instance to use instead of our ReactReduxContext.
 	        // Memoize the check that determines which context instance we should use.
-	        return propsContext && propsContext.Consumer && (0, _reactIs.isContextConsumer)(_react["default"].createElement(propsContext.Consumer, null)) ? propsContext : Context;
+	        return propsContext && propsContext.Consumer && (0, _reactIs.isContextConsumer)( /*#__PURE__*/_react["default"].createElement(propsContext.Consumer, null)) ? propsContext : Context;
 	      }, [propsContext, Context]); // Retrieve the store and ancestor subscription via context, if available
 	
-	      var contextValue = (0, _react.useContext)(ContextToUse); // The store _must_ exist as either a prop or in context
+	      var contextValue = (0, _react.useContext)(ContextToUse); // The store _must_ exist as either a prop or in context.
+	      // We'll check to see if it _looks_ like a Redux store first.
+	      // This allows us to pass through a `store` prop that is just a plain value.
 	
-	      var didStoreComeFromProps = Boolean(props.store);
+	      var didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
 	      var didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
-	      (0, _invariant["default"])(didStoreComeFromProps || didStoreComeFromContext, "Could not find \"store\" in the context of " + ("\"" + displayName + "\". Either wrap the root component in a <Provider>, ") + "or pass a custom React context provider to <Provider> and the corresponding " + ("React context consumer to " + displayName + " in connect options."));
-	      var store = props.store || contextValue.store;
+	
+	      if (process.env.NODE_ENV !== 'production' && !didStoreComeFromProps && !didStoreComeFromContext) {
+	        throw new Error("Could not find \"store\" in the context of " + ("\"" + displayName + "\". Either wrap the root component in a <Provider>, ") + "or pass a custom React context provider to <Provider> and the corresponding " + ("React context consumer to " + displayName + " in connect options."));
+	      } // Based on the previous check, one of these must be true
+	
+	
+	      var store = didStoreComeFromProps ? props.store : contextValue.store;
 	      var childPropsSelector = (0, _react.useMemo)(function () {
 	        // The child props selector needs the store reference as an input.
 	        // Re-create this selector whenever the store changes.
@@ -26683,102 +26434,16 @@
 	      // about useLayoutEffect in SSR, so we try to detect environment and fall back to
 	      // just useEffect instead to avoid the warning, since neither will run anyway.
 	
-	      useIsomorphicLayoutEffect(function () {
-	        // We want to capture the wrapper props and child props we used for later comparisons
-	        lastWrapperProps.current = wrapperProps;
-	        lastChildProps.current = actualChildProps;
-	        renderIsScheduled.current = false; // If the render was from a store update, clear out that reference and cascade the subscriber update
+	      useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, actualChildProps, childPropsFromStoreUpdate, notifyNestedSubs]); // Our re-subscribe logic only runs when the store/subscription setup changes
 	
-	        if (childPropsFromStoreUpdate.current) {
-	          childPropsFromStoreUpdate.current = null;
-	          notifyNestedSubs();
-	        }
-	      }); // Our re-subscribe logic only runs when the store/subscription setup changes
-	
-	      useIsomorphicLayoutEffect(function () {
-	        // If we're not subscribed to the store, nothing to do here
-	        if (!shouldHandleStateChanges) return; // Capture values for checking if and when this component unmounts
-	
-	        var didUnsubscribe = false;
-	        var lastThrownError = null; // We'll run this callback every time a store subscription update propagates to this component
-	
-	        var checkForUpdates = function checkForUpdates() {
-	          if (didUnsubscribe) {
-	            // Don't run stale listeners.
-	            // Redux doesn't guarantee unsubscriptions happen until next dispatch.
-	            return;
-	          }
-	
-	          var latestStoreState = store.getState();
-	          var newChildProps, error;
-	
-	          try {
-	            // Actually run the selector with the most recent store state and wrapper props
-	            // to determine what the child props should be
-	            newChildProps = childPropsSelector(latestStoreState, lastWrapperProps.current);
-	          } catch (e) {
-	            error = e;
-	            lastThrownError = e;
-	          }
-	
-	          if (!error) {
-	            lastThrownError = null;
-	          } // If the child props haven't changed, nothing to do here - cascade the subscription update
-	
-	
-	          if (newChildProps === lastChildProps.current) {
-	            if (!renderIsScheduled.current) {
-	              notifyNestedSubs();
-	            }
-	          } else {
-	            // Save references to the new child props.  Note that we track the "child props from store update"
-	            // as a ref instead of a useState/useReducer because we need a way to determine if that value has
-	            // been processed.  If this went into useState/useReducer, we couldn't clear out the value without
-	            // forcing another re-render, which we don't want.
-	            lastChildProps.current = newChildProps;
-	            childPropsFromStoreUpdate.current = newChildProps;
-	            renderIsScheduled.current = true; // If the child props _did_ change (or we caught an error), this wrapper component needs to re-render
-	
-	            forceComponentUpdateDispatch({
-	              type: 'STORE_UPDATED',
-	              payload: {
-	                latestStoreState: latestStoreState,
-	                error: error
-	              }
-	            });
-	          }
-	        }; // Actually subscribe to the nearest connected ancestor (or store)
-	
-	
-	        subscription.onStateChange = checkForUpdates;
-	        subscription.trySubscribe(); // Pull data from the store after first render in case the store has
-	        // changed since we began.
-	
-	        checkForUpdates();
-	
-	        var unsubscribeWrapper = function unsubscribeWrapper() {
-	          didUnsubscribe = true;
-	          subscription.tryUnsubscribe();
-	
-	          if (lastThrownError) {
-	            // It's possible that we caught an error due to a bad mapState function, but the
-	            // parent re-rendered without this component and we're about to unmount.
-	            // This shouldn't happen as long as we do top-down subscriptions correctly, but
-	            // if we ever do those wrong, this throw will surface the error in our tests.
-	            // In that case, throw the error from here so it doesn't get lost.
-	            throw lastThrownError;
-	          }
-	        };
-	
-	        return unsubscribeWrapper;
-	      }, [store, subscription, childPropsSelector]); // Now that all that's done, we can finally try to actually render the child component.
+	      useIsomorphicLayoutEffectWithArgs(subscribeUpdates, [shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, childPropsFromStoreUpdate, notifyNestedSubs, forceComponentUpdateDispatch], [store, subscription, childPropsSelector]); // Now that all that's done, we can finally try to actually render the child component.
 	      // We memoize the elements for the rendered child component as an optimization.
 	
 	      var renderedWrappedComponent = (0, _react.useMemo)(function () {
-	        return _react["default"].createElement(WrappedComponent, (0, _extends2["default"])({}, actualChildProps, {
-	          ref: forwardedRef
+	        return /*#__PURE__*/_react["default"].createElement(WrappedComponent, (0, _extends2["default"])({}, actualChildProps, {
+	          ref: reactReduxForwardedRef
 	        }));
-	      }, [forwardedRef, WrappedComponent, actualChildProps]); // If React sees the exact same element reference as last time, it bails out of re-rendering
+	      }, [reactReduxForwardedRef, WrappedComponent, actualChildProps]); // If React sees the exact same element reference as last time, it bails out of re-rendering
 	      // that child, same as if it was wrapped in React.memo() or returned false from shouldComponentUpdate.
 	
 	      var renderedChild = (0, _react.useMemo)(function () {
@@ -26786,7 +26451,7 @@
 	          // If this component is subscribed to store updates, we need to pass its own
 	          // subscription instance down to our descendants. That means rendering the same
 	          // Context instance, and putting a different value into the context.
-	          return _react["default"].createElement(ContextToUse.Provider, {
+	          return /*#__PURE__*/_react["default"].createElement(ContextToUse.Provider, {
 	            value: overriddenContextValue
 	          }, renderedWrappedComponent);
 	        }
@@ -26803,8 +26468,8 @@
 	
 	    if (forwardRef) {
 	      var forwarded = _react["default"].forwardRef(function forwardConnectRef(props, ref) {
-	        return _react["default"].createElement(Connect, (0, _extends2["default"])({}, props, {
-	          forwardedRef: ref
+	        return /*#__PURE__*/_react["default"].createElement(Connect, (0, _extends2["default"])({}, props, {
+	          reactReduxForwardedRef: ref
 	        }));
 	      });
 	
@@ -26819,7 +26484,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 221 */
+/* 172 */
 /***/ (function(module, exports) {
 
 	function _objectWithoutPropertiesLoose(source, excluded) {
@@ -26840,65 +26505,66 @@
 	module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 222 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var reactIs = __webpack_require__(174);
 	
 	/**
 	 * Copyright 2015, Yahoo! Inc.
 	 * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
 	 */
-	var ReactIs = __webpack_require__(223);
 	var REACT_STATICS = {
-	    childContextTypes: true,
-	    contextType: true,
-	    contextTypes: true,
-	    defaultProps: true,
-	    displayName: true,
-	    getDefaultProps: true,
-	    getDerivedStateFromError: true,
-	    getDerivedStateFromProps: true,
-	    mixins: true,
-	    propTypes: true,
-	    type: true
+	  childContextTypes: true,
+	  contextType: true,
+	  contextTypes: true,
+	  defaultProps: true,
+	  displayName: true,
+	  getDefaultProps: true,
+	  getDerivedStateFromError: true,
+	  getDerivedStateFromProps: true,
+	  mixins: true,
+	  propTypes: true,
+	  type: true
 	};
-	
 	var KNOWN_STATICS = {
-	    name: true,
-	    length: true,
-	    prototype: true,
-	    caller: true,
-	    callee: true,
-	    arguments: true,
-	    arity: true
+	  name: true,
+	  length: true,
+	  prototype: true,
+	  caller: true,
+	  callee: true,
+	  arguments: true,
+	  arity: true
 	};
-	
 	var FORWARD_REF_STATICS = {
-	    '$$typeof': true,
-	    render: true,
-	    defaultProps: true,
-	    displayName: true,
-	    propTypes: true
+	  '$$typeof': true,
+	  render: true,
+	  defaultProps: true,
+	  displayName: true,
+	  propTypes: true
 	};
-	
 	var MEMO_STATICS = {
-	    '$$typeof': true,
-	    compare: true,
-	    defaultProps: true,
-	    displayName: true,
-	    propTypes: true,
-	    type: true
+	  '$$typeof': true,
+	  compare: true,
+	  defaultProps: true,
+	  displayName: true,
+	  propTypes: true,
+	  type: true
 	};
-	
 	var TYPE_STATICS = {};
-	TYPE_STATICS[ReactIs.ForwardRef] = FORWARD_REF_STATICS;
+	TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
+	TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
 	
 	function getStatics(component) {
-	    if (ReactIs.isMemo(component)) {
-	        return MEMO_STATICS;
-	    }
-	    return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
+	  // React v16.11 and below
+	  if (reactIs.isMemo(component)) {
+	    return MEMO_STATICS;
+	  } // React v16.12 and above
+	
+	
+	  return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
 	}
 	
 	var defineProperty = Object.defineProperty;
@@ -26907,66 +26573,65 @@
 	var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 	var getPrototypeOf = Object.getPrototypeOf;
 	var objectPrototype = Object.prototype;
-	
 	function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-	    if (typeof sourceComponent !== 'string') {
-	        // don't hoist over string (html) components
+	  if (typeof sourceComponent !== 'string') {
+	    // don't hoist over string (html) components
+	    if (objectPrototype) {
+	      var inheritedComponent = getPrototypeOf(sourceComponent);
 	
-	        if (objectPrototype) {
-	            var inheritedComponent = getPrototypeOf(sourceComponent);
-	            if (inheritedComponent && inheritedComponent !== objectPrototype) {
-	                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
-	            }
-	        }
-	
-	        var keys = getOwnPropertyNames(sourceComponent);
-	
-	        if (getOwnPropertySymbols) {
-	            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
-	        }
-	
-	        var targetStatics = getStatics(targetComponent);
-	        var sourceStatics = getStatics(sourceComponent);
-	
-	        for (var i = 0; i < keys.length; ++i) {
-	            var key = keys[i];
-	            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
-	                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-	                try {
-	                    // Avoid failures from read-only properties
-	                    defineProperty(targetComponent, key, descriptor);
-	                } catch (e) {}
-	            }
-	        }
-	
-	        return targetComponent;
+	      if (inheritedComponent && inheritedComponent !== objectPrototype) {
+	        hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+	      }
 	    }
 	
-	    return targetComponent;
+	    var keys = getOwnPropertyNames(sourceComponent);
+	
+	    if (getOwnPropertySymbols) {
+	      keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+	    }
+	
+	    var targetStatics = getStatics(targetComponent);
+	    var sourceStatics = getStatics(sourceComponent);
+	
+	    for (var i = 0; i < keys.length; ++i) {
+	      var key = keys[i];
+	
+	      if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+	        var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+	
+	        try {
+	          // Avoid failures from read-only properties
+	          defineProperty(targetComponent, key, descriptor);
+	        } catch (e) {}
+	      }
+	    }
+	  }
+	
+	  return targetComponent;
 	}
 	
 	module.exports = hoistNonReactStatics;
 
 
 /***/ }),
-/* 223 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
 	if (process.env.NODE_ENV === 'production') {
-	  module.exports = __webpack_require__(224);
+	  module.exports = __webpack_require__(175);
 	} else {
-	  module.exports = __webpack_require__(225);
+	  module.exports = __webpack_require__(176);
 	}
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 224 */
+/* 175 */
 /***/ (function(module, exports) {
 
-	/** @license React v16.9.0
+	/** @license React v16.13.1
 	 * react-is.production.min.js
 	 *
 	 * Copyright (c) Facebook, Inc. and its affiliates.
@@ -26975,19 +26640,19 @@
 	 * LICENSE file in the root directory of this source tree.
 	 */
 	
-	'use strict';Object.defineProperty(exports,"__esModule",{value:!0});
-	var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?Symbol.for("react.suspense_list"):
-	60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.fundamental"):60117,w=b?Symbol.for("react.responder"):60118;function x(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case h:return a;default:return u}}case t:case r:case d:return u}}}function y(a){return x(a)===m}exports.typeOf=x;exports.AsyncMode=l;
-	exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;exports.Fragment=e;exports.Lazy=t;exports.Memo=r;exports.Portal=d;exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;
-	exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===v||a.$$typeof===w)};exports.isAsyncMode=function(a){return y(a)||x(a)===l};exports.isConcurrentMode=y;exports.isContextConsumer=function(a){return x(a)===k};exports.isContextProvider=function(a){return x(a)===h};
-	exports.isElement=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return x(a)===n};exports.isFragment=function(a){return x(a)===e};exports.isLazy=function(a){return x(a)===t};exports.isMemo=function(a){return x(a)===r};exports.isPortal=function(a){return x(a)===d};exports.isProfiler=function(a){return x(a)===g};exports.isStrictMode=function(a){return x(a)===f};exports.isSuspense=function(a){return x(a)===p};
+	'use strict';var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
+	Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
+	function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}exports.AsyncMode=l;exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;exports.Fragment=e;exports.Lazy=t;exports.Memo=r;exports.Portal=d;
+	exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;exports.isAsyncMode=function(a){return A(a)||z(a)===l};exports.isConcurrentMode=A;exports.isContextConsumer=function(a){return z(a)===k};exports.isContextProvider=function(a){return z(a)===h};exports.isElement=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return z(a)===n};exports.isFragment=function(a){return z(a)===e};exports.isLazy=function(a){return z(a)===t};
+	exports.isMemo=function(a){return z(a)===r};exports.isPortal=function(a){return z(a)===d};exports.isProfiler=function(a){return z(a)===g};exports.isStrictMode=function(a){return z(a)===f};exports.isSuspense=function(a){return z(a)===p};
+	exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};exports.typeOf=z;
 
 
 /***/ }),
-/* 225 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.9.0
+	/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.13.1
 	 * react-is.development.js
 	 *
 	 * Copyright (c) Facebook, Inc. and its affiliates.
@@ -27004,21 +26669,18 @@
 	  (function() {
 	'use strict';
 	
-	Object.defineProperty(exports, '__esModule', { value: true });
-	
 	// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 	// nor polyfill, then a plain number is used for performance.
 	var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-	
 	var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
 	var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
 	var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
 	var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
 	var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
 	var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-	var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
-	// TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+	var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
 	// (unstable) APIs that have been removed. Can we remove the symbols?
+	
 	var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
 	var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
 	var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
@@ -27026,71 +26688,20 @@
 	var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
 	var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
 	var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+	var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
 	var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
 	var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+	var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
 	
 	function isValidElementType(type) {
-	  return typeof type === 'string' || typeof type === 'function' ||
-	  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-	  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE);
+	  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+	  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
 	}
-	
-	/**
-	 * Forked from fbjs/warning:
-	 * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
-	 *
-	 * Only change is we use console.warn instead of console.error,
-	 * and do nothing when 'console' is not supported.
-	 * This really simplifies the code.
-	 * ---
-	 * Similar to invariant but only logs a warning if the condition is not met.
-	 * This can be used to log issues in development environments in critical
-	 * paths. Removing the logging code for production environments will keep the
-	 * same logic and follow the same code paths.
-	 */
-	
-	var lowPriorityWarning = function () {};
-	
-	{
-	  var printWarning = function (format) {
-	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	      args[_key - 1] = arguments[_key];
-	    }
-	
-	    var argIndex = 0;
-	    var message = 'Warning: ' + format.replace(/%s/g, function () {
-	      return args[argIndex++];
-	    });
-	    if (typeof console !== 'undefined') {
-	      console.warn(message);
-	    }
-	    try {
-	      // --- Welcome to debugging React ---
-	      // This error was thrown as a convenience so that you can use this stack
-	      // to find the callsite that caused this warning to fire.
-	      throw new Error(message);
-	    } catch (x) {}
-	  };
-	
-	  lowPriorityWarning = function (condition, format) {
-	    if (format === undefined) {
-	      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
-	    }
-	    if (!condition) {
-	      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	        args[_key2 - 2] = arguments[_key2];
-	      }
-	
-	      printWarning.apply(undefined, [format].concat(args));
-	    }
-	  };
-	}
-	
-	var lowPriorityWarning$1 = lowPriorityWarning;
 	
 	function typeOf(object) {
 	  if (typeof object === 'object' && object !== null) {
 	    var $$typeof = object.$$typeof;
+	
 	    switch ($$typeof) {
 	      case REACT_ELEMENT_TYPE:
 	        var type = object.type;
@@ -27103,29 +26714,32 @@
 	          case REACT_STRICT_MODE_TYPE:
 	          case REACT_SUSPENSE_TYPE:
 	            return type;
+	
 	          default:
 	            var $$typeofType = type && type.$$typeof;
 	
 	            switch ($$typeofType) {
 	              case REACT_CONTEXT_TYPE:
 	              case REACT_FORWARD_REF_TYPE:
+	              case REACT_LAZY_TYPE:
+	              case REACT_MEMO_TYPE:
 	              case REACT_PROVIDER_TYPE:
 	                return $$typeofType;
+	
 	              default:
 	                return $$typeof;
 	            }
+	
 	        }
-	      case REACT_LAZY_TYPE:
-	      case REACT_MEMO_TYPE:
+	
 	      case REACT_PORTAL_TYPE:
 	        return $$typeof;
 	    }
 	  }
 	
 	  return undefined;
-	}
+	} // AsyncMode is deprecated along with isAsyncMode
 	
-	// AsyncMode is deprecated along with isAsyncMode
 	var AsyncMode = REACT_ASYNC_MODE_TYPE;
 	var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
 	var ContextConsumer = REACT_CONTEXT_TYPE;
@@ -27139,17 +26753,17 @@
 	var Profiler = REACT_PROFILER_TYPE;
 	var StrictMode = REACT_STRICT_MODE_TYPE;
 	var Suspense = REACT_SUSPENSE_TYPE;
+	var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
 	
-	var hasWarnedAboutDeprecatedIsAsyncMode = false;
-	
-	// AsyncMode should be deprecated
 	function isAsyncMode(object) {
 	  {
 	    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-	      hasWarnedAboutDeprecatedIsAsyncMode = true;
-	      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+	      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+	
+	      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
 	    }
 	  }
+	
 	  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
 	}
 	function isConcurrentMode(object) {
@@ -27189,7 +26803,6 @@
 	  return typeOf(object) === REACT_SUSPENSE_TYPE;
 	}
 	
-	exports.typeOf = typeOf;
 	exports.AsyncMode = AsyncMode;
 	exports.ConcurrentMode = ConcurrentMode;
 	exports.ContextConsumer = ContextConsumer;
@@ -27203,7 +26816,6 @@
 	exports.Profiler = Profiler;
 	exports.StrictMode = StrictMode;
 	exports.Suspense = Suspense;
-	exports.isValidElementType = isValidElementType;
 	exports.isAsyncMode = isAsyncMode;
 	exports.isConcurrentMode = isConcurrentMode;
 	exports.isContextConsumer = isContextConsumer;
@@ -27217,69 +26829,37 @@
 	exports.isProfiler = isProfiler;
 	exports.isStrictMode = isStrictMode;
 	exports.isSuspense = isSuspense;
+	exports.isValidElementType = isValidElementType;
+	exports.typeOf = typeOf;
 	  })();
 	}
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 226 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 *
-	 * This source code is licensed under the MIT license found in the
-	 * LICENSE file in the root directory of this source tree.
-	 */
+	"use strict";
 	
-	'use strict';
+	exports.__esModule = true;
+	exports.useIsomorphicLayoutEffect = void 0;
 	
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
+	var _react = __webpack_require__(1);
 	
-	var invariant = function(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-	
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error(
-	        'Minified exception occurred; use the non-minified dev environment ' +
-	        'for the full error message and additional helpful warnings.'
-	      );
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(
-	        format.replace(/%s/g, function() { return args[argIndex++]; })
-	      );
-	      error.name = 'Invariant Violation';
-	    }
-	
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	};
-	
-	module.exports = invariant;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
+	// React currently throws a warning when using useLayoutEffect on the server.
+	// To get around it, we can conditionally useEffect on the server (no-op) and
+	// useLayoutEffect in the browser. We need useLayoutEffect to ensure the store
+	// subscription callback always has the selector from the latest render commit
+	// available, otherwise a store update may happen between render and the effect,
+	// which may cause missed updates; we also must ensure the store subscription
+	// is created synchronously, otherwise a store update may occur before the
+	// subscription is created and an inconsistent state may be observed
+	var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
+	exports.useIsomorphicLayoutEffect = useIsomorphicLayoutEffect;
 
 /***/ }),
-/* 227 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27292,19 +26872,19 @@
 	
 	var _extends2 = _interopRequireDefault(__webpack_require__(120));
 	
-	var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(221));
+	var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(172));
 	
-	var _connectAdvanced = _interopRequireDefault(__webpack_require__(220));
+	var _connectAdvanced = _interopRequireDefault(__webpack_require__(171));
 	
-	var _shallowEqual = _interopRequireDefault(__webpack_require__(228));
+	var _shallowEqual = _interopRequireDefault(__webpack_require__(179));
 	
-	var _mapDispatchToProps = _interopRequireDefault(__webpack_require__(229));
+	var _mapDispatchToProps = _interopRequireDefault(__webpack_require__(180));
 	
-	var _mapStateToProps = _interopRequireDefault(__webpack_require__(234));
+	var _mapStateToProps = _interopRequireDefault(__webpack_require__(185));
 	
-	var _mergeProps = _interopRequireDefault(__webpack_require__(235));
+	var _mergeProps = _interopRequireDefault(__webpack_require__(186));
 	
-	var _selectorFactory = _interopRequireDefault(__webpack_require__(236));
+	var _selectorFactory = _interopRequireDefault(__webpack_require__(187));
 	
 	/*
 	  connect is a facade over connectAdvanced. It turns its args into a compatible
@@ -27394,19 +26974,18 @@
 	  };
 	}
 	
-	var _default = createConnect();
+	var _default = /*#__PURE__*/createConnect();
 	
 	exports["default"] = _default;
 
 /***/ }),
-/* 228 */
+/* 179 */
 /***/ (function(module, exports) {
 
 	"use strict";
 	
 	exports.__esModule = true;
 	exports["default"] = shallowEqual;
-	var hasOwn = Object.prototype.hasOwnProperty;
 	
 	function is(x, y) {
 	  if (x === y) {
@@ -27428,7 +27007,7 @@
 	  if (keysA.length !== keysB.length) return false;
 	
 	  for (var i = 0; i < keysA.length; i++) {
-	    if (!hasOwn.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+	    if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
 	      return false;
 	    }
 	  }
@@ -27437,7 +27016,7 @@
 	}
 
 /***/ }),
-/* 229 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27448,9 +27027,9 @@
 	exports.whenMapDispatchToPropsIsObject = whenMapDispatchToPropsIsObject;
 	exports["default"] = void 0;
 	
-	var _redux = __webpack_require__(208);
+	var _redux = __webpack_require__(161);
 	
-	var _wrapMapToProps = __webpack_require__(230);
+	var _wrapMapToProps = __webpack_require__(181);
 	
 	function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
 	  return typeof mapDispatchToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, 'mapDispatchToProps') : undefined;
@@ -27474,7 +27053,7 @@
 	exports["default"] = _default;
 
 /***/ }),
-/* 230 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
@@ -27486,7 +27065,7 @@
 	exports.getDependsOnOwnProps = getDependsOnOwnProps;
 	exports.wrapMapToPropsFunc = wrapMapToPropsFunc;
 	
-	var _verifyPlainObject = _interopRequireDefault(__webpack_require__(231));
+	var _verifyPlainObject = _interopRequireDefault(__webpack_require__(182));
 	
 	function wrapMapToPropsConstant(getConstant) {
 	  return function initConstantSelector(dispatch, options) {
@@ -27556,7 +27135,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 231 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27566,9 +27145,9 @@
 	exports.__esModule = true;
 	exports["default"] = verifyPlainObject;
 	
-	var _isPlainObject = _interopRequireDefault(__webpack_require__(232));
+	var _isPlainObject = _interopRequireDefault(__webpack_require__(183));
 	
-	var _warning = _interopRequireDefault(__webpack_require__(233));
+	var _warning = _interopRequireDefault(__webpack_require__(184));
 	
 	function verifyPlainObject(value, displayName, methodName) {
 	  if (!(0, _isPlainObject["default"])(value)) {
@@ -27577,7 +27156,7 @@
 	}
 
 /***/ }),
-/* 232 */
+/* 183 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -27603,7 +27182,7 @@
 	}
 
 /***/ }),
-/* 233 */
+/* 184 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -27637,7 +27216,7 @@
 	}
 
 /***/ }),
-/* 234 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27647,7 +27226,7 @@
 	exports.whenMapStateToPropsIsMissing = whenMapStateToPropsIsMissing;
 	exports["default"] = void 0;
 	
-	var _wrapMapToProps = __webpack_require__(230);
+	var _wrapMapToProps = __webpack_require__(181);
 	
 	function whenMapStateToPropsIsFunction(mapStateToProps) {
 	  return typeof mapStateToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, 'mapStateToProps') : undefined;
@@ -27663,7 +27242,7 @@
 	exports["default"] = _default;
 
 /***/ }),
-/* 235 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
@@ -27679,7 +27258,7 @@
 	
 	var _extends2 = _interopRequireDefault(__webpack_require__(120));
 	
-	var _verifyPlainObject = _interopRequireDefault(__webpack_require__(231));
+	var _verifyPlainObject = _interopRequireDefault(__webpack_require__(182));
 	
 	function defaultMergeProps(stateProps, dispatchProps, ownProps) {
 	  return (0, _extends2["default"])({}, ownProps, stateProps, dispatchProps);
@@ -27723,7 +27302,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 236 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
@@ -27735,9 +27314,9 @@
 	exports.pureFinalPropsSelectorFactory = pureFinalPropsSelectorFactory;
 	exports["default"] = finalPropsSelectorFactory;
 	
-	var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(221));
+	var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(172));
 	
-	var _verifySubselectors = _interopRequireDefault(__webpack_require__(237));
+	var _verifySubselectors = _interopRequireDefault(__webpack_require__(188));
 	
 	function impureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch) {
 	  return function impureFinalPropsSelector(state, ownProps) {
@@ -27828,7 +27407,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 237 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27838,13 +27417,13 @@
 	exports.__esModule = true;
 	exports["default"] = verifySubselectors;
 	
-	var _warning = _interopRequireDefault(__webpack_require__(233));
+	var _warning = _interopRequireDefault(__webpack_require__(184));
 	
 	function verify(selector, methodName, displayName) {
 	  if (!selector) {
 	    throw new Error("Unexpected value for " + methodName + " in " + displayName + ".");
 	  } else if (methodName === 'mapStateToProps' || methodName === 'mapDispatchToProps') {
-	    if (!selector.hasOwnProperty('dependsOnOwnProps')) {
+	    if (!Object.prototype.hasOwnProperty.call(selector, 'dependsOnOwnProps')) {
 	      (0, _warning["default"])("The selector for " + methodName + " of " + displayName + " did not specify a value for dependsOnOwnProps.");
 	    }
 	  }
@@ -27857,27 +27436,45 @@
 	}
 
 /***/ }),
-/* 238 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	exports.__esModule = true;
-	exports.useDispatch = useDispatch;
+	exports.createDispatchHook = createDispatchHook;
+	exports.useDispatch = void 0;
 	
-	var _useStore = __webpack_require__(239);
+	var _Context = __webpack_require__(168);
+	
+	var _useStore = __webpack_require__(190);
 	
 	/**
-	 * A hook to access the redux `dispatch` function. Note that in most cases where you
-	 * might want to use this hook it is recommended to use `useActions` instead to bind
-	 * action creators to the `dispatch` function.
+	 * Hook factory, which creates a `useDispatch` hook bound to a given context.
+	 *
+	 * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+	 * @returns {Function} A `useDispatch` hook bound to the specified context.
+	 */
+	function createDispatchHook(context) {
+	  if (context === void 0) {
+	    context = _Context.ReactReduxContext;
+	  }
+	
+	  var useStore = context === _Context.ReactReduxContext ? _useStore.useStore : (0, _useStore.createStoreHook)(context);
+	  return function useDispatch() {
+	    var store = useStore();
+	    return store.dispatch;
+	  };
+	}
+	/**
+	 * A hook to access the redux `dispatch` function.
 	 *
 	 * @returns {any|function} redux store's `dispatch` function
 	 *
 	 * @example
 	 *
 	 * import React, { useCallback } from 'react'
-	 * import { useReduxDispatch } from 'react-redux'
+	 * import { useDispatch } from 'react-redux'
 	 *
 	 * export const CounterComponent = ({ value }) => {
 	 *   const dispatch = useDispatch()
@@ -27890,22 +27487,48 @@
 	 *   )
 	 * }
 	 */
-	function useDispatch() {
-	  var store = (0, _useStore.useStore)();
-	  return store.dispatch;
-	}
+	
+	
+	var useDispatch = /*#__PURE__*/createDispatchHook();
+	exports.useDispatch = useDispatch;
 
 /***/ }),
-/* 239 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	exports.__esModule = true;
-	exports.useStore = useStore;
+	exports.createStoreHook = createStoreHook;
+	exports.useStore = void 0;
 	
-	var _useReduxContext2 = __webpack_require__(240);
+	var _react = __webpack_require__(1);
 	
+	var _Context = __webpack_require__(168);
+	
+	var _useReduxContext2 = __webpack_require__(191);
+	
+	/**
+	 * Hook factory, which creates a `useStore` hook bound to a given context.
+	 *
+	 * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+	 * @returns {Function} A `useStore` hook bound to the specified context.
+	 */
+	function createStoreHook(context) {
+	  if (context === void 0) {
+	    context = _Context.ReactReduxContext;
+	  }
+	
+	  var useReduxContext = context === _Context.ReactReduxContext ? _useReduxContext2.useReduxContext : function () {
+	    return (0, _react.useContext)(context);
+	  };
+	  return function useStore() {
+	    var _useReduxContext = useReduxContext(),
+	        store = _useReduxContext.store;
+	
+	    return store;
+	  };
+	}
 	/**
 	 * A hook to access the redux store.
 	 *
@@ -27921,29 +27544,23 @@
 	 *   return <div>{store.getState()}</div>
 	 * }
 	 */
-	function useStore() {
-	  var _useReduxContext = (0, _useReduxContext2.useReduxContext)(),
-	      store = _useReduxContext.store;
 	
-	  return store;
-	}
+	
+	var useStore = /*#__PURE__*/createStoreHook();
+	exports.useStore = useStore;
 
 /***/ }),
-/* 240 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(14);
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	exports.__esModule = true;
 	exports.useReduxContext = useReduxContext;
 	
 	var _react = __webpack_require__(1);
 	
-	var _invariant = _interopRequireDefault(__webpack_require__(226));
-	
-	var _Context = __webpack_require__(217);
+	var _Context = __webpack_require__(168);
 	
 	/**
 	 * A hook to access the value of the `ReactReduxContext`. This is a low-level
@@ -27963,42 +27580,141 @@
 	 */
 	function useReduxContext() {
 	  var contextValue = (0, _react.useContext)(_Context.ReactReduxContext);
-	  (0, _invariant["default"])(contextValue, 'could not find react-redux context value; please ensure the component is wrapped in a <Provider>');
+	
+	  if (process.env.NODE_ENV !== 'production' && !contextValue) {
+	    throw new Error('could not find react-redux context value; please ensure the component is wrapped in a <Provider>');
+	  }
+	
 	  return contextValue;
 	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 241 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	var _interopRequireDefault = __webpack_require__(14);
 	
 	exports.__esModule = true;
-	exports.useSelector = useSelector;
+	exports.createSelectorHook = createSelectorHook;
+	exports.useSelector = void 0;
 	
 	var _react = __webpack_require__(1);
 	
-	var _invariant = _interopRequireDefault(__webpack_require__(226));
+	var _useReduxContext2 = __webpack_require__(191);
 	
-	var _useReduxContext2 = __webpack_require__(240);
+	var _Subscription = _interopRequireDefault(__webpack_require__(169));
 	
-	var _Subscription = _interopRequireDefault(__webpack_require__(218));
+	var _useIsomorphicLayoutEffect = __webpack_require__(177);
 	
-	// React currently throws a warning when using useLayoutEffect on the server.
-	// To get around it, we can conditionally useEffect on the server (no-op) and
-	// useLayoutEffect in the browser. We need useLayoutEffect to ensure the store
-	// subscription callback always has the selector from the latest render commit
-	// available, otherwise a store update may happen between render and the effect,
-	// which may cause missed updates; we also must ensure the store subscription
-	// is created synchronously, otherwise a store update may occur before the
-	// subscription is created and an inconsistent state may be observed
-	var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
+	var _Context = __webpack_require__(168);
 	
 	var refEquality = function refEquality(a, b) {
 	  return a === b;
 	};
+	
+	function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub) {
+	  var _useReducer = (0, _react.useReducer)(function (s) {
+	    return s + 1;
+	  }, 0),
+	      forceRender = _useReducer[1];
+	
+	  var subscription = (0, _react.useMemo)(function () {
+	    return new _Subscription["default"](store, contextSub);
+	  }, [store, contextSub]);
+	  var latestSubscriptionCallbackError = (0, _react.useRef)();
+	  var latestSelector = (0, _react.useRef)();
+	  var latestStoreState = (0, _react.useRef)();
+	  var latestSelectedState = (0, _react.useRef)();
+	  var storeState = store.getState();
+	  var selectedState;
+	
+	  try {
+	    if (selector !== latestSelector.current || storeState !== latestStoreState.current || latestSubscriptionCallbackError.current) {
+	      selectedState = selector(storeState);
+	    } else {
+	      selectedState = latestSelectedState.current;
+	    }
+	  } catch (err) {
+	    if (latestSubscriptionCallbackError.current) {
+	      err.message += "\nThe error may be correlated with this previous error:\n" + latestSubscriptionCallbackError.current.stack + "\n\n";
+	    }
+	
+	    throw err;
+	  }
+	
+	  (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(function () {
+	    latestSelector.current = selector;
+	    latestStoreState.current = storeState;
+	    latestSelectedState.current = selectedState;
+	    latestSubscriptionCallbackError.current = undefined;
+	  });
+	  (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(function () {
+	    function checkForUpdates() {
+	      try {
+	        var newSelectedState = latestSelector.current(store.getState());
+	
+	        if (equalityFn(newSelectedState, latestSelectedState.current)) {
+	          return;
+	        }
+	
+	        latestSelectedState.current = newSelectedState;
+	      } catch (err) {
+	        // we ignore all errors here, since when the component
+	        // is re-rendered, the selectors are called again, and
+	        // will throw again, if neither props nor store state
+	        // changed
+	        latestSubscriptionCallbackError.current = err;
+	      }
+	
+	      forceRender();
+	    }
+	
+	    subscription.onStateChange = checkForUpdates;
+	    subscription.trySubscribe();
+	    checkForUpdates();
+	    return function () {
+	      return subscription.tryUnsubscribe();
+	    };
+	  }, [store, subscription]);
+	  return selectedState;
+	}
+	/**
+	 * Hook factory, which creates a `useSelector` hook bound to a given context.
+	 *
+	 * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+	 * @returns {Function} A `useSelector` hook bound to the specified context.
+	 */
+	
+	
+	function createSelectorHook(context) {
+	  if (context === void 0) {
+	    context = _Context.ReactReduxContext;
+	  }
+	
+	  var useReduxContext = context === _Context.ReactReduxContext ? _useReduxContext2.useReduxContext : function () {
+	    return (0, _react.useContext)(context);
+	  };
+	  return function useSelector(selector, equalityFn) {
+	    if (equalityFn === void 0) {
+	      equalityFn = refEquality;
+	    }
+	
+	    if (process.env.NODE_ENV !== 'production' && !selector) {
+	      throw new Error("You must pass a selector to useSelector");
+	    }
+	
+	    var _useReduxContext = useReduxContext(),
+	        store = _useReduxContext.store,
+	        contextSub = _useReduxContext.subscription;
+	
+	    var selectedState = useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub);
+	    (0, _react.useDebugValue)(selectedState);
+	    return selectedState;
+	  };
+	}
 	/**
 	 * A hook to access the redux store's state. This hook takes a selector function
 	 * as an argument. The selector is called with the store state.
@@ -28024,84 +27740,12 @@
 	 */
 	
 	
-	function useSelector(selector, equalityFn) {
-	  if (equalityFn === void 0) {
-	    equalityFn = refEquality;
-	  }
-	
-	  (0, _invariant["default"])(selector, "You must pass a selector to useSelectors");
-	
-	  var _useReduxContext = (0, _useReduxContext2.useReduxContext)(),
-	      store = _useReduxContext.store,
-	      contextSub = _useReduxContext.subscription;
-	
-	  var _useReducer = (0, _react.useReducer)(function (s) {
-	    return s + 1;
-	  }, 0),
-	      forceRender = _useReducer[1];
-	
-	  var subscription = (0, _react.useMemo)(function () {
-	    return new _Subscription["default"](store, contextSub);
-	  }, [store, contextSub]);
-	  var latestSubscriptionCallbackError = (0, _react.useRef)();
-	  var latestSelector = (0, _react.useRef)();
-	  var latestSelectedState = (0, _react.useRef)();
-	  var selectedState;
-	
-	  try {
-	    if (selector !== latestSelector.current || latestSubscriptionCallbackError.current) {
-	      selectedState = selector(store.getState());
-	    } else {
-	      selectedState = latestSelectedState.current;
-	    }
-	  } catch (err) {
-	    var errorMessage = "An error occured while selecting the store state: " + err.message + ".";
-	
-	    if (latestSubscriptionCallbackError.current) {
-	      errorMessage += "\nThe error may be correlated with this previous error:\n" + latestSubscriptionCallbackError.current.stack + "\n\nOriginal stack trace:";
-	    }
-	
-	    throw new Error(errorMessage);
-	  }
-	
-	  useIsomorphicLayoutEffect(function () {
-	    latestSelector.current = selector;
-	    latestSelectedState.current = selectedState;
-	    latestSubscriptionCallbackError.current = undefined;
-	  });
-	  useIsomorphicLayoutEffect(function () {
-	    function checkForUpdates() {
-	      try {
-	        var newSelectedState = latestSelector.current(store.getState());
-	
-	        if (equalityFn(newSelectedState, latestSelectedState.current)) {
-	          return;
-	        }
-	
-	        latestSelectedState.current = newSelectedState;
-	      } catch (err) {
-	        // we ignore all errors here, since when the component
-	        // is re-rendered, the selectors are called again, and
-	        // will throw again, if neither props nor store state
-	        // changed
-	        latestSubscriptionCallbackError.current = err;
-	      }
-	
-	      forceRender({});
-	    }
-	
-	    subscription.onStateChange = checkForUpdates;
-	    subscription.trySubscribe();
-	    checkForUpdates();
-	    return function () {
-	      return subscription.tryUnsubscribe();
-	    };
-	  }, [store, subscription]);
-	  return selectedState;
-	}
+	var useSelector = /*#__PURE__*/createSelectorHook();
+	exports.useSelector = useSelector;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 242 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28114,7 +27758,63 @@
 	exports.unstable_batchedUpdates = _reactDom.unstable_batchedUpdates;
 
 /***/ }),
-/* 243 */
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', { value: true });
+	
+	var react = __webpack_require__(1);
+	
+	function areInputsEqual(newInputs, lastInputs) {
+	  if (newInputs.length !== lastInputs.length) {
+	    return false;
+	  }
+	
+	  for (var i = 0; i < newInputs.length; i++) {
+	    if (newInputs[i] !== lastInputs[i]) {
+	      return false;
+	    }
+	  }
+	
+	  return true;
+	}
+	
+	function useMemoOne(getResult, inputs) {
+	  var initial = react.useState(function () {
+	    return {
+	      inputs: inputs,
+	      result: getResult()
+	    };
+	  })[0];
+	  var committed = react.useRef(initial);
+	  var isInputMatch = Boolean(inputs && committed.current.inputs && areInputsEqual(inputs, committed.current.inputs));
+	  var cache = isInputMatch ? committed.current : {
+	    inputs: inputs,
+	    result: getResult()
+	  };
+	  react.useEffect(function () {
+	    committed.current = cache;
+	  }, [cache]);
+	  return cache.result;
+	}
+	function useCallbackOne(callback, inputs) {
+	  return useMemoOne(function () {
+	    return callback;
+	  }, inputs);
+	}
+	var useMemo = useMemoOne;
+	var useCallback = useCallbackOne;
+	
+	exports.useCallback = useCallback;
+	exports.useCallbackOne = useCallbackOne;
+	exports.useMemo = useMemo;
+	exports.useMemoOne = useMemoOne;
+
+
+/***/ }),
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -28123,7 +27823,7 @@
 	
 	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 	
-	var invariant = _interopDefault(__webpack_require__(207));
+	var invariant = _interopDefault(__webpack_require__(196));
 	
 	var getRect = function getRect(_ref) {
 	  var top = _ref.top,
@@ -28286,7 +27986,31 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 244 */
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	var isProduction = process.env.NODE_ENV === 'production';
+	var prefix = 'Invariant failed';
+	function invariant(condition, message) {
+	  if (condition) {
+	    return;
+	  }
+	
+	  if (isProduction) {
+	    throw new Error(prefix);
+	  } else {
+	    throw new Error(prefix + ": " + (message || ''));
+	  }
+	}
+	
+	module.exports = invariant;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
+
+/***/ }),
+/* 197 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -28330,127 +28054,7 @@
 
 
 /***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(246);
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(247);
-	module.exports = __webpack_require__(166).Object.values;
-
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// https://github.com/tc39/proposal-object-values-entries
-	var $export = __webpack_require__(164);
-	var $values = __webpack_require__(248)(false);
-	
-	$export($export.S, 'Object', {
-	  values: function values(it) {
-	    return $values(it);
-	  }
-	});
-
-
-/***/ }),
-/* 248 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var getKeys = __webpack_require__(181);
-	var toIObject = __webpack_require__(183);
-	var isEnum = __webpack_require__(197).f;
-	module.exports = function (isEntries) {
-	  return function (it) {
-	    var O = toIObject(it);
-	    var keys = getKeys(O);
-	    var length = keys.length;
-	    var i = 0;
-	    var result = [];
-	    var key;
-	    while (length > i) if (isEnum.call(O, key = keys[i++])) {
-	      result.push(isEntries ? [key, O[key]] : O[key]);
-	    } return result;
-	  };
-	};
-
-
-/***/ }),
-/* 249 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(250);
-
-/***/ }),
-/* 250 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(251);
-	module.exports = __webpack_require__(166).Object.keys;
-
-
-/***/ }),
-/* 251 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(198);
-	var $keys = __webpack_require__(181);
-	
-	__webpack_require__(252)('keys', function () {
-	  return function keys(it) {
-	    return $keys(toObject(it));
-	  };
-	});
-
-
-/***/ }),
-/* 252 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(164);
-	var core = __webpack_require__(166);
-	var fails = __webpack_require__(175);
-	module.exports = function (KEY, exec) {
-	  var fn = (core.Object || {})[KEY] || Object[KEY];
-	  var exp = {};
-	  exp[KEY] = exec(fn);
-	  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
-	};
-
-
-/***/ }),
-/* 253 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(254);
-
-/***/ }),
-/* 254 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(255);
-	module.exports = __webpack_require__(166).Date.now;
-
-
-/***/ }),
-/* 255 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 20.3.3.1 / 15.9.4.4 Date.now()
-	var $export = __webpack_require__(164);
-	
-	$export($export.S, 'Date', { now: function () { return new Date().getTime(); } });
-
-
-/***/ }),
-/* 256 */
+/* 198 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -28492,43 +28096,7 @@
 
 
 /***/ }),
-/* 257 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(258);
-
-/***/ }),
-/* 258 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(259);
-	module.exports = __webpack_require__(166).Number.isInteger;
-
-
-/***/ }),
-/* 259 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 20.1.2.3 Number.isInteger(number)
-	var $export = __webpack_require__(164);
-	
-	$export($export.S, 'Number', { isInteger: __webpack_require__(260) });
-
-
-/***/ }),
-/* 260 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 20.1.2.3 Number.isInteger(number)
-	var isObject = __webpack_require__(172);
-	var floor = Math.floor;
-	module.exports = function isInteger(it) {
-	  return !isObject(it) && isFinite(it) && floor(it) === it;
-	};
-
-
-/***/ }),
-/* 261 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -31279,7 +30847,7 @@
 	//# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 262 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -33131,10 +32699,10 @@
 	
 	module.exports = isEqual;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(210)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(163)(module)))
 
 /***/ }),
-/* 263 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33153,13 +32721,13 @@
 	
 	var _reactBeautifulDnd = __webpack_require__(159);
 	
-	var _util = __webpack_require__(264);
+	var _util = __webpack_require__(202);
 	
 	var _classnames = __webpack_require__(5);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _lodash = __webpack_require__(262);
+	var _lodash = __webpack_require__(200);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
@@ -33284,7 +32852,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 264 */
+/* 202 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -33333,7 +32901,7 @@
 	};
 
 /***/ }),
-/* 265 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33356,13 +32924,13 @@
 	
 	var _reactBeautifulDnd = __webpack_require__(159);
 	
-	var _util = __webpack_require__(264);
+	var _util = __webpack_require__(202);
 	
 	var _classnames = __webpack_require__(5);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _lodash = __webpack_require__(262);
+	var _lodash = __webpack_require__(200);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
@@ -33596,7 +33164,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 266 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33605,7 +33173,7 @@
 	  value: true
 	});
 	
-	var _reactGridLayout = __webpack_require__(267);
+	var _reactGridLayout = __webpack_require__(205);
 	
 	var _reactGridLayout2 = _interopRequireDefault(_reactGridLayout);
 	
@@ -33615,18 +33183,18 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 267 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(268).default;
-	module.exports.utils = __webpack_require__(269);
-	module.exports.Responsive = __webpack_require__(275).default;
-	module.exports.Responsive.utils = __webpack_require__(276);
-	module.exports.WidthProvider = __webpack_require__(277).default;
+	module.exports = __webpack_require__(206).default;
+	module.exports.utils = __webpack_require__(207);
+	module.exports.Responsive = __webpack_require__(213).default;
+	module.exports.Responsive.utils = __webpack_require__(214);
+	module.exports.WidthProvider = __webpack_require__(215).default;
 
 
 /***/ }),
-/* 268 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
@@ -33643,7 +33211,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _lodash = __webpack_require__(262);
+	var _lodash = __webpack_require__(200);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
@@ -33651,9 +33219,9 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _utils = __webpack_require__(269);
+	var _utils = __webpack_require__(207);
 	
-	var _GridItem = __webpack_require__(270);
+	var _GridItem = __webpack_require__(208);
 	
 	var _GridItem2 = _interopRequireDefault(_GridItem);
 	
@@ -34244,7 +33812,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 269 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
@@ -34278,7 +33846,7 @@
 	exports.validateLayout = validateLayout;
 	exports.autoBindHandlers = autoBindHandlers;
 	
-	var _lodash = __webpack_require__(262);
+	var _lodash = __webpack_require__(200);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
@@ -34812,7 +34380,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 270 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34829,11 +34397,11 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _reactDraggable = __webpack_require__(261);
+	var _reactDraggable = __webpack_require__(199);
 	
-	var _reactResizable = __webpack_require__(271);
+	var _reactResizable = __webpack_require__(209);
 	
-	var _utils = __webpack_require__(269);
+	var _utils = __webpack_require__(207);
 	
 	var _classnames = __webpack_require__(5);
 	
@@ -35323,7 +34891,7 @@
 	exports.default = GridItem;
 
 /***/ }),
-/* 271 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35331,12 +34899,12 @@
 	  throw new Error("Don't instantiate Resizable directly! Use require('react-resizable').Resizable");
 	};
 	
-	module.exports.Resizable = __webpack_require__(272).default;
-	module.exports.ResizableBox = __webpack_require__(274).default;
+	module.exports.Resizable = __webpack_require__(210).default;
+	module.exports.ResizableBox = __webpack_require__(212).default;
 
 
 /***/ }),
-/* 272 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35353,9 +34921,9 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _reactDraggable = __webpack_require__(261);
+	var _reactDraggable = __webpack_require__(199);
 	
-	var _cloneElement = __webpack_require__(273);
+	var _cloneElement = __webpack_require__(211);
 	
 	var _cloneElement2 = _interopRequireDefault(_cloneElement);
 	
@@ -35648,7 +35216,7 @@
 	exports.default = Resizable;
 
 /***/ }),
-/* 273 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35673,7 +35241,7 @@
 	};
 
 /***/ }),
-/* 274 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35690,7 +35258,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _Resizable = __webpack_require__(272);
+	var _Resizable = __webpack_require__(210);
 	
 	var _Resizable2 = _interopRequireDefault(_Resizable);
 	
@@ -35800,7 +35368,7 @@
 	exports.default = ResizableBox;
 
 /***/ }),
-/* 275 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35817,15 +35385,15 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _lodash = __webpack_require__(262);
+	var _lodash = __webpack_require__(200);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _utils = __webpack_require__(269);
+	var _utils = __webpack_require__(207);
 	
-	var _responsiveUtils = __webpack_require__(276);
+	var _responsiveUtils = __webpack_require__(214);
 	
-	var _ReactGridLayout = __webpack_require__(268);
+	var _ReactGridLayout = __webpack_require__(206);
 	
 	var _ReactGridLayout2 = _interopRequireDefault(_ReactGridLayout);
 	
@@ -36032,7 +35600,7 @@
 	exports.default = ResponsiveReactGridLayout;
 
 /***/ }),
-/* 276 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36043,7 +35611,7 @@
 	exports.findOrGenerateResponsiveLayout = findOrGenerateResponsiveLayout;
 	exports.sortBreakpoints = sortBreakpoints;
 	
-	var _utils = __webpack_require__(269);
+	var _utils = __webpack_require__(207);
 	
 	/**
 	 * Given a width, find the highest breakpoint that matches is valid for it (width > breakpoint).
@@ -36124,7 +35692,7 @@
 	}
 
 /***/ }),
-/* 277 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36223,7 +35791,7 @@
 	}
 
 /***/ }),
-/* 278 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36302,7 +35870,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 279 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36381,7 +35949,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 280 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36461,7 +36029,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 281 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36548,7 +36116,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 282 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36627,7 +36195,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 283 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36702,7 +36270,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 284 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36785,7 +36353,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 285 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36867,7 +36435,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 286 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36951,7 +36519,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 287 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37005,7 +36573,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 288 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37060,7 +36628,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 289 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37126,7 +36694,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 290 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
